@@ -20,9 +20,20 @@ public abstract class Jatekos implements Frissitheto
 	private int Munkadb;
 	private int testho;
 	private Targy targyak;
-	private Irany irányAmibeNéz;
+	private Irany iranyAmibeNez;
+	
 	public void asas()
 	{
+		
+		boolean sikeres = aktjegtabla.asas(1);
+		if(sikeres)
+		{
+			Munkadb--;
+			System.out.println("Asas sikeresen elvegezve");
+		}
+		else
+			System.out.println("Asas sikertelenul elvegezve");
+		
 	}
 	
 	public void athelyez()

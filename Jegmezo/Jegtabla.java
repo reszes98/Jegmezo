@@ -20,8 +20,22 @@ public class Jegtabla implements Frissitheto
 	private boolean vanRajtaIglu;
 	private Jatekos jatekosok;
 	private Targy targy;
-	public void asas(Jegtabla j, int i)
+	
+	public boolean asas(int i)
 	{
+		if((ho - i) >= -1)
+		{
+			ho -= i;
+			return true;
+		}
+		else
+		{
+			ho = -1;
+			return false;
+		}
+			
+			
+		
 	}
 	
 	public void atfordit()
