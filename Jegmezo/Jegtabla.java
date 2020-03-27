@@ -18,7 +18,7 @@ public class Jegtabla implements Frissitheto
 	private int tartokepesseg;
 	private List<Jegtabla> szomszedok;
 	private boolean vanRajtaIglu;
-	private Jatekos jatekosok;
+	private List<Jatekos> jatekosok;
 	private Targy targy;
 	
 	
@@ -55,8 +55,12 @@ public class Jegtabla implements Frissitheto
 	{
 	}
 	
+	/**
+	 * @return Visszaadja, hogy hány játékost bír el a Jégtábla
+	 */
 	public int gettartokepesseg()
 	{
+		return tartokepesseg;
 	}
 	
 	/**
@@ -77,8 +81,19 @@ public class Jegtabla implements Frissitheto
 		this.hoNovelese();
 	}
 	
-	public void iglutEpit()
+	/**
+	 * Épít egy iglut magára, ha már nincs rajta egy iglu
+	 * @return Visszatér azzal, hogy építetet-e iglut magára
+	 */
+	public boolean iglutEpit()
 	{
+		if(vanRajtaIglu)
+			return false;
+		else
+		{
+			vanRajtaIglu = true;
+			return true;
+		}
 	}
 	
 	public void jatekosEltavolit(Jatekos j)
@@ -87,6 +102,7 @@ public class Jegtabla implements Frissitheto
 	
 	public List<Jatekos> jatekosokLekerdez()
 	{
+		return jatekosok;
 	}
 	
 	public void ralep(Jatekos j)

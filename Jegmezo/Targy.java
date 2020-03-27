@@ -20,5 +20,5 @@ public interface Targy
 	 * @param j
 	 */
 	public void accept(Visitor v, Jatekos j);
-	public void kepesseg(Visitor v,Jatekos j, Irany i);
+	
 }

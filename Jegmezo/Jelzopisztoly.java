@@ -15,7 +15,12 @@ package Jegmezo;
 
 public class Jelzopisztoly implements Targy
 {
+	/**
+	 * meghívja magára a visitort a paraméterében lévõ játékossal
+	 */
 	public void accept(Visitor v, Jatekos j)
 	{
+		v.visit(this, j);
+		
 	}
 }

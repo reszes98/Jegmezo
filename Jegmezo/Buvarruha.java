@@ -26,12 +26,4 @@ public class Buvarruha implements Targy
 	}
 	
 	
-	
-	/* (non-Javadoc)
-	 * @see Jegmezo.Targy#kepesseg(Visitor, Jatekos, Irany)
-	 * meghívja a használ visitor visit függvényét.
-	 */
-	public void kepesseg(Visitor v,Jatekos j, Irany i) {
-		v.visit(this, j, i); 
-	}
 }

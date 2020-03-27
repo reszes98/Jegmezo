@@ -26,8 +26,11 @@ public class Elelem implements Targy
 		v.visit(this, j);
 	}
 	
+	/**
+	 * @return Visszaadja az élelem pont értékét, ami azt adja meg, hogy mennyivel nõveli az étel a Játékos testhõjét
+	 */
 	public int getPont()
 	{
-		
+		return pont;
 	}
 }

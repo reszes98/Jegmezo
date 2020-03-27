@@ -14,7 +14,7 @@ package Jegmezo;
 public class Aso implements Targy
 {
 	/**
-	 *
+	 * meghívja magára a visitort a paraméterében lévõ játékossal
 	 */
 	public void accept(Visitor v, Jatekos j)
 	{

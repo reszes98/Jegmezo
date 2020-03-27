@@ -10,15 +10,48 @@ package Jegmezo;
 //
 //
 
-
-
+import java.util.List;
 
 public class Sarkkutato extends Jatekos
 {
-	private int testho;
 	
+	/**
+	 * A sarkkutató konstruktora, meghívja a Játékos konstuktorát
+	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
+	 * @param felveszVisitor - a Játékos felvesz tevékenységét kezelõ visitor
+	 * @param hasznalVisitor - a Játékos hasznal tevékenységét kezelõ visitor
+	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
+	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
+	 * @param testho - a Játékos hátralévõ testhõje
+	 * @param targyak - a Játékos által tárolt tárgyak
+	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
+	 */
+	public Sarkkutato(Jegtabla aktjegtabla,
+	FelveszVisitor felveszVisitor,
+	HasznalVisitor hasznalVisitor,
+	int jelzopisztolydb,
+	int Munkadb,
+	int testho,
+	List<Targy> targyak,
+	Irany iranyAmibeNez) 
+	{
+		super(aktjegtabla, 
+				felveszVisitor,
+				hasznalVisitor,
+				jelzopisztolydb,
+				Munkadb,
+				testho,
+				targyak,
+				iranyAmibeNez);
+	}
+
+	
+	/**
+	 * A sarkutató megvizsgálja a megadott Jégtábla tartóképességét
+	 */
 	public void kepesseg(Jegtabla j)
 	{
+		System.out.println("A jegtabla tartokepessege: " + j.gettartokepesseg());
 	}
 	
 }

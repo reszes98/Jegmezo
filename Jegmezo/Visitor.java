@@ -22,11 +22,31 @@ public interface Visitor
 	 */
 	public void visit(Aso a, Jatekos j);
 	
+	/**
+	 * Elvégzi a kötéllel a leszármazottakban specifikált tevékenységet
+	 * @param k - A kötél, amit használunk
+	 * @param j - A játékos, aki hasznája a kötélt
+	 */
 	public void visit(Kotel k, Jatekos j);
 	
+	/**
+	 * Elvégzi a búvárruhával a leszármazottakban specifikált tevékenységet
+	 * @param b - A búvárruha, amit használunk
+	 * @param j - A játékos, aki hasznája a búvárruhát
+	 */
 	public void visit(Buvarruha b, Jatekos j);
 	
+	/**
+	 * Elvégzi az élellemmel a leszármazottakban specifikált tevékenységet
+	 * @param e - Az élelem, amit használunk
+	 * @param j - A játékos, aki hasznája az élelmet
+	 */
 	public void visit(Elelem e, Jatekos j);
 	
+	/**
+	 * Elvégzi a jelzõpisztollyal a leszármazottakban specifikált tevékenységet
+	 * @param jp - A jelzõpisztoly, amit használunk
+	 * @param j - A játékos, aki hasznája a jelzõpisztolyt
+	 */
 	public void visit(Jelzopisztoly jp, Jatekos j);
 }

@@ -10,14 +10,58 @@ package Jegmezo;
 //
 //
 
-
-
+import java.util.List;
 
 public class Eszkimo extends Jatekos
-{
-	private int testho;
+{	
+	/**
+	 * Az eszkimó konstruktora, meghívja a Játékos konstuktorát
+	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
+	 * @param felveszVisitor - a Játékos felvesz tevékenységét kezelõ visitor
+	 * @param hasznalVisitor - a Játékos hasznal tevékenységét kezelõ visitor
+	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
+	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
+	 * @param testho - a Játékos hátralévõ testhõje
+	 * @param targyak - a Játékos által tárolt tárgyak
+	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
+	 */
+	public Eszkimo(Jegtabla aktjegtabla,
+	FelveszVisitor felveszVisitor,
+	HasznalVisitor hasznalVisitor,
+	int jelzopisztolydb,
+	int Munkadb,
+	int testho,
+	List<Targy> targyak,
+	Irany iranyAmibeNez) 
+	{
+		super(aktjegtabla, 
+				felveszVisitor,
+				hasznalVisitor,
+				jelzopisztolydb,
+				Munkadb,
+				testho,
+				targyak,
+				iranyAmibeNez);
+	}
+	/**
+	 * Épít egy iglut a megadott Jégtáblára
+	 */
 	public void kepesseg(Jegtabla j)
 	{
+		boolean sikeres = j.iglutEpit();
+		
+		if(sikeres)
+		{
+			Munkadb--;
+			System.out.println("Iglu epitese sikeres");
+		}
+		else
+		{
+			System.out.println("Iglu epitese sikertelen");
+		}
+		
+		
+		
 	}
 	
 }

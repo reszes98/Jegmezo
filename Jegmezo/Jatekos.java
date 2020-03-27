@@ -14,14 +14,14 @@ import java.util.List;
 
 public abstract class Jatekos implements Frissitheto
 {
-	private Jegtabla aktjegtabla;
+	protected Jegtabla aktjegtabla;
 	private FelveszVisitor felveszVisitor;
 	private HasznalVisitor hasznalVisitor;
 	private int jelzopisztolydb;
-	private int Munkadb;
+	protected int Munkadb;
 	private int testho;
 	private List<Targy> targyak;
-	private Irany iranyAmibeNez;
+	protected Irany iranyAmibeNez;
 	
 	
 	/**
@@ -127,12 +127,20 @@ public abstract class Jatekos implements Frissitheto
 		}
 	}
 	
+	/**
+	 * @return Visszaadja a Játékos által tárolt jelzõpisztoly darabok számát
+	 */
 	public int getjelzopisztolydb()
 	{
+		return jelzopisztolydb;
 	}
 	
-	public int jelzopisztolyDarabokNovelese()
+	/**
+	 * Növeli eggyel a jelzopisztolydb-t.
+	 */
+	public void jelzopisztolyDarabokNovelese()
 	{
+		jelzopisztolydb++;
 	}
 	
 	public Jegtabla JegtablaLekerdez()
@@ -140,6 +148,10 @@ public abstract class Jatekos implements Frissitheto
 		return aktjegtabla;
 	}
 	
+	/**
+	 * A játékos képessége, amit a leszármazottak valósítanak meg
+	 * @param j - a jégtábla, amin a képességet végezzük
+	 */
 	public abstract void kepesseg(Jegtabla j);
 	
 	public void lepes()
@@ -150,9 +162,15 @@ public abstract class Jatekos implements Frissitheto
 	{
 	}
 	
-	public Irany setIranyAmibeNez(Irany i)
+	/**
+	 * Beállítja a játékost, hogy abba az irányba nézzen, amit megadunk
+	 * @param i - Az irány, amibe szeretnénk, hogy nézzen a Játékos
+	 */
+	public void setIranyAmibeNez(Irany i)
 	{
+		iranyAmibeNez = i;
 	}
+	
 	
 	public void targyfelvetel(Targy t)
 	{

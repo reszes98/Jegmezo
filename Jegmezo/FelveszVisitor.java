@@ -15,12 +15,13 @@ package Jegmezo;
 
 public class FelveszVisitor implements Visitor
 {
+	
+	/**
+	 * Hozzáadja az ásót a Játékos tárgyaihoz
+	 */
 	public void visit(Aso a, Jatekos j)
 	{
-		Irany i=j.getIranyAmibeNez();
-		Jegtabla jt=j.JegtablaLekerdez();
-		Jegtabla szomszedos=jt.szomszedKerdez(i);
-		szomszedos.asas(2);
+		j.targyfelvetel(a);
 		
 	}
 	
@@ -38,7 +39,12 @@ public class FelveszVisitor implements Visitor
 		j.targyfelvetel(e);
 	}
 	
+	/**
+	 *	Hozzáadja a jelzõpisztoly darabot a Játékoshoz 
+	 */
 	public void visit(Jelzopisztoly jp, Jatekos j)
 	{
+		j.targyfelvetel(jp);
+		j.jelzopisztolyDarabokNovelese();
 	}
 }
