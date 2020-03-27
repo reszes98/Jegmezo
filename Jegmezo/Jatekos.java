@@ -183,6 +183,9 @@ public abstract class Jatekos implements Frissitheto
 	}
 	
 	
+	/**
+	 * @param t - tárgyat hozzáadja a játékos tárgyaihoz
+	 */
 	public void targyfelvetel(Targy t)
 	{
 		int i=targyak.size();
@@ -195,10 +198,17 @@ public abstract class Jatekos implements Frissitheto
 			System.out.println("Nem sikerult felvenni a targyat");
 	}
 	
+	/**
+	 * @param mennyivel - noveli a testhot ezzel az értékkel, de a testhõt 
+	 * max 6-ig tudjuk növelni.
+	 */
 	public void testhoNovelese(int mennyivel)
 	{
-		
 		testho+= mennyivel;
-		System.out.println("Testho novelve");
+		if (testho>6) {
+			testho=6;
+			System.out.println("Testhot 6-ig lehet csak növelni.");
+		}
+		else System.out.println("Testho novelve");
 	}
 }
