@@ -17,5 +17,8 @@ public class Kotel implements Targy
 {
 	public void accept(Visitor v, Jatekos j)
 	{
+		v.visit(this, j);
 	}
+	
+	
 }

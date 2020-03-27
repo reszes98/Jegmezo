@@ -154,8 +154,19 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public abstract void kepesseg(Jegtabla j);
 	
-	public void lepes()
+	
+	/**
+	 * Ezzel a függvénnyeltud majd lépni a játékos, azaz az adott irányba esõ 
+	 * jégtáblára lépni. 
+	 * @param i - irány, amit kap, ahova lépni akarunk
+	 */
+	public void lepes(Irany i)
 	{
+		this.setIranyAmibeNez(i);
+		Jegtabla jt = this.JegtablaLekerdez();
+		Jegtabla szJegtabla = jt.szomszedKerdez(i);
+		...?
+		
 	}
 	
 	public void pisztolyepit()

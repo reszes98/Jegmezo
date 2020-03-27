@@ -27,6 +27,7 @@ public class FelveszVisitor implements Visitor
 	
 	public void visit(Kotel k, Jatekos j)
 	{
+		j.targyfelvetel(k);;
 	}
 	
 	public void visit(Buvarruha b, Jatekos j)

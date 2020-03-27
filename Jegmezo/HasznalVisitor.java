@@ -38,8 +38,22 @@ public class HasznalVisitor implements Visitor
 		
 	}
 	
+	
+	/*
+	 *Lekérdezi az irányt, amibe néz, majd lekéri a szomszédos jégtáblát és   
+	 * elkezd végig menni a játékosok listáján, aki ott van és áthelyezi õket.
+	 */
 	public void visit(Kotel k, Jatekos j)
 	{
+		Irany i = j.getIranyAmibeNez();
+		Jegtabla jt = j.JegtablaLekerdez();
+		Jegtabla szJegtabla = jt.szomszedKerdez(i);
+		
+		Jatekos[] jatekos = szJegtabla.jatekosokLekerdez();
+		for(int jsz = 0; jsz < jatekos.length; jsz++) {
+			jatekos[jsz].athelyez(i);
+		}
+		
 	}
 	
 	/**
