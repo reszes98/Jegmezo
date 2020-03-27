@@ -10,6 +10,7 @@ package Jegmezo;
 //
 //
 
+import java.util.List;
 
 public abstract class Jatekos implements Frissitheto
 {
@@ -19,9 +20,44 @@ public abstract class Jatekos implements Frissitheto
 	private int jelzopisztolydb;
 	private int Munkadb;
 	private int testho;
-	private Targy targyak;
+	private List<Targy> targyak;
 	private Irany iranyAmibeNez;
 	
+	
+	/**
+	 * Konstruktor, ami létrehozza a Játékost a medadott paraméterekkel
+	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
+	 * @param felveszVisitor - a Játékos felvesz tevékenységét kezelõ visitor
+	 * @param hasznalVisitor - a Játékos hasznal tevékenységét kezelõ visitor
+	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
+	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
+	 * @param testho - a Játékos hátralévõ testhõje
+	 * @param targyak - a Játékos által tárolt tárgyak
+	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
+	 */
+	public Jatekos(Jegtabla aktjegtabla,
+	FelveszVisitor felveszVisitor,
+	HasznalVisitor hasznalVisitor,
+	int jelzopisztolydb,
+	int Munkadb,
+	int testho,
+	List<Targy> targyak,
+	Irany iranyAmibeNez)
+	{
+		this.aktjegtabla = aktjegtabla;
+		this.felveszVisitor = felveszVisitor;
+		this.hasznalVisitor = hasznalVisitor;
+		this.jelzopisztolydb = jelzopisztolydb;
+		this.Munkadb = Munkadb;
+		this.testho = testho;
+		this.targyak = targyak;
+		this.iranyAmibeNez = iranyAmibeNez;
+	}
+	
+	
+	/**
+	 * A Játékos ás 1-et azon a Jégtáblán, amin áll
+	 */
 	public void asas()
 	{
 		
@@ -52,8 +88,12 @@ public abstract class Jatekos implements Frissitheto
 	{
 	}
 	
+	/**
+	 * @return Visszaadja a Játékos iranyAmibeNez-ét
+	 */
 	public Irany getIranyAmibeNez()
 	{
+		return iranyAmibeNez;
 	}
 	
 	public void hovihar()

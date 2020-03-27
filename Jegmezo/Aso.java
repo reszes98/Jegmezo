@@ -13,7 +13,11 @@ package Jegmezo;
 
 public class Aso implements Targy
 {
+	/**
+	 *
+	 */
 	public void accept(Visitor v, Jatekos j)
 	{
+		v.visit(this, j);
 	}
 }

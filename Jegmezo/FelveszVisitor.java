@@ -17,6 +17,7 @@ public class FelveszVisitor implements Visitor
 {
 	public void visit(Aso a, Jatekos j)
 	{
+		
 	}
 	
 	public void visit(Kotel k, Jatekos j)

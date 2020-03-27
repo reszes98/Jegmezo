@@ -15,8 +15,24 @@ package Jegmezo;
 
 public class HasznalVisitor implements Visitor
 {
+	/**
+	 *	Az ásó használ tevékenységét valósítja meg. Csökkenti a a hó mennyiségét 2-vel annak
+	 *Jégtáblának,ami abba az irányba van, amibe a Játékos, aki az ásót használja, néz.
+	 */
 	public void visit(Aso a, Jatekos j)
 	{
+		Irany i = j.getIranyAmibeNez();
+		Jegtabla jt = j.JegtablaLekerdez();
+		Jegtabla szJegtabla = jt.szomszedKerdez(i);
+		
+		boolean sikeres = szJegtabla.asas(2);
+		if(sikeres)
+		{
+			System.out.println("Aso sikeresen hasznalva");
+		}
+		else
+			System.out.println("Aso sikertelenul hasznalva");
+		
 	}
 	
 	public void visit(Kotel k, Jatekos j)

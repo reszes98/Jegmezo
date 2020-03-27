@@ -15,6 +15,11 @@ package Jegmezo;
 
 public interface Visitor
 {
+	/**
+	 * Elvégzi az ásóval a leszármazottakban specifikált tevékenységet
+	 * @param a - Az ásó, amit használunk
+	 * @param j - A játékos, aki hasznája az ásót
+	 */
 	public void visit(Aso a, Jatekos j);
 	
 	public void visit(Kotel k, Jatekos j);

@@ -21,20 +21,25 @@ public class Jegtabla implements Frissitheto
 	private Jatekos jatekosok;
 	private Targy targy;
 	
+	
+	/**
+	 * Csökkenti a Jégtábla hó mennyiségét i-vel, ha nulla alá megy a hó, akkor -1-re állítjuk a hómennyiséget és a rajta lévõ tárgyat kiásottnak tekintjük.
+	 * Ha -1 vagy az alatti a hó mennyiség nem történik semmi
+	 * @param i - A mennyiség, amivel a havat csökkenteni szeretnénk
+	 * @return Visszaadja, hogy történt-e ásás
+	 */
 	public boolean asas(int i)
 	{
-		if((ho - i) >= -1)
+		if(ho >= 0)
 		{
 			ho -= i;
+			if(ho < -1)
+				ho = -1;
+			
 			return true;
 		}
 		else
-		{
-			ho = -1;
 			return false;
-		}
-			
-			
 		
 	}
 	

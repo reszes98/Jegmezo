@@ -15,5 +15,9 @@ package Jegmezo;
 
 public interface Targy
 {
+	/**
+	 * @param v
+	 * @param j
+	 */
 	public void accept(Visitor v, Jatekos j);
 }
