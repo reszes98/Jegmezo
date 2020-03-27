@@ -16,8 +16,9 @@ package Jegmezo;
 public interface Targy
 {
 	/**
-	 * @param v
-	 * @param j
+	 * meghívja magára a visitort  a paraméterében lévõ játékossal
+	 * @param v - a Visitor amivel használni szeretnénk a Tárgyat
+	 * @param j - a Játékos, aki használja a Tárgyat
 	 */
 	public void accept(Visitor v, Jatekos j);
 	

@@ -72,9 +72,9 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Ho mennyisege megnovelve");
 	}
 	
-	/* (non-Javadoc)
-	 * @see Jegmezo.Frissitheto#hovihar()
-	 * meghívja a honoveles fügvényt
+	
+	/**
+	 *meghívja a honoveles fügvényt
 	 */
 	public void hovihar()
 	{
