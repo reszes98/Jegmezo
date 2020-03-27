@@ -17,6 +17,10 @@ public class FelveszVisitor implements Visitor
 {
 	public void visit(Aso a, Jatekos j)
 	{
+		Irany i=j.getIranyAmibeNez();
+		Jegtabla jt=j.JegtablaLekerdez();
+		Jegtabla szomszedos=jt.szomszedKerdez(i);
+		szomszedos.asas(2);
 		
 	}
 	
@@ -26,10 +30,12 @@ public class FelveszVisitor implements Visitor
 	
 	public void visit(Buvarruha b, Jatekos j)
 	{
+		j.targyfelvetel(b);
 	}
 	
 	public void visit(Elelem e, Jatekos j)
 	{
+		j.targyfelvetel(e);
 	}
 	
 	public void visit(Jelzopisztoly jp, Jatekos j)

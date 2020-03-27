@@ -15,7 +15,23 @@ package Jegmezo;
 
 public class Buvarruha implements Targy
 {
+	
+	/* (non-Javadoc)
+	 * @see Jegmezo.Targy#accept(Jegmezo.Visitor, Jegmezo.Jatekos)
+	 * meghívja a felvesz visitor visit függvényét.
+	 */
 	public void accept(Visitor v, Jatekos j)
 	{
+		v.visit(this, j);
+	}
+	
+	
+	
+	/* (non-Javadoc)
+	 * @see Jegmezo.Targy#kepesseg(Visitor, Jatekos, Irany)
+	 * meghívja a használ visitor visit függvényét.
+	 */
+	public void kepesseg(Visitor v,Jatekos j, Irany i) {
+		v.visit(this, j, i); 
 	}
 }

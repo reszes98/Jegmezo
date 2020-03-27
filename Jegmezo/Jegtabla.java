@@ -59,12 +59,22 @@ public class Jegtabla implements Frissitheto
 	{
 	}
 	
+	/**
+	 * növeli a havat a jégtáblán
+	 */
 	public void hoNovelese()
 	{
+		ho++;
+		System.out.println("Ho mennyisege megnovelve");
 	}
 	
+	/* (non-Javadoc)
+	 * @see Jegmezo.Frissitheto#hovihar()
+	 * meghívja a honoveles fügvényt
+	 */
 	public void hovihar()
 	{
+		this.hoNovelese();
 	}
 	
 	public void iglutEpit()
@@ -83,15 +93,24 @@ public class Jegtabla implements Frissitheto
 	{
 	}
 	
+	/**
+	 * @param i
+	 * @return visszaadja az i irányban lévõ szomszédot
+	 */
 	public Jegtabla szomszedKerdez(Irany i)
 	{
+		return szomszedok.get(i);
 	}
 	
 	public void targyFelvesz(Jatekos j)
 	{
 	}
 	
+	/**
+	 * @return visszaadja, hogy van e iglu a jégtáblán
+	 */
 	public boolean VanRajtaIgluLekerdez()
 	{
+		return vanRajtaIglu;
 	}
 }

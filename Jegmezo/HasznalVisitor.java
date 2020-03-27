@@ -39,12 +39,21 @@ public class HasznalVisitor implements Visitor
 	{
 	}
 	
-	public void visit(Buvarruha b, Jatekos j)
+	/**
+	 * a játékost áthelyezi a kapott irányba.
+	 */
+	public void visit(Buvarruha b, Jatekos j, Irany i)
 	{
+		j.athelyez(i);
 	}
 	
+	/* (non-Javadoc)
+	 * @see Jegmezo.Visitor#visit(Jegmezo.Elelem, Jegmezo.Jatekos)
+	 * a játékos testhõjét növeli azzal, hogy megeszi, azaz felhasználja az élelmet.
+	 */
 	public void visit(Elelem e, Jatekos j)
 	{
+		j.testhoNovelese(1);
 	}
 	
 	public void visit(Jelzopisztoly jp, Jatekos j)

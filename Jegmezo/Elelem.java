@@ -16,8 +16,14 @@ package Jegmezo;
 public class Elelem implements Targy
 {
 	private int pont;
+	
+	/* (non-Javadoc)
+	 * @see Jegmezo.Targy#accept(Jegmezo.Visitor, Jegmezo.Jatekos)
+	 * meghívja a használ visitor visit függvényét.
+	 */
 	public void accept(Visitor v, Jatekos j)
 	{
+		v.visit(this, j);
 	}
 	
 	public int getPont()
