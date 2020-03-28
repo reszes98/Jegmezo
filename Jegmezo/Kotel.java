@@ -10,7 +10,6 @@ package Jegmezo;
 //
 //
 
-import java.util.List;
 
 public class Kotel implements Targy
 {

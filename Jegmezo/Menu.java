@@ -12,13 +12,25 @@ public class Menu {
 	private Scanner in = new Scanner(System.in);
 	
 	
-		public void main () {	
+		public void main() {	
 			//példányok:
 			Jegmezo jm=new Jegmezo(4);
 			Jegtabla jt = new Jegtabla(jm, false, 1, 2,false, null);
 			List<Targy> targyak=new ArrayList<Targy>();
 			Sarkkutato j=new Sarkkutato(jm,0,5,5,targyak,Irany.Jobb);
 			jt.addJatekos(j);
+			
+			//jégtábla szomszédai, hogy ne nullra hívjuk a függvényeket
+			Jegtabla jtj = new Jegtabla(jm, false, 1, 2,false, null);
+			Jegtabla jtb = new Jegtabla(jm, false, 1, 2,false, null);
+			Jegtabla jtf = new Jegtabla(jm, false, 1, 2,false, null);
+			Jegtabla jtl = new Jegtabla(jm, false, 1, 2,false, null);
+			
+			jt.setSzomszed(jtj, Irany.Jobb);
+			jt.setSzomszed(jtb, Irany.Bal);
+			jt.setSzomszed(jtf, Irany.Fel);
+			jt.setSzomszed(jtl, Irany.Le);
+			
 			Aso a=new Aso();
 			Kotel k = new Kotel();
 			Buvarruha b = new Buvarruha();
@@ -26,16 +38,22 @@ public class Menu {
 			Jelzopisztoly jp = new Jelzopisztoly();
 			
 			
-		System.out.print("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n "
-				+ "1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ\n "
-				+ "4 - Búvárruha felvesz\n 5 - Búvárruha használ\n "
-				+ "6 - Élelem felvesz\n 7 - Élelem használ/testhõ növelése\n"
-				+ "8 - Hóvihar\n 9 - Iglu építés\n 10 - Jelzõpisztoly felvesz\n "
-				+ "11 - Jelzõpisztoly használ\n 12 - Kötél felvesz\n "
-				+ "13 - Kötél használ\n 14 - Lépés\n 15 - Szomszédos Jégtábla "
-				+ "vizsgálata\n 66 - Kilép");
+		
+		
+		
 		
 		do {
+			System.out.println("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n "
+					+ "1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ\n "
+					+ "4 - Búvárruha felvesz\n 5 - Búvárruha használ\n "
+					+ "6 - Élelem felvesz\n 7 - Élelem használ/testhõ növelése\n"
+					+ "8 - Hóvihar\n 9 - Iglu építés\n 10 - Jelzõpisztoly felvesz\n "
+					+ "11 - Jelzõpisztoly használ\n 12 - Kötél felvesz\n "
+					+ "13 - Kötél használ\n 14 - Lépés\n 15 - Szomszédos Jégtábla\n"
+					+ "16 - Targyakat hasznal \n"
+					+ "vizsgálata\n 66 - Kilép ");
+			
+			System.out.print("Valasztas: ");
 			answer =  in.nextInt();
 			
 			switch(answer) {
@@ -81,6 +99,10 @@ public class Menu {
 			    	break;
 				case 15:
 					j.kepesseg(jt);
+					break;
+				case 16:
+					targyHasznal();
+					break;
 				default:
 					System.out.println("Válasszon a megadott menüpontok közül");
 			}
@@ -116,10 +138,10 @@ public class Menu {
 			
 			
 			Sarkkutato j = new Sarkkutato(jm,0,5,5,targyak,Irany.Jobb);
-			jt.ralep(j);
+			jt.ralep(j); // berakjuk a vízbe, hogy kipróbálhassa a búvárruhát 
 			
 			Eszkimo eszk = new Eszkimo(jm,0,5,5,null,Irany.Jobb);
-			jt0.ralep(eszk);
+			jt0.ralep(eszk); // egy játékost belerakunk a vízbe, hogy ki tudja menteni a másik játékos
 			
 			for(int i = 0; i < targyak.size(); i++)
 				j.targyHasznalat(i);
