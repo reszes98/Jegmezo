@@ -14,6 +14,7 @@ import java.util.List;
 
 public class Jegtabla implements Frissitheto
 {
+	private Jegmezo jegmezo;
 	private boolean atVanFordulva;
 	private int ho;
 	private int tartokepesseg;
@@ -69,7 +70,7 @@ public class Jegtabla implements Frissitheto
 	 */
 	public boolean ellep(Jatekos j)
 	{
-		if(getAtVanEFordulva())
+		if(atVanFordulva)
 		{
 			System.out.println("A jegtabla at van fordulva, a jatekos csak buvarruhaval hagyhatja el");
 			return false;
@@ -82,8 +83,20 @@ public class Jegtabla implements Frissitheto
 		}
 	}
 	
+	/**
+	 * Új kör elején megnézi, hogy át van-e fordulva és ha igen és vannak rajta játékosok, akkor szól a jégmezõnek, 
+	 * hogy ezek a játékosok meghaltak.
+	 * Ha át van fordulva és nincs rajta senki akkor visszafordítjuk a jégtáblát
+	 */
 	public void frissit()
 	{
+		if(atVanFordulva)
+			for(int i = 0; i < jatekosok.size(); i++)
+				jegmezo.meghalt(jatekosok.get(i));
+		
+		if(jatekosok.size() == 0)
+			visszaFordit();
+			
 	}
 	
 	/**
@@ -236,7 +249,7 @@ public class Jegtabla implements Frissitheto
 	/**
 	 * @return Visszaadja, hogy a jégtábla át van-e fordulva
 	 */
-	public boolean getAtVanEFordulva()
+	public boolean getAtVanFordulva()
 	{
 		return atVanFordulva;
 	}

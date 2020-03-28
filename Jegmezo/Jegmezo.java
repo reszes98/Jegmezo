@@ -40,14 +40,18 @@ public class Jegmezo
 	
 	/**
 	 * A frisiíthetõket frissíti, és ha a hóvihar számáló nullára vált meghívja a hóvihar függvényét 
-	 * a frisiíthetõknek.
+	 * a frisiíthetõknek. És visszaállítja a hóvihar számálót
 	 */
 	public void leptet()
 	{
+		hoviharCnt--;
 		for(int i=0;i<frissithetok.size();i++) {
 			frissithetok.get(i).frissit();
 			if(hoviharCnt==0)
+			{
 				frissithetok.get(i).hovihar();
+				hoviharCnt = 99;
+			}
 		}
 	}
 	

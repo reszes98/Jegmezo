@@ -102,8 +102,12 @@ public abstract class Jatekos implements Frissitheto
 		System.out.println("Testho csokkentve");
 	}
 	
+	/**
+	 *Az új kör elején visszaállítjuk a Munkadb-jét 4-re
+	 */
 	public void frissit()
 	{
+		Munkadb = 4;
 	}
 	
 	/**
