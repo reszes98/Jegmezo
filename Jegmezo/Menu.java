@@ -26,7 +26,13 @@ public class Menu {
 			
 			
 		System.out.print("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n "
-				+ "1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ");
+				+ "1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ\n "
+				+ "4 - Búvárruha felvesz\n 5 - Búvárruha használ\n "
+				+ "6 - Élelem felvesz\n 7 - Élelem használ/testhõ növelése\n"
+				+ "8 - Hóvihar\n 9 - Iglu építés\n 10 - Jelzõpisztoly felvesz\n "
+				+ "11 - Jelzõpisztoly használ\n 12 - Kötél felvesz\n "
+				+ "13 - Kötél használ\n 14 - Lépés\n 15 - Szomszédos Jégtábla "
+				+ "vizsgálata\n 66 - Kilép");
 		
 		do {
 			answer =  in.nextInt();
@@ -66,6 +72,8 @@ public class Menu {
 				case 13:
 					k.hasznal(j);
 			    	break;
+				case 15:
+					j.kepesseg(jt);
 				default:
 					System.out.println("Válasszon a megadott menüpontok közül");
 			}
