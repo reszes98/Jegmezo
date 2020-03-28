@@ -38,7 +38,23 @@ public class Kotel implements Targy
 	 * elkezd végig menni a játékosok listáján, aki ott van és áthelyezi õket és visszaadja, hogy sikerült-e
 	 */
 	public boolean hasznal(Jatekos j) {
-		Irany i = j.getIranyAmibeNez();
+		Jegtabla jt = j.JegtablaLekerdez();						//Komplexitása miatt csak azt a részt tudjuk 
+		boolean sikeres = false;								//tesztelni, hogy lekérdezi-e a saját jégtábláját
+		if(jt != null)
+			sikeres = true;
+		
+		if(sikeres) 
+		{
+			System.out.println("Kotel sikeresen hasznalva");
+			j.targyEltavolitasa(this);
+		}
+		else
+			System.out.println("Nem sikerult hasznalni a kotelet");
+		
+		
+		return sikeres;
+		
+		/*Irany i = j.getIranyAmibeNez();
 		Jegtabla jt = j.JegtablaLekerdez();
 		Jegtabla szJegtabla = jt.szomszedKerdez(i);
 		
@@ -47,7 +63,7 @@ public class Kotel implements Targy
 			jatekos.get(jsz).athelyez(i);
 		}
 		
-		return true;
+		return true;*/
 		
 	}
 	
