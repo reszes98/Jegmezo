@@ -1,5 +1,7 @@
 package Jegmezo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -10,45 +12,30 @@ public class Menu {
 	private Scanner in = new Scanner(System.in);
 	
 	
-		public void main () {		
-		System.out.print("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n 1 - Játék indítás\n 2 - Kilépés\n 3 - Elõzõ játék betöltése");
+		public void main () {	
+			//példányok:
+			Jegmezo jm=new Jegmezo();
+			Jegtabla jt=new Jegtabla();
+			List<Targy> targyak=new ArrayList<Targy>();
+			Sarkkutato j=new Sarkkutato(jm,jt,0,5,5,targyak,Irany.Jobb);
+			Aso a=new Aso();
+			
+			
+		System.out.print("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n 1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ");
 		answer =  in.nextInt();
 		
 		switch(answer) {
 			case 1:
-				System.out.println("Játék indítása menü");								//3 menüpont, switch-case-zel, könnyen bõvíthetõ
+				j.asas();
 		    	break;
 			case 2:
-				System.out.println("Kilépés menüpont");
+				
 		    	break;
 			case 3:
-				System.out.println("Elõzõ játék betöltése");
+				
 		    	break;
 			default:
 				System.out.println("Válasszon a megadott menüpontok közül");
 		}
-	}
-	
-		public void jatekosszam () {	
-		System.out.print("Hányan fogtok játszani?\n");
-		
-		boolean megfelelo = false;
-		
-		do {																			//do-while ciklus, mert addig kell a játékosokszámát
-			answer =  in.nextInt();														//beütni, amígy a megfelelõ tartományon belül nincs
-			if(answer < 3) {															
-				System.out.println("Túl kevés! Legalább 3 játékos kell");				//a feltételek miatt nem lehetett switch - caset alkalmazni
-			}
-			
-			if(answer > 10) {
-				System.out.println("Túl sokan vagytok! Maximum 10-en játszhattok");
-			}
-			
-			if(answer > 2 && answer < 9) {
-				System.out.println("Elindítjuk a játékot");								//Itt megfelelõ a játékosszám, itt fogjuk elindítani a játékot
-				megfelelo = true;
-			}
-		}
-		while (megfelelo != true);
 	}
 }
