@@ -242,6 +242,7 @@ public class Jegtabla implements Frissitheto
 	 */
 	public void ralep(Jatekos j)
 	{
+		j.setaktjegtabla(this);
 		jatekosok.add(j);
 		System.out.println("A jatekos ralepett a tablara");
 		
