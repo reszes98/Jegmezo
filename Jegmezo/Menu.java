@@ -2,6 +2,8 @@ package Jegmezo;
 
 import java.util.Scanner;
 
+
+
 public class Menu {
 	
 	private int answer = 0;

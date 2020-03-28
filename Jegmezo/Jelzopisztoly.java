@@ -48,7 +48,7 @@ public class Jelzopisztoly implements Targy
 		if(jelzopisztolyDB == 3)
 		{
 			System.out.println("Sikeres összeszerelés (pew pew)");
-			jm.jatekvege(true);
+			j.getJegmezo().jatekvege(true);
 			return true;
 		}
 		else

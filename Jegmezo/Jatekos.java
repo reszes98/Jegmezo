@@ -14,6 +14,7 @@ import java.util.List;
 
 public abstract class Jatekos implements Frissitheto
 {
+	private Jegmezo jegmezo;
 	protected Jegtabla aktjegtabla;
 	private int jelzopisztolydb;
 	protected int Munkadb;
@@ -24,6 +25,7 @@ public abstract class Jatekos implements Frissitheto
 	
 	/**
 	 * Konstruktor, ami létrehozza a Játékost a medadott paraméterekkel
+	 * @param jegmezo - a jégmezõ, amin a Játékos van
 	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
 	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
 	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
@@ -31,13 +33,15 @@ public abstract class Jatekos implements Frissitheto
 	 * @param targyak - a Játékos által tárolt tárgyak
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
-	public Jatekos(Jegtabla aktjegtabla,
+	public Jatekos(Jegmezo jegmezo,
+	Jegtabla aktjegtabla,
 	int jelzopisztolydb,
 	int Munkadb,
 	int testho,
 	List<Targy> targyak,
 	Irany iranyAmibeNez)
 	{
+		this.jegmezo = jegmezo;
 		this.aktjegtabla = aktjegtabla;
 		this.jelzopisztolydb = jelzopisztolydb;
 		this.Munkadb = Munkadb;
@@ -121,7 +125,7 @@ public abstract class Jatekos implements Frissitheto
 			this.fazas(1);
 		}
 		if(testho==0) {
-			jm.meghalt();
+			jegmezo.meghalt(this);
 		}
 	}
 	
@@ -300,6 +304,14 @@ public abstract class Jatekos implements Frissitheto
 	public void korVege()
 	{
 		
+	}
+	
+	/**
+	 * @return Visszaadja a jégmezõt, amin a játékos van
+	 */
+	public Jegmezo getJegmezo()
+	{
+		return jegmezo;
 	}
 	
 }

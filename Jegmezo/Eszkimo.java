@@ -15,7 +15,8 @@ import java.util.List;
 public class Eszkimo extends Jatekos
 {	
 	/**
-	 * Az eszkimó konstruktora, meghívja a Játékos konstuktorát
+	 * Konstruktor, ami létrehozza a Játékost a medadott paraméterekkel
+	 * @param jegmezo - a jégmezõ, amin a Játékos van
 	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
 	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
 	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
@@ -23,14 +24,16 @@ public class Eszkimo extends Jatekos
 	 * @param targyak - a Játékos által tárolt tárgyak
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
-	public Eszkimo(Jegtabla aktjegtabla,
+	public Eszkimo(Jegmezo jegmezo,
+	Jegtabla aktjegtabla,
 	int jelzopisztolydb,
 	int Munkadb,
 	int testho,
 	List<Targy> targyak,
-	Irany iranyAmibeNez) 
+	Irany iranyAmibeNez)
 	{
-		super(aktjegtabla, 
+		super(jegmezo,
+				aktjegtabla, 
 				jelzopisztolydb,
 				Munkadb,
 				testho,

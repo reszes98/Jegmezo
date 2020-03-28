@@ -16,7 +16,8 @@ public class Sarkkutato extends Jatekos
 {
 	
 	/**
-	 * A sarkkutató konstruktora, meghívja a Játékos konstuktorát
+	 * Konstruktor, ami létrehozza a Játékost a medadott paraméterekkel
+	 * @param jegmezo - a jégmezõ, amin a Játékos van
 	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
 	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
 	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
@@ -24,14 +25,16 @@ public class Sarkkutato extends Jatekos
 	 * @param targyak - a Játékos által tárolt tárgyak
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
-	public Sarkkutato(Jegtabla aktjegtabla,
+	public Sarkkutato(Jegmezo jegmezo,
+	Jegtabla aktjegtabla,
 	int jelzopisztolydb,
 	int Munkadb,
 	int testho,
 	List<Targy> targyak,
-	Irany iranyAmibeNez) 
+	Irany iranyAmibeNez)
 	{
-		super(aktjegtabla, 
+		super(jegmezo,
+				aktjegtabla, 
 				jelzopisztolydb,
 				Munkadb,
 				testho,
