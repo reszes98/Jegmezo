@@ -40,6 +40,7 @@ public abstract class Jatekos implements Frissitheto
 	Irany iranyAmibeNez)
 	{
 		this.jegmezo = jegmezo;
+		this.jegmezo.addFrissitheto(this);
 		this.aktjegtabla = aktjegtabla;
 		this.jelzopisztolydb = jelzopisztolydb;
 		this.Munkadb = Munkadb;

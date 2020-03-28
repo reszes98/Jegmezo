@@ -42,7 +42,8 @@ public class Jegtabla implements Frissitheto
 	Targy targy)
 	{
 		this.jegmezo = jegmezo;
-		this.atVanFordulva =	atVanFordulva;
+		this.jegmezo.addFrissitheto(this);
+		this.atVanFordulva =atVanFordulva;
 		this.ho = ho;
 		this.tartokepesseg = tartokepesseg;
 		szomszedok = new ArrayList<>(); 

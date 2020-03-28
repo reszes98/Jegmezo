@@ -80,4 +80,43 @@ public class Menu {
 			}
 		}while(answer != 66);
 	}
+		
+		public static void targyHasznal()
+		{
+			List<Targy> targyak = new ArrayList<>();
+			Jegmezo jm=new Jegmezo(4);
+			Jegtabla jt = new Jegtabla(jm, false, 1, 0,false, null);
+			Jegtabla jt0 = new Jegtabla(jm, false, 1, 0,false, null);
+			Jegtabla jt1 = new Jegtabla(jm, false, 1, 2,false, null);
+			Jegtabla jt2 = new Jegtabla(jm, false, 1, 2,false, null);
+			Jegtabla jt3 = new Jegtabla(jm, false, 1, 2,false, null);
+			
+			jt.setSzomszed(jt0, Irany.Jobb);
+			jt.setSzomszed(jt1, Irany.Bal);
+			jt.setSzomszed(jt2, Irany.Fel);
+			jt.setSzomszed(jt3, Irany.Le);
+			
+			Aso a=new Aso();
+			Kotel k = new Kotel();
+			Buvarruha b = new Buvarruha();
+			Jelzopisztoly jp = new Jelzopisztoly();
+			Elelem e = new Elelem(1);
+			
+			targyak.add(a);
+			targyak.add(k);
+			targyak.add(b);
+			targyak.add(jp);
+			targyak.add(e);
+			
+			
+			Sarkkutato j = new Sarkkutato(jm,0,5,5,targyak,Irany.Jobb);
+			jt.ralep(j);
+			
+			Eszkimo eszk = new Eszkimo(jm,0,5,5,null,Irany.Jobb);
+			jt0.ralep(eszk);
+			
+			for(int i = 0; i < targyak.size(); i++)
+				j.targyHasznalat(i);
+			
+		}
 }
