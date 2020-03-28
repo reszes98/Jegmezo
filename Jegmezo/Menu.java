@@ -25,7 +25,14 @@ public class Menu {
 			Jelzopisztoly jp = new Jelzopisztoly();
 			
 			
-		System.out.print("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n 1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ");
+		System.out.print("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n "
+				+ "1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ\n "
+				+ "4 - Búvárruha felvesz\n 5 - Búvárruha használ\n "
+				+ "6 - Élelem felvesz\n 7 - Élelem használ/testhõ növelése\n"
+				+ "8 - Hóvihar\n 9 - Iglu építés\n 10 - Jelzõpisztoly felvesz\n "
+				+ "11 - Jelzõpisztoly használ\n 12 - Kötél felvesz\n "
+				+ "13 - Kötél használ\n 14 - Lépés\n 15 - Szomszédos Jégtábla "
+				+ "vizsgálata\n 66 - Kilép");
 		
 		do {
 			answer =  in.nextInt();
@@ -38,16 +45,20 @@ public class Menu {
 					a.felvesz(j);
 			    	break;
 				case 3:
-					
+					a.hasznal(j);
 			    	break;
 				case 4:
 					b.felvesz(j);
 			    	break;
-			    	
+				case 5:
+					b.hasznal(j);
+					break;
 				case 6:
 					e.felvesz(j);
 			    	break;
-			    	
+				case 7:
+					e.hasznal(j);
+					break;
 				case 8:
 					
 			    	break;	
@@ -61,6 +72,8 @@ public class Menu {
 				case 13:
 					k.hasznal(j);
 			    	break;
+				case 15:
+					j.kepesseg(jt);
 				default:
 					System.out.println("Válasszon a megadott menüpontok közül");
 			}
