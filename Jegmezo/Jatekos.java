@@ -107,6 +107,7 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void frissit()
 	{
+		
 		Munkadb = 4;
 	}
 	

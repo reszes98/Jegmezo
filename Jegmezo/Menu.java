@@ -22,7 +22,7 @@ public class Menu {
 			Aso a=new Aso();
 			Kotel k = new Kotel();
 			Buvarruha b = new Buvarruha();
-			Elelem e = new Elelem();
+			Elelem e = new Elelem(3);
 			Jelzopisztoly jp = new Jelzopisztoly();
 			
 			
@@ -61,7 +61,13 @@ public class Menu {
 					e.hasznal(j);
 					break;
 				case 8:
-					
+					Jegmezo jm2 = new Jegmezo(1);
+					Jegtabla jt2 = new Jegtabla(jm2, false, 1, 2,false, null);
+					Jegtabla jt3 = new Jegtabla(jm2, false, 1, 2,false, null);
+					Sarkkutato j2 = new Sarkkutato(jm2,0,5,5,targyak,Irany.Jobb);
+					j2.setaktjegtabla(jt2);
+
+					jm2.leptet();
 			    	break;	
 				case 10:
 					jp.felvesz(j);

@@ -169,14 +169,14 @@ public class Jegtabla implements Frissitheto
 	 * Ha át van fordulva és nincs rajta senki akkor visszafordítjuk a jégtáblát
 	 */
 	public void frissit()
-	{
-		if(atVanFordulva)
+	{	
+		if(atVanFordulva) {
 			for(int i = 0; i < jatekosok.size(); i++)
 				jegmezo.meghalt(jatekosok.get(i));
 		
-		if(jatekosok.size() == 0)
-			visszaFordit();
-			
+			if(jatekosok.size() == 0);
+				visszaFordit();
+		}
 	}
 	
 	/**

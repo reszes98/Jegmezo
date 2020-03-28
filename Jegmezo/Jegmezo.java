@@ -39,7 +39,10 @@ public class Jegmezo
 	 */
 	public void addFrissitheto(Frissitheto f)
 	{
+		
 		frissithetok.add(f);
+		System.out.println("Hozzáadtam");
+		
 	}
 	
 	/**
@@ -74,14 +77,15 @@ public class Jegmezo
 	public void leptet()
 	{
 		hoviharCnt--;
+		System.out.println(frissithetok.size());
 		for(int i=0;i<frissithetok.size();i++) {
 			frissithetok.get(i).frissit();
 			if(hoviharCnt==0)
 			{
 				frissithetok.get(i).hovihar();
-				hoviharCnt = 99;
 			}
 		}
+		hoviharCnt = 99;
 	}
 	
 	/**
