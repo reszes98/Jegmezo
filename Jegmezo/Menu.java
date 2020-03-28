@@ -18,7 +18,10 @@ public class Menu {
 			Jegtabla jt = new Jegtabla(jm, false, 1, 2,false, null);
 			List<Targy> targyak=new ArrayList<Targy>();
 			Sarkkutato j=new Sarkkutato(jm,0,5,5,targyak,Irany.Jobb);
+			Eszkimo eszk= new Eszkimo(jm,0,5,5,targyak,Irany.Jobb);
 			jt.addJatekos(j);
+			jt.addJatekos(eszk);
+			
 			
 			//jégtábla szomszédai, hogy ne nullra hívjuk a függvényeket
 			Jegtabla jtj = new Jegtabla(jm, false, 1, 2,false, null);
@@ -87,10 +90,15 @@ public class Menu {
 
 					jm2.leptet();
 			    	break;	
+				case 9:
+					
+					break;
 				case 10:
 					jp.felvesz(j);
 			    	break;
-			    	
+				case 11:
+					jp.hasznal(j);
+					break;
 				case 12:
 					k.felvesz(j);
 			    	break;
