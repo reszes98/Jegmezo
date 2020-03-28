@@ -75,9 +75,10 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public boolean athelyez(Irany i)
 	{
-		Jegtabla szomszed=aktjegtabla.szomszedKerdez(i);
+		Jegtabla szomszed = aktjegtabla.szomszedKerdez(i);
 		if (szomszed!=null) {
-			aktjegtabla=szomszed;
+			aktjegtabla.jatekosEltavolit(this);
+			szomszed.ralep(this);
 			System.out.println("Sikeresen athelyezve");
 			return true;
 		}
@@ -158,23 +159,25 @@ public abstract class Jatekos implements Frissitheto
 	
 	
 	/**
-	 * Ezzel a függvénnyeltud majd lépni a játékos, azaz az adott irányba esõ 
-	 * jégtáblára lépni. 
-	 * @param i - irány, amit kap, ahova lépni akarunk
+	 * Ezzel a függvénnyeltud majd lépni a játékos arra a jégtáblára, ami arra van, amerre néz
 	 */
-	public void lepes(Irany i)
+	public void lepes()
 	{
-		this.setIranyAmibeNez(i);
-		Jegtabla jt = this.JegtablaLekerdez();
-		Jegtabla szJegtabla = jt.szomszedKerdez(i);
-		...?
+		boolean ellephet = aktjegtabla.ellep(this);
+		
+		if(ellephet)
+		{
+			Jegtabla szJegtabla = aktjegtabla.szomszedKerdez(iranyAmibeNez);
+			szJegtabla.ralep(this);
+			System.out.println("Sikerult az ellepes");
+			MunkaDBcsokkentese(1);
+		}
+		else {
+			System.out.println("Nem sikerult az ellepes");
+		}
 		
 	}
 	
-	public void pisztolyepit()
-	{
-		
-	}
 	
 	
 	/**

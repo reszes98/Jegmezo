@@ -14,6 +14,7 @@ import java.util.List;
 
 public class Jegtabla implements Frissitheto
 {
+	private boolean atVanFordulva;
 	private int ho;
 	private int tartokepesseg;
 	private List<Jegtabla> szomszedok;
@@ -43,12 +44,42 @@ public class Jegtabla implements Frissitheto
 		
 	}
 	
-	public void atfordit()
+	/**
+	 * Visszafordítja a táblát
+	 */
+	public void visszaFordit()
 	{
+		atVanFordulva = false;
+		System.out.println("A jegtabla visszafordult");
 	}
 	
+	/**
+	 * Átfordítja a táblát
+	 */
+	public void atfordit()
+	{
+		atVanFordulva = true;
+		System.out.println("Jaj! Felfordult a tábla!");
+	}
+	
+	/**
+	 * Azt adja meg, hogy a Játekos elhagyhatja-e a Jégtáblát 
+	 * @param j - Am játékos aki el akarja hagyni a Jégtáblát
+	 * @return Visszaadja, hogy a Játékos elhagyhatja-e a Jégtáblát
+	 */
 	public boolean ellep(Jatekos j)
 	{
+		if(getAtVanEFordulva())
+		{
+			System.out.println("A jegtabla at van fordulva, a jatekos csak buvarruhaval hagyhatja el");
+			return false;
+		}
+		else
+		{
+			this.jatekosEltavolit(j);
+			System.out.println("A jatekos elhagyhatja a jegtablat");
+			return true;
+		}
 	}
 	
 	public void frissit()
@@ -96,8 +127,16 @@ public class Jegtabla implements Frissitheto
 		}
 	}
 	
+	/**
+	 * Eltávolítja paraméterben megadott játékost a jégtábla játékosai közül
+	 * @param j - A Játékos, akit el akarunk távolítni
+	 */
 	public void jatekosEltavolit(Jatekos j)
 	{
+		jatekosok.remove(j);
+		System.out.println("Jatekos eltavolitva a tablarol");
+		/*if(jatekosok.size() <= tartokepesseg)
+			visszaFordit();*/
 	}
 	
 	public List<Jatekos> jatekosokLekerdez()
@@ -105,17 +144,45 @@ public class Jegtabla implements Frissitheto
 		return jatekosok;
 	}
 	
+	/**
+	 * Rálépteti a megadott játékost a táblára és ha játékosok száma így meghaladja a tartóképességet, átfordítja a táblát
+	 * @param j - A Játékos, aki rálép a táblára 
+	 */
 	public void ralep(Jatekos j)
 	{
+		jatekosok.add(j);
+		System.out.println("A jatekos ralepett a tablara");
+		
+		if(jatekosok.size() > tartokepesseg)
+			atfordit();
+			
 	}
 	
 	/**
-	 * @param i
+	 * visszaadja a jégtábla i irányban lévõ szomszédját 
+	 * @param i - az irány amibe tudni szeretnénk a szomszédot
 	 * @return visszaadja az i irányban lévõ szomszédot
 	 */
 	public Jegtabla szomszedKerdez(Irany i)
 	{
-		return szomszedok.get(i);
+		int idx = 0;
+		//(Jobb(0), Bal(1), Fel(2),Le(3))
+		switch(i) {
+			case Jobb:
+				idx = 0;
+				break;
+			case Bal:
+				idx = 1;
+				break;
+			case Fel:
+				idx = 2;
+				break;
+			default:
+				idx = 3;
+				break;
+		}
+			
+		return szomszedok.get(idx);
 	}
 	
 	
@@ -163,5 +230,14 @@ public class Jegtabla implements Frissitheto
 	public boolean VanRajtaIgluLekerdez()
 	{
 		return vanRajtaIglu;
+	}
+	
+	
+	/**
+	 * @return Visszaadja, hogy a jégtábla át van-e fordulva
+	 */
+	public boolean getAtVanEFordulva()
+	{
+		return atVanFordulva;
 	}
 }
