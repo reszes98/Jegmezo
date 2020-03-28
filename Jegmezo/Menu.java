@@ -149,10 +149,10 @@ public class Menu {
 			
 			
 			Sarkkutato j = new Sarkkutato(jm,0,5,5,targyak,Irany.Jobb);
-			jt.ralep(j); // berakjuk a vízbe, hogy kipróbálhassa a búvárruhát 
+			jt.addJatekos(j); // berakjuk a vízbe, hogy kipróbálhassa a búvárruhát 
 			
 			Eszkimo eszk = new Eszkimo(jm,0,5,5,null,Irany.Jobb);
-			jt0.ralep(eszk); // egy játékost belerakunk a vízbe, hogy ki tudja menteni a másik játékos
+			jt0.addJatekos(eszk); // egy játékost belerakunk a vízbe, hogy ki tudja menteni a másik játékos
 			
 			for(int i = 0; i < targyak.size(); i++)
 				j.targyHasznalat(i);

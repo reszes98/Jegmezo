@@ -94,15 +94,10 @@ public class Jegtabla implements Frissitheto
 	public boolean addJatekos(Jatekos j)
 	{
 		
-		if(jatekosok.size() + 1 > tartokepesseg)
-			return false;
-		else
-		{
+		
 			j.setaktjegtabla(this);
 			jatekosok.add(j);
 			return true;
-		}
-		
 	}
 	/**
 	 * Csökkenti a Jégtábla hó mennyiségét i-vel, ha nulla alá megy a hó, akkor -1-re állítjuk a hómennyiséget és a rajta lévõ tárgyat kiásottnak tekintjük.
