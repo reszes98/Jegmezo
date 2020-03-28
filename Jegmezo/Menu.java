@@ -21,7 +21,7 @@ public class Menu {
 			Eszkimo eszk= new Eszkimo(jm,0,5,5,targyak,Irany.Jobb);
 			jt.addJatekos(j);
 			jt.addJatekos(eszk);
-			
+			eszk.setaktjegtabla(jt);
 			
 			//jégtábla szomszédai, hogy ne nullra hívjuk a függvényeket
 			Jegtabla jtj = new Jegtabla(jm, false, 1, 2,false, null);
@@ -91,7 +91,7 @@ public class Menu {
 					jm2.leptet();
 			    	break;	
 				case 9:
-					
+					eszk.kepesseg(jt);
 					break;
 				case 10:
 					jp.felvesz(j);
@@ -105,6 +105,9 @@ public class Menu {
 				case 13:
 					k.hasznal(j);
 			    	break;
+				case 14:
+					eszk.lepes();
+					break;
 				case 15:
 					j.kepesseg(jt);
 					break;
