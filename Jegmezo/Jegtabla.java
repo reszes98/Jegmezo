@@ -87,18 +87,18 @@ public class Jegtabla implements Frissitheto
 	
 	
 	/**
-	 * Felveszi a játékost a táblára és átállítja az aktjegtabla attribútumát, ha azzal nem borulna fel
+	 * Felveszi a játékost a táblára és átállítja az aktjegtabla attribútumát
 	 * @param j - a játékos, akit hozzá akarunk adni a táblához
 	 * @return visszaadja, hogy sikerült-e felvenni a játékost a jégtáblára
 	 */
-	public boolean addJatekos(Jatekos j)
+	public void addJatekos(Jatekos j)
 	{
 		
 		
 			j.setaktjegtabla(this);
 			jatekosok.add(j);
-			return true;
 	}
+	
 	/**
 	 * Csökkenti a Jégtábla hó mennyiségét i-vel, ha nulla alá megy a hó, akkor -1-re állítjuk a hómennyiséget és a rajta lévõ tárgyat kiásottnak tekintjük.
 	 * Ha -1 vagy az alatti a hó mennyiség nem történik semmi
