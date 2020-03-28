@@ -25,7 +25,8 @@ public class Menu {
 			Jelzopisztoly jp = new Jelzopisztoly();
 			
 			
-		System.out.print("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n 1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ");
+		System.out.print("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n "
+				+ "1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ");
 		
 		do {
 			answer =  in.nextInt();
@@ -38,16 +39,20 @@ public class Menu {
 					a.felvesz(j);
 			    	break;
 				case 3:
-					
+					a.hasznal(j);
 			    	break;
 				case 4:
 					b.felvesz(j);
 			    	break;
-			    	
+				case 5:
+					b.hasznal(j);
+					break;
 				case 6:
 					e.felvesz(j);
 			    	break;
-			    	
+				case 7:
+					e.hasznal(j);
+					break;
 				case 8:
 					
 			    	break;	
