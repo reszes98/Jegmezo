@@ -206,8 +206,10 @@ public class Jegtabla implements Frissitheto
 	 */
 	public boolean iglutEpit()
 	{
-		if(vanRajtaIglu)
+		if(vanRajtaIglu) {
+			System.out.println("Mar van rajta Iglu. ");
 			return false;
+		}
 		else
 		{
 			vanRajtaIglu = true;
