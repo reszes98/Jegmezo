@@ -26,7 +26,6 @@ public abstract class Jatekos implements Frissitheto
 	/**
 	 * Konstruktor, ami létrehozza a Játékost a medadott paraméterekkel
 	 * @param jegmezo - a jégmezõ, amin a Játékos van
-	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
 	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
 	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
 	 * @param testho - a Játékos hátralévõ testhõje
@@ -34,7 +33,6 @@ public abstract class Jatekos implements Frissitheto
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
 	public Jatekos(Jegmezo jegmezo,
-	Jegtabla aktjegtabla,
 	int jelzopisztolydb,
 	int Munkadb,
 	int testho,

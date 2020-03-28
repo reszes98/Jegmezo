@@ -331,4 +331,13 @@ public class Jegtabla implements Frissitheto
 	{
 		return atVanFordulva;
 	}
+	
+	/**
+	 * Átállítja a jégtábla tárgyát a megadott tárgyra
+	 * @param t - a tárgy, amire át akarjuk állítani
+	 */
+	public void setTargy(Targy t)
+	{
+		targy = t;
+	}
 }

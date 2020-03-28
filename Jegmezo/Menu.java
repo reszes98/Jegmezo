@@ -15,9 +15,10 @@ public class Menu {
 		public void main () {	
 			//példányok:
 			Jegmezo jm=new Jegmezo(4);
-			Jegtabla jt = new Jegtabla(jm, false, 1, 2,false, a);
+			Jegtabla jt = new Jegtabla(jm, false, 1, 2,false, null);
 			List<Targy> targyak=new ArrayList<Targy>();
-			Sarkkutato j=new Sarkkutato(jm,jt,0,5,5,targyak,Irany.Jobb);
+			Sarkkutato j=new Sarkkutato(jm,0,5,5,targyak,Irany.Jobb);
+			jt.addJatekos(j);
 			Aso a=new Aso();
 			Kotel k = new Kotel();
 			Buvarruha b = new Buvarruha();

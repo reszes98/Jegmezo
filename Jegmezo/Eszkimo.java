@@ -25,7 +25,6 @@ public class Eszkimo extends Jatekos
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
 	public Eszkimo(Jegmezo jegmezo,
-	Jegtabla aktjegtabla,
 	int jelzopisztolydb,
 	int Munkadb,
 	int testho,
@@ -33,7 +32,6 @@ public class Eszkimo extends Jatekos
 	Irany iranyAmibeNez)
 	{
 		super(jegmezo,
-				aktjegtabla, 
 				jelzopisztolydb,
 				Munkadb,
 				testho,

@@ -26,7 +26,6 @@ public class Sarkkutato extends Jatekos
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
 	public Sarkkutato(Jegmezo jegmezo,
-	Jegtabla aktjegtabla,
 	int jelzopisztolydb,
 	int Munkadb,
 	int testho,
@@ -34,7 +33,6 @@ public class Sarkkutato extends Jatekos
 	Irany iranyAmibeNez)
 	{
 		super(jegmezo,
-				aktjegtabla, 
 				jelzopisztolydb,
 				Munkadb,
 				testho,
