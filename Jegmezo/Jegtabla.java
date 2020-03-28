@@ -25,6 +25,36 @@ public class Jegtabla implements Frissitheto
 	
 	
 	/**
+	 * A jégtábla konstruktora, ami létrehozza jégtáblát, a megadott paraméterekkel
+	 * @param jegmezo - A jégmezõ, amin van
+	 * @param atVanFordulva - azt adja meg, hogy át van-e fordulva
+	 * @param ho - a kezdeti hómennyiséget adja meg
+	 * @param tartokepesseg - a tartóképességét adja meg
+	 * @param szomszedok - a szomszédait adja meg (Jobb(0), Bal(1), Fel(2),Le(3))
+	 * @param vanRajtaIglu - azt adja meg, hogy van-e rajta iglu
+	 * @param jatekosok - a rajta lévõ játékosokat adja meg
+	 * @param targy - a benne lévõ tárgyat adja meg. Ha nincs benne tárgy, akkor null legyen az értéke
+	 */
+	public Jegtabla(Jegmezo jegmezo,
+	boolean atVanFordulva,
+	int ho,
+	int tartokepesseg,
+	List<Jegtabla> szomszedok,
+	boolean vanRajtaIglu,
+	List<Jatekos> jatekosok,
+	Targy targy)
+	{
+		this.jegmezo = jegmezo;
+		this.atVanFordulva =	atVanFordulva;
+		this.ho = ho;
+		this.tartokepesseg = tartokepesseg;
+		this.szomszedok = szomszedok; 
+		this.vanRajtaIglu = vanRajtaIglu;
+		this.jatekosok = jatekosok;
+		this.targy = targy;
+	}
+	
+	/**
 	 * Csökkenti a Jégtábla hó mennyiségét i-vel, ha nulla alá megy a hó, akkor -1-re állítjuk a hómennyiséget és a rajta lévõ tárgyat kiásottnak tekintjük.
 	 * Ha -1 vagy az alatti a hó mennyiség nem történik semmi
 	 * @param i - A mennyiség, amivel a havat csökkenteni szeretnénk

@@ -19,6 +19,14 @@ public class Elelem implements Targy
 	
 	
 	/**
+	 * Konstruktor, ami beállítja az élelem pont értékét, ami azt adja meg, hogy mennyivel növeli a testhõt, a megadott értékre
+	 * @param pont - Azt adja meg mennyivel növeli a játékos testhõjét, ha használják
+	 */
+	public Elelem(int pont) {
+		this.pont = pont;
+	}
+	
+	/**
 	 * Hozzáadja az élelmet a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
@@ -53,7 +61,7 @@ public class Elelem implements Targy
 	}
 	
 	/**
-	 * @return Visszaadja az élelem pont értékét, ami azt adja meg, hogy mennyivel nõveli az étel a Játékos testhõjét 
+	 * @return Visszaadja az élelem pont értékét, ami azt adja meg, hogy mennyivel növeli az étel a Játékos testhõjét 
 	 */
 	public int getPont()
 	{

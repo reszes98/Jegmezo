@@ -15,7 +15,13 @@ package Jegmezo;
 
 public interface Frissitheto
 {
+	/**
+	 * függvény, amit minden kör elején meghívunk és frissíti a megadott objektumot, az implementálók specifikációja szerint
+	 */
 	public void frissit();
 	
+	/**
+	 * függvény, amit hóviharkor hívunk meg. Elvégzi a hóviharkor teendõket, az implementálók specifikációja szerint
+	 */
 	public void hovihar();
 }

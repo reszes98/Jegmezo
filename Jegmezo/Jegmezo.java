@@ -22,6 +22,18 @@ public class Jegmezo
 	private int hoviharCnt;
 	private List<Frissitheto> frissithetok;
 	
+	/**
+	 * a konstruktor, ami létrehozza a Jégezõt
+	 * @param hoviharCnt - kezdetben hány kör van a hóviharig
+	 * @param frissithetok - a jégmezõn található frissíthetõk
+	 */
+	public Jegmezo(int hoviharCnt,
+	List<Frissitheto> frissithetok)
+	{
+		this.hoviharCnt = hoviharCnt;
+		this.frissithetok = frissithetok;
+	}
+	
 	public void hovihar()
 	{
 	}
