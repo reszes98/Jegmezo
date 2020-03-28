@@ -238,20 +238,10 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public boolean targyHozzadasa(Targy t)
 	{
-		Át kell nézni
 		
-		int i=targyak.size();
 		targyak.add(t);
-		int j=targyak.size();
-		if (i==j) {
-			System.out.println("Targy hozzaadva");
-			return true;
-		}
-		else 
-		{
-			System.out.println("Nem sikerult felvenni a targyat");
-			return false;
-		}
+		System.out.println("Targy hozzaadva");
+		return true;
 	}
 	
 	/**
