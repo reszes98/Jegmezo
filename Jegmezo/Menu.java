@@ -21,7 +21,6 @@ public class Menu {
 			Eszkimo eszk= new Eszkimo(jm,0,5,5,targyak,Irany.Jobb);
 			jt.addJatekos(j);
 			jt.addJatekos(eszk);
-			eszk.setaktjegtabla(jt);
 			
 			//jégtábla szomszédai, hogy ne nullra hívjuk a függvényeket
 			Jegtabla jtj = new Jegtabla(jm, false, 1, 2,false, null);
@@ -97,7 +96,7 @@ public class Menu {
 					jp.felvesz(j);
 			    	break;
 				case 11:
-					jp.hasznal(j);
+					pisztolyepit();
 					break;
 				case 12:
 					k.felvesz(j);
@@ -158,4 +157,17 @@ public class Menu {
 				j.targyHasznalat(i);
 			
 		}
+		public void pisztolyepit() {
+			Jegmezo jm=new Jegmezo(4);
+			Jegtabla jt = new Jegtabla(jm, false, 1, 2,false, null);
+			List<Targy> targyak=new ArrayList<Targy>();
+			Sarkkutato j=new Sarkkutato(jm,0,5,5,targyak,Irany.Jobb);
+			jt.addJatekos(j);
+			Jelzopisztoly jp=new Jelzopisztoly();
+			jp.felvesz(j);
+			jp.felvesz(j);
+			jp.felvesz(j);
+			j.targyHasznalat(0);
+		}
+		
 }
