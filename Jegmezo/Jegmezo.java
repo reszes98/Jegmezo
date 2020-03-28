@@ -41,7 +41,7 @@ public class Jegmezo
 	{
 		
 		frissithetok.add(f);
-		System.out.println("Hozzáadtam");
+		System.out.println("Hozzáadtam a jégmezõhöz");
 		
 	}
 	

@@ -45,7 +45,7 @@ public class Jelzopisztoly implements Targy
 		for(int i = 0; i < jatekosok.size(); i++)
 			jelzopisztolyDB += jatekosok.get(i).getjelzopisztolydb();
 		
-		if(jelzopisztolyDB == 3)
+		if(jelzopisztolyDB >= 3)
 		{
 			System.out.println("Sikeres összeszerelés (pew pew)");
 			j.getJegmezo().jatekvege(true);
