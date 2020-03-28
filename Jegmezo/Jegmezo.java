@@ -1,5 +1,6 @@
 package Jegmezo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //
@@ -25,15 +26,31 @@ public class Jegmezo
 	/**
 	 * a konstruktor, ami létrehozza a Jégezõt
 	 * @param hoviharCnt - kezdetben hány kör van a hóviharig
-	 * @param frissithetok - a jégmezõn található frissíthetõk
 	 */
-	public Jegmezo(int hoviharCnt,
-	List<Frissitheto> frissithetok)
+	public Jegmezo(int hoviharCnt)
 	{
 		this.hoviharCnt = hoviharCnt;
-		this.frissithetok = frissithetok;
+		frissithetok = new ArrayList<>();
 	}
 	
+	/**
+	 * Felveszi a frissithetok közé a paraméterben megadott frissithetot
+	 * @param f - a frissíthetõ, amit fel akarunk venni
+	 */
+	public void addFrissitheto(Frissitheto f)
+	{
+		frissithetok.add(f);
+	}
+	
+	/**
+	 * Felveszi a frissithetok közé a paraméterben megadott frissithetoket
+	 * @param fl - a frissíthetõk listája, amiket fel akarunk venni
+	 */
+	public void addFrissithetok(List<Frissitheto> fl)
+	{
+		frissithetok.addAll(fl);
+	}
+
 	public void hovihar()
 	{
 	}

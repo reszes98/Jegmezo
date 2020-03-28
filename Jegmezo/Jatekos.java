@@ -311,4 +311,9 @@ public abstract class Jatekos implements Frissitheto
 		return jegmezo;
 	}
 	
+	public void setaktjegtabla(Jegtabla jt)
+	{
+		aktjegtabla  = jt;
+	}
+	
 }

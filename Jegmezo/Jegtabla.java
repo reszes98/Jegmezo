@@ -10,6 +10,7 @@ package Jegmezo;
 //
 //
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Jegtabla implements Frissitheto
@@ -30,30 +31,77 @@ public class Jegtabla implements Frissitheto
 	 * @param atVanFordulva - azt adja meg, hogy át van-e fordulva
 	 * @param ho - a kezdeti hómennyiséget adja meg
 	 * @param tartokepesseg - a tartóképességét adja meg
-	 * @param szomszedok - a szomszédait adja meg (Jobb(0), Bal(1), Fel(2),Le(3))
 	 * @param vanRajtaIglu - azt adja meg, hogy van-e rajta iglu
-	 * @param jatekosok - a rajta lévõ játékosokat adja meg
 	 * @param targy - a benne lévõ tárgyat adja meg. Ha nincs benne tárgy, akkor null legyen az értéke
 	 */
 	public Jegtabla(Jegmezo jegmezo,
 	boolean atVanFordulva,
 	int ho,
 	int tartokepesseg,
-	List<Jegtabla> szomszedok,
 	boolean vanRajtaIglu,
-	List<Jatekos> jatekosok,
 	Targy targy)
 	{
 		this.jegmezo = jegmezo;
 		this.atVanFordulva =	atVanFordulva;
 		this.ho = ho;
 		this.tartokepesseg = tartokepesseg;
-		this.szomszedok = szomszedok; 
+		szomszedok = new ArrayList<>(); 
+		
+		for(int i = 0; i < 4; i++)
+			szomszedok.add(null);
 		this.vanRajtaIglu = vanRajtaIglu;
-		this.jatekosok = jatekosok;
+		
+		jatekosok = new ArrayList<>(); 
 		this.targy = targy;
 	}
 	
+	/**
+	 * Hozzáadja a megadott irányú szomszédaihoz a megadott jégtáblát
+	 * @param j - a jégtábla, amit fel akarunk venni a szomszédok közé
+	 * @param i - azt adja meg, hogy a jégtáblának melyik irányba lesz a szomszédja
+	 */
+	public void setSzomszed(Jegtabla j, Irany i)
+	{
+		int idx = 0;
+		//(Jobb(0), Bal(1), Fel(2),Le(3))
+		switch(i) {
+			case Jobb:
+				idx = 0;
+				break;
+			case Bal:
+				idx = 1;
+				break;
+			case Fel:
+				idx = 2;
+				break;
+			default:
+				idx = 3;
+				break;
+		}
+			
+		szomszedok.set(idx, j);
+		
+	}
+	
+	
+	/**
+	 * Felveszi a játékost a táblára és átállítja az aktjegtabla attribútumát, ha azzal nem borulna fel
+	 * @param j - a játékos, akit hozzá akarunk adni a táblához
+	 * @return visszaadja, hogy sikerült-e felvenni a játékost a jégtáblára
+	 */
+	public boolean addJatekos(Jatekos j)
+	{
+		
+		if(jatekosok.size() + 1 > tartokepesseg)
+			return false;
+		else
+		{
+			j.setaktjegtabla(this);
+			jatekosok.add(j);
+			return true;
+		}
+		
+	}
 	/**
 	 * Csökkenti a Jégtábla hó mennyiségét i-vel, ha nulla alá megy a hó, akkor -1-re állítjuk a hómennyiséget és a rajta lévõ tárgyat kiásottnak tekintjük.
 	 * Ha -1 vagy az alatti a hó mennyiség nem történik semmi
