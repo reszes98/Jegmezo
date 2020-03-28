@@ -18,11 +18,37 @@ public class Buvarruha implements Targy
 	
 	
 	/**
-	 * meghívja a visitor visit függvényét.
+	 * Hozzáadja a búvárruhát a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
-	public void accept(Visitor v, Jatekos j)
-	{
-		v.visit(this, j);
+	public boolean felvesz(Jatekos j) {
+		
+		boolean sikeres = j.targyHozzadasa(this);
+		
+		if(sikeres)
+			System.out.println("Buvarruha sikeresen felveve");
+		
+		else 
+			System.out.println("A buvarruhat nem sikerult felvenni");
+			
+		
+		return sikeres;
+	}
+
+	
+	/**
+	 * a játékost áthelyezi a kapott irányba és visszaadja, hogy sikerült-e
+	 */
+	public boolean hasznal(Jatekos j) {
+		
+		boolean sikeres = j.athelyez(j.getIranyAmibeNez());
+		
+		if(sikeres)
+			System.out.println("Buvarruha sikeresen hasznalva");
+		else
+			System.out.println("A buvarruhat nem sikertelenul hasznalni");
+		
+		
+		return sikeres;
 	}
 	
 	

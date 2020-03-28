@@ -17,8 +17,6 @@ public class Eszkimo extends Jatekos
 	/**
 	 * Az eszkimó konstruktora, meghívja a Játékos konstuktorát
 	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
-	 * @param felveszVisitor - a Játékos felvesz tevékenységét kezelõ visitor
-	 * @param hasznalVisitor - a Játékos hasznal tevékenységét kezelõ visitor
 	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
 	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
 	 * @param testho - a Játékos hátralévõ testhõje
@@ -26,8 +24,6 @@ public class Eszkimo extends Jatekos
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
 	public Eszkimo(Jegtabla aktjegtabla,
-	FelveszVisitor felveszVisitor,
-	HasznalVisitor hasznalVisitor,
 	int jelzopisztolydb,
 	int Munkadb,
 	int testho,
@@ -35,8 +31,6 @@ public class Eszkimo extends Jatekos
 	Irany iranyAmibeNez) 
 	{
 		super(aktjegtabla, 
-				felveszVisitor,
-				hasznalVisitor,
 				jelzopisztolydb,
 				Munkadb,
 				testho,

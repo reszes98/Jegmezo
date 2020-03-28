@@ -118,8 +118,43 @@ public class Jegtabla implements Frissitheto
 		return szomszedok.get(i);
 	}
 	
-	public void targyFelvesz(Jatekos j)
+	
+	/**
+	 * Meghívja a rajtalévõ tárgy felvesz függvényét, ha a hó rajta -1
+	 * @param j - a Játékos, aki fel akarja venni a tárgyat
+	 * @return Visszaadja, hogy sikeres volt-e a tárgyfelvétel
+	 */
+	public boolean targyFelvesz(Jatekos j)
 	{
+		if(ho == -1)
+		{
+			if(targy != null)
+			{
+				boolean sikeres =  targy.felvesz(j);
+				if(sikeres)
+				{
+					System.out.println("A jegtablarol valo targy felvetel sikeres volt");
+					targy = null; // töröljük a tárgyat a tábláról
+				}
+				
+				else 
+					System.out.println("A jegtablarol valo targy felvetel nem volt sikeres");
+				
+				
+				return sikeres;
+			}
+			else
+			{
+				System.out.println("A jegtablan nincs targy");
+				return false;
+			}
+		
+		}
+		else
+		{
+			System.out.println("A jegtablan levo targyat meg ho takarja");
+			return false;
+		}
 	}
 	
 	/**

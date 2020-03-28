@@ -13,11 +13,46 @@ package Jegmezo;
 
 public class Aso implements Targy
 {
+	
 	/**
-	 * meghívja magára a visitort a paraméterében lévõ játékossal
+	 * Hozzáadja az ásót a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
-	public void accept(Visitor v, Jatekos j)
-	{
-		v.visit(this, j);
+	public boolean felvesz(Jatekos j) {
+		
+		boolean sikeres = j.targyHozzadasa(this);
+		
+		if(sikeres)
+		{
+			System.out.println("Aso sikeresen felveve");
+			
+		}
+		else 
+			System.out.println("Az asot nem sikerult felvenni");
+	
+		
+		return sikeres;
+	}
+
+	
+	/**
+	 *	Az ásó használ tevékenységét valósítja meg. Csökkenti a a hó mennyiségét 2-vel annak
+	 *Jégtáblának,ami abba az irányba van, amibe a Játékos, aki az ásót használja, néz. Es visszaadja, hogy sikerült-e
+	 */
+	public boolean hasznal(Jatekos j) {
+		
+		Irany i = j.getIranyAmibeNez();
+		Jegtabla jt = j.JegtablaLekerdez();
+		Jegtabla szJegtabla = jt.szomszedKerdez(i);
+		
+		boolean sikeres = szJegtabla.asas(2);
+		
+		if(sikeres)
+			System.out.println("Aso sikeresen hasznalva");
+		else
+			System.out.println("Aso sikertelenul hasznalva");
+		
+		
+		return sikeres;
+		
 	}
 }

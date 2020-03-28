@@ -19,15 +19,41 @@ public class Elelem implements Targy
 	
 	
 	/**
-	 * meghívja a visitor visit függvényét.
+	 * Hozzáadja az élelmet a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
-	public void accept(Visitor v, Jatekos j)
-	{
-		v.visit(this, j);
+	public boolean felvesz(Jatekos j) {
+		
+		boolean sikeres = j.targyHozzadasa(this);
+		
+		if(sikeres)
+			System.out.println("Elelem sikeresen felveve");
+		else 
+			System.out.println("Az elelmet nem sikerult felvenni");
+		
+		return sikeres;
+	}
+
+	
+	/**
+	 * a játékos testhõjét növeli azzal, hogy megeszi, azaz felhasználja az élelmet és visszaadja, hogy sikerült-e
+	 */
+	public boolean hasznal(Jatekos j) {
+		boolean sikeres = j.testhoNovelese(pont);
+		
+		if(sikeres) 
+		{
+			System.out.println("Elelem sikeresen hasznalva");
+			j.targyEltavolitasa(this);
+		}
+		else
+			System.out.println("Nem sikerult hasznalni az elelmet");
+		
+		
+		return sikeres;
 	}
 	
 	/**
-	 * @return Visszaadja az élelem pont értékét, ami azt adja meg, hogy mennyivel nõveli az étel a Játékos testhõjét
+	 * @return Visszaadja az élelem pont értékét, ami azt adja meg, hogy mennyivel nõveli az étel a Játékos testhõjét 
 	 */
 	public int getPont()
 	{

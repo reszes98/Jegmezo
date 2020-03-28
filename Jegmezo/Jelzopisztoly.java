@@ -10,17 +10,51 @@ package Jegmezo;
 //
 //
 
-
-
+import java.util.List;
 
 public class Jelzopisztoly implements Targy
 {
+	
 	/**
-	 * meghívja magára a visitort a paraméterében lévõ játékossal
+	 *	Hozzáadja a jelzõpisztoly darabot a Játékoshoz és növeli a jelzõpisztoly darabjainak a számát és visszaadja, hogy sikerült-e
 	 */
-	public void accept(Visitor v, Jatekos j)
-	{
-		v.visit(this, j);
+	public boolean felvesz(Jatekos j) {
+	
 		
+		boolean sikeres = j.targyHozzadasa(this);
+		
+		if(sikeres)
+		{
+			System.out.println("Jelzopisztoly sikeresen felveve");
+			j.jelzopisztolyDarabokNovelese();
+		}
+		else 
+			System.out.println("A jelzopisztolyt nem sikerult felvenni");	
+		
+		return sikeres;
+	}
+
+	/**
+	 *	A jelzõpisztoly használ tevékenységét valósítja meg. Megpróbálja összeszerelni a jelzõpisztoly és és visszaadja, hogy sikerült-e
+	 */
+	public boolean hasznal(Jatekos j) {
+		
+		int jelzopisztolyDB = j.getjelzopisztolydb();
+		List<Jatekos> jatekosok = j.aktjegtabla.jatekosokLekerdez();
+		
+		for(int i = 0; i < jatekosok.size(); i++)
+			jelzopisztolyDB += jatekosok.get(i).getjelzopisztolydb();
+		
+		if(jelzopisztolyDB == 3)
+		{
+			System.out.println("Sikeres összeszerelés (pew pew)");
+			jm.jatekvege(true);
+			return true;
+		}
+		else
+		{
+			System.out.println("Sikertelen összeszerelés :/");
+			return false;
+		}
 	}
 }

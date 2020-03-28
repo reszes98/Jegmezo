@@ -15,8 +15,6 @@ import java.util.List;
 public abstract class Jatekos implements Frissitheto
 {
 	protected Jegtabla aktjegtabla;
-	private FelveszVisitor felveszVisitor;
-	private HasznalVisitor hasznalVisitor;
 	private int jelzopisztolydb;
 	protected int Munkadb;
 	private int testho;
@@ -27,8 +25,6 @@ public abstract class Jatekos implements Frissitheto
 	/**
 	 * Konstruktor, ami létrehozza a Játékost a medadott paraméterekkel
 	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
-	 * @param felveszVisitor - a Játékos felvesz tevékenységét kezelõ visitor
-	 * @param hasznalVisitor - a Játékos hasznal tevékenységét kezelõ visitor
 	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
 	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
 	 * @param testho - a Játékos hátralévõ testhõje
@@ -36,8 +32,6 @@ public abstract class Jatekos implements Frissitheto
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
 	public Jatekos(Jegtabla aktjegtabla,
-	FelveszVisitor felveszVisitor,
-	HasznalVisitor hasznalVisitor,
 	int jelzopisztolydb,
 	int Munkadb,
 	int testho,
@@ -45,8 +39,6 @@ public abstract class Jatekos implements Frissitheto
 	Irany iranyAmibeNez)
 	{
 		this.aktjegtabla = aktjegtabla;
-		this.felveszVisitor = felveszVisitor;
-		this.hasznalVisitor = hasznalVisitor;
 		this.jelzopisztolydb = jelzopisztolydb;
 		this.Munkadb = Munkadb;
 		this.testho = testho;
@@ -72,18 +64,24 @@ public abstract class Jatekos implements Frissitheto
 		
 	}
 	
+	
 	/**
-	 * @param i i irányban lévõ szomszédos jégmezõre helyezi át a játékost.
+	 * @param i - i irányban lévõ szomszédos jégmezõre helyezi át a játékost.
+	 * @return Visszaadja, hogy sikeres volt-e az áthelyezés
 	 */
-	public void athelyez(Irany i)
+	public boolean athelyez(Irany i)
 	{
 		Jegtabla szomszed=aktjegtabla.szomszedKerdez(i);
 		if (szomszed!=null) {
 			aktjegtabla=szomszed;
 			System.out.println("Sikeresen athelyezve");
+			return true;
 		}
 		else 
+		{
 			System.out.println("Nem sikerult athelyezni");
+			return false;
+		}
 	}
 	
 	public void kilep(Jegtabla j)
@@ -171,7 +169,9 @@ public abstract class Jatekos implements Frissitheto
 	
 	public void pisztolyepit()
 	{
+		
 	}
+	
 	
 	/**
 	 * Beállítja a játékost, hogy abba az irányba nézzen, amit megadunk
@@ -183,32 +183,123 @@ public abstract class Jatekos implements Frissitheto
 	}
 	
 	
+	
+	/**
+	 * Meghívja a megadott indexû tárgyra a használ függvényt
+	 * @param idx - annak a Tárgynak az indexe, amit használni akarunk
+	 */
+	public void targyHasznalat(int idx)
+	{
+		if(targyak != null)
+		{
+			boolean sikeres = targyak.get(idx).hasznal(this);
+			if(sikeres)
+			{
+				System.out.println("A targyhasznalat sikerult");
+				this.MunkaDBcsokkentese(1);
+			}
+			else 
+				System.out.println("A targy hasznalat nem sikerult");
+		}
+			
+	}
+	
+	/**
+	 * Megpróbálja felvenni a tárgyat a jégtábláról, amin áll
+	 */
+	public void targyFelvetel()
+	{
+		
+		boolean sikeres = aktjegtabla.targyFelvesz(this);
+		if(sikeres)
+		{
+			System.out.println("A targyfelvetel sikerult");
+			this.MunkaDBcsokkentese(1);
+		}
+		else
+			System.out.println("A targyfelvetel nem sikerult");
+		
+			
+	}
+	
 	/**
 	 * @param t - tárgyat hozzáadja a játékos tárgyaihoz
 	 */
-	public void targyfelvetel(Targy t)
+	public boolean targyHozzadasa(Targy t)
 	{
+		Át kell nézni
+		
 		int i=targyak.size();
 		targyak.add(t);
 		int j=targyak.size();
 		if (i==j) {
 			System.out.println("Targy hozzaadva");
+			return true;
 		}
 		else 
+		{
 			System.out.println("Nem sikerult felvenni a targyat");
+			return false;
+		}
 	}
 	
 	/**
+	 * Eltávolítja a paraméterben megadott tárgyat
+	 * @param t - a tárgy, amit el akarunk távolítani
+	 */
+	public void targyEltavolitasa(Targy t)
+	{
+		targyak.remove(t);
+	}
+	
+
+	/**
 	 * @param mennyivel - noveli a testhot ezzel az értékkel, de a testhõt 
 	 * max 6-ig tudjuk növelni.
+	 * @return visszatér azzal, hogy 
 	 */
-	public void testhoNovelese(int mennyivel)
+	public boolean testhoNovelese(int mennyivel)
 	{
 		testho+= mennyivel;
-		if (testho>6) {
+		if (testho > 6) {
 			testho=6;
 			System.out.println("Testhot 6-ig lehet csak növelni.");
+			return false;
 		}
-		else System.out.println("Testho novelve");
+		else
+		{
+			System.out.println("Testho novelve");
+			return true;
+		}
 	}
+	
+	/**
+	 * csökkenti a megadott mennyiséggel a játékos munkaDB-jét
+	 * Ha nullára csökken átadjuk a kört a következõ játékosnak
+	 * @param mennyivel - mennyivel csökkentsük a MunkaDB-t
+	 */
+	public void MunkaDBcsokkentese(int mennyivel)
+	{
+		
+		if(Munkadb - mennyivel < 0)
+		{
+			Munkadb = 0;
+			System.out.println("Elfogytak a munkaid pajtas :)) ");
+			korVege();
+		}
+		else
+			Munkadb -= mennyivel;
+			
+		
+		
+	}
+	
+	/**
+	 * Akkor hívódik meg, ha nulára csökkent a Játékos Munkadb-je
+	 */
+	public void korVege()
+	{
+		
+	}
+	
 }

@@ -3,12 +3,12 @@ package Jegmezo;
 import java.util.Scanner;
 
 public class Menu {
-	private
-		int answer = 0;
-		Scanner in = new Scanner(System.in);
 	
-	public
-	void main () {		
+	private int answer = 0;
+	private Scanner in = new Scanner(System.in);
+	
+	
+		public void main () {		
 		System.out.print("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n 1 - Játék indítás\n 2 - Kilépés\n 3 - Elõzõ játék betöltése");
 		answer =  in.nextInt();
 		
@@ -27,7 +27,7 @@ public class Menu {
 		}
 	}
 	
-	void jatekosszam () {	
+		public void jatekosszam () {	
 		System.out.print("Hányan fogtok játszani?\n");
 		
 		boolean megfelelo = false;

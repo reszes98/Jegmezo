@@ -10,14 +10,45 @@ package Jegmezo;
 //
 //
 
-
-
+import java.util.List;
 
 public class Kotel implements Targy
 {
-	public void accept(Visitor v, Jatekos j)
-	{
-		v.visit(this, j);
+	
+	
+	/**
+	 * Hozzáadja a kötelet a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
+	 */
+	public boolean felvesz(Jatekos j) {
+		boolean sikeres = j.targyHozzadasa(this);
+		
+		if(sikeres)
+		{
+			System.out.println("Kotel sikeresen felveve");
+		}
+		else 
+			System.out.println("A Kotelet nem sikerult felvenni");	
+		
+		return sikeres;
+	}
+
+	
+	/**
+	 * Lekérdezi az irányt, amibenéz, majd lekéri a szomszédosjégtáblát és   
+	 * elkezd végig menni a játékosok listáján, aki ott van és áthelyezi õket és visszaadja, hogy sikerült-e
+	 */
+	public boolean hasznal(Jatekos j) {
+		Irany i = j.getIranyAmibeNez();
+		Jegtabla jt = j.JegtablaLekerdez();
+		Jegtabla szJegtabla = jt.szomszedKerdez(i);
+		
+		List<Jatekos> jatekos = szJegtabla.jatekosokLekerdez();
+		for(int jsz = 0; jsz < jatekos.size(); jsz++) {
+			jatekos.get(jsz).athelyez(i);
+		}
+		
+		return true;
+		
 	}
 	
 	
