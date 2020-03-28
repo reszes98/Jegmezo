@@ -41,7 +41,7 @@ public abstract class Jatekos implements Frissitheto
 	{
 		this.jegmezo = jegmezo;
 		this.jegmezo.addFrissitheto(this);
-		this.aktjegtabla = aktjegtabla;
+		this.aktjegtabla = null;
 		this.jelzopisztolydb = jelzopisztolydb;
 		this.Munkadb = Munkadb;
 		this.testho = testho;
