@@ -45,6 +45,7 @@ public class Menu {
 		
 		
 		do {
+			System.out.println("\n\n");
 			System.out.println("Mit szeretne? (nyomja meg a megfelelõ menüpontot)\n "
 					+ "1 - Ásás\n 2 - Ásó felvesz\n 3 - Ásó használ\n "
 					+ "4 - Búvárruha felvesz\n 5 - Búvárruha használ\n "
@@ -57,6 +58,7 @@ public class Menu {
 			
 			System.out.print("Valasztas: ");
 			answer =  in.nextInt();
+			System.out.println("\n\n");
 			
 			switch(answer) {
 				case 1:

@@ -149,7 +149,6 @@ public abstract class Jatekos implements Frissitheto
 	public void jelzopisztolyDarabokNovelese()
 	{
 		jelzopisztolydb++;
-		if(jelzopisztolydb>3) jelzopisztolydb=3;
 	}
 	
 	public Jegtabla JegtablaLekerdez()
@@ -232,7 +231,6 @@ public abstract class Jatekos implements Frissitheto
 		else
 			System.out.println("A targyfelvetel nem sikerult");
 		
-			
 	}
 	
 	/**
