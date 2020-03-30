@@ -52,9 +52,9 @@ public class Menu {
 					+ "6 - Élelem felvesz\n 7 - Élelem használ/testhõ növelése\n"
 					+ "8 - Hóvihar\n 9 - Iglu építés\n 10 - Jelzõpisztoly felvesz\n "
 					+ "11 - Jelzõpisztoly használ\n 12 - Kötél felvesz\n "
-					+ "13 - Kötél használ\n 14 - Lépés\n 15 - Szomszédos Jégtábla\n"
+					+ "13 - Kötél használ\n 14 - Lépés\n 15 - Szomszédos Jégtábla vizsgálata\n"
 					+ "16 - Targyakat hasznal \n"
-					+ "vizsgálata\n 66 - Kilép ");
+					+ " 66 - Kilép ");
 			
 			System.out.print("Valasztas: ");
 			answer =  in.nextInt();

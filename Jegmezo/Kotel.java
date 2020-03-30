@@ -50,7 +50,6 @@ public class Kotel implements Targy
 		else
 			System.out.println("Nem sikerult hasznalni a kotelet");
 		
-		
 		return sikeres;
 		
 		/*Irany i = j.getIranyAmibeNez();

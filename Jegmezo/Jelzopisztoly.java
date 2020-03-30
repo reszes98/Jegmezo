@@ -40,7 +40,7 @@ public class Jelzopisztoly implements Targy
 	public boolean hasznal(Jatekos j) {
 		
 		int jelzopisztolyDB = 0;
-		List<Jatekos> jatekosok = j.aktjegtabla.jatekosokLekerdez();
+		List<Jatekos> jatekosok = j.JegtablaLekerdez().jatekosokLekerdez();
 		
 		for(int i = 0; i < jatekosok.size(); i++)
 			jelzopisztolyDB += jatekosok.get(i).getjelzopisztolydb();
