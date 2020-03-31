@@ -115,6 +115,9 @@ public class Menu {
 				case 16:
 					targyHasznal();
 					break;
+				case 66:
+					System.out.println("Kilépett");
+					break;
 				default:
 					System.out.println("Válasszon a megadott menüpontok közül");
 			}
@@ -139,13 +142,13 @@ public class Menu {
 			Aso a=new Aso();
 			Kotel k = new Kotel();
 			Buvarruha b = new Buvarruha();
-			Jelzopisztoly jp = new Jelzopisztoly();
+			//Jelzopisztoly jp = new Jelzopisztoly();
 			Elelem e = new Elelem(1);
 			
 			targyak.add(a);
 			targyak.add(k);
 			targyak.add(b);
-			targyak.add(jp);
+			//targyak.add(jp);
 			targyak.add(e);
 			
 			
