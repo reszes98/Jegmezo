@@ -247,6 +247,7 @@ public class Jegtabla implements Frissitheto
 	 */
 	public void addJegesmedve(Jegesmedve j)
 	{
+		System.out.println("Jegesmedve a jegtablara elheyezve");
 			j.setjegtablaAminAll(this);
 			jegesmedvek.add(j);
 	}
@@ -392,6 +393,7 @@ public class Jegtabla implements Frissitheto
 	public void jegtablaVedelmenekEltavolitasa()
 	{
 		jegtablaVedelme = null;
+		System.out.println("Jegtabla vedelme eltavolitva");
 	}
 	
 	
