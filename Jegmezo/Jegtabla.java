@@ -20,8 +20,9 @@ public class Jegtabla implements Frissitheto
 	private int ho;
 	private int tartokepesseg;
 	private List<Jegtabla> szomszedok;
-	private boolean vanRajtaIglu;
+	private Vedelem jegtablaVedelme;
 	private List<Jatekos> jatekosok;
+	private List<Jegesmedve> jegesmedvek;
 	private Targy targy;
 	
 	
@@ -31,14 +32,14 @@ public class Jegtabla implements Frissitheto
 	 * @param atVanFordulva - azt adja meg, hogy át van-e fordulva
 	 * @param ho - a kezdeti hómennyiséget adja meg
 	 * @param tartokepesseg - a tartóképességét adja meg
-	 * @param vanRajtaIglu - azt adja meg, hogy van-e rajta iglu
+	 * @param jegtablaVedelme - azt adja meg, hogy van-e védelem a jégtáblán
 	 * @param targy - a benne lévõ tárgyat adja meg. Ha nincs benne tárgy, akkor null legyen az értéke
 	 */
 	public Jegtabla(Jegmezo jegmezo,
 	boolean atVanFordulva,
 	int ho,
 	int tartokepesseg,
-	boolean vanRajtaIglu,
+	Vedelem jegtablaVedelme,
 	Targy targy)
 	{
 		this.jegmezo = jegmezo;
@@ -50,7 +51,8 @@ public class Jegtabla implements Frissitheto
 		
 		for(int i = 0; i < 4; i++)
 			szomszedok.add(null);
-		this.vanRajtaIglu = vanRajtaIglu;
+		
+		this.jegtablaVedelme = jegtablaVedelme;
 		
 		jatekosok = new ArrayList<>(); 
 		this.targy = targy;
@@ -130,12 +132,13 @@ public class Jegtabla implements Frissitheto
 	}
 	
 	/**
-	 * Átfordítja a táblát
+	 * Átfordítja a táblát és törli a rajta lévõ védelmet
 	 */
 	public void atfordit()
 	{
 		atVanFordulva = true;
 		System.out.println("Jaj! Felfordult a tábla!");
+		this.jegtablaVedelme = null;
 	}
 	
 	/**
@@ -162,9 +165,13 @@ public class Jegtabla implements Frissitheto
 	 * Új kör elején megnézi, hogy át van-e fordulva és ha igen és vannak rajta játékosok, akkor szól a jégmezõnek, 
 	 * hogy ezek a játékosok meghaltak.
 	 * Ha át van fordulva és nincs rajta senki akkor visszafordítjuk a jégtáblát
+	 * Meghívja a rajtalévõ védelem frissites függvényét
 	 */
 	public void frissit()
 	{	
+		if(jegtablaVedelme != null)
+			jegtablaVedelme.frissit();
+		
 		if(atVanFordulva) {
 			for(int i = 0; i < jatekosok.size(); i++)
 				jegmezo.meghalt(jatekosok.get(i));
@@ -194,9 +201,12 @@ public class Jegtabla implements Frissitheto
 	
 	/**
 	 *meghívja a honoveles fügvényt
+	 ** Meghívja a rajtalévõ védelem hovihar függvényét
 	 */
 	public void hovihar()
 	{
+		if(jegtablaVedelme != null)
+			jegtablaVedelme.hovihar();
 		this.hoNovelese();
 	}
 	
@@ -204,7 +214,7 @@ public class Jegtabla implements Frissitheto
 	 * Épít egy iglut magára, ha már nincs rajta egy iglu
 	 * @return Visszatér azzal, hogy építetet-e iglut magára
 	 */
-	public boolean iglutEpit()
+	/*public boolean igluEpitese()
 	{
 		if(vanRajtaIglu) {
 			System.out.println("Mar van rajta Iglu. ");
@@ -215,7 +225,7 @@ public class Jegtabla implements Frissitheto
 			vanRajtaIglu = true;
 			return true;
 		}
-	}
+	}*/
 	
 	/**
 	 * Eltávolítja paraméterben megadott játékost a jégtábla játékosai közül
@@ -227,6 +237,30 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Jatekos eltavolitva a tablarol");
 		/*if(jatekosok.size() <= tartokepesseg)
 			visszaFordit();*/
+	}
+	
+	
+	
+	/**
+	 * Hozzáadja a paraméterben megadott jegesmedvét a jégtáblához és beállítja a jegesmedbe jegtablaAminAll attribútumát
+	 * @param j - A jegesmedve, akot hozzá akarunk adni a Jégáblához
+	 */
+	public void addJegesmedve(Jegesmedve j)
+	{
+			j.setjegtablaAminAll(this);
+			jegesmedvek.add(j);
+	}
+	
+	
+	
+	/**
+	 * Eltávolítja a paraméterben megadott jegesmedvét a jégtábláról
+	 * @param j - A jegesmedve, akit el akarunk távolítani a Jégtábláról
+	 */
+	public void JegesmedveEltavolit(Jegesmedve j)
+	{
+		jegesmedvek.remove(j);
+		System.out.println("Jegesmedve eltavolitva a tablarol");
 	}
 	
 	public List<Jatekos> jatekosokLekerdez()
@@ -318,10 +352,10 @@ public class Jegtabla implements Frissitheto
 	/**
 	 * @return visszaadja, hogy van e iglu a jégtáblán
 	 */
-	public boolean VanRajtaIgluLekerdez()
+	/*public boolean VanRajtaIgluLekerdez()
 	{
 		return vanRajtaIglu;
-	}
+	}*/
 	
 	
 	/**
@@ -339,5 +373,33 @@ public class Jegtabla implements Frissitheto
 	public void setTargy(Targy t)
 	{
 		targy = t;
+	}
+	
+	
+	/**
+	 * Beállítja a jégtábla védelmét a megadott Védelemre
+	 * @param v - A védelem, amit be akarunk állítani a Jégtáblára
+	 */
+	public void setjegtablaVedelme(Vedelem v)
+	{
+		jegtablaVedelme = v;
+	}
+	
+	
+	/**
+	 * Eltávolítja a Jégtáblán lévõ védelmet
+	 */
+	public void jegtablaVedelmenekEltavolitasa()
+	{
+		jegtablaVedelme = null;
+	}
+	
+	
+	/**
+	 * @return Visszaadja a jégtáblán lévõ védelmet vagy nullt, ha nincs rajta védelem
+	 */
+	public Vedelem getjegtablaVedelme()
+	{
+		return jegtablaVedelme;
 	}
 }

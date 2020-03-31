@@ -15,7 +15,7 @@ public class Menu {
 		public void main() {	
 			//példányok:
 			Jegmezo jm=new Jegmezo(4);
-			Jegtabla jt = new Jegtabla(jm, false, 1, 2,false, null);
+			Jegtabla jt = new Jegtabla(jm, false, 1, 2,null, null);
 			List<Targy> targyak=new ArrayList<Targy>();
 			Sarkkutato j=new Sarkkutato(jm,0,5,5,targyak,Irany.Jobb);
 			Eszkimo eszk= new Eszkimo(jm,0,5,5,targyak,Irany.Jobb);
@@ -23,10 +23,10 @@ public class Menu {
 			jt.addJatekos(eszk);
 			
 			//jégtábla szomszédai, hogy ne nullra hívjuk a függvényeket
-			Jegtabla jtj = new Jegtabla(jm, false, 1, 2,false, null);
-			Jegtabla jtb = new Jegtabla(jm, false, 1, 2,false, null);
-			Jegtabla jtf = new Jegtabla(jm, false, 1, 2,false, null);
-			Jegtabla jtl = new Jegtabla(jm, false, 1, 2,false, null);
+			Jegtabla jtj = new Jegtabla(jm, false, 1, 2,null, null);
+			Jegtabla jtb = new Jegtabla(jm, false, 1, 2,null, null);
+			Jegtabla jtf = new Jegtabla(jm, false, 1, 2,null, null);
+			Jegtabla jtl = new Jegtabla(jm, false, 1, 2,null, null);
 			
 			jt.setSzomszed(jtj, Irany.Jobb);
 			jt.setSzomszed(jtb, Irany.Bal);
@@ -84,8 +84,8 @@ public class Menu {
 					break;
 				case 8:
 					Jegmezo jm2 = new Jegmezo(1);
-					Jegtabla jt2 = new Jegtabla(jm2, false, 1, 2,false, null);
-					Jegtabla jt3 = new Jegtabla(jm2, false, 1, 2,false, null);
+					Jegtabla jt2 = new Jegtabla(jm2, false, 1, 2,null, null);
+					Jegtabla jt3 = new Jegtabla(jm2, false, 1, 2,null, null);
 					Sarkkutato j2 = new Sarkkutato(jm2,0,5,5,targyak,Irany.Jobb);
 					j2.setaktjegtabla(jt2);
 
@@ -125,11 +125,11 @@ public class Menu {
 		{
 			List<Targy> targyak = new ArrayList<>();
 			Jegmezo jm=new Jegmezo(4);
-			Jegtabla jt = new Jegtabla(jm, false, 1, 0,false, null);
-			Jegtabla jt0 = new Jegtabla(jm, false, 1, 0,false, null);
-			Jegtabla jt1 = new Jegtabla(jm, false, 1, 2,false, null);
-			Jegtabla jt2 = new Jegtabla(jm, false, 1, 2,false, null);
-			Jegtabla jt3 = new Jegtabla(jm, false, 1, 2,false, null);
+			Jegtabla jt = new Jegtabla(jm, false, 1, 0,null, null);
+			Jegtabla jt0 = new Jegtabla(jm, false, 1, 0,null, null);
+			Jegtabla jt1 = new Jegtabla(jm, false, 1, 2,null, null);
+			Jegtabla jt2 = new Jegtabla(jm, false, 1, 2,null, null);
+			Jegtabla jt3 = new Jegtabla(jm, false, 1, 2,null, null);
 			
 			jt.setSzomszed(jt0, Irany.Jobb);
 			jt.setSzomszed(jt1, Irany.Bal);
@@ -161,7 +161,7 @@ public class Menu {
 		}
 		public void pisztolyepit() {
 			Jegmezo jm=new Jegmezo(4);
-			Jegtabla jt = new Jegtabla(jm, false, 1, 2,false, null);
+			Jegtabla jt = new Jegtabla(jm, false, 1, 2,null, null);
 			List<Targy> targyak=new ArrayList<Targy>();
 			Sarkkutato j=new Sarkkutato(jm,0,5,5,targyak,Irany.Jobb);
 			jt.addJatekos(j);

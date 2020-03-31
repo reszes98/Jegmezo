@@ -43,18 +43,13 @@ public class Eszkimo extends Jatekos
 	 */
 	public void kepesseg(Jegtabla j)
 	{
-		boolean sikeres = j.iglutEpit();
 		
-		if(sikeres)
-		{
-			Munkadb--;
-			System.out.println("Iglu epitese sikeres");
-		}
-		else
-		{
-			System.out.println("Iglu epitese sikertelen");
-		}
+		Iglu i = new Iglu();
 		
+		j.setjegtablaVedelme(i);
+		
+		System.out.println("Iglu epitese sikeres");
+		this.MunkaDBcsokkentese(1);
 		
 		
 	}

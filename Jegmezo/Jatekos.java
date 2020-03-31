@@ -121,15 +121,16 @@ public abstract class Jatekos implements Frissitheto
 	
 	
 	/**
-	 * ha nincs iglu a jégtáblán ahol van, akkor meghívja a fázás függvényt, ha a testhõje 0-ra 
+	 * ha nincs védelem a jégtáblán ahol van, akkor meghívja a fázás függvényt, ha a testhõje 0-ra 
 	 * csökken meghal, ezt jelzi a jégmezõnek
 	 */
 	public void hovihar()
 	{
-		boolean iglu=aktjegtabla.VanRajtaIgluLekerdez();
-		if(!iglu) {
-			this.fazas(1);
+		Vedelem  v =aktjegtabla.getjegtablaVedelme();
+		if(v == null) {
+			fazas(1);
 		}
+		
 		if(testho==0) {
 			jegmezo.meghalt(this);
 		}
