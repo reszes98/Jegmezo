@@ -47,6 +47,7 @@ public class Sarkkutato extends Jatekos
 	public void kepesseg(Jegtabla j)
 	{
 		System.out.println("A jegtabla tartokepessege: " + j.gettartokepesseg());
+		MunkaDBcsokkentese(1);
 	}
 	
 }

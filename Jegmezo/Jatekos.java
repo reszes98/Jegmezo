@@ -60,7 +60,7 @@ public abstract class Jatekos implements Frissitheto
 		boolean sikeres = aktjegtabla.asas(1);
 		if(sikeres)
 		{
-			Munkadb--;
+			this.MunkaDBcsokkentese(1);
 			System.out.println("Asas sikeresen elvegezve");
 		}
 		else
@@ -291,9 +291,6 @@ public abstract class Jatekos implements Frissitheto
 		}
 		else
 			Munkadb -= mennyivel;
-			
-		
-		
 	}
 	
 	/**

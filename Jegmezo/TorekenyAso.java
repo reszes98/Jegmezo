@@ -33,9 +33,10 @@ public class TorekenyAso implements Targy{
 
 	
 	/**
-	 * A törékeny ásó használ tevékenységét valósítja meg. Csökkenti a a hó mennyiségét 2-vel annak
-	 *Jégtáblának,ami abba az irányba van, amibe a Játékos, aki az ásót használja, néz. Es visszaadja, hogy sikerült-e.
-	 *Ha sikerült csökkenti a tartósságát eggyel és ha nullára esik a tartóssága eltörik és eltávolítja magát a játékos tárgyai közül
+	 * A törékeny ásó használ tevékenységét valósítja meg. Csökkenti a hó mennyiségét 2-vel annak
+	 *Jégtáblának,ami abba az irányba van, amibe a Játékos, aki az ásót használja, néz. 
+	 *Ha sikerült csökkenti a tartósságát eggyel és ha nullára esik a tartóssága eltörik és eltávolítja magát a játékos tárgyai közül.
+	 *És visszaadja, hogy sikerült-e.
 	 */
 	public boolean hasznal(Jatekos j) {
 		Irany i = j.getIranyAmibeNez();
