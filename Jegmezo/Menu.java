@@ -58,6 +58,12 @@ public class Menu {
 					+ "18 - Jatekos Athelyez \n"
 					+ "19 - Jatekos hovihar \n"
 					+ "20 - Jatekos Lep \n"
+					+ "21 - Eszkimo kepesseg \n"
+					+ "22 - Iglu hovihar \n"
+					+ "23 - Iglu frissit \n"
+					+ "24 - Iglu jegesmedve tamadas \n"
+					+ "25 - Jatekos frissit \n"
+					+ "26 - Jegesmedve frissit \n"
 					+ " 66 - Kilép ");
 			
 			System.out.print("Valasztas: ");
@@ -66,13 +72,25 @@ public class Menu {
 			
 			switch(answer) {
 				case 1:
-					Asas();
+					System.out.println("Mit szeretne?"
+							+ "1 - Asas\n"
+							+ "2 - Targy kiasas\n"
+							+ "3 - Sikertelen Asas\n");
+					System.out.print("Valasztas: ");
+					answer =  in.nextInt();
+					Asas(answer);
 			    	break;
 				case 2:
 					AsotFelvesz();
 			    	break;
 				case 3:
-					AsotHasznal();
+						System.out.println("Mit szeretne?"
+									+ "1 - Asoval asas\n"
+									+ "2 - Asoval Targy kiasas\n"
+									+ "3 - Asoval sikertelen Asas\n");
+						System.out.print("Valasztas: ");
+							answer =  in.nextInt();
+					AsotHasznal(answer);
 			    	break;
 				case 4:
 					BuvarruhaFelvesz();
@@ -84,7 +102,12 @@ public class Menu {
 					ElelemFelvesz();
 			    	break;
 				case 7:
-					ElelemHasznal();
+					System.out.println("Mit szeretne?"
+							+ "1 - Elemlem hasznalata\n"
+							+ "2 - Elelem sikertelen hasznalata");
+				System.out.print("Valasztas: ");
+					answer =  in.nextInt();
+					ElelemHasznal(answer);
 					break;
 				case 8:
 					Jegmezo jm2 = new Jegmezo(1);
@@ -123,13 +146,56 @@ public class Menu {
 					EszkimoKepesseg();
 					break;
 				case 18:
-					JatekosAthelyez();
+					System.out.println("Mit szeretne?"
+							+ "1 - Jatekos athelyezese\n"
+							+ "2 - Jatekos athelyezese es tabla felforditasa\n");
+					System.out.print("Valasztas: ");
+					answer =  in.nextInt();
+					JatekosAthelyez(answer);
 					break;
 				case 19:
-					JatekosHovihar();
+					System.out.println("Mit szeretne?"
+							+ "1 - Jatekos hovihar vedelem nelkul, de tuleli\n"
+							+ "2 - Jatekos hovihar vedelem nelkul es meghal\n"
+							+ "3 - Jatekos hovihar Igluval\n"
+							+ "4 - Jatekos hovihar Satorral\n");
+					System.out.print("Valasztas: ");
+					answer =  in.nextInt();
+					JatekosHovihar(answer);
 					break;
 				case 20:
-					JatekosLep();
+					System.out.println("Mit szeretne?"
+							+ "1 - Jatekos lep\n"
+							+ "2 - Jatekos lep es felfordul a tabla\n"
+							+ "3 - Jatekos lepne, de vizben van\n");
+					System.out.print("Valasztas: ");
+					answer =  in.nextInt();
+					JatekosLep(answer);
+					break;
+				case 21:
+					EszkimoKepesseg();
+					break;
+				case 22:
+					IgluHovihar();
+					break;
+				case 23:
+					IgluFrissit();
+					break;
+				case 24:
+					IgluJegesmedveTamadas();
+					break;
+				case 25:
+					JatekosFrissit();
+					break;
+				case 26:
+					System.out.println("Mit szeretne?"
+							+ "1 - Jegesmedve olyan tablara lep, amin iglu van\n"
+							+ "2 - Jegesmedve olyan tablara lep, amin sator van\n"
+							+ "3 - Jegesmedve olyan tablara lep, amin nincs Vedelem es van jatekos\n"
+							+ "4 - Jegesmedve olyan tablara lep, amin nincs Vedelem es nincs jatekos\n");
+					System.out.print("Valasztas: ");
+					answer =  in.nextInt();
+					JegesmedveFrissit(answer);
 					break;
 				case 66:
 					System.out.println("Kilépett");
@@ -140,31 +206,49 @@ public class Menu {
 		}while(answer != 66);
 	}
 		
-		public static void Asas()
+		public static void Asas(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, 1, 55, null, null);
+			Jegtabla j1 = new Jegtabla(jm, false, 1, 55, null, null);
 			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
-			j.addJatekos(sk);
+			j1.addJatekos(sk);
 			
+			Jegtabla j2 = new Jegtabla(jm, false, 0, 55, null, null);
 			Eszkimo e = new Eszkimo(jm, 55,55,55, null, Irany.Bal);
-			j.addJatekos(e);
+			j2.addJatekos(e);
 			
-			int kezdetiHomenny = j.getHo();
+			Jegtabla j3 = new Jegtabla(jm, false, -1, 55, null, null);
+			Eszkimo e2 = new Eszkimo(jm, 55,55,55, null, Irany.Bal);
+			j3.addJatekos(e2);
 			
-			System.out.println("Kezdetben a jegtablan a " + kezdetiHomenny + " db ho van");
 			
-			System.out.println("Eloszor a sarkutato as");
-			sk.asas();
-			System.out.println("Most a jegtablan " + j.getHo() + " db ho van");
 			
-			System.out.println("Most az az eszkimo as");
-			e.asas();
-			System.out.println("Most a jegtablan " + j.getHo() + " db ho van");
+			if(eset == 1)
+			{
+				System.out.println("Kezdetben a jegtablan a " + j1.getHo() + " db ho van");
+				
+				System.out.println("Jatekos as");
+				sk.asas();
+				System.out.println("Most a jegtablan " + j1.getHo() + " db ho van");
+			}
+			else if(eset == 2)
+			{
+				System.out.println("Kezdetben a jegtablan a " + j2.getHo() + " db ho van");
+				System.out.println("Jatekos as");
+				e.asas();
+				System.out.println("Most a jegtablan " + j2.getHo() + " db ho van");
+			}
+			else if(eset == 3)
+			{
+				System.out.println("Kezdetben a jegtablan a " + j3.getHo() + " db ho van");
+				System.out.println("Jatekos as");
+				e2.asas();
+				System.out.println("Most a jegtablan " + j3.getHo() + " db ho van");
+			}
 			
-			System.out.println("Most az az eszkimo as megint");
-			e.asas();
-			System.out.println("Most a jegtablan " + j.getHo() + " db ho van");
+			
+			
+			
 		}
 		
 		public static void AsotFelvesz()
@@ -182,31 +266,65 @@ public class Menu {
 			sk.TargyakListazasa();
 		}
 		
-		public static void AsotHasznal()
+		public static void AsotHasznal(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, 2, 55, null, null);
+			Jegtabla j = new Jegtabla(jm, false, 28, 55, null, null);
 			Jegtabla j1 = new Jegtabla(jm, false, 2, 55, null, null);
+			Jegtabla j2 = new Jegtabla(jm, false, 1, 55, null, null);
+			Jegtabla j3 = new Jegtabla(jm, false, 0, 55, null, null);
 			
 			j.setSzomszed(j1, Irany.Jobb);
-			j1.setSzomszed(j, Irany.Bal);
+			j.setSzomszed(j2, Irany.Bal);
+			j.setSzomszed(j3, Irany.Fel);
+			Aso a = new Aso();
 			
 			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Jobb);
-			j.addJatekos(sk);
-			Aso a = new Aso();
+		
+			
+			Sarkkutato sk2 = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			
+			
+			Sarkkutato sk3 = new Sarkkutato(jm, 55,55,55, null, Irany.Fel);
 			sk.targyHozzadasa(a);
+			sk2.targyHozzadasa(a);
+			sk3.targyHozzadasa(a);
+			j.addJatekos(sk);
+			j.addJatekos(sk2);
+			j.addJatekos(sk3);
 			
-			int kezdetiHomenny = j1.getHo();
 			
-			System.out.println("Kezdetben a jegtablan a " + kezdetiHomenny + " db ho van");
 			
-			System.out.println("Most a jatekos megprobalja hasznalni az asot");
-			sk.targyHasznalat(0);
-			System.out.println("Most " + j1.getHo() + " db ho van a jegtablan");
 			
-			System.out.println("Most a jatekos megprobalja hasznalni megint az asot");
-			sk.targyHasznalat(0);
-			System.out.println("Most " + j1.getHo() + "db ho van a jegtablan");
+			
+			
+		
+			
+			if(eset == 1)
+			{
+				System.out.println("Kezdetben a jegtablan a " + j1.getHo() + " db ho van");
+				
+				System.out.println("Most a jatekos megprobalja hasznalni az asot");
+				sk.targyHasznalat(0);
+				System.out.println("Most " + j1.getHo() + " db ho van a jegtablan");
+			}
+			else if(eset == 2)
+			{
+					System.out.println("Kezdetben a jegtablan a " + j2.getHo()  + " db ho van");
+				
+				System.out.println("Most a jatekos megprobalja hasznalni az asot");
+				sk.targyHasznalat(0);
+				System.out.println("Most " + j2.getHo() + " db ho van a jegtablan");
+			}
+			else if(eset == 3)
+			{
+				System.out.println("Kezdetben a jegtablan a " + j3.getHo()  + " db ho van");
+				
+				System.out.println("Most a jatekos megprobalja hasznalni az asot");
+				sk.targyHasznalat(0);
+				System.out.println("Most " + j3.getHo() + " db ho van a jegtablan");
+			}
+			
 		}
 		
 		public static void BuvarruhaFelvesz()
@@ -268,7 +386,7 @@ public class Menu {
 			sk.TargyakListazasa();
 		}
 		
-		public static void ElelemHasznal()
+		public static void ElelemHasznal(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
 			Jegtabla j = new Jegtabla(jm, true, -1, 0, null, null);
@@ -280,23 +398,28 @@ public class Menu {
 			sk.targyHozzadasa(a);
 			sk2.targyHozzadasa(a);
 			
-			System.out.println("1-es jatekos targyai kezdetben");
-			sk.TargyakListazasa();
-			System.out.println("Kezdetben az 1-es jatekosnak " + sk.getTestho() + " testhoje van");
-			System.out.println("Most a jatekos hasznalni fogja az elelmet");
-			sk.targyHasznalat(0);
-			System.out.println("Most a 1-es jatekosnak " + sk.getTestho() + " testhoje van");
-			System.out.println("1-es jatekos targyai az elelem hasznalata utan");
-			sk.TargyakListazasa();
-			
-			System.out.println("2-es jatekos targyai kezdetben");
-			sk2.TargyakListazasa();
-			System.out.println("Kezdetben az 2-es jatekosnak " + sk2.getTestho() + " testhoje van");
-			System.out.println("Most a jatekos hasznalni fogja az elelmet");
-			sk2.targyHasznalat(0);
-			System.out.println("Most a 1-es jatekosnak " + sk2.getTestho() + " testhoje van");
-			System.out.println("2-es jatekos targyai az elelem hasznalata utan");
-			sk2.TargyakListazasa();
+			if(eset == 1)
+			{
+				System.out.println("1-es jatekos targyai kezdetben");
+				sk.TargyakListazasa();
+				System.out.println("Kezdetben az 1-es jatekosnak " + sk.getTestho() + " testhoje van");
+				System.out.println("Most a jatekos hasznalni fogja az elelmet");
+				sk.targyHasznalat(0);
+				System.out.println("Most a 1-es jatekosnak " + sk.getTestho() + " testhoje van");
+				System.out.println("1-es jatekos targyai az elelem hasznalata utan");
+				sk.TargyakListazasa();
+			}
+			else if(eset == 2)
+			{
+				System.out.println("2-es jatekos targyai kezdetben");
+				sk2.TargyakListazasa();
+				System.out.println("Kezdetben az 2-es jatekosnak " + sk2.getTestho() + " testhoje van");
+				System.out.println("Most a jatekos hasznalni fogja az elelmet");
+				sk2.targyHasznalat(0);
+				System.out.println("Most a 1-es jatekosnak " + sk2.getTestho() + " testhoje van");
+				System.out.println("2-es jatekos targyai az elelem hasznalata utan");
+				sk2.TargyakListazasa();
+			}
 		}
 		
 		public static void EszkimoKepesseg()
@@ -359,7 +482,7 @@ public class Menu {
 		
 		
 		
-		public static void JatekosAthelyez()
+		public static void JatekosAthelyez(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
 			Jegtabla j = new Jegtabla(jm, true, -1, 2, null, null);
@@ -378,17 +501,22 @@ public class Menu {
 					+ "a kozepso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
 					+ "mig a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
 			
-			System.out.println("Most athelyezzuk az egyik jatekost"); 
-			e.athelyez(Irany.Jobb);
-			System.out.println("Most a bal tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a kozepso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
-					+ "mig a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
-			
-			System.out.println("Most athelyezzuk a masik jatekost is"); 
-			e2.athelyez(Irany.Bal);
-			System.out.println("Most a bal tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a kozepso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
-					+ "mig a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+			if(eset == 1)
+			{
+				System.out.println("Most athelyezzuk a jatekost"); 
+				e.athelyez(Irany.Jobb);
+				System.out.println("Most a bal tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
+						+ "a kozepso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+						+ "mig a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+			}
+			else if(eset == 2)
+			{
+				System.out.println("Most athelyezzuk a jatekost"); 
+				e2.athelyez(Irany.Bal);
+				System.out.println("Most a bal tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
+						+ "a kozepso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+						+ "mig a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+			}
 	
 		}
 		
@@ -404,7 +532,7 @@ public class Menu {
 		}
 		
 		
-		public static void JatekosHovihar()
+		public static void JatekosHovihar(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
 			Eszkimo e = new Eszkimo(jm, 55,0,2, null, Irany.Jobb);
@@ -421,84 +549,163 @@ public class Menu {
 			j1.addJatekos(e3);
 			j2.addJatekos(e4);
 			
-			System.out.println("Kezdetben az 1-es jatekosnak " + e.getTestho() + " db testhoje van");
-			System.out.println("Kezdetben az 2-es jatekosnak " + e2.getTestho() + " db testhoje van");
-			System.out.println("Kezdetben az 3-as jatekosnak " + e3.getTestho() + " db testhoje van");
-			System.out.println("Kezdetben az 3-es jatekosnak " + e4.getTestho() + " db testhoje van");
-			e.hovihar();
-			e2.hovihar();
-			e3.hovihar();
-			e4.hovihar();
-			System.out.println("Most az 1-es jatekosnak " + e.getTestho() + " db testhoje van");
-			System.out.println("Most az 2-es jatekosnak " + e2.getTestho() + " db testhoje van");
-			System.out.println("Most az 3-as jatekosnak " + e3.getTestho() + " db testhoje van");
-			System.out.println("Most az 4-es jatekosnak " + e4.getTestho() + " db testhoje van");
+			if(eset == 1)
+			{
+				System.out.println("Kezdetben az 1-es jatekosnak " + e.getTestho() + " db testhoje van");
+				e.hovihar();
+				System.out.println("Most az 1-es jatekosnak " + e.getTestho() + " db testhoje van");
+			}
+			else if(eset == 2)
+			{
+				System.out.println("Kezdetben az 2-es jatekosnak " + e2.getTestho() + " db testhoje van");
+				e2.hovihar();
+				System.out.println("Most az 2-es jatekosnak " + e2.getTestho() + " db testhoje van");
+			}
+			else if(eset == 3)
+			{
+				System.out.println("Kezdetben az 3-as jatekosnak " + e3.getTestho() + " db testhoje van");
+				e3.hovihar();
+				System.out.println("Most az 3-as jatekosnak " + e3.getTestho() + " db testhoje van");
+			}
+			else if(eset == 4)
+			{
+				System.out.println("Kezdetben az 4-es jatekosnak " + e4.getTestho() + " db testhoje van");
+				e4.hovihar();
+				System.out.println("Most az 4-es jatekosnak " + e4.getTestho() + " db testhoje van");
+			}
 		}
 		
 		
-		public static void JatekosLep()
+		public static void JatekosLep(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
 			Eszkimo e = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
 			
 			
-			Jegtabla j = new Jegtabla(jm, false, -1, 2, null, null);
-			Jegtabla j1 = new Jegtabla(jm, false, -1, 1, null, null);
-			Jegtabla j2 = new Jegtabla(jm, false, -1, 0,  null, null);
-			Jegtabla j3 = new Jegtabla(jm, false, -1, 3,  null, null);
 			
-			j.addJatekos(e);
-			j.setSzomszed(j1, Irany.Jobb);
-			j1.setSzomszed(j2, Irany.Jobb);
-			j2.setSzomszed(j3, Irany.Jobb);
 			
-			System.out.println("Kezdetben az elso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a masodik tablan " + j1.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a harmadik tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a negyedik tablan " + j3.jatekosokLekerdez().size() + " db jatekos van ");
-			e.lepes();
-			System.out.println("Most az elso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a masodik tablan " + j1.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a harmadik tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a negyedik tablan " + j3.jatekosokLekerdez().size() + " db jatekos van ");
-			e.lepes();
-			System.out.println("Most az elso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a masodik tablan " + j1.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a harmadik tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a negyedik tablan " + j3.jatekosokLekerdez().size() + " db jatekos van ");
-			e.lepes();
-			System.out.println("Most az elso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a masodik tablan " + j1.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a harmadik tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
-					+ "a negyedik tablan " + j3.jatekosokLekerdez().size() + " db jatekos van ");
-			
+			if(eset == 1)
+			{
+				Jegtabla j = new Jegtabla(jm, false, -1, 2, null, null);
+				Jegtabla j1 = new Jegtabla(jm, false, -1, 1, null, null);
+				j.addJatekos(e);
+				
+				j.setSzomszed(j1, Irany.Jobb);
+				System.out.println("Kezdetben az bal tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+						+ "a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+				e.lepes();
+				System.out.println("Most az bal tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+						+ "a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+			}
+			else if(eset == 2)
+			{
+				Jegtabla j = new Jegtabla(jm, false, -1, 1, null, null);
+				Jegtabla j1 = new Jegtabla(jm, false, -1, 0, null, null);
+				j.addJatekos(e);
+				j.setSzomszed(j1, Irany.Jobb);
+				
+				System.out.println("Kezdetben az bal tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+						+ "a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+				e.lepes();
+				System.out.println("Most az bal tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+						+ "a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+			}
+			else if(eset == 3)
+			{
+				Jegtabla j = new Jegtabla(jm, true, -1, 0, null, null);
+				Jegtabla j1 = new Jegtabla(jm, false, -1, 0, null, null);
+				j.addJatekos(e);
+				j.setSzomszed(j1, Irany.Jobb);
+				
+				System.out.println("Kezdetben az bal tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+						+ "a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+				e.lepes();
+				System.out.println("Most az bal tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+						+ "a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+			}
+	
 		}
 		
 		
 		
-		public static void JegesmedveFrissit()
+		public static void JegesmedveFrissit(int eset)
 		{
+			Jegmezo jm = new Jegmezo(10);
+			Jegesmedve jeges = new Jegesmedve(jm, Irany.Jobb, false);
+			Eszkimo e = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
 			
+			Jegtabla j = new Jegtabla(jm, true, -1, 2, null, null);
+			Jegtabla j2 = new Jegtabla(jm, true, -1, 2, null, null);
+			j.setSzomszed(j2,Irany.Bal);
+			
+			if(eset == 1)
+			{
+				Jegtabla j1 = new Jegtabla(jm, true, -1, 1, new Iglu(), null);
+				j.setSzomszed(j1,Irany.Jobb);
+				jeges.frissit();
+				
+			}
+			else if(eset == 2)
+			{
+				Jegtabla j1 = new Jegtabla(jm, true, -1, 1, new Sator(1), null);
+				j.setSzomszed(j1,Irany.Jobb);
+				jeges.frissit();
+			}
+			else if(eset == 3)
+			{
+				Jegtabla j1 = new Jegtabla(jm, true, -1, 1, null, null);
+				j.setSzomszed(j1,Irany.Jobb);
+				jeges.frissit();
+			}
+			else if(eset == 4)
+			{
+
+				jeges.setiranyAmibeNez(Irany.Bal);
+				jeges.frissit();
+			}
 		}
 		
 		public static void JegesmedveHovihar()
 		{
+			Jegmezo jm = new Jegmezo(10);
+			Jegesmedve jeges = new Jegesmedve(jm, Irany.Jobb, false);
+			jeges.hovihar();
 			
 		}
 		
-		public static void JegmezoAddFrissitheto()
+		
+		public static void JegtablaHovihar(int eset)
 		{
+			
+			if(eset == 1)
+			{
+				satras
+			}
+			else if(eset == 2)
+			{
+				iglus
+			}
 			
 		}
 		
-		public static void JegtablaHovihar()
+		public static void JegtablaFrissit(int eset)
 		{
-			
-		}
-		
-		public static void JegtablaFrissit()
-		{
-			
+			if(eset == 1)
+			{
+				atfordulva jatekosok meghal
+			}
+			else if(eset == 2)
+			{
+				visszafordul
+			}
+			else if(eset == 3)
+			{
+				frissit iglu
+			}
+			else if(eset == 4)
+			{
+				frissit null
+			}
 		}
 		
 		public static void JegtablaAtfordit()

@@ -93,6 +93,8 @@ public class Jegesmedve implements Frissitheto{
 					jegmezo.meghalt(jatekosok.get(i));
 				}
 			
+				if(jatekosok.size() == 0)
+					System.out.println("A jegesmedve nem evett meg senkit");
 		}
 		
 		

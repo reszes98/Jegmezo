@@ -45,7 +45,7 @@ public class Eszkimo extends Jatekos
 	 */
 	public void kepesseg(Jegtabla j)
 	{
-		System.out.println("En, az eszkimo, most megprobalok eg popec iglut epiteni");
+		System.out.println("En, az eszkimo, most megprobalok egy popec iglut epiteni");
 		Iglu i = new Iglu();
 		
 		j.setjegtablaVedelme(i);
