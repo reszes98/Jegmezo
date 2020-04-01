@@ -71,4 +71,10 @@ public class Elelem implements Targy
 		System.out.println("Valaki az elelem pontszamat kerdezi le eppen, ami: " + pont);
 		return pont;
 	}
+	
+	
+	public String Tipus()
+	{
+		return "Elelem";
+	}
 }

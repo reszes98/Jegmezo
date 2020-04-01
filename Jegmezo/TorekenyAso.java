@@ -76,5 +76,10 @@ public class TorekenyAso implements Targy{
 		}
 		
 	}
+	
+	public String Tipus()
+	{
+		return "TorekenyAso";
+	}
 
 }

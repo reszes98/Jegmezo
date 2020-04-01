@@ -57,5 +57,8 @@ public class Buvarruha implements Targy
 		return sikeres;
 	}
 	
-	
+	public String Tipus()
+	{
+		return "Buvarruha";
+	}
 }

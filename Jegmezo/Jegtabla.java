@@ -118,8 +118,11 @@ public class Jegtabla implements Frissitheto
 			int tempHo = ho;
 			
 			ho -= i;
-			if(ho < -1)
+			if(ho <= -1)
+			{
 				ho = -1;
+				System.out.println("Jegtabla: Kiastad a rajtam levo targyat");
+			}
 			System.out.println("Jegtabla: Van rajtam ho szoval ezt megtehetik a hoszintem " + tempHo + "-rol " +  ho + "-ra csokkent");
 			
 			return true;
@@ -422,5 +425,14 @@ public class Jegtabla implements Frissitheto
 	{
 		System.out.println("Jegtabla: most epp a rajtam levo vedelemet kerdezik le");
 		return jegtablaVedelme;
+	}
+	
+	/**
+	 * @return Visszadja a jegtabla homennyiseget
+	 */
+	public int getHo()
+	{
+		System.out.println("Jegtabla: most epp a rajtam levo homennyiseget kerdezik");
+		return ho;
 	}
 }

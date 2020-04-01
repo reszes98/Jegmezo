@@ -62,13 +62,13 @@ public class Menu {
 			
 			switch(answer) {
 				case 1:
-					j.asas();
+					Asas();
 			    	break;
 				case 2:
-					a.felvesz(j);
+					AsotFelvesz();
 			    	break;
 				case 3:
-					a.hasznal(j);
+					AsotHasznal();
 			    	break;
 				case 4:
 					b.felvesz(j);
@@ -123,6 +123,156 @@ public class Menu {
 			}
 		}while(answer != 66);
 	}
+		
+		public static void Asas()
+		{
+			Jegmezo jm = new Jegmezo(10);
+			Jegtabla j = new Jegtabla(jm, false, 1, 55, null, null);
+			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			j.addJatekos(sk);
+			
+			Eszkimo e = new Eszkimo(jm, 55,55,55, null, Irany.Bal);
+			j.addJatekos(e);
+			
+			int kezdetiHomenny = j.getHo();
+			
+			System.out.println("Kezdetben a jegtablan a " + kezdetiHomenny + " db ho van");
+			
+			System.out.println("Eloszor a sarkutato as");
+			sk.asas();
+			System.out.println("Most a jegtablan " + j.getHo() + " db ho van");
+			
+			System.out.println("Most az az eszkimo as");
+			e.asas();
+			System.out.println("Most a jegtablan " + j.getHo() + " db ho van");
+			
+			System.out.println("Most az az eszkimo as megint");
+			e.asas();
+			System.out.println("Most a jegtablan " + j.getHo() + " db ho van");
+		}
+		
+		public static void AsotFelvesz()
+		{
+			Jegmezo jm = new Jegmezo(10);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55, null, null);
+			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			j.addJatekos(sk);
+			Aso a = new Aso();
+			j.setTargy(a);
+			
+			sk.TargyakListazasa();
+			System.out.println("Most a jatekos megprobalja felvenni az asot a tablarol");
+			sk.targyFelvetel();
+			sk.TargyakListazasa();
+		}
+		
+		public static void AsotHasznal()
+		{
+			Jegmezo jm = new Jegmezo(10);
+			Jegtabla j = new Jegtabla(jm, false, 2, 55, null, null);
+			Jegtabla j1 = new Jegtabla(jm, false, 2, 55, null, null);
+			
+			j.setSzomszed(j1, Irany.Jobb);
+			j1.setSzomszed(j, Irany.Bal);
+			
+			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Jobb);
+			j.addJatekos(sk);
+			Aso a = new Aso();
+			sk.targyHozzadasa(a);
+			
+			int kezdetiHomenny = j1.getHo();
+			
+			System.out.println("Kezdetben a jegtablan a " + kezdetiHomenny + " db ho van");
+			
+			System.out.println("Most a jatekos megprobalja hasznalni az asot");
+			sk.targyHasznalat(0);
+			System.out.println("Most " + j1.getHo() + " db ho van a jegtablan");
+			
+			System.out.println("Most a jatekos megprobalja hasznalni megint az asot");
+			sk.targyHasznalat(0);
+			System.out.println("Most " + j1.getHo() + "db ho van a jegtablan");
+		}
+		
+		public static void BuvarruhaFelvesz()
+		{
+			
+		}
+		
+		public static void BuvarruhaHasznal()
+		{
+			
+		}
+		
+		public static void ElelemFelvesz()
+		{
+			
+		}
+		
+		public static void ElelemHasznal()
+		{
+			
+		}
+		
+		public static void KotelFelvesz()
+		{
+			
+		}
+		
+		public static void KotelHasznal()
+		{
+			
+		}
+		
+		public static void SatorFelvesz()
+		{
+			
+		}
+		
+		public static void SatorHasznal()
+		{
+			
+		}
+		
+		public static void SatorHovihar()
+		{
+			
+		}
+		
+		public static void SatorFrissit()
+		{
+			
+		}
+		
+		public static void IgluHovihar()
+		{
+			
+		}
+		
+		public static void IgluFrissit()
+		{
+			
+		}
+		
+		public static void JelzopisztolyFelvesz()
+		{
+			
+		}
+		
+		public static void JelzopisztolyHasznal()
+		{
+			
+		}
+		
+		public static void TorkenyAsoFelvesz()
+		{
+			
+		}
+		
+		public static void TorekenyAsoHasznal()
+		{
+			
+		}
+		
 		
 		public static void targyHasznal()
 		{

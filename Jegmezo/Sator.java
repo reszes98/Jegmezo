@@ -117,6 +117,9 @@ public class Sator extends Vedelem implements Targy{
 	}
 	
 	
-	
+	public String Tipus()
+	{
+		return "Sator";
+	}
 
 }

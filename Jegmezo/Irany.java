@@ -54,7 +54,7 @@ Le(3);
 	 * @param i - az irány, aminek az ellentetjét akarjuk
 	 * @return Viszaadja a paraméterben megadott irány ellentetjét
 	 */
-	public Irany EllenkezoIrany(Irany i)
+	public static Irany EllenkezoIrany(Irany i)
 	{
 		System.out.println("Valaki egy iranyhoz keri az ellenkezojet");
 		switch(i)

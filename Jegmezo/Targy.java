@@ -32,4 +32,10 @@ public interface Targy
 	 */
 	public boolean hasznal(Jatekos j);
 	
+	
+	/**
+	 * @return Visszadja a targy nevet
+	 */
+	public String Tipus();
+	
 }

@@ -10,6 +10,7 @@ package Jegmezo;
 //
 //
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Jatekos implements Frissitheto
@@ -273,6 +274,8 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public boolean targyHozzadasa(Targy t)
 	{
+		if(targyak == null)
+			targyak = new ArrayList<>();
 		System.out.println("A jatekos targygyujtemenyehez epp egy targyat probalnak hozzaadni");
 		targyak.add(t);
 		System.out.println("Targy hozzaadva");
@@ -360,6 +363,25 @@ public abstract class Jatekos implements Frissitheto
 	{
 		System.out.println("a jatekosnak epp azt allitjak, hogy melyik jegtablan all");
 		aktjegtabla  = jt;
+	}
+	
+	
+	/**
+	 * Kilistázza a konzolra a játékos tárgyait
+	 */
+	public void TargyakListazasa()
+	{
+		if(targyak != null)
+		{
+			System.out.println("A jatekos targyai:");
+			for(int i = 0; i < targyak.size(); i++)
+				System.out.println((i + 1) + ". - " + targyak.get(i).Tipus() );
+		}
+		else
+		{
+			System.out.println("Nincsenek targyai a jatekosnak");
+		}
+		
 	}
 	
 }

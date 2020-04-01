@@ -68,4 +68,9 @@ public class Jelzopisztoly implements Targy
 			return false;
 		}
 	}
+	
+	public String Tipus()
+	{
+		return "Jelzopisztoly";
+	}
 }

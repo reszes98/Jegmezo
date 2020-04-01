@@ -60,6 +60,11 @@ public class Aso implements Targy
 		
 		
 		return sikeres;
-		
+	}
+	
+	
+	public String Tipus()
+	{
+		return "Aso";
 	}
 }
