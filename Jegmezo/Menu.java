@@ -55,6 +55,9 @@ public class Menu {
 					+ "13 - Kötél használ\n 14 - Lépés\n 15 - Szomszédos Jégtábla vizsgálata\n"
 					+ "16 - Targyakat hasznal \n"
 					+ "17 - Eszkimo kepesseget hasznal \n"
+					+ "18 - Jatekos Athelyez \n"
+					+ "19 - Jatekos hovihar \n"
+					+ "20 - Jatekos Lep \n"
 					+ " 66 - Kilép ");
 			
 			System.out.print("Valasztas: ");
@@ -118,6 +121,15 @@ public class Menu {
 					break;
 				case 17:
 					EszkimoKepesseg();
+					break;
+				case 18:
+					JatekosAthelyez();
+					break;
+				case 19:
+					JatekosHovihar();
+					break;
+				case 20:
+					JatekosLep();
 					break;
 				case 66:
 					System.out.println("Kilépett");
@@ -315,15 +327,25 @@ public class Menu {
 		
 		public static void IgluHovihar()
 		{
-
+			Jegmezo jm = new Jegmezo(10);
+			Jegtabla j = new Jegtabla(jm, true, -1, 0, null, null);
 			Iglu i = new Iglu();
-			i.hovihar();
+			
+			j.setjegtablaVedelme(i);
+			
+			j.hovihar();		
+		
 		}
 		
 		public static void IgluFrissit()
 		{
+			Jegmezo jm = new Jegmezo(10);
+			Jegtabla j = new Jegtabla(jm, true, -1, 0, null, null);
 			Iglu i = new Iglu();
-			i.frissit();
+			
+			j.setjegtablaVedelme(i);
+			
+			j.frissit();		
 		}
 		
 		public static void IgluJegesmedveTamadas()
@@ -347,37 +369,111 @@ public class Menu {
 			j.setSzomszed(j1, Irany.Jobb);
 			j.setSzomszed(j2, Irany.Bal);
 			
-			System.out.println();
 			Eszkimo e = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
+			Eszkimo e2 = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
 			j.addJatekos(e);
+			j.addJatekos(e2);
 			
+			System.out.println("Kezdetben a bal tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a kozepso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+					+ "mig a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
+			
+			System.out.println("Most athelyezzuk az egyik jatekost"); 
 			e.athelyez(Irany.Jobb);
+			System.out.println("Most a bal tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a kozepso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+					+ "mig a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
 			
-			
+			System.out.println("Most athelyezzuk a masik jatekost is"); 
+			e2.athelyez(Irany.Bal);
+			System.out.println("Most a bal tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a kozepso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+					+ "mig a jobb tablan " + j1.jatekosokLekerdez().size() + " db jatekos van ");
 	
 		}
 		
 		public static void JatekosFrissit()
 		{
+			Jegmezo jm = new Jegmezo(10);
+			Eszkimo e = new Eszkimo(jm, 55,0,2, null, Irany.Jobb);
+			System.out.println("Kezdetben a jatekosnak " + e.getMunkadb() + " db Munkaja van");
+			
+			e.frissit();
+			System.out.println("Most a jatekosnak " + e.getMunkadb() + " db Munkaja van");
 			
 		}
 		
 		
 		public static void JatekosHovihar()
 		{
+			Jegmezo jm = new Jegmezo(10);
+			Eszkimo e = new Eszkimo(jm, 55,0,2, null, Irany.Jobb);
+			Eszkimo e2 = new Eszkimo(jm, 55,0,1, null, Irany.Jobb);
+			Eszkimo e3 = new Eszkimo(jm, 55,0,1, null, Irany.Jobb);
+			Eszkimo e4 = new Eszkimo(jm, 55,0,1, null, Irany.Jobb);
 			
+			Jegtabla j = new Jegtabla(jm, true, -1, 2, null, null);
+			Jegtabla j1 = new Jegtabla(jm, true, -1, 1, new Iglu(), null);
+			Jegtabla j2 = new Jegtabla(jm, true, -1, 1, new Sator(1), null);
+			
+			j.addJatekos(e);
+			j.addJatekos(e2);
+			j1.addJatekos(e3);
+			j2.addJatekos(e4);
+			
+			System.out.println("Kezdetben az 1-es jatekosnak " + e.getTestho() + " db testhoje van");
+			System.out.println("Kezdetben az 2-es jatekosnak " + e2.getTestho() + " db testhoje van");
+			System.out.println("Kezdetben az 3-as jatekosnak " + e3.getTestho() + " db testhoje van");
+			System.out.println("Kezdetben az 3-es jatekosnak " + e4.getTestho() + " db testhoje van");
+			e.hovihar();
+			e2.hovihar();
+			e3.hovihar();
+			e4.hovihar();
+			System.out.println("Most az 1-es jatekosnak " + e.getTestho() + " db testhoje van");
+			System.out.println("Most az 2-es jatekosnak " + e2.getTestho() + " db testhoje van");
+			System.out.println("Most az 3-as jatekosnak " + e3.getTestho() + " db testhoje van");
+			System.out.println("Most az 4-es jatekosnak " + e4.getTestho() + " db testhoje van");
 		}
 		
 		
 		public static void JatekosLep()
 		{
+			Jegmezo jm = new Jegmezo(10);
+			Eszkimo e = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
+			
+			
+			Jegtabla j = new Jegtabla(jm, false, -1, 2, null, null);
+			Jegtabla j1 = new Jegtabla(jm, false, -1, 1, null, null);
+			Jegtabla j2 = new Jegtabla(jm, false, -1, 0,  null, null);
+			Jegtabla j3 = new Jegtabla(jm, false, -1, 3,  null, null);
+			
+			j.addJatekos(e);
+			j.setSzomszed(j1, Irany.Jobb);
+			j1.setSzomszed(j2, Irany.Jobb);
+			j2.setSzomszed(j3, Irany.Jobb);
+			
+			System.out.println("Kezdetben az elso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a masodik tablan " + j1.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a harmadik tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a negyedik tablan " + j3.jatekosokLekerdez().size() + " db jatekos van ");
+			e.lepes();
+			System.out.println("Most az elso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a masodik tablan " + j1.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a harmadik tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a negyedik tablan " + j3.jatekosokLekerdez().size() + " db jatekos van ");
+			e.lepes();
+			System.out.println("Most az elso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a masodik tablan " + j1.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a harmadik tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a negyedik tablan " + j3.jatekosokLekerdez().size() + " db jatekos van ");
+			e.lepes();
+			System.out.println("Most az elso tablan " + j.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a masodik tablan " + j1.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a harmadik tablan " + j2.jatekosokLekerdez().size() + " db jatekos van "
+					+ "a negyedik tablan " + j3.jatekosokLekerdez().size() + " db jatekos van ");
 			
 		}
 		
-		public static void JatekosTargyatHasznal()
-		{
-			
-		}
 		
 		
 		public static void JegesmedveFrissit()

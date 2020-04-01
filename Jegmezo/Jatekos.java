@@ -402,4 +402,12 @@ public abstract class Jatekos implements Frissitheto
 		return testho;
 	}
 	
+	/**
+	 * @return Visszaadja a játékos Munkadb attribútumát
+	 */
+	public int getMunkadb()
+	{
+		return Munkadb;
+	}
+	
 }
