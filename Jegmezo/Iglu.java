@@ -4,12 +4,15 @@ import java.util.List;
 
 public class Iglu extends Vedelem{
 
-	
+	public Iglu()
+	{
+		System.out.println("Letrehoztak egy iglut");
+	}
 	/**
 	 * Itt nem csinál semmit, de késõbb még lehet történik valami frissítéskor
 	 */
 	public void frissit() {
-		
+		System.out.println("Az iglura meghivodott a frissit fuggveny");
 	}
 
 	
@@ -17,7 +20,7 @@ public class Iglu extends Vedelem{
 	 * Ha hóvihar van megvédi a jégtábláján lévõ játékosokat és nem esik semmi bántódásuk
 	 */
 	public void hovihar() {
-		
+		System.out.println("Az iglura meghivodott a hovihar fuggveny");
 	}
 
 	
@@ -25,7 +28,7 @@ public class Iglu extends Vedelem{
 	 * Ha megtámadj a jégtáblát, amin van, egy jegesmedve, akkor megvédi a vele egy jégtáblán lévõ játékoskat  
 	 */
 	public void tamadas(Jegesmedve j) {
-		
+		System.out.println("Az iglura meghivodott a jegesmedve tamadas fuggveny");
 	}
 
 }

@@ -17,11 +17,17 @@ public class Buvarruha implements Targy
 {
 	
 	
+	public Buvarruha()
+	{
+		System.out.println("Letrehoztak egy buvarruhat");
+	}
+	
 	/**
 	 * Hozzáadja a búvárruhát a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
 		
+		System.out.println("Na most valaki megprobalta felvenni ezt a buvarruhat");
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
@@ -39,7 +45,7 @@ public class Buvarruha implements Targy
 	 * a játékost áthelyezi a kapott irányba és visszaadja, hogy sikerült-e
 	 */
 	public boolean hasznal(Jatekos j) {
-		
+		System.out.println("Na most valaki megprobalta hasznalni ezt a buvarruhat");
 		boolean sikeres = j.athelyez(j.getIranyAmibeNez());
 		
 		if(sikeres)

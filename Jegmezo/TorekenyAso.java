@@ -10,13 +10,14 @@ public class TorekenyAso implements Targy{
 	
 	public TorekenyAso(int tartossag)
 	{
+		System.out.println("Letrehoztak egy torekenyasot");
 		this.tartossag = tartossag;
 	}
 	/**
 	 * Hozzaadja magát a játékos tárgyaihoz és visszatér azzal, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
-		
+		System.out.println("Torekenyaso: most megprobalnak felvenni");
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
@@ -39,27 +40,41 @@ public class TorekenyAso implements Targy{
 	 *És visszaadja, hogy sikerült-e.
 	 */
 	public boolean hasznal(Jatekos j) {
+		System.out.println("Torekenyaso: most megprobalnak hasznalni");
+		System.out.println("Torekenyaso: most lekerdezem a jatekosnak, aki hasznal, az iranyAmibeNez-et");
 		Irany i = j.getIranyAmibeNez();
+		System.out.println("Torekenyaso: most lekerdezem a jatekosnak, aki hasznal, a jegtablajat");
 		Jegtabla jt = j.JegtablaLekerdez();
+		System.out.println("Torekenyaso: most lekerdezem a jegtablanak az abban az iranyban levo szomszedjat, amerre a jatekos nez");
 		Jegtabla szJegtabla = jt.szomszedKerdez(i);
 		
-		boolean sikeres = szJegtabla.asas(2);
 		
-		if(sikeres)
+		if(szJegtabla != null)
 		{
-			tartossag--;
-			if(tartossag == 0)
+			System.out.println("Torekenyaso: Letezik ez a szomszed, szoval megproblaok asni rajta kettot");
+			boolean sikeres = szJegtabla.asas(2);
+			
+			if(sikeres)
 			{
-				System.out.println("A torekeny aso eltort");
-				j.targyEltavolitasa(this);
+				System.out.println("Torekenyaso: Sikerult asni ezert csokkentem a tartossagom");
+				tartossag--;
+				if(tartossag == 0)
+				{
+					System.out.println("Torekenyaso: tartossag elerte a nullat,  ezert eltortem");
+					j.targyEltavolitasa(this);
+				}
+				System.out.println("Torekeny aso sikeresen hasznalva");
 			}
-			System.out.println("Torekeny aso sikeresen hasznalva");
+			else
+				System.out.println("Torekeny aso sikertelenul hasznalva");
+			return sikeres;
 		}
 		else
-			System.out.println("Torekeny aso sikertelenul hasznalva");
+		{
+			System.out.println("Torekenyaso: Nem letezik ez a szomszed, szoval nem lehet hasznalni a toreknyasot");
+			return false;
+		}
 		
-		
-		return sikeres;
 	}
 
 }

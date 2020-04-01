@@ -31,6 +31,7 @@ public class Jegmezo
 	{
 		this.hoviharCnt = hoviharCnt;
 		frissithetok = new ArrayList<>();
+		System.out.println("Letrehoztak egy jegmezot");
 	}
 	
 	/**
@@ -41,7 +42,7 @@ public class Jegmezo
 	{
 		
 		frissithetok.add(f);
-		System.out.println("Hozzáadtam a jégmezõhöz");
+		System.out.println("Hozzáadtam a jégmezõhöz a frissithetot");
 		
 	}
 	
@@ -52,6 +53,7 @@ public class Jegmezo
 	public void addFrissithetok(List<Frissitheto> fl)
 	{
 		frissithetok.addAll(fl);
+		System.out.println("Hozzáadtam a jégmezõhöz a frissithetok listajat");
 	}
 
 	public void hovihar()
@@ -64,6 +66,7 @@ public class Jegmezo
 	 */
 	public void jatekvege(boolean nyert)
 	{
+		System.out.println("Vege a jateknak");
 		if(!nyert) 
 			System.out.println("Sajnos vesztettetek.");
 		else 
@@ -76,16 +79,21 @@ public class Jegmezo
 	 */
 	public void leptet()
 	{
+		System.out.println("Jegmezo: Uj kor kezdodott");
 		hoviharCnt--;
-		System.out.println(frissithetok.size());
+		System.out.println("Jegemzo: Csokkent a hoviharig hatralevo korok szama");
+		
 		for(int i=0;i<frissithetok.size();i++) {
+			System.out.println("Meghivja a jegmezo a frissithetokre a frissit fuggvenyt");
 			frissithetok.get(i).frissit();
 			if(hoviharCnt==0)
 			{
+				System.out.println("Jegmezo: Nulla kor van a hoviharig, ezert hovihar");
 				frissithetok.get(i).hovihar();
+				hoviharCnt = 4;
 			}
 		}
-		hoviharCnt = 99;
+		System.out.println("Jegmezo: az ujabb hoviharig " + hoviharCnt + "db kor van hatra");
 	}
 	
 	/**
@@ -93,10 +101,12 @@ public class Jegmezo
 	 */
 	public void meghalt(Jatekos j)
 	{
+		System.out.println("Egy jatekos meghalt rajtam, ezert most vege a jateknak");
 		this.jatekvege(false);
 	}
 	
 	public void setup()
 	{
+		System.out.println("A jegemzo, most egy jatekot hoz letre");
 	}
 }

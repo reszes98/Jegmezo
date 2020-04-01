@@ -13,12 +13,17 @@ package Jegmezo;
 
 public class Kotel implements Targy
 {
-	
+	public Kotel()
+	{
+		System.out.println("Letrehoztak egy kotelet");
+	}
 	
 	/**
 	 * Hozzáadja a kötelet a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
+		
+		System.out.println("Kotel: most meprobalnak felvenni");
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
@@ -37,6 +42,7 @@ public class Kotel implements Targy
 	 * elkezd végig menni a játékosok listáján, aki ott van és áthelyezi õket és visszaadja, hogy sikerült-e
 	 */
 	public boolean hasznal(Jatekos j) {
+		System.out.println("Kotel: most meprobalnak hasznalni");
 		Jegtabla jt = j.JegtablaLekerdez();						//Komplexitása miatt csak azt a részt tudjuk 
 		boolean sikeres = false;								//tesztelni, hogy lekérdezi-e a saját jégtábláját
 		if(jt != null)

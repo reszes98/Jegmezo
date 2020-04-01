@@ -17,6 +17,7 @@ public class Jegesmedve implements Frissitheto{
 		this.iranyAmibeNez = iranyAmibeNez;
 		this.randomMegy = randomMegy;
 		this.jegmezo.addFrissitheto(this);
+		System.out.println("Letrehoztak egy jegesmedvet");
 	}
 	
 	
@@ -25,7 +26,6 @@ public class Jegesmedve implements Frissitheto{
 	 * Minden kör eljén hívódik meg és meghívja a Lép függvényt
 	 */
 	public void frissit() {
-		// TODO Auto-generated method stub
 		System.out.println("A jegemedve most lepni fog");
 		Lep();
 	}
@@ -35,7 +35,7 @@ public class Jegesmedve implements Frissitheto{
 	 * Akkor hívódik meg, ha hóvihar van a Jégmezõn, még nem csinál semmit, de késõbb akár, még lehet, hogy lesz valami szerepe
 	 */
 	public void hovihar() {
-		// TODO Auto-generated method stub
+		System.out.println("A jegemedve epp hoviharban van");
 		
 	}
 	
@@ -45,10 +45,12 @@ public class Jegesmedve implements Frissitheto{
 	 */
 	public void Lep()
 	{
+		System.out.println("Most a jegesmedve lepesre keszul");
 		//https://docs.oracle.com/javase/8/docs/api/java/util/Random.html
 		//innen tájékozódtam a randomokról
 		if(randomMegy)
 		{
+			System.out.println("Most a jegesmedve epp egy random iranyt valaszt, amerre menni fog");
 			Random r = new Random();
 			
 			int intErtek = r.nextInt(4);
@@ -56,15 +58,33 @@ public class Jegesmedve implements Frissitheto{
 			iranyAmibeNez = ujIranyAmibeNez;
 		}
 		
+		System.out.println("Most lekerdezi a jegesmedve, hogy abba az iranyba, amerre menni akar milyen jegtabla all");
 		Jegtabla sz = jegtablaAminAll.szomszedKerdez(iranyAmibeNez);
-		jegtablaAminAll.JegesmedveEltavolit(this);
-		sz.addJegesmedve(this);
 		
-		Vedelem v = sz.getjegtablaVedelme();
-		if(v != null)
-			v.tamadas(this);
+
+		if(sz != null)
+		{
+			System.out.println("Most a jegesmedve eltavolitja magat a jegtablarol, amin eddig allt");
+			jegtablaAminAll.JegesmedveEltavolit(this);
+			System.out.println("Most a jegesmedve hozzaadja magat a szomszedos jegtablahoz, amire ra akar lepni");
+			sz.addJegesmedve(this);
+		}
 		else
 		{
+			System.out.println("Az irany amibe a jegesmedve menni akar nincs jegtabla, ezert lepest befejezte es ugyanott maradt");
+			return;
+			
+		}
+		System.out.println("Most a  jegesmedve annak a jegtablanak kerdezi a vedelmet, amire epp ralepett");
+		Vedelem v = sz.getjegtablaVedelme();
+		if(v != null)
+		{
+			System.out.println("Van vedelme, ezert meghivja ra magaval a tamadas fuggvenyt");
+			v.tamadas(this);
+		}
+		else
+		{
+			System.out.println("Nincs vedelme, ezert meghivja ra az osszes jatekosra, aki a jegtablan van a meghalt fuggvenyt");
 			List<Jatekos> jatekosok = jegtablaAminAll.jatekosokLekerdez();
 			
 				for(int i = 0; i < jatekosok.size(); i++)
@@ -85,6 +105,7 @@ public class Jegesmedve implements Frissitheto{
 	 */
 	public void setjegtablaAminAll(Jegtabla jt)
 	{
+		System.out.println("Nekem a jegesmedvenek, epp a jegtablat allitjak, amin allok");
 		jegtablaAminAll  = jt;
 	}
 	
@@ -94,6 +115,7 @@ public class Jegesmedve implements Frissitheto{
 	 */
 	public void setiranyAmibeNez(Irany i)
 	{
+		System.out.println("Nekem a jegesmedvenek, epp azt allitjak, hogy merre nezek");
 		iranyAmibeNez = i;
 	}
 

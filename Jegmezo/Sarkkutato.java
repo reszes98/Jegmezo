@@ -38,6 +38,8 @@ public class Sarkkutato extends Jatekos
 				testho,
 				targyak,
 				iranyAmibeNez);
+		
+		System.out.println("Letrehoztak egy sarkkutatot");
 	}
 
 	
@@ -46,6 +48,8 @@ public class Sarkkutato extends Jatekos
 	 */
 	public void kepesseg(Jegtabla j)
 	{
+		System.out.println("Sarkkutato: Epp a kepessegemet akarjak hasznalni");
+		System.out.println("Sarkkutato: ezert lekerdezem a jegtabla tartokepesseget");
 		System.out.println("A jegtabla tartokepessege: " + j.gettartokepesseg());
 		MunkaDBcsokkentese(1);
 	}

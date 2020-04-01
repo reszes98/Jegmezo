@@ -12,6 +12,7 @@ public class Sator extends Vedelem implements Targy{
 	 */
 	public Sator(int tartossag)
 	{
+		System.out.println("Letrehoztak egy satort");
 		this.tartossag = tartossag;
 	}
 	
@@ -20,6 +21,7 @@ public class Sator extends Vedelem implements Targy{
 	 * Hozzáadja a sátrat a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
+		System.out.println("Sator: epp fel akarnak venni");
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
@@ -40,12 +42,17 @@ public class Sator extends Vedelem implements Targy{
 	 * Visszaadja, hogy sikeres volt az elhelyezes
 	 */
 	public boolean hasznal(Jatekos j) {
+		System.out.println("Sator: epp hasznalni akarnak");
+		System.out.println("Sator: most lekerdezem a jatekosnak az iranyAmibeNezet");
 		Irany i =  j.getIranyAmibeNez();
+		System.out.println("Sator: most lekerdezem a jatekosnak a jegtablajat");
 		Jegtabla jt = j.JegtablaLekerdez();
+		System.out.println("Sator: most lekerdezem a jatekosnak a jegtablajanak az abban az iranyban levo szomszedjat, amibe a jatekos nez");
 		Jegtabla sz = jt.szomszedKerdez(i);
 		
 		if(sz != null)
 		{
+			System.out.println("Sator: letezi ez a szomszed ezert felallitom magam");
 			sz.setjegtablaVedelme(this);
 			System.out.println("Sator sikeresen felallitva");
 			j.targyEltavolitasa(this);
@@ -54,6 +61,7 @@ public class Sator extends Vedelem implements Targy{
 		}
 		else
 		{
+			System.out.println("Sator: nem letezik ez a szomszed");
 			System.out.println("A satort nem sikerult felallitani");
 			return false;
 		}

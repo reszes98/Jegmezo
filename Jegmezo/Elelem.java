@@ -17,20 +17,21 @@ public class Elelem implements Targy
 {
 	private int pont;
 	
-	
+
 	/**
 	 * Konstruktor, ami beállítja az élelem pont értékét, ami azt adja meg, hogy mennyivel növeli a testhõt, a megadott értékre
 	 * @param pont - Azt adja meg mennyivel növeli a játékos testhõjét, ha használják
 	 */
 	public Elelem(int pont) {
 		this.pont = pont;
+		System.out.println("Letrehoztak, egy elelmet " + this.pont + " pontertekkel");
 	}
 	
 	/**
 	 * Hozzáadja az élelmet a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
-		
+		System.out.println("Na most valaki megprobalta felvenni ezt az elelmet");
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
@@ -46,6 +47,8 @@ public class Elelem implements Targy
 	 * a játékos testhõjét növeli azzal, hogy megeszi, azaz felhasználja az élelmet és visszaadja, hogy sikerült-e
 	 */
 	public boolean hasznal(Jatekos j) {
+		
+		System.out.println("Na most valaki megprobalta hasznalni ezt az elelmet");
 		boolean sikeres = j.testhoNovelese(pont);
 		
 		if(sikeres) 
@@ -65,6 +68,7 @@ public class Elelem implements Targy
 	 */
 	public int getPont()
 	{
+		System.out.println("Valaki az elelem pontszamat kerdezi le eppen, ami: " + pont);
 		return pont;
 	}
 }

@@ -37,13 +37,15 @@ public class Eszkimo extends Jatekos
 				testho,
 				targyak,
 				iranyAmibeNez);
+		
+		System.out.println("Letrehoztak egy Eszkimot");
 	}
 	/**
 	 * Épít egy iglut a megadott Jégtáblára
 	 */
 	public void kepesseg(Jegtabla j)
 	{
-		
+		System.out.println("En, az eszkimo, most megprobalok eg popec iglut epiteni");
 		Iglu i = new Iglu();
 		
 		j.setjegtablaVedelme(i);

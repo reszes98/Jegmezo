@@ -15,12 +15,17 @@ import java.util.List;
 public class Jelzopisztoly implements Targy
 {
 	
+	public Jelzopisztoly()
+	{
+		System.out.println("Letrehoztak egy jelzopisztolyt");
+	}
+	
 	/**
 	 *	Hozzáadja a jelzõpisztoly darabot a Játékoshoz és növeli a jelzõpisztoly darabjainak a számát és visszaadja, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
 	
-		
+		System.out.println("Jelzopisztoly: megprobalnak felvenni");
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
@@ -39,11 +44,17 @@ public class Jelzopisztoly implements Targy
 	 */
 	public boolean hasznal(Jatekos j) {
 		
-		int jelzopisztolyDB = 0;
+		System.out.println("Jelzopisztoly: megprobalnak hasznalni");
+		System.out.println("Jelzopisztoly: ezert lekerdezem a jatekosnak, aki engem hasznal a jelzopisztolyDB-jait");
+		int jelzopisztolyDB = j.getjelzopisztolydb();
+		System.out.println("Jelzopisztoly: ezert lekerdezem a jatekos jegtablajan levo jatekosokat");
 		List<Jatekos> jatekosok = j.JegtablaLekerdez().jatekosokLekerdez();
 		
 		for(int i = 0; i < jatekosok.size(); i++)
+		{
+			System.out.println("Jelzopisztoly: most lekerdezem a jatekosok jelzopisztoly darabjait");
 			jelzopisztolyDB += jatekosok.get(i).getjelzopisztolydb();
+		}
 		
 		if(jelzopisztolyDB >= 3)
 		{

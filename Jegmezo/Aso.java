@@ -14,11 +14,17 @@ package Jegmezo;
 public class Aso implements Targy
 {
 	
+	public Aso()
+	{
+		System.out.println("Letrehoztak egy asot");
+	}
+	
 	/**
 	 * Hozzáadja az ásót a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
 		
+		System.out.println("Na most valaki megprobalta felvenni ezt az asot");
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
@@ -40,6 +46,7 @@ public class Aso implements Targy
 	 */
 	public boolean hasznal(Jatekos j) {
 		
+		System.out.println("Na most valaki megprobalta hasznalni ezt az asot");
 		Irany i = j.getIranyAmibeNez();
 		Jegtabla jt = j.JegtablaLekerdez();
 		Jegtabla szJegtabla = jt.szomszedKerdez(i);

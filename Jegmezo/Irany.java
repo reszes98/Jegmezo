@@ -17,13 +17,16 @@ Le(3);
 	
 	Irany(int intErtek)
 	{
+		System.out.println("Valaki az irany int-ben megadott erteket allitja be");
 		this.intErtek = intErtek;
 	}
 	
 	/**
 	 * @return Visszaadja az irányhoz tartózó int értéket  (Jobb(0), Bal(1), Fel(2),Le(3))
 	 */
-	public int intErtek() {return intErtek;}
+	public int intErtek() {
+		System.out.println("Valaki az irany int-ben megadott erteket kerdezi le");
+		return intErtek;}
 	
 	/**
 	 * Visszaadja a az intérték alapján a hozzátartozó irányt
@@ -32,6 +35,7 @@ Le(3);
 	 */
 	public static Irany IranyIntErtekAlapjan(int ertek)
 	{
+		System.out.println("Valaki az inthez keresi a hozzatartoto iranyt");
 		switch(ertek)
 		{
 			case 0:
@@ -52,6 +56,7 @@ Le(3);
 	 */
 	public Irany EllenkezoIrany(Irany i)
 	{
+		System.out.println("Valaki egy iranyhoz keri az ellenkezojet");
 		switch(i)
 		{
 		case Jobb:
