@@ -30,5 +30,13 @@ public class Iglu extends Vedelem{
 	public void tamadas(Jegesmedve j) {
 		System.out.println("Az iglura meghivodott a jegesmedve tamadas fuggveny");
 	}
+	
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
+	{
+		return "Iglu";
+	}
 
 }

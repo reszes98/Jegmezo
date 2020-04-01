@@ -105,6 +105,12 @@ public abstract class Jatekos implements Frissitheto
 		System.out.println("Fazom ezert a testhom " + testho + "-rol " + (testho - i) + "-re csokkent");
 		testho-=i;
 		
+		
+		if(testho<=0) {
+			System.out.println("Elfogyott minden testhom, ezert most meghalok");
+			jegmezo.meghalt(this);
+		}
+		
 	}
 	
 	/**
@@ -138,11 +144,6 @@ public abstract class Jatekos implements Frissitheto
 		if(v == null) {
 			System.out.println("Durva ez a hovihar, most fazom");
 			fazas(1);
-		}
-		
-		if(testho==0) {
-			System.out.println("Elfogyott minden testhom, ezert most meghalok");
-			jegmezo.meghalt(this);
 		}
 	}
 	
@@ -375,13 +376,30 @@ public abstract class Jatekos implements Frissitheto
 		{
 			System.out.println("A jatekos targyai:");
 			for(int i = 0; i < targyak.size(); i++)
-				System.out.println((i + 1) + ". - " + targyak.get(i).Tipus() );
+				System.out.println((i + 1) + ". - " + targyak.get(i).toString() );
 		}
 		else
 		{
 			System.out.println("Nincsenek targyai a jatekosnak");
 		}
 		
+	}
+	
+	
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
+	{
+		return "Jatekos";
+	}
+	
+	/**
+	 * @return Visszaadja a játékos testhõjét
+	 */
+	public int getTestho()
+	{
+		return testho;
 	}
 	
 }

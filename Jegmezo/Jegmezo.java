@@ -55,10 +55,6 @@ public class Jegmezo
 		frissithetok.addAll(fl);
 		System.out.println("Hozzáadtam a jégmezõhöz a frissithetok listajat");
 	}
-
-	public void hovihar()
-	{
-	}
 	
 	
 	/**
@@ -108,5 +104,13 @@ public class Jegmezo
 	public void setup()
 	{
 		System.out.println("A jegemzo, most egy jatekot hoz letre");
+	}
+	
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
+	{
+		return "Jegmezo";
 	}
 }

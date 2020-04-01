@@ -56,4 +56,12 @@ public class Eszkimo extends Jatekos
 		
 	}
 	
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
+	{
+		return "Eszkimo";
+	}
+	
 }

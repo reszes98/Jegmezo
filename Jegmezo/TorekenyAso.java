@@ -77,7 +77,10 @@ public class TorekenyAso implements Targy{
 		
 	}
 	
-	public String Tipus()
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
 	{
 		return "TorekenyAso";
 	}

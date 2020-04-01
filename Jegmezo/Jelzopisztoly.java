@@ -69,7 +69,10 @@ public class Jelzopisztoly implements Targy
 		}
 	}
 	
-	public String Tipus()
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
 	{
 		return "Jelzopisztoly";
 	}

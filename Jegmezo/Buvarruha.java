@@ -57,7 +57,10 @@ public class Buvarruha implements Targy
 		return sikeres;
 	}
 	
-	public String Tipus()
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
 	{
 		return "Buvarruha";
 	}

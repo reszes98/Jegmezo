@@ -54,4 +54,13 @@ public class Sarkkutato extends Jatekos
 		MunkaDBcsokkentese(1);
 	}
 	
+	
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
+	{
+		return "Sarkkutato";
+	}
+	
 }

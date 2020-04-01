@@ -23,5 +23,7 @@ public abstract class Vedelem implements Frissitheto{
 	 * @param j - A jegesmedve, aki támadja a védelmet
 	 */
 	public abstract void tamadas(Jegesmedve j);
+	
+
 
 }

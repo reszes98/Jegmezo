@@ -118,5 +118,14 @@ public class Jegesmedve implements Frissitheto{
 		System.out.println("Nekem a jegesmedvenek, epp azt allitjak, hogy merre nezek");
 		iranyAmibeNez = i;
 	}
+	
+	
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
+	{
+		return "Jegesmedve";
+	}
 
 }

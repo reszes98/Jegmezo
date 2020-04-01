@@ -435,4 +435,13 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Jegtabla: most epp a rajtam levo homennyiseget kerdezik");
 		return ho;
 	}
+	
+	/**
+	 * Visszaadja, hogy mi ez az objektum
+	 */
+	public String toString()
+	{
+		return "Jegtabla";
+	}
+	
 }
