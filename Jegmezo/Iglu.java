@@ -21,6 +21,7 @@ public class Iglu extends Vedelem{
 	 */
 	public void hovihar() {
 		System.out.println("Az iglura meghivodott a hovihar fuggveny");
+		System.out.println("Iglu: Megvedtem a hovihartol a bennem levoket");
 	}
 
 	
@@ -28,7 +29,7 @@ public class Iglu extends Vedelem{
 	 * Ha megtámadj a jégtáblát, amin van, egy jegesmedve, akkor megvédi a vele egy jégtáblán lévõ játékoskat  
 	 */
 	public void tamadas(Jegesmedve j) {
-		System.out.println("Az iglura meghivodott a jegesmedve tamadas fuggveny");
+		System.out.println("Iglu: megvedtem a bennem levoket a Jegesmedvetol");
 	}
 	
 	/**

@@ -25,5 +25,12 @@ public abstract class Vedelem implements Frissitheto{
 	public abstract void tamadas(Jegesmedve j);
 	
 
+	/**
+	 * Beállítja a jegtabla, amin van atrribútumot
+	 */
+	public void setJegtablaAminVan(Jegtabla j)
+	{
+		this.jegtablaAminVan = j;
+	}
 
 }

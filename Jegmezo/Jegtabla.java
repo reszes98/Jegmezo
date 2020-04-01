@@ -32,14 +32,12 @@ public class Jegtabla implements Frissitheto
 	 * @param atVanFordulva - azt adja meg, hogy át van-e fordulva
 	 * @param ho - a kezdeti hómennyiséget adja meg
 	 * @param tartokepesseg - a tartóképességét adja meg
-	 * @param jegtablaVedelme - azt adja meg, hogy van-e védelem a jégtáblán
 	 * @param targy - a benne lévõ tárgyat adja meg. Ha nincs benne tárgy, akkor null legyen az értéke
 	 */
 	public Jegtabla(Jegmezo jegmezo,
 	boolean atVanFordulva,
 	int ho,
 	int tartokepesseg,
-	Vedelem jegtablaVedelme,
 	Targy targy)
 	{
 		this.jegmezo = jegmezo;
@@ -52,11 +50,12 @@ public class Jegtabla implements Frissitheto
 		for(int i = 0; i < 4; i++)
 			szomszedok.add(null);
 		
-		this.jegtablaVedelme = jegtablaVedelme;
+		jegtablaVedelme = null;
 		
 		jatekosok = new ArrayList<>(); 
 		this.targy = targy;
 		this.jegmezo.addFrissitheto(this);
+		jegesmedvek = new ArrayList<>();
 		
 		System.out.println("Letrehoztak egy jegtablat");
 	}
@@ -233,9 +232,7 @@ public class Jegtabla implements Frissitheto
 	public void hovihar()
 	{
 		System.out.println("Jegtabla: epp hoviharban vagyok");
-		System.out.println("Jegtabla: ezert meghivom a vedelmem hovihar fuggvenyet is");
-		if(jegtablaVedelme != null)
-			jegtablaVedelme.hovihar();
+		
 		System.out.println("Jegtabla: a hovihar kovetkezteben no rajtam a ho");
 		this.hoNovelese();
 	}
@@ -264,6 +261,7 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Jegtabla: epp hozzamadnak egy jegesmedvet");
 		System.out.println("Jegesmedve a jegtablara elhelyezve");
 			j.setjegtablaAminAll(this);
+		
 			jegesmedvek.add(j);
 	}
 	
@@ -401,6 +399,7 @@ public class Jegtabla implements Frissitheto
 	 */
 	public void setjegtablaVedelme(Vedelem v)
 	{
+		v.setJegtablaAminVan(this);
 		System.out.println("Jegtabla: most epp a rajtam levo vedelemet allitjak at");
 		jegtablaVedelme = v;
 		System.out.println("Jegtabla: Vedelem atallitva");

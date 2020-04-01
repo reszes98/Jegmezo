@@ -140,8 +140,16 @@ public abstract class Jatekos implements Frissitheto
 	public void hovihar()
 	{
 		System.out.println("En, a jatekos, epp egy hoviharban vagyok");
-		Vedelem  v =aktjegtabla.getjegtablaVedelme();
+		Vedelem  v = aktjegtabla.getjegtablaVedelme();
+		
+		
+		if(v != null)
+		{
+			System.out.println("Jatekos: Van vedelem a tablan ezert meghivom a hovihar fuggvenyet");
+			v.hovihar();
+		}
 		if(v == null) {
+			System.out.println("Jatekos: Nincs vedelem a tablan");
 			System.out.println("Durva ez a hovihar, most fazom");
 			fazas(1);
 		}
@@ -173,9 +181,8 @@ public abstract class Jatekos implements Frissitheto
 	
 	/**
 	 * A játékos képessége, amit a leszármazottak valósítanak meg
-	 * @param j - a jégtábla, amin a képességet végezzük
 	 */
-	public abstract void kepesseg(Jegtabla j);
+	public abstract void kepesseg();
 	
 	
 	/**

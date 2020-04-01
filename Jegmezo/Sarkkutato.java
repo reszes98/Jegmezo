@@ -44,14 +44,24 @@ public class Sarkkutato extends Jatekos
 
 	
 	/**
-	 * A sarkutató megvizsgálja a megadott Jégtábla tartóképességét
+	 * A sarkutató megvizsgálja az iranyAmibeNezFele levo Jégtábla tartóképességét
 	 */
-	public void kepesseg(Jegtabla j)
+	public void kepesseg()
 	{
 		System.out.println("Sarkkutato: Epp a kepessegemet akarjak hasznalni");
 		System.out.println("Sarkkutato: ezert lekerdezem a jegtabla tartokepesseget");
-		System.out.println("A jegtabla tartokepessege: " + j.gettartokepesseg());
-		MunkaDBcsokkentese(1);
+		
+		Jegtabla j = aktjegtabla.szomszedKerdez(iranyAmibeNez);
+		if(j != null)
+		{
+			System.out.println("A jegtabla tartokepessege: " + j.gettartokepesseg());
+			MunkaDBcsokkentese(1);
+		}
+		else
+		{
+			System.out.println("A szomszed nem letezik");
+			System.out.println("Tartokepesseg adat lekerese sikertelen");
+		}
 	}
 	
 	

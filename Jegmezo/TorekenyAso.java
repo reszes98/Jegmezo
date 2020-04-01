@@ -77,6 +77,22 @@ public class TorekenyAso implements Targy{
 		
 	}
 	
+	
+	/**
+	 * @return Visszaadja a TörékenyÁsó tartosság attribútumát
+	 */
+	public int getTartossag()
+	{
+		return tartossag;
+	}
+	/**
+	 * Átállítja a magadott paraméterre a TörékenyÁsó tartósságát
+	 * @param i - amire át akarjuk változtatni a tartósságot
+	 */
+	public void setTartossag(int i)
+	{
+		tartossag = i;
+	}
 	/**
 	 * Visszaadja, hogy mi ez az objektum
 	 */
