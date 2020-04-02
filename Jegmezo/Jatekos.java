@@ -22,6 +22,7 @@ public abstract class Jatekos implements Frissitheto
 	private int testho;
 	private List<Targy> targyak;
 	protected Irany iranyAmibeNez;
+	public boolean tartAKore;
 	
 	
 	/**
@@ -47,8 +48,10 @@ public abstract class Jatekos implements Frissitheto
 		this.testho = testho;
 		this.targyak = targyak;
 		this.iranyAmibeNez = iranyAmibeNez;
-		this.jegmezo.addFrissitheto(this);
 		
+		this.jegmezo.addFrissitheto(this);
+		this.jegmezo.addJatekos(this);
+		tartAKore = false;
 		System.out.println("Valaki letrehozott egy jatekost");
 	}
 	
@@ -352,6 +355,7 @@ public abstract class Jatekos implements Frissitheto
 	public void korVege()
 	{
 		System.out.println("a jatekos vegzett a korevel");
+		tartAKore = false;
 	}
 	
 	/**
@@ -415,6 +419,27 @@ public abstract class Jatekos implements Frissitheto
 	public int getMunkadb()
 	{
 		return Munkadb;
+	}
+	
+	
+	/**
+	 * Akkor fut amikor a játékos köre van. Megkérdezi a felhasználót, hogy mit akar tenni, amíg tart a köre
+	 */
+	public void KoreVan()
+	{
+		tartAKore = true;
+		
+		while(tartAKore)
+		{
+			
+		}
+		
+	}
+	
+	
+	public void setTartAKore(boolean tk)
+	{
+		tartAKore = tk;
 	}
 	
 }

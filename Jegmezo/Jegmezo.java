@@ -22,7 +22,9 @@ public class Jegmezo
 {
 	private int hoviharCnt;
 	private List<Frissitheto> frissithetok;
-	
+	private List<Jatekos> jatekosok;
+	private boolean VegeAjateknak;
+	private boolean elsoKor;
 	/**
 	 * a konstruktor, ami létrehozza a Jégezõt
 	 * @param hoviharCnt - kezdetben hány kör van a hóviharig
@@ -31,6 +33,9 @@ public class Jegmezo
 	{
 		this.hoviharCnt = hoviharCnt;
 		frissithetok = new ArrayList<>();
+		jatekosok = new ArrayList<>();
+		VegeAjateknak = false;
+		elsoKor = true;
 		System.out.println("Letrehoztak egy jegmezot");
 	}
 	
@@ -45,6 +50,19 @@ public class Jegmezo
 		System.out.println("Hozzáadtam a jégmezõhöz a frissithetot");
 		
 	}
+	
+	/**
+	 * Felveszi a jatekosok koze a paraméterben megadott jatekost
+	 * @param j - a jatekos, akit fel akarunk venni
+	 */
+	public void addJatekos(Jatekos j)
+	{
+		
+		jatekosok.add(j);
+		System.out.println("Hozzáadtam a jégmezõhöz a jatekost");
+		
+	}
+	
 	
 	/**
 	 * Felveszi a frissithetok közé a paraméterben megadott frissithetoket
@@ -67,6 +85,7 @@ public class Jegmezo
 			System.out.println("Sajnos vesztettetek.");
 		else 
 			System.out.println("Nyertetetek!");
+		VegeAjateknak = true;
 	}
 	
 	/**
@@ -75,21 +94,39 @@ public class Jegmezo
 	 */
 	public void leptet()
 	{
-		System.out.println("Jegmezo: Uj kor kezdodott");
-		hoviharCnt--;
-		System.out.println("Jegemzo: Csokkent a hoviharig hatralevo korok szama");
-		
-		for(int i=0;i<frissithetok.size();i++) {
-			System.out.println("Meghivja a jegmezo a frissithetokre a frissit fuggvenyt");
-			frissithetok.get(i).frissit();
-			if(hoviharCnt==0)
+		while(!VegeAjateknak)
+		{
+			if(!elsoKor)
 			{
-				System.out.println("Jegmezo: Nulla kor van a hoviharig, ezert hovihar");
-				frissithetok.get(i).hovihar();
-				hoviharCnt = 4;
+				System.out.println("Jegmezo: Uj kor kezdodott");
+				hoviharCnt--;
+				System.out.println("Jegemzo: Csokkent a hoviharig hatralevo korok szama");
+				
+				for(int i=0;i<frissithetok.size();i++) {
+					System.out.println("Meghivja a jegmezo a frissithetokre a frissit fuggvenyt");
+					frissithetok.get(i).frissit();
+					if(hoviharCnt==0)
+					{
+						System.out.println("Jegmezo: Nulla kor van a hoviharig, ezert hovihar");
+						frissithetok.get(i).hovihar();
+						hoviharCnt = 4;
+					}
+				}
 			}
+			else
+				elsoKor = false;
+			
+			System.out.println("Jegmezo: az ujabb hoviharig " + hoviharCnt + "db kor van hatra");
+			
+			for(int i = 0; i < jatekosok.size(); i++)
+			{
+				if(VegeAjateknak)
+					break;
+				
+				jatekosok.get(i).KoreVan();
+			}
+		
 		}
-		System.out.println("Jegmezo: az ujabb hoviharig " + hoviharCnt + "db kor van hatra");
 	}
 	
 	/**
@@ -98,12 +135,56 @@ public class Jegmezo
 	public void meghalt(Jatekos j)
 	{
 		System.out.println("Egy jatekos meghalt rajtam, ezert most vege a jateknak");
+		j.setTartAKore(false);
 		this.jatekvege(false);
 	}
 	
-	public void setup()
+	public void setup( int jegtablakSzamaSzelteben, int jegtablakSzamaHosszaban, int eszkimokSzama, int sarrkkutatokSzama)
 	{
 		System.out.println("A jegemzo, most egy jatekot hoz letre");
+		Jegtabla jgk[][] = new Jegtabla[jegtablakSzamaHosszaban][jegtablakSzamaSzelteben];
+		
+		//incializaljuk a jegtablakat
+		for(int i = 0; i < jegtablakSzamaHosszaban; i++)
+		{
+			for(int j = 0; j < jegtablakSzamaSzelteben; j++)
+			{
+				jgk[i][j] = new Jegtabla(this, false, 5, 2, null); // TODO: itt majd randomizalni kell a homennyiseget, tartokepesseget es a targyat
+			}
+		}
+		
+		//(Jobb(0), Bal(1), Fel(2), Le(3))
+		//ujra bejarjuk es beallitjuk a szomszedokat
+		for(int i = 0; i < jegtablakSzamaHosszaban; i++)
+		{
+			for(int j = 0; j < jegtablakSzamaSzelteben; j++)
+			{
+					Jegtabla sz0 = j + 1 < jegtablakSzamaSzelteben? jgk[i][j + 1] : null;
+					Jegtabla sz1 = j - 1 >= 0? jgk[i][j - 1] : null;
+					Jegtabla sz2 = i - 1 >= 0? jgk[i - 1][j] : null;
+					Jegtabla sz3 = i + 1 < jegtablakSzamaHosszaban? jgk[i + 1][j] : null;
+					jgk[i][j].setSzomszed(sz0, Irany.IranyIntErtekAlapjan(0));
+					jgk[i][j].setSzomszed(sz1, Irany.IranyIntErtekAlapjan(1));
+					jgk[i][j].setSzomszed(sz2, Irany.IranyIntErtekAlapjan(2));
+					jgk[i][j].setSzomszed(sz3, Irany.IranyIntErtekAlapjan(3));
+			}
+		}
+		
+		for(int i = 0; i < eszkimokSzama; i++)
+		{
+			Eszkimo e = new Eszkimo(this, 0, 4, 5, null, Irany.Fel);
+			
+			jgk[i/jegtablakSzamaSzelteben][i%jegtablakSzamaSzelteben].addJatekos(e);
+			
+		}
+		
+		for(int i = 0; i < sarrkkutatokSzama; i++)
+		{
+			Sarkkutato sk = new Sarkkutato(this, 0, 4, 4, null, Irany.Fel);
+			jgk[eszkimokSzama/jegtablakSzamaSzelteben + i/jegtablakSzamaSzelteben][eszkimokSzama%jegtablakSzamaSzelteben + i%jegtablakSzamaSzelteben].addJatekos(sk);
+		}
+		
+			System.out.println("Jatek letrehozva");
 	}
 	
 	/**

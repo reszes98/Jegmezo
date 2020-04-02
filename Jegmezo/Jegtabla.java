@@ -45,7 +45,7 @@ public class Jegtabla implements Frissitheto
 		this.atVanFordulva =atVanFordulva;
 		this.ho = ho;
 		this.tartokepesseg = tartokepesseg;
-		szomszedok = new ArrayList<>(); 
+		szomszedok = new ArrayList<>(4); 
 		
 		for(int i = 0; i < 4; i++)
 			szomszedok.add(null);
