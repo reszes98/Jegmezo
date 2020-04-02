@@ -100,7 +100,7 @@ public class Menu {
 					ElelemHasznal(answer);
 					break;
 				case 8:
-					
+					SplitTeszt();
 			    	break;	
 				case 9:
 					EszkimoKepesseg();
@@ -247,16 +247,16 @@ public class Menu {
 		public static void Asas(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j1 = new Jegtabla(jm, false, 1, 55, null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j1 = new Jegtabla(jm, false, 1, 55);
+			Sarkkutato sk = new Sarkkutato(jm, 55,55, Irany.Bal);
 			j1.addJatekos(sk);
 			
-			Jegtabla j2 = new Jegtabla(jm, false, 0, 55, null);
-			Eszkimo e = new Eszkimo(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j2 = new Jegtabla(jm, false, 0, 55);
+			Eszkimo e = new Eszkimo(jm,55,55, Irany.Bal);
 			j2.addJatekos(e);
 			
-			Jegtabla j3 = new Jegtabla(jm, false, -1, 55, null);
-			Eszkimo e2 = new Eszkimo(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j3 = new Jegtabla(jm, false, -1, 55);
+			Eszkimo e2 = new Eszkimo(jm, 55,55, Irany.Bal);
 			j3.addJatekos(e2);
 			
 			
@@ -292,8 +292,8 @@ public class Menu {
 		public static void AsotFelvesz()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Sarkkutato sk = new Sarkkutato(jm, 55,55, Irany.Bal);
 			j.addJatekos(sk);
 			Aso a = new Aso();
 			j.setTargy(a);
@@ -307,23 +307,23 @@ public class Menu {
 		public static void AsotHasznal(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, 28, 55, null);
-			Jegtabla j1 = new Jegtabla(jm, false, 2, 55, null);
-			Jegtabla j2 = new Jegtabla(jm, false, 1, 55, null);
-			Jegtabla j3 = new Jegtabla(jm, false, -1, 55, null);
+			Jegtabla j = new Jegtabla(jm, false, 28, 55);
+			Jegtabla j1 = new Jegtabla(jm, false, 2, 55);
+			Jegtabla j2 = new Jegtabla(jm, false, 1, 55);
+			Jegtabla j3 = new Jegtabla(jm, false, -1, 55);
 			
 			j.setSzomszed(j1, Irany.Jobb);
 			j.setSzomszed(j2, Irany.Bal);
 			j.setSzomszed(j3, Irany.Fel);
 			Aso a = new Aso();
 			
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Jobb);
+			Sarkkutato sk = new Sarkkutato(jm, 55,55, Irany.Jobb);
 		
 			
-			Sarkkutato sk2 = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Sarkkutato sk2 = new Sarkkutato(jm, 55,55, Irany.Bal);
 			
 			
-			Sarkkutato sk3 = new Sarkkutato(jm, 55,55,55, null, Irany.Fel);
+			Sarkkutato sk3 = new Sarkkutato(jm, 55,55, Irany.Fel);
 			sk.targyHozzadasa(a);
 			sk2.targyHozzadasa(a);
 			sk3.targyHozzadasa(a);
@@ -368,8 +368,8 @@ public class Menu {
 		public static void BuvarruhaFelvesz()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Sarkkutato sk = new Sarkkutato(jm,55,55,  Irany.Bal);
 			j.addJatekos(sk);
 			Buvarruha a = new Buvarruha();
 			j.setTargy(a);
@@ -383,9 +383,9 @@ public class Menu {
 		public static void BuvarruhaHasznal()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, true, -1, 0, null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Jobb);
-			Jegtabla j1 = new Jegtabla(jm, false, 2, 55, null);
+			Jegtabla j = new Jegtabla(jm, true, -1, 0);
+			Sarkkutato sk = new Sarkkutato(jm, 55,55, Irany.Jobb);
+			Jegtabla j1 = new Jegtabla(jm, false, 2, 55);
 			
 			j.setSzomszed(j1, Irany.Jobb);
 			j1.setSzomszed(j, Irany.Bal);
@@ -412,8 +412,8 @@ public class Menu {
 		public static void ElelemFelvesz()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Sarkkutato sk = new Sarkkutato(jm, 55,55, Irany.Bal);
 			j.addJatekos(sk);
 			Elelem a = new Elelem(1);
 			j.setTargy(a);
@@ -427,9 +427,9 @@ public class Menu {
 		public static void ElelemHasznal(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, true, -1, 0, null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,2, null, Irany.Jobb);
-			Sarkkutato sk2 = new Sarkkutato(jm, 55,55,6, null, Irany.Jobb);
+			Jegtabla j = new Jegtabla(jm, true, -1, 0);
+			Sarkkutato sk = new Sarkkutato(jm, 55,2, Irany.Jobb);
+			Sarkkutato sk2 = new Sarkkutato(jm, 55,6,Irany.Jobb);
 			
 			j.addJatekos(sk);
 			Elelem a = new Elelem(1);
@@ -463,11 +463,11 @@ public class Menu {
 		public static void EszkimoKepesseg()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, true, -1, 0, null);
-			Jegtabla j1 = new Jegtabla(jm, true, -1, 0, null);
+			Jegtabla j = new Jegtabla(jm, true, -1, 0);
+			Jegtabla j1 = new Jegtabla(jm, true, -1, 0);
 			j.setSzomszed(j1, Irany.Jobb);
 			
-			Eszkimo e = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
+			Eszkimo e = new Eszkimo(jm, 55,2, Irany.Jobb);
 			j.addJatekos(e);
 			
 			String jVedelme = j.getjegtablaVedelme() == null? "Semmi" : j.getjegtablaVedelme().toString();
@@ -497,7 +497,7 @@ public class Menu {
 		public static void IgluFrissit()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 0, null);
+			Jegtabla j = new Jegtabla(jm, false, -1, 0);
 			Iglu i = new Iglu();
 			
 			j.setjegtablaVedelme(i);
@@ -519,15 +519,15 @@ public class Menu {
 		public static void JatekosAthelyez(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, true, -1, 2, null);
-			Jegtabla j1 = new Jegtabla(jm, true, -1, 1, null);
-			Jegtabla j2 = new Jegtabla(jm, true, -1, 0, null);
+			Jegtabla j = new Jegtabla(jm, true, -1, 2);
+			Jegtabla j1 = new Jegtabla(jm, true, -1, 1);
+			Jegtabla j2 = new Jegtabla(jm, true, -1, 0);
 			
 			j.setSzomszed(j1, Irany.Jobb);
 			j.setSzomszed(j2, Irany.Bal);
 			
-			Eszkimo e = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
-			Eszkimo e2 = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
+			Eszkimo e = new Eszkimo(jm,55,2, Irany.Jobb);
+			Eszkimo e2 = new Eszkimo(jm, 55,2, Irany.Jobb);
 			j.addJatekos(e);
 			j.addJatekos(e2);
 			
@@ -557,7 +557,7 @@ public class Menu {
 		public static void JatekosFrissit()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Eszkimo e = new Eszkimo(jm, 55,0,2, null, Irany.Jobb);
+			Eszkimo e = new Eszkimo(jm, 0,2, Irany.Jobb);
 			System.out.println("Kezdetben a jatekosnak " + e.getMunkadb() + " db Munkaja van");
 			
 			e.frissit();
@@ -569,15 +569,15 @@ public class Menu {
 		public static void JatekosHovihar(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Eszkimo e = new Eszkimo(jm, 55,0,2, null, Irany.Jobb);
-			Eszkimo e2 = new Eszkimo(jm, 55,0,1, null, Irany.Jobb);
-			Eszkimo e3 = new Eszkimo(jm, 55,0,1, null, Irany.Jobb);
-			Eszkimo e4 = new Eszkimo(jm, 55,0,1, null, Irany.Jobb);
+			Eszkimo e = new Eszkimo(jm, 0,2, Irany.Jobb);
+			Eszkimo e2 = new Eszkimo(jm, 0,1, Irany.Jobb);
+			Eszkimo e3 = new Eszkimo(jm, 0,1, Irany.Jobb);
+			Eszkimo e4 = new Eszkimo(jm, 0,1,  Irany.Jobb);
 			
-			Jegtabla j = new Jegtabla(jm, true, -1, 2, null);
-			Jegtabla j1 = new Jegtabla(jm, true, -1, 1, null);
+			Jegtabla j = new Jegtabla(jm, true, -1, 2);
+			Jegtabla j1 = new Jegtabla(jm, true, -1, 1);
 			j1.setjegtablaVedelme(new Iglu());
-			Jegtabla j2 = new Jegtabla(jm, true, -1, 1,  null);
+			Jegtabla j2 = new Jegtabla(jm, true, -1, 1);
 			j2.setjegtablaVedelme(new Sator(1));
 			
 			j.addJatekos(e);
@@ -615,15 +615,15 @@ public class Menu {
 		public static void JatekosLep(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Eszkimo e = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
+			Eszkimo e = new Eszkimo(jm, 55,2, Irany.Jobb);
 			
 			
 			
 			
 			if(eset == 1)
 			{
-				Jegtabla j = new Jegtabla(jm, false, -1, 2, null);
-				Jegtabla j1 = new Jegtabla(jm, false, -1, 1, null);
+				Jegtabla j = new Jegtabla(jm, false, -1, 2);
+				Jegtabla j1 = new Jegtabla(jm, false, -1, 1);
 				j.addJatekos(e);
 				
 				j.setSzomszed(j1, Irany.Jobb);
@@ -635,8 +635,8 @@ public class Menu {
 			}
 			else if(eset == 2)
 			{
-				Jegtabla j = new Jegtabla(jm, false, -1, 1, null);
-				Jegtabla j1 = new Jegtabla(jm, false, -1, 0, null);
+				Jegtabla j = new Jegtabla(jm, false, -1, 1);
+				Jegtabla j1 = new Jegtabla(jm, false, -1, 0);
 				j.addJatekos(e);
 				j.setSzomszed(j1, Irany.Jobb);
 				
@@ -648,8 +648,8 @@ public class Menu {
 			}
 			else if(eset == 3)
 			{
-				Jegtabla j = new Jegtabla(jm, true, -1, 0, null);
-				Jegtabla j1 = new Jegtabla(jm, false, -1, 0, null);
+				Jegtabla j = new Jegtabla(jm, true, -1, 0);
+				Jegtabla j1 = new Jegtabla(jm, false, -1, 0);
 				j.addJatekos(e);
 				j.setSzomszed(j1, Irany.Jobb);
 				
@@ -668,16 +668,16 @@ public class Menu {
 		{
 			Jegmezo jm = new Jegmezo(10);
 			Jegesmedve jeges = new Jegesmedve(jm, Irany.Jobb, false);
-			Eszkimo e = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
+			Eszkimo e = new Eszkimo(jm,55,2,Irany.Jobb);
 			
-			Jegtabla j = new Jegtabla(jm, false, -1, 2, null);
-			Jegtabla j2 = new Jegtabla(jm, false, -1, 2, null);
+			Jegtabla j = new Jegtabla(jm, false, -1, 2);
+			Jegtabla j2 = new Jegtabla(jm, false, -1, 2);
 			j.setSzomszed(j2,Irany.Bal);
 			j.addJegesmedve(jeges);
 		
 			if(eset == 1)
 			{
-				Jegtabla j1 = new Jegtabla(jm, false, -1, 1, null);
+				Jegtabla j1 = new Jegtabla(jm, false, -1, 1);
 				j1.setjegtablaVedelme(new Iglu());
 				j.setSzomszed(j1,Irany.Jobb);
 				j1.addJatekos(e);
@@ -686,7 +686,7 @@ public class Menu {
 			}
 			else if(eset == 2)
 			{
-				Jegtabla j1 = new Jegtabla(jm, false, -1, 1, null);
+				Jegtabla j1 = new Jegtabla(jm, false, -1, 1);
 				j1.setjegtablaVedelme(new Sator(1));
 				j.setSzomszed(j1,Irany.Jobb);
 				j1.addJatekos(e);
@@ -694,7 +694,7 @@ public class Menu {
 			}
 			else if(eset == 3)
 			{
-				Jegtabla j1 = new Jegtabla(jm, false, -1, 1, null);
+				Jegtabla j1 = new Jegtabla(jm, false, -1, 1);
 				j.setSzomszed(j1,Irany.Jobb);
 				j1.addJatekos(e);
 				jeges.frissit();
@@ -722,7 +722,7 @@ public class Menu {
 		{
 			
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 2, null);
+			Jegtabla j = new Jegtabla(jm, false, -1, 2);
 			System.out.println("Kezdetben a jegtablan " + j.getHo() + " db ho van");
 			j.hovihar();
 			System.out.println("Most a jegtablan " + j.getHo() + " db ho van");
@@ -733,8 +733,8 @@ public class Menu {
 		{
 			
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 2, null);
-			Eszkimo e = new Eszkimo(jm, 55,55,2, null, Irany.Jobb);
+			Jegtabla j = new Jegtabla(jm, false, -1, 2);
+			Eszkimo e = new Eszkimo(jm,55,2,Irany.Jobb);
 			
 			if(eset == 1)
 			{
@@ -775,7 +775,7 @@ public class Menu {
 		public static void JegtablaAtfordit(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 2, null);
+			Jegtabla j = new Jegtabla(jm, false, -1, 2);
 			
 			
 			if(eset == 1)
@@ -802,8 +802,8 @@ public class Menu {
 		public static void KotelFelvesz()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Sarkkutato sk = new Sarkkutato(jm,55,55,Irany.Bal);
 			j.addJatekos(sk);
 			Kotel a = new Kotel();
 			j.setTargy(a);
@@ -818,11 +818,11 @@ public class Menu {
 		{
 			
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-			Jegtabla j2 = new Jegtabla(jm, true, -1, 0, null);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Jegtabla j2 = new Jegtabla(jm, true, -1, 0);
 			
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Jobb);
-			Sarkkutato sk2 = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Sarkkutato sk = new Sarkkutato(jm,55,55, Irany.Jobb);
+			Sarkkutato sk2 = new Sarkkutato(jm,55,55, Irany.Bal);
 			
 			sk.targyHozzadasa(new Kotel());
 			j.addJatekos(sk);
@@ -848,8 +848,8 @@ public class Menu {
 		public static void JelzopisztolyFelvesz()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55,null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Sarkkutato sk = new Sarkkutato(jm,55,55,Irany.Bal);
 			j.addJatekos(sk);
 			Jelzopisztoly a = new Jelzopisztoly();
 			j.setTargy(a);
@@ -865,13 +865,13 @@ public class Menu {
 		public static void JelzopisztolyHasznal(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55,null);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
 			System.out.println("Most a jatekos megprobalja megepiteni a jelzpisztolyt");
 			Jelzopisztoly jp = new Jelzopisztoly();
 			
 			if(eset == 1)
 			{
-				Sarkkutato sk = new Sarkkutato(jm, 0,55,55, null, Irany.Jobb);
+				Sarkkutato sk = new Sarkkutato(jm,55,55,Irany.Jobb);
 				j.addJatekos(sk);
 				sk.targyHozzadasa(jp);
 				sk.targyHasznalat(0);
@@ -879,13 +879,15 @@ public class Menu {
 			}
 			else if(eset == 2)
 			{
-				Sarkkutato sk = new Sarkkutato(jm, 1,55,55, null, Irany.Jobb);
-				Sarkkutato sk2 = new Sarkkutato(jm, 1,55,55, null, Irany.Bal);
-				Sarkkutato sk3 = new Sarkkutato(jm, 1,55,55, null, Irany.Bal);
+				Sarkkutato sk = new Sarkkutato(jm,55,55,Irany.Jobb);
+				Sarkkutato sk2 = new Sarkkutato(jm,55,55, Irany.Bal);
+				Sarkkutato sk3 = new Sarkkutato(jm,55,55, Irany.Bal);
 				j.addJatekos(sk);
 				j.addJatekos(sk2);
 				j.addJatekos(sk3);
-				sk.targyHozzadasa(jp);
+				jp.felvesz(sk);
+				jp.felvesz(sk2);
+				jp.felvesz(sk3);
 				sk.targyHasznalat(0);
 				
 			}
@@ -894,7 +896,7 @@ public class Menu {
 		public static void SatorFrissit()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
 			j.setjegtablaVedelme(new Sator(1));
 			
 			System.out.println("A jegtabla vedelme a frissites elott: " +  j.getjegtablaVedelme().toString());
@@ -915,8 +917,8 @@ public class Menu {
 		public static void SatorFelvesz()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55,null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Sarkkutato sk = new Sarkkutato(jm,55,55, Irany.Bal);
 			j.addJatekos(sk);
 			Sator a = new Sator(2);
 			j.setTargy(a);
@@ -931,10 +933,10 @@ public class Menu {
 		{
 			
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-			Jegtabla j2 = new Jegtabla(jm, true, -1, 0, null);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Jegtabla j2 = new Jegtabla(jm, true, -1, 0);
 			
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Jobb);
+			Sarkkutato sk = new Sarkkutato(jm,55,55,Irany.Jobb);
 			
 			sk.targyHozzadasa(new Sator(1));
 			j.addJatekos(sk);
@@ -951,11 +953,11 @@ public class Menu {
 		public static void SarkkutatoKepessegetHasznal()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-			Jegtabla j2 = new Jegtabla(jm, true, -1, 0, null);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Jegtabla j2 = new Jegtabla(jm, true, -1, 0);
 			
 			j.setSzomszed(j2, Irany.Jobb);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Jobb);
+			Sarkkutato sk = new Sarkkutato(jm,55,55, Irany.Jobb);
 			j.addJatekos(sk);
 			
 			System.out.println("A jegtabla tartokepessege, amirol tudni szeretnenk: " + j2.gettartokepesseg());
@@ -967,8 +969,8 @@ public class Menu {
 		public static void TorkenyAsoFelvesz()
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Bal);
+			Jegtabla j = new Jegtabla(jm, false, -1, 55);
+			Sarkkutato sk = new Sarkkutato(jm, 55,55,Irany.Bal);
 			j.addJatekos(sk);
 			TorekenyAso a = new TorekenyAso(2);
 			j.setTargy(a);
@@ -982,14 +984,14 @@ public class Menu {
 		public static void TorekenyAsoHasznal(int eset)
 		{
 			Jegmezo jm = new Jegmezo(10);
-			Sarkkutato sk = new Sarkkutato(jm, 55,55,55, null, Irany.Jobb);
-			Jegtabla j2 =   new Jegtabla(jm, false, 2, 0, null);
+			Sarkkutato sk = new Sarkkutato(jm,55,55,Irany.Jobb);
+			Jegtabla j2 =   new Jegtabla(jm, false, 2, 0);
 			TorekenyAso t = new TorekenyAso(1);
 			if(eset == 1)
 			{
 				
-				Jegtabla j = new Jegtabla(jm, false, 2, 55, null);
-				j2 = new Jegtabla(jm, false, 2, 0, null);
+				Jegtabla j = new Jegtabla(jm, false, 2, 55);
+				j2 = new Jegtabla(jm, false, 2, 0);
 				System.out.println("Kezdetben a jobb jegtabla homennyisege " + j2.getHo() + " db");
 				j.setSzomszed(j2, Irany.Jobb);
 				
@@ -1006,8 +1008,8 @@ public class Menu {
 			}
 			else if(eset == 2)
 			{
-				Jegtabla j = new Jegtabla(jm, false, 1, 55, null);
-				j2 = new Jegtabla(jm, false, 1, 0, null);
+				Jegtabla j = new Jegtabla(jm, false, 1, 55);
+				j2 = new Jegtabla(jm, false, 1, 0);
 				System.out.println("Kezdetben a jobb jegtabla homennyisege " + j2.getHo() + " db");
 				j.setSzomszed(j2, Irany.Jobb);
 				
@@ -1025,8 +1027,8 @@ public class Menu {
 			}
 			else if(eset == 3)
 			{
-				Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-				j2 = new Jegtabla(jm, false, -1, 0, null);
+				Jegtabla j = new Jegtabla(jm, false, -1, 55);
+				j2 = new Jegtabla(jm, false, -1, 0);
 				System.out.println("Kezdetben a jobb jegtabla homennyisege " + j2.getHo() + " db");
 				j.setSzomszed(j2, Irany.Jobb);
 				
@@ -1041,8 +1043,8 @@ public class Menu {
 			}
 			else if(eset == 4)
 			{
-				Jegtabla j = new Jegtabla(jm, false, -1, 55, null);
-				j2 = new Jegtabla(jm, false, 10, 0, null);
+				Jegtabla j = new Jegtabla(jm, false, -1, 55);
+				j2 = new Jegtabla(jm, false, 10, 0);
 				System.out.println("Kezdetben a jobb jegtabla homennyisege " + j2.getHo() + " db");
 				j.setSzomszed(j2, Irany.Jobb);
 				
@@ -1061,6 +1063,19 @@ public class Menu {
 			System.out.println("A vegen a jatekos targyai: ");
 			sk.TargyakListazasa();
 			
+		}
+		
+		
+		public static void SplitTeszt()
+		{
+			String s = "print A jatekosnak kezdeben asdas tsehoje van";
+			
+			String[] er = s.split(" ");
+			
+			for(int i = 0; i < er.length; i++)
+			{
+				System.out.println(er[i]);
+			}
 		}
 			
 }

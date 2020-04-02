@@ -149,7 +149,7 @@ public class Jegmezo
 		{
 			for(int j = 0; j < jegtablakSzamaSzelteben; j++)
 			{
-				jgk[i][j] = new Jegtabla(this, false, 5, 2, null); // TODO: itt majd randomizalni kell a homennyiseget, tartokepesseget es a targyat
+				jgk[i][j] = new Jegtabla(this, false, 5, 2); // TODO: itt majd randomizalni kell a homennyiseget, tartokepesseget es a targyat
 			}
 		}
 		
@@ -172,7 +172,7 @@ public class Jegmezo
 		
 		for(int i = 0; i < eszkimokSzama; i++)
 		{
-			Eszkimo e = new Eszkimo(this, 0, 4, 5, null, Irany.Fel);
+			Eszkimo e = new Eszkimo(this, 4, 5, Irany.Fel);
 			
 			jgk[i/jegtablakSzamaSzelteben][i%jegtablakSzamaSzelteben].addJatekos(e);
 			
@@ -180,7 +180,7 @@ public class Jegmezo
 		
 		for(int i = 0; i < sarrkkutatokSzama; i++)
 		{
-			Sarkkutato sk = new Sarkkutato(this, 0, 4, 4, null, Irany.Fel);
+			Sarkkutato sk = new Sarkkutato(this, 4, 4, Irany.Fel);
 			jgk[eszkimokSzama/jegtablakSzamaSzelteben + i/jegtablakSzamaSzelteben][eszkimokSzama%jegtablakSzamaSzelteben + i%jegtablakSzamaSzelteben].addJatekos(sk);
 		}
 		

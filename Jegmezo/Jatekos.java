@@ -35,18 +35,16 @@ public abstract class Jatekos implements Frissitheto
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
 	public Jatekos(Jegmezo jegmezo,
-	int jelzopisztolydb,
 	int Munkadb,
 	int testho,
-	List<Targy> targyak,
 	Irany iranyAmibeNez)
 	{
 		this.jegmezo = jegmezo;
 		this.aktjegtabla = null;
-		this.jelzopisztolydb = jelzopisztolydb;
+		this.jelzopisztolydb = 0;
 		this.Munkadb = Munkadb;
 		this.testho = testho;
-		this.targyak = targyak;
+		this.targyak = new ArrayList<>();
 		this.iranyAmibeNez = iranyAmibeNez;
 		
 		this.jegmezo.addFrissitheto(this);

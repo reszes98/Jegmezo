@@ -25,17 +25,13 @@ public class Eszkimo extends Jatekos
 	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
 	public Eszkimo(Jegmezo jegmezo,
-	int jelzopisztolydb,
 	int Munkadb,
 	int testho,
-	List<Targy> targyak,
 	Irany iranyAmibeNez)
 	{
 		super(jegmezo,
-				jelzopisztolydb,
 				Munkadb,
 				testho,
-				targyak,
 				iranyAmibeNez);
 		
 		System.out.println("Letrehoztak egy Eszkimot");

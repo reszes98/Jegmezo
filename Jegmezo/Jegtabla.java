@@ -37,8 +37,7 @@ public class Jegtabla implements Frissitheto
 	public Jegtabla(Jegmezo jegmezo,
 	boolean atVanFordulva,
 	int ho,
-	int tartokepesseg,
-	Targy targy)
+	int tartokepesseg)
 	{
 		this.jegmezo = jegmezo;
 		
@@ -53,7 +52,7 @@ public class Jegtabla implements Frissitheto
 		jegtablaVedelme = null;
 		
 		jatekosok = new ArrayList<>(); 
-		this.targy = targy;
+		this.targy = null;
 		this.jegmezo.addFrissitheto(this);
 		jegesmedvek = new ArrayList<>();
 		
