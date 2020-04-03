@@ -94,9 +94,8 @@ public abstract class Jatekos implements Frissitheto
 		}
 	}
 	
-	public void kilep(Jegtabla j)
-	{
-	}
+	
+	
 	
 	/**
 	 * @param i csökkenti a testhõt a megadott mennyiséggel
@@ -124,14 +123,7 @@ public abstract class Jatekos implements Frissitheto
 		
 	}
 	
-	/**
-	 * @return Visszaadja a Játékos iranyAmibeNez-ét
-	 */
-	public Irany getIranyAmibeNez()
-	{
-		System.out.println("Engem, mint jatekost, epp arrol kerdeznek, hogy merre nezek");
-		return iranyAmibeNez;
-	}
+	
 	
 	
 	/**
@@ -156,14 +148,8 @@ public abstract class Jatekos implements Frissitheto
 		}
 	}
 	
-	/**
-	 * @return Visszaadja a Játékos által tárolt jelzõpisztoly darabok számát
-	 */
-	public int getjelzopisztolydb()
-	{
-		System.out.println("Jatekos vagyok es a jelzopisztolydb szamom irant erdeklodnek epp");
-		return jelzopisztolydb;
-	}
+	
+	
 	
 	/**
 	 * Növeli eggyel a jelzopisztolydb-t.
@@ -174,16 +160,25 @@ public abstract class Jatekos implements Frissitheto
 		jelzopisztolydb++;
 	}
 	
-	public Jegtabla JegtablaLekerdez()
-	{
-		System.out.println("Jatekos vagyok es azt kerdezik melyik jegtablan allok");
-		return aktjegtabla;
-	}
 	
 	/**
 	 * A játékos képessége, amit a leszármazottak valósítanak meg
 	 */
 	public abstract void kepesseg();
+	
+	
+	
+	
+	
+	
+	/**
+	 * Akkor hívódik meg, ha nulára csökkent a Játékos Munkadb-je
+	 */
+	public void korVege()
+	{
+		System.out.println("a jatekos vegzett a korevel");
+		tartAKore = false;
+	}
 	
 	
 	/**
@@ -216,17 +211,72 @@ public abstract class Jatekos implements Frissitheto
 	
 	
 	
+	
 	/**
-	 * Beállítja a játékost, hogy abba az irányba nézzen, amit megadunk
-	 * @param i - Az irány, amibe szeretnénk, hogy nézzen a Játékos
+	 * csökkenti a megadott mennyiséggel a játékos munkaDB-jét
+	 * Ha nullára csökken átadjuk a kört a következõ játékosnak
+	 * @param mennyivel - mennyivel csökkentsük a MunkaDB-t
 	 */
-	public void setIranyAmibeNez(Irany i)
+	public void MunkaDBcsokkentese(int mennyivel)
 	{
-		System.out.println("Most epp a jatekos iranyAmibeNez tulajdonsagat allitjak");
-		
-		iranyAmibeNez = i;
+		System.out.println("Most epp a jatekos munkadbjait probaljak csokkenteni");
+		System.out.println("Munkadb csokkentve");
+		if(Munkadb - mennyivel < 0)
+		{
+			Munkadb = 0;
+			System.out.println("Elfogytak a munkaim ");
+			
+			System.out.println("ezert tovabbadom a korom");
+			korVege();
+		}
+		else
+		{
+			Munkadb -= mennyivel;
+		}
 	}
 	
+	
+	
+	
+	/**
+	 * @return Visszaadja a játékos aktjégtábla attribútumát
+	 */
+	public Jegtabla JegtablaLekerdez()
+	{
+		System.out.println("Jatekos vagyok es azt kerdezik melyik jegtablan allok");
+		return aktjegtabla;
+	}
+	
+	
+	
+	
+	/**
+	 * Eltávolítja a paraméterben megadott tárgyat
+	 * @param t - a tárgy, amit el akarunk távolítani
+	 */
+	public void targyEltavolitasa(Targy t)
+	{
+		System.out.println("A jatekos targygyujtemenyebol epp egy targyat probalnak eltavolitani");
+		targyak.remove(t);
+		System.out.println("Targy eltavolitva");
+	}
+	
+	/**
+	 * Megpróbálja felvenni a tárgyat a jégtábláról, amin áll
+	 */
+	public void targyFelvetel()
+	{
+		System.out.println("A jatekos epp egy targyat probal felvenni a jegtablarol, amin all");
+		boolean sikeres = aktjegtabla.targyFelvesz(this);
+		if(sikeres)
+		{
+			System.out.println("A targyfelvetel sikerult");
+			this.MunkaDBcsokkentese(1);
+		}
+		else
+			System.out.println("A targyfelvetel nem sikerult");
+		
+	}
 	
 	
 	/**
@@ -261,22 +311,7 @@ public abstract class Jatekos implements Frissitheto
 			
 	}
 	
-	/**
-	 * Megpróbálja felvenni a tárgyat a jégtábláról, amin áll
-	 */
-	public void targyFelvetel()
-	{
-		System.out.println("A jatekos epp egy targyat probal felvenni a jegtablarol, amin all");
-		boolean sikeres = aktjegtabla.targyFelvesz(this);
-		if(sikeres)
-		{
-			System.out.println("A targyfelvetel sikerult");
-			this.MunkaDBcsokkentese(1);
-		}
-		else
-			System.out.println("A targyfelvetel nem sikerult");
-		
-	}
+	
 	
 	/**
 	 * @param t - tárgyat hozzáadja a játékos tárgyaihoz
@@ -291,18 +326,8 @@ public abstract class Jatekos implements Frissitheto
 		return true;
 	}
 	
-	/**
-	 * Eltávolítja a paraméterben megadott tárgyat
-	 * @param t - a tárgy, amit el akarunk távolítani
-	 */
-	public void targyEltavolitasa(Targy t)
-	{
-		System.out.println("A jatekos targygyujtemenyebol epp egy targyat probalnak eltavolitani");
-		targyak.remove(t);
-		System.out.println("Targy eltavolitva");
-	}
 	
-
+	
 	/**
 	 * @param mennyivel - noveli a testhot ezzel az értékkel, de a testhõt 
 	 * max 6-ig tudjuk növelni.
@@ -324,37 +349,7 @@ public abstract class Jatekos implements Frissitheto
 		}
 	}
 	
-	/**
-	 * csökkenti a megadott mennyiséggel a játékos munkaDB-jét
-	 * Ha nullára csökken átadjuk a kört a következõ játékosnak
-	 * @param mennyivel - mennyivel csökkentsük a MunkaDB-t
-	 */
-	public void MunkaDBcsokkentese(int mennyivel)
-	{
-		System.out.println("Most epp a jatekos munkadbjait probaljak csokkenteni");
-		System.out.println("Munkadb csokkentve");
-		if(Munkadb - mennyivel < 0)
-		{
-			Munkadb = 0;
-			System.out.println("Elfogytak a munkaim ");
-			
-			System.out.println("ezert tovabbadom a korom");
-			korVege();
-		}
-		else
-		{
-			Munkadb -= mennyivel;
-		}
-	}
 	
-	/**
-	 * Akkor hívódik meg, ha nulára csökkent a Játékos Munkadb-je
-	 */
-	public void korVege()
-	{
-		System.out.println("a jatekos vegzett a korevel");
-		tartAKore = false;
-	}
 	
 	/**
 	 * @return Visszaadja a jégmezõt, amin a játékos van
@@ -435,6 +430,42 @@ public abstract class Jatekos implements Frissitheto
 	}
 	
 	
+	
+	/**
+	 * @return Visszaadja a Játékos iranyAmibeNez-ét
+	 */
+	public Irany getIranyAmibeNez()
+	{
+		System.out.println("Engem, mint jatekost, epp arrol kerdeznek, hogy merre nezek");
+		return iranyAmibeNez;
+	}
+	
+	/**
+	 * @return Visszaadja a Játékos által tárolt jelzõpisztoly darabok számát
+	 */
+	public int getjelzopisztolydb()
+	{
+		System.out.println("Jatekos vagyok es a jelzopisztolydb szamom irant erdeklodnek epp");
+		return jelzopisztolydb;
+	}
+	
+	
+	/**
+	 * Beállítja a játékost, hogy abba az irányba nézzen, amit megadunk
+	 * @param i - Az irány, amibe szeretnénk, hogy nézzen a Játékos
+	 */
+	public void setIranyAmibeNez(Irany i)
+	{
+		System.out.println("Most epp a jatekos iranyAmibeNez tulajdonsagat allitjak");
+		
+		iranyAmibeNez = i;
+	}
+	
+	
+	
+	/** Beállítja a megadott értékre a játékos tartAKore attribútumát
+	 * @param tk - az érték, amire a játékos tartAKore attribútumát állítani szeretnénk
+	 */
 	public void setTartAKore(boolean tk)
 	{
 		tartAKore = tk;

@@ -35,6 +35,21 @@ public class Sator extends Vedelem implements Targy{
 		
 		return sikeres;
 	}
+	
+	/**
+	 * Mindenkörben csökkenti a tarósságát és ha nullára csökken, akkor eltávolítja magát a tábláról
+	 */
+	public void frissit() {
+		
+		tartossag--;
+		if(tartossag == 0)
+		{
+			System.out.println("A sator tonkre ment, ezert el lett tavolitva a jegtablarol");
+			jegtablaAminVan.jegtablaVedelmenekEltavolitasa();
+		}
+		System.out.println("A sator frissitve");
+	}
+
 
 	
 	/**
@@ -68,22 +83,7 @@ public class Sator extends Vedelem implements Targy{
 		
 		
 	}
-
 	
-	/**
-	 * Mindenkörben csökkenti a tarósságát és ha nullára csökken, akkor eltávolítja magát a tábláról
-	 */
-	public void frissit() {
-		
-		tartossag--;
-		if(tartossag == 0)
-		{
-			System.out.println("A sator tonkre ment, ezert el lett tavolitva a jegtablarol");
-			jegtablaAminVan.jegtablaVedelmenekEltavolitasa();
-		}
-		System.out.println("A sator frissitve");
-	}
-
 	
 	/**
 	 * Hóviharkor megvédi a vele egy jégtáblán lévõ játékosokat, ezért semmi bántódásuk nem esik

@@ -51,6 +51,7 @@ public class Jegmezo
 		
 	}
 	
+	
 	/**
 	 * Felveszi a jatekosok koze a paraméterben megadott jatekost
 	 * @param j - a jatekos, akit fel akarunk venni
@@ -63,16 +64,7 @@ public class Jegmezo
 		
 	}
 	
-	
-	/**
-	 * Felveszi a frissithetok közé a paraméterben megadott frissithetoket
-	 * @param fl - a frissíthetõk listája, amiket fel akarunk venni
-	 */
-	public void addFrissithetok(List<Frissitheto> fl)
-	{
-		frissithetok.addAll(fl);
-		System.out.println("Hozzáadtam a jégmezõhöz a frissithetok listajat");
-	}
+
 	
 	
 	/**

@@ -101,15 +101,6 @@ public class Jegesmedve implements Frissitheto{
 		
 	}
 	
-	/**
-	 * Beállítja, hogy melyik jégtáblán áll a Jegesmedve
-	 * @param jt - a jégtábla, amire szeretnénk rárakni a Jegesmedvét
-	 */
-	public void setjegtablaAminAll(Jegtabla jt)
-	{
-		System.out.println("Nekem a jegesmedvenek, epp a jegtablat allitjak, amin allok");
-		jegtablaAminAll  = jt;
-	}
 	
 	/**
 	 * Átállítja a Jegesmedve 
@@ -120,6 +111,19 @@ public class Jegesmedve implements Frissitheto{
 		System.out.println("Nekem a jegesmedvenek, epp azt allitjak, hogy merre nezek");
 		iranyAmibeNez = i;
 	}
+	
+	
+	/**
+	 * Beállítja, hogy melyik jégtáblán áll a Jegesmedve
+	 * @param jt - a jégtábla, amire szeretnénk rárakni a Jegesmedvét
+	 */
+	public void setjegtablaAminAll(Jegtabla jt)
+	{
+		System.out.println("Nekem a jegesmedvenek, epp a jegtablat allitjak, amin allok");
+		jegtablaAminAll  = jt;
+	}
+	
+	
 	
 	
 	/**

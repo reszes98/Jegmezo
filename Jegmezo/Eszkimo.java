@@ -36,6 +36,8 @@ public class Eszkimo extends Jatekos
 		
 		System.out.println("Letrehoztak egy Eszkimot");
 	}
+	
+	
 	/**
 	 * Épít egy iglut arra Jégtáblára, amerre nez
 	 */

@@ -490,8 +490,8 @@ public class Menu {
 		{
 			Iglu i = new Iglu();
 			
-			i.hovihar();		
-		
+			i.hovihar(); // TODO ide kéne egy output bele, hogy tudja hova kell írni, meg a fríssítbe is	
+			
 		}
 		
 		public static void IgluFrissit()

@@ -59,35 +59,6 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Letrehoztak egy jegtablat");
 	}
 	
-	/**
-	 * Hozzáadja a megadott irányú szomszédaihoz a megadott jégtáblát
-	 * @param j - a jégtábla, amit fel akarunk venni a szomszédok közé
-	 * @param i - azt adja meg, hogy a jégtáblának melyik irányba lesz a szomszédja
-	 */
-	public void setSzomszed(Jegtabla j, Irany i)
-	{
-		System.out.println("Nekem a jegtablanak epp a szomszedjat allitjak be ");
-		int idx = 0;
-		//(Jobb(0), Bal(1), Fel(2),Le(3))
-		switch(i) {
-			case Jobb:
-				idx = 0;
-				break;
-			case Bal:
-				idx = 1;
-				break;
-			case Fel:
-				idx = 2;
-				break;
-			default:
-				idx = 3;
-				break;
-		}
-			
-		szomszedok.set(idx, j);
-		System.out.println("Szomszed beallitva ");
-	}
-	
 	
 	/**
 	 * Felveszi a játékost a táblára és átállítja az aktjegtabla attribútumát
@@ -100,6 +71,19 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Jegtabla: Epp egy jatekost adnak hozzam ");
 			j.setaktjegtabla(this);
 			jatekosok.add(j);
+	}
+	
+	/**
+	 * Hozzáadja a paraméterben megadott jegesmedvét a jégtáblához és beállítja a jegesmedbe jegtablaAminAll attribútumát
+	 * @param j - A jegesmedve, akot hozzá akarunk adni a Jégáblához
+	 */
+	public void addJegesmedve(Jegesmedve j)
+	{
+		System.out.println("Jegtabla: epp hozzamadnak egy jegesmedvet");
+		System.out.println("Jegesmedve a jegtablara elhelyezve");
+			j.setjegtablaAminAll(this);
+		
+			jegesmedvek.add(j);
 	}
 	
 	/**
@@ -133,14 +117,7 @@ public class Jegtabla implements Frissitheto
 		
 	}
 	
-	/**
-	 * Visszafordítja a táblát
-	 */
-	public void visszaFordit()
-	{
-		atVanFordulva = false;
-		System.out.println("A jegtabla visszafordult");
-	}
+
 	
 	/**
 	 * Átfordítja a táblát és törli a rajta lévõ védelmet
@@ -151,6 +128,7 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Jaj! Felfordult a tábla!");
 		this.jegtablaVedelme = null;
 	}
+	
 	
 	/**
 	 * Azt adja meg, hogy a Játekos elhagyhatja-e a Jégtáblát 
@@ -172,6 +150,8 @@ public class Jegtabla implements Frissitheto
 			return true;
 		}
 	}
+
+	
 	
 	/**
 	 * Új kör elején megnézi, hogy át van-e fordulva és ha igen és vannak rajta játékosok, akkor szól a jégmezõnek, 
@@ -204,14 +184,8 @@ public class Jegtabla implements Frissitheto
 		}
 	}
 	
-	/**
-	 * @return Visszaadja, hogy hány játékost bír el a Jégtábla
-	 */
-	public int gettartokepesseg()
-	{
-		System.out.println("Jegtabla: epp a tartokepessegem kerdezik");
-		return tartokepesseg;
-	}
+
+
 	
 	/**
 	 * növeli a havat a jégtáblán
@@ -238,6 +212,7 @@ public class Jegtabla implements Frissitheto
 	
 
 	
+	
 	/**
 	 * Eltávolítja paraméterben megadott játékost a jégtábla játékosai közül
 	 * @param j - A Játékos, akit el akarunk távolítni
@@ -250,18 +225,12 @@ public class Jegtabla implements Frissitheto
 	}
 	
 	
+
 	
-	/**
-	 * Hozzáadja a paraméterben megadott jegesmedvét a jégtáblához és beállítja a jegesmedbe jegtablaAminAll attribútumát
-	 * @param j - A jegesmedve, akot hozzá akarunk adni a Jégáblához
-	 */
-	public void addJegesmedve(Jegesmedve j)
+	public List<Jatekos> jatekosokLekerdez()
 	{
-		System.out.println("Jegtabla: epp hozzamadnak egy jegesmedvet");
-		System.out.println("Jegesmedve a jegtablara elhelyezve");
-			j.setjegtablaAminAll(this);
-		
-			jegesmedvek.add(j);
+		System.out.println("Jegtabla: epp a jatekosaimat kerdezik le");
+		return jatekosok;
 	}
 	
 	
@@ -277,11 +246,17 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Jegesmedve eltavolitva a tablarol");
 	}
 	
-	public List<Jatekos> jatekosokLekerdez()
+	
+	/**
+	 * Eltávolítja a Jégtáblán lévõ védelmet
+	 */
+	public void jegtablaVedelmenekEltavolitasa()
 	{
-		System.out.println("Jegtabla: epp a jatekosaimat kerdezik le");
-		return jatekosok;
+		System.out.println("Jegtabla: most epp a rajtam levo vedelmet eltavolitjak");
+		jegtablaVedelme = null;
+		System.out.println("Jegtabla vedelme eltavolitva");
 	}
+	
 	
 	/**
 	 * Rálépteti a megadott játékost a táblára és ha játékosok száma így meghaladja a tartóképességet, átfordítja a táblát
@@ -300,6 +275,8 @@ public class Jegtabla implements Frissitheto
 			atfordit();
 			
 	}
+	
+
 	
 	/**
 	 * visszaadja a jégtábla i irányban lévõ szomszédját 
@@ -328,6 +305,8 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Jegtabla: megadom nekik a szomszedomat");
 		return szomszedok.get(idx);
 	}
+	
+	
 	
 	
 	/**
@@ -370,6 +349,16 @@ public class Jegtabla implements Frissitheto
 	}
 	
 	
+	/**
+	 * Visszafordítja a táblát
+	 */
+	public void visszaFordit()
+	{
+		atVanFordulva = false;
+		System.out.println("A jegtabla visszafordult");
+	}
+	
+		
 	
 	/**
 	 * @return Visszaadja, hogy a jégtábla át van-e fordulva
@@ -380,18 +369,41 @@ public class Jegtabla implements Frissitheto
 		return atVanFordulva;
 	}
 	
+	
+	
+	
 	/**
-	 * Átállítja a jégtábla tárgyát a megadott tárgyra
-	 * @param t - a tárgy, amire át akarjuk állítani
+	 * @return Visszadja a jegtabla homennyiseget
 	 */
-	public void setTargy(Targy t)
+	public int getHo()
 	{
-		System.out.println("Jegtabla: most epp a rajtam levo targyat akarjak allitani");
-		targy = t;
-		System.out.println("Jegtabla: Targy atallitva");
+		System.out.println("Jegtabla: most epp a rajtam levo homennyiseget kerdezik");
+		return ho;
 	}
 	
 	
+
+	/**
+	 * @return Visszaadja a jégtáblán lévõ védelmet vagy nullt, ha nincs rajta védelem
+	 */
+	public Vedelem getjegtablaVedelme()
+	{
+		System.out.println("Jegtabla: most epp a rajtam levo vedelemet kerdezik le");
+		return jegtablaVedelme;
+	}
+	
+	
+	
+	/**
+	 * @return Visszaadja, hogy hány játékost bír el a Jégtábla
+	 */
+	public int gettartokepesseg()
+	{
+		System.out.println("Jegtabla: epp a tartokepessegem kerdezik");
+		return tartokepesseg;
+	}
+	
+
 	/**
 	 * Beállítja a jégtábla védelmét a megadott Védelemre
 	 * @param v - A védelem, amit be akarunk állítani a Jégtáblára
@@ -403,35 +415,46 @@ public class Jegtabla implements Frissitheto
 		jegtablaVedelme = v;
 		System.out.println("Jegtabla: Vedelem atallitva");
 	}
-	
-	
+
 	/**
-	 * Eltávolítja a Jégtáblán lévõ védelmet
+	 * Hozzáadja a megadott irányú szomszédaihoz a megadott jégtáblát
+	 * @param j - a jégtábla, amit fel akarunk venni a szomszédok közé
+	 * @param i - azt adja meg, hogy a jégtáblának melyik irányba lesz a szomszédja
 	 */
-	public void jegtablaVedelmenekEltavolitasa()
+	public void setSzomszed(Jegtabla j, Irany i)
 	{
-		System.out.println("Jegtabla: most epp a rajtam levo vedelmet eltavolitjak");
-		jegtablaVedelme = null;
-		System.out.println("Jegtabla vedelme eltavolitva");
+		System.out.println("Nekem a jegtablanak epp a szomszedjat allitjak be ");
+		int idx = 0;
+		//(Jobb(0), Bal(1), Fel(2),Le(3))
+		switch(i) {
+			case Jobb:
+				idx = 0;
+				break;
+			case Bal:
+				idx = 1;
+				break;
+			case Fel:
+				idx = 2;
+				break;
+			default:
+				idx = 3;
+				break;
+		}
+			
+		szomszedok.set(idx, j);
+		System.out.println("Szomszed beallitva ");
 	}
 	
 	
 	/**
-	 * @return Visszaadja a jégtáblán lévõ védelmet vagy nullt, ha nincs rajta védelem
+	 * Átállítja a jégtábla tárgyát a megadott tárgyra
+	 * @param t - a tárgy, amire át akarjuk állítani
 	 */
-	public Vedelem getjegtablaVedelme()
+	public void setTargy(Targy t)
 	{
-		System.out.println("Jegtabla: most epp a rajtam levo vedelemet kerdezik le");
-		return jegtablaVedelme;
-	}
-	
-	/**
-	 * @return Visszadja a jegtabla homennyiseget
-	 */
-	public int getHo()
-	{
-		System.out.println("Jegtabla: most epp a rajtam levo homennyiseget kerdezik");
-		return ho;
+		System.out.println("Jegtabla: most epp a rajtam levo targyat akarjak allitani");
+		targy = t;
+		System.out.println("Jegtabla: Targy atallitva");
 	}
 	
 	/**
