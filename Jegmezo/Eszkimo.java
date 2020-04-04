@@ -46,19 +46,10 @@ public class Eszkimo extends Jatekos
 		System.out.println("En, az eszkimo, most megprobalok egy popec iglut epiteni");
 		Iglu i = new Iglu();
 		
-		Jegtabla j = aktjegtabla.szomszedKerdez(iranyAmibeNez);
-		if(j != null)
-		{
-			j.setjegtablaVedelme(i);
+		aktjegtabla.setjegtablaVedelme(i);
 			
-			System.out.println("Iglu epitese sikeres");
-			this.MunkaDBcsokkentese(1);
-		}
-		else {
-			System.out.println("A szomszed nem letezik"); 
-			System.out.println("Iglu epitese sikertelen");
-		}
-		
+		System.out.println("Iglu epitese sikeres");
+		this.MunkaDBcsokkentese(1);
 		
 	}
 	
