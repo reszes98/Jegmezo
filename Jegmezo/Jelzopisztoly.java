@@ -46,7 +46,7 @@ public class Jelzopisztoly implements Targy
 		
 		System.out.println("Jelzopisztoly: megprobalnak hasznalni");
 		System.out.println("Jelzopisztoly: ezert lekerdezem a jatekosnak, aki engem hasznal a jelzopisztolyDB-jait");
-		int jelzopisztolyDB = j.getjelzopisztolydb();
+		int jelzopisztolyDB = 0;
 		System.out.println("Jelzopisztoly: ezert lekerdezem a jatekos jegtablajan levo jatekosokat");
 		List<Jatekos> jatekosok = j.JegtablaLekerdez().jatekosokLekerdez();
 		
