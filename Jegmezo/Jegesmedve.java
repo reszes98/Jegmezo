@@ -68,6 +68,7 @@ public class Jegesmedve implements Frissitheto{
 			jegtablaAminAll.JegesmedveEltavolit(this);
 			System.out.println("Most a jegesmedve hozzaadja magat a szomszedos jegtablahoz, amire ra akar lepni");
 			sz.addJegesmedve(this);
+			jegtablaAminAll=sz;
 		}
 		else
 		{
@@ -76,7 +77,7 @@ public class Jegesmedve implements Frissitheto{
 			
 		}
 		System.out.println("Most a  jegesmedve annak a jegtablanak kerdezi a vedelmet, amire epp ralepett");
-		Vedelem v = sz.getjegtablaVedelme();
+		Vedelem v = jegtablaAminAll.getjegtablaVedelme();
 		if(v != null)
 		{
 			System.out.println("Van vedelme, ezert meghivja ra magaval a tamadas fuggvenyt");
