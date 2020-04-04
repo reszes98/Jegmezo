@@ -208,6 +208,7 @@ public class Jegtabla implements Frissitheto
 		
 		System.out.println("Jegtabla: a hovihar kovetkezteben no rajtam a ho");
 		this.hoNovelese();
+		jegtablaVedelme.hovihar();
 	}
 	
 
