@@ -25,35 +25,35 @@ public class Menu {
 					+ "5 - Búvárruha használ\n"
 					+ "6 - Élelem felvesz\n"
 					+ "7 - Élelem használ\n"
-					+ "8 - Hóvihar\n"
-					+ "9 - Eszkimo kepesseget hasznal\n"
-					+ "10 - Jelzõpisztoly felvesz\n "
-					+ "11 - Jelzõpisztoly használ\n"
-					+ "12 - Kötél felvesz\n "
-					+ "13 - Kötél használ\n"
+				//	+ "8 - Hóvihar\n"
+					+ "8 - Eszkimo kepesseget hasznal\n"
+					+ "9 - Jelzõpisztoly felvesz\n "
+					+ "10 - Jelzõpisztoly használ\n"
+					+ "11 - Kötél felvesz\n "
+					+ "12 - Kötél használ\n"
 				//	+ "14 - Lépés\n"
-					+ "14 - Sarkkutato kepesseget hasznal\n"
+					+ "13 - Sarkkutato kepesseget hasznal\n"
 				//	+ "16 - Targyakat hasznal \n"
 				//	+ "17 - Eszkimo kepesseget hasznal \n"
-					+ "15 - Jatekos Athelyez \n"
-					+ "16 - Jatekos hovihar \n"
-					+ "17 - Jatekos Lep \n"
+					+ "14 - Jatekos Athelyez \n"
+					+ "15 - Jatekos hovihar \n"
+					+ "16 - Jatekos Lep \n"
 				//	+ "21 - Eszkimo kepesseg \n"
-					+ "18 - Iglu hovihar \n"
-					+ "19 - Iglu frissit \n"
-					+ "20 - Iglu jegesmedve tamadas \n"
-					+ "21 - Jatekos frissit \n"
-					+ "22 - Jegesmedve frissit \n"
-					+ "23 - Jegesmedve hovihar \n"
-					+ "24 - Jegtabla hovihar \n"
-					+ "25 - Jegtabla frissit \n"
-					+ "26 - Jegtabla atfordit \n"
-					+ "27 - Sator frissit \n"
-					+ "28 - Sator hovihar \n"
-					+ "29 - Sator felvesz \n"
-					+ "30 - Sator hasznal \n"
-					+ "31 - TorekenyAsot felvesz \n"
-					+ "32 - TorekenyAsot hasznal \n"
+					+ "17 - Iglu hovihar \n"
+					+ "18 - Iglu frissit \n"
+					+ "19 - Iglu jegesmedve tamadas \n"
+					+ "20 - Jatekos frissit \n"
+					+ "21 - Jegesmedve frissit \n"
+					+ "22 - Jegesmedve hovihar \n"
+					+ "23 - Jegtabla hovihar \n"
+					+ "24 - Jegtabla frissit \n"
+					+ "25 - Jegtabla atfordit \n"
+					+ "26 - Sator frissit \n"
+					+ "27 - Sator hovihar \n"
+					+ "28 - Sator felvesz \n"
+					+ "29 - Sator hasznal \n"
+					+ "30 - TorekenyAsot felvesz \n"
+					+ "31 - TorekenyAsot hasznal \n"
 					+ "66 - Kilép ");
 			
 			System.out.print("Valasztas: ");
@@ -100,15 +100,12 @@ public class Menu {
 					ElelemHasznal(answer);
 					break;
 				case 8:
-					SplitTeszt();
-			    	break;	
-				case 9:
 					EszkimoKepesseg();
 					break;
-				case 10:
+				case 9:
 					JelzopisztolyFelvesz();
 			    	break;
-				case 11:
+				case 10:
 					System.out.println("Mit szeretne?"
 							+ "1 - Jelzopisztoly hasznalata, de az osszeszereles sikertelen\n"
 							+ "2 - Jelzopisztoly hasznalata, de az osszeszereles sikeres");
@@ -116,15 +113,15 @@ public class Menu {
 					answer =  in.nextInt();
 					JelzopisztolyHasznal(answer);
 					break;
-				case 12:
+				case 11:
 					KotelFelvesz();
 			    	break;
-				case 13:
+				case 12:
 					KotelHasznal();
 			    	break;
 				//case 14://invalid
 					//break;
-				case 14:
+				case 13:
 					SarkkutatoKepessegetHasznal();
 					break;
 				//case 16://invalid
@@ -133,7 +130,7 @@ public class Menu {
 				//case 17: //2szer van
 					//EszkimoKepesseg();
 					//break;
-				case 15:
+				case 14:
 					System.out.println("Mit szeretne?"
 							+ "1 - Jatekos athelyezese\n"
 							+ "2 - Jatekos athelyezese es tabla felforditasa\n");
@@ -141,7 +138,7 @@ public class Menu {
 					answer =  in.nextInt();
 					JatekosAthelyez(answer);
 					break;
-				case 16:
+				case 15:
 					System.out.println("Mit szeretne?"
 							+ "1 - Jatekos hovihar vedelem nelkul, de tuleli\n"
 							+ "2 - Jatekos hovihar vedelem nelkul es meghal\n"
@@ -151,7 +148,7 @@ public class Menu {
 					answer =  in.nextInt();
 					JatekosHovihar(answer);
 					break;
-				case 17:
+				case 16:
 					System.out.println("Mit szeretne?"
 							+ "1 - Jatekos lep\n"
 							+ "2 - Jatekos lep es felfordul a tabla\n"
@@ -160,22 +157,22 @@ public class Menu {
 					answer =  in.nextInt();
 					JatekosLep(answer);
 					break;
-				//case 21://3x van
+				//case21://3x van
 					//EszkimoKepesseg();
 					//break;
-				case 18:
+				case 17:
 					IgluHovihar();
 					break;
-				case 19:
+				case 18:
 					IgluFrissit();
 					break;
-				case 20:
+				case 19:
 					IgluJegesmedveTamadas();
 					break;
-				case 21:
+				case 20:
 					JatekosFrissit();
 					break;
-				case 22:
+				case 21:
 					System.out.println("Mit szeretne?"
 							+ "1 - Jegesmedve olyan tablara lep, amin iglu van\n"
 							+ "2 - Jegesmedve olyan tablara lep, amin sator van\n"
@@ -185,13 +182,13 @@ public class Menu {
 					answer =  in.nextInt();
 					JegesmedveFrissit(answer);
 					break;
-				case 23:
+				case 22:
 					JegesmedveHovihar();
 					break;
-				case 24:
+				case 23:
 					JegtablaHovihar();
 					break;
-				case 25:
+				case 24:
 					System.out.println("Mit szeretne?"
 							+ "1 - Jegtabla frissites atfordulva es jatekosok rajta\n"
 							+ "2 - Jegtabla frissites visszafordul\n"
@@ -202,7 +199,7 @@ public class Menu {
 					answer =  in.nextInt();
 					JegtablaFrissit(answer);
 					break;
-				case 26:
+				case 25:
 					System.out.println("Mit szeretne?"
 							+ "1 - Jegtabla atfordit igluval\n"
 							+ "2 - Jegtabla atfordit satorral\n"
@@ -210,22 +207,22 @@ public class Menu {
 					System.out.print("Valasztas: ");
 					answer =  in.nextInt();
 					JegtablaAtfordit(answer);
-				case 27:
+				case 26:
 					SatorFrissit();
 					break;
-				case 28:
+				case 27:
 					SatorHovihar();
 					break;
-				case 29:
+				case 28:
 					SatorFelvesz();
 					break;
-				case 30:
+				case 29:
 					SatorHasznal();
 					break;
-				case 31:
+				case 30:
 					TorkenyAsoFelvesz();
 					break;
-				case 32:
+				case 31:
 					System.out.println("Mit szeretne?"
 							+ "1 - TorekenyAso asas \n"
 							+ "2 - TorekenyAso targyat kias\n"
@@ -1066,16 +1063,6 @@ public class Menu {
 		}
 		
 		
-		public static void SplitTeszt()
-		{
-			String s = "print A jatekosnak kezdeben asdas tsehoje van";
-			
-			String[] er = s.split(" ");
-			
-			for(int i = 0; i < er.length; i++)
-			{
-				System.out.println(er[i]);
-			}
-		}
+		
 			
 }
