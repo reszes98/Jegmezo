@@ -15,6 +15,10 @@ Le(3);
 	//innen tájékozódtam az enumokról
 	private final int intErtek;
 	
+	/**
+	 * Létrehozza az irányt a megadott intértékkel
+	 * @param intErtek - az int értlék, ami ehhez az irányhoz fog tartozni
+	 */
 	Irany(int intErtek)
 	{
 		System.out.println("Valaki az irany int-ben megadott erteket allitja be");

@@ -131,6 +131,13 @@ public class Jegmezo
 		this.jatekvege(false);
 	}
 	
+	/**
+	 * Megkonstruálja a jégmezõt a megadott paraméterekkel
+	 * @param jegtablakSzamaSzelteben - hány jégtáblát tároljon a jégmezõ a vízszintes síkon
+	 * @param jegtablakSzamaHosszaban - hány jégtáblát tároljon a jégmezõ a függõleges síkon
+	 * @param eszkimokSzama - azt adja meg, hogy hány eszkimó legyen a jégemezõn, a sarrkkutatokSzama-val együtt nem haladhatja meg a tízet 
+	 * @param sarrkkutatokSzama - azt adja meg, hogy hány sarkkutató legyen a jégemezõn, a eszkimokSzama-val együtt nem haladhatja meg a tízet 
+	 */
 	public void setup( int jegtablakSzamaSzelteben, int jegtablakSzamaHosszaban, int eszkimokSzama, int sarrkkutatokSzama)
 	{
 		System.out.println("A jegemzo, most egy jatekot hoz letre");
