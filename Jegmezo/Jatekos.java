@@ -170,6 +170,21 @@ public abstract class Jatekos implements Frissitheto
 	
 	
 	
+	/**
+	 * Akkor fut amikor a játékos köre van. Megkérdezi a felhasználót, hogy mit akar tenni, amíg tart a köre
+	 */
+	public void KoreVan()
+	{
+		tartAKore = true;
+		
+		while(tartAKore)
+		{
+			
+		}
+		
+	}
+	
+	
 	
 	/**
 	 * Akkor hívódik meg, ha nulára csökkent a Játékos Munkadb-je
@@ -414,22 +429,7 @@ public abstract class Jatekos implements Frissitheto
 		return Munkadb;
 	}
 	
-	
-	/**
-	 * Akkor fut amikor a játékos köre van. Megkérdezi a felhasználót, hogy mit akar tenni, amíg tart a köre
-	 */
-	public void KoreVan()
-	{
-		tartAKore = true;
-		
-		while(tartAKore)
-		{
-			
-		}
-		
-	}
-	
-	
+
 	
 	/**
 	 * @return Visszaadja a Játékos iranyAmibeNez-ét

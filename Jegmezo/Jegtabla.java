@@ -200,7 +200,6 @@ public class Jegtabla implements Frissitheto
 	
 	/**
 	 *meghívja a honoveles fügvényt
-	 ** Meghívja a rajtalévõ védelem hovihar függvényét
 	 */
 	public void hovihar()
 	{

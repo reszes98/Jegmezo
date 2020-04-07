@@ -147,7 +147,7 @@
   </class>  
   <class id="17" language="java" name="Jegmezo.Eszkimo" project="Jégmező" file="/Jégmező/Jegmezo/Eszkimo.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1780" y="87"/>    
+    <position height="-1" width="-1" x="1835" y="86"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -156,117 +156,117 @@
   </class>  
   <class id="18" language="java" name="Jegmezo.Sarkkutato" project="Jégmező" file="/Jégmező/Jegmezo/Sarkkutato.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1568" y="74"/>    
+    <position height="-1" width="-1" x="1628" y="77"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="19">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="12"/>  
+  <association id="19">    
+    <bendpoint x="520" y="194"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="20" name="frissithetok">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="21" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="10"/>  
   </generalization>  
-  <association id="21">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="22" name="jegtablaAminAll">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="23" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
-    <bendpoint x="450" y="984"/>    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="25" name="jegtablaAminVan">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="26" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="27">    
+  <association id="23">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="28" name="jegmezo">        
+      <attribute id="24" name="jegmezo">        
         <position height="0" width="0" x="106" y="-40"/>      
       </attribute>      
-      <multiplicity id="29" minimum="0" maximum="1">        
+      <multiplicity id="25" minimum="0" maximum="1">        
         <position height="0" width="0" x="106" y="-40"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="30">    
-    <end type="SOURCE" refId="8"/>    
+  <realization id="26">    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="7"/>  
   </realization>  
-  <realization id="31">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <association id="32">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="33" name="iranyAmibeNez">        
-        <position height="0" width="0" x="46" y="-60"/>      
-      </attribute>      
-      <multiplicity id="34" minimum="0" maximum="1">        
-        <position height="0" width="0" x="46" y="-60"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="35">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="36" name="iranyAmibeNez">        
-        <position height="0" width="0" x="46" y="-60"/>      
-      </attribute>      
-      <multiplicity id="37" minimum="0" maximum="1">        
-        <position height="0" width="0" x="46" y="-60"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="38">    
+  <generalization id="27">    
     <bendpoint x="556" y="1300"/>    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <association id="39">    
+  <association id="28">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="40" name="jegmezo">        
+      <attribute id="29" name="iranyAmibeNez">        
+        <position height="0" width="0" x="46" y="-60"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="1">        
+        <position height="0" width="0" x="46" y="-60"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="31">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <realization id="32">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="33">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="34" name="jegmezo">        
         <position height="0" width="0" x="106" y="-40"/>      
       </attribute>      
-      <multiplicity id="41" minimum="0" maximum="1">        
+      <multiplicity id="35" minimum="0" maximum="1">        
         <position height="0" width="0" x="106" y="-40"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="42">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="43" name="targyak">        
-        <position height="0" width="0" x="-180" y="-24"/>      
+  <association id="36">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="37" name="szomszedok">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="44" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-180" y="-24"/>      
+      <multiplicity id="38" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="39">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="40" name="jegesmedvek">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="41" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="43" name="jegmezo">        
+        <position height="0" width="0" x="106" y="-40"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="1">        
+        <position height="0" width="0" x="106" y="-40"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <realization id="45">    
@@ -279,136 +279,136 @@
     <end type="TARGET" refId="7"/>  
   </realization>  
   <realization id="47">    
-    <end type="SOURCE" refId="3"/>    
+    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="7"/>  
   </realization>  
   <association id="48">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="49" name="jegesmedvek">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="50" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="51">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="52" name="targy">        
+      <attribute id="49" name="targy">        
         <position height="0" width="0" x="-180" y="-24"/>      
       </attribute>      
-      <multiplicity id="53" minimum="0" maximum="1">        
+      <multiplicity id="50" minimum="0" maximum="1">        
         <position height="0" width="0" x="-180" y="-24"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="54">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <association id="55">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="56" name="szomszedok">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="57" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="58">    
+  <realization id="51">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="11"/>  
   </realization>  
-  <realization id="59">    
-    <end type="SOURCE" refId="5"/>    
+  <generalization id="52">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <realization id="53">    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="7"/>  
   </realization>  
-  <association id="60">    
-    <bendpoint x="520" y="194"/>    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="61" name="frissithetok">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="62" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
+  <association id="54">    
     <bendpoint x="1660" y="898"/>    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="64" name="jatekosok">        
+      <attribute id="55" name="jatekosok">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="65" minimum="0" maximum="2147483647">        
+      <multiplicity id="56" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="66">    
+  <association id="57">    
+    <bendpoint x="1546" y="824"/>    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="67" name="jegmezo">        
-        <position height="0" width="0" x="106" y="-40"/>      
+      <attribute id="58" name="aktjegtabla">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="68" minimum="0" maximum="1">        
-        <position height="0" width="0" x="106" y="-40"/>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="69">    
+  <realization id="60">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <generalization id="61">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="62">    
+    <bendpoint x="450" y="984"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="63" name="jegtablaAminVan">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="64" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="66" name="jegtablaAminAll">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="67" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="68">    
     <bendpoint x="1262" y="42"/>    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="11"/>  
   </realization>  
-  <realization id="70">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="7"/>  
-  </realization>  
-  <generalization id="71">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="72">    
+  <association id="69">    
     <bendpoint x="448" y="816"/>    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="73" name="jegtablaVedelme">        
+      <attribute id="70" name="jegtablaVedelme">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="74" minimum="0" maximum="1">        
+      <multiplicity id="71" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="75">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <association id="76">    
-    <bendpoint x="1546" y="824"/>    
+  <realization id="72">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <association id="73">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="77" name="aktjegtabla">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="74" name="targyak">        
+        <position height="0" width="0" x="-180" y="-24"/>      
       </attribute>      
-      <multiplicity id="78" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="75" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-180" y="-24"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="77" name="iranyAmibeNez">        
+        <position height="0" width="0" x="46" y="-60"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="1">        
+        <position height="0" width="0" x="46" y="-60"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

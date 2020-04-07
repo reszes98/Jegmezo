@@ -1,7 +1,5 @@
 package Jegmezo;
 
-import java.util.List;
-
 public abstract class Vedelem implements Frissitheto{
 
 	protected Jegtabla jegtablaAminVan;
