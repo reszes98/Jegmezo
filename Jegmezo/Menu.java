@@ -199,7 +199,7 @@ public class Menu {
 					answer =  in.nextInt();
 					JegtablaFrissit(answer);
 					break;
-				case 25:
+				case 25: //ez jön
 					System.out.println("Mit szeretne?"
 							+ "1 - Jegtabla atfordit igluval\n"
 							+ "2 - Jegtabla atfordit satorral\n"
@@ -704,7 +704,6 @@ public class Menu {
 			}
 		}
 		
-		/// idaig van afkdkafmsdkmasdm skdvamvlkfdamlkdamflmlfmlkasdmflkasdmfklamdsfklamsdlfkmasdlkfm
 		
 		public static void JegesmedveHovihar()
 		{
@@ -730,8 +729,9 @@ public class Menu {
 		{
 			
 			Jegmezo jm = new Jegmezo(10);
-			Jegtabla j = new Jegtabla(jm, false, -1, 2);
 			Eszkimo e = new Eszkimo(jm,55,2,Irany.Jobb);
+			Jegtabla j = new Jegtabla(jm, false, -1, 2);
+			
 			
 			if(eset == 1)
 			{
