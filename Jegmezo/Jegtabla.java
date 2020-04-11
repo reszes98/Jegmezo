@@ -204,10 +204,15 @@ public class Jegtabla implements Frissitheto
 	public void hovihar()
 	{
 		System.out.println("Jegtabla: epp hoviharban vagyok");
+		if(jegtablaVedelme==null)
+		{
+			System.out.println("Jegtabla: a hovihar kovetkezteben no rajtam a ho");
+			this.hoNovelese();
+		}
+		else {
+			jegtablaVedelme.hovihar();
+		}
 		
-		System.out.println("Jegtabla: a hovihar kovetkezteben no rajtam a ho");
-		this.hoNovelese();
-		//jegtablaVedelme.hovihar();
 	}
 	
 
