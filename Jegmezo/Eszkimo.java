@@ -27,12 +27,12 @@ public class Eszkimo extends Jatekos
 	public Eszkimo(Jegmezo jegmezo,
 	int Munkadb,
 	int testho,
-	Irany iranyAmibeNez)
+	int szogAmibeNez)
 	{
 		super(jegmezo,
 				Munkadb,
 				testho,
-				iranyAmibeNez);
+				szogAmibeNez);
 		
 		System.out.println("Letrehoztak egy Eszkimot");
 	}

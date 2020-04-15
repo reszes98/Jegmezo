@@ -47,9 +47,9 @@ public class Aso implements Targy
 	public boolean hasznal(Jatekos j) {
 		
 		System.out.println("Na most valaki megprobalta hasznalni ezt az asot");
-		Irany i = j.getIranyAmibeNez();
+		int szog = j.getSzogAmibeNez();
 		Jegtabla jt = j.JegtablaLekerdez();
-		Jegtabla szJegtabla = jt.szomszedKerdez(i);
+		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
 		
 		boolean sikeres = szJegtabla.asas(2);
 		

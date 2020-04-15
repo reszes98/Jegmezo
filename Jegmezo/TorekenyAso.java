@@ -42,11 +42,11 @@ public class TorekenyAso implements Targy{
 	public boolean hasznal(Jatekos j) {
 		System.out.println("Torekenyaso: most megprobalnak hasznalni");
 		System.out.println("Torekenyaso: most lekerdezem a jatekosnak, aki hasznal, az iranyAmibeNez-et");
-		Irany i = j.getIranyAmibeNez();
+		int szog = j.getSzogAmibeNez();
 		System.out.println("Torekenyaso: most lekerdezem a jatekosnak, aki hasznal, a jegtablajat");
 		Jegtabla jt = j.JegtablaLekerdez();
 		System.out.println("Torekenyaso: most lekerdezem a jegtablanak az abban az iranyban levo szomszedjat, amerre a jatekos nez");
-		Jegtabla szJegtabla = jt.szomszedKerdez(i);
+		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
 		
 		
 		if(szJegtabla != null)

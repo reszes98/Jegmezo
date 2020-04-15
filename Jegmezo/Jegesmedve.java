@@ -7,14 +7,14 @@ public class Jegesmedve implements Frissitheto{
 
 	private Jegmezo jegmezo;
 	private Jegtabla jegtablaAminAll;
-	private Irany iranyAmibeNez;
+	private int szogAmibeNez;
 	boolean randomMegy;
 	
 	
-	public Jegesmedve(Jegmezo jegmezo, Irany iranyAmibeNez, boolean randomMegy)
+	public Jegesmedve(Jegmezo jegmezo, int szogAmibeNez, boolean randomMegy)
 	{
 		this.jegmezo = jegmezo;
-		this.iranyAmibeNez = iranyAmibeNez;
+		this.szogAmibeNez = szogAmibeNez;
 		this.randomMegy = randomMegy;
 		this.jegmezo.addFrissitheto(this);
 		System.out.println("Letrehoztak egy jegesmedvet");
@@ -51,15 +51,15 @@ public class Jegesmedve implements Frissitheto{
 		if(randomMegy)
 		{
 			System.out.println("Most a jegesmedve epp egy random iranyt valaszt, amerre menni fog");
-			Random r = new Random();
+			//Random r = new Random();
 			
-			int intErtek = r.nextInt(4);
-			Irany ujIranyAmibeNez = Irany.IranyIntErtekAlapjan(intErtek);
-			iranyAmibeNez = ujIranyAmibeNez;
+			//int intErtek = r.nextInt(4);
+			/*Irany ujIranyAmibeNez = Irany.IranyIntErtekAlapjan(intErtek);
+			iranyAmibeNez = ujIranyAmibeNez;*/ // ÚJ
 		}
 		
 		System.out.println("Most lekerdezi a jegesmedve, hogy abba az iranyba, amerre menni akar milyen jegtabla all");
-		Jegtabla sz = jegtablaAminAll.szomszedKerdez(iranyAmibeNez);
+		Jegtabla sz = jegtablaAminAll.szomszedKerdez(szogAmibeNez);
 		
 
 		if(sz != null)
@@ -107,10 +107,10 @@ public class Jegesmedve implements Frissitheto{
 	 * Átállítja a Jegesmedve 
 	 * @param i - Az irány, amibe szeretnénk, hogy nézzen a Jegesmedvénk
 	 */
-	public void setiranyAmibeNez(Irany i)
+	public void setSzogAmibeNez(int szog)
 	{
 		System.out.println("Nekem a jegesmedvenek, epp azt allitjak, hogy merre nezek");
-		iranyAmibeNez = i;
+		szogAmibeNez = szog;
 	}
 	
 	

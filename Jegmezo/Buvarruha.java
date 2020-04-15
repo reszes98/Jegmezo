@@ -46,7 +46,7 @@ public class Buvarruha implements Targy
 	 */
 	public boolean hasznal(Jatekos j) {
 		System.out.println("Na most valaki megprobalta hasznalni ezt a buvarruhat");
-		boolean sikeres = j.athelyez(j.getIranyAmibeNez());
+		boolean sikeres = j.athelyez(j.getSzogAmibeNez());
 		
 		if(sikeres)
 			System.out.println("Buvarruha sikeresen hasznalva");

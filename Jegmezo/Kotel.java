@@ -49,19 +49,19 @@ public class Kotel implements Targy
 		System.out.println("Kotel: most meprobalnak hasznalni");
 		
 		System.out.println("Kotel: most lekerdezem a jatekos iranyAmibeNezet");
-		Irany i = j.getIranyAmibeNez();
+		int szog = j.getSzogAmibeNez();
 		System.out.println("Kotel: most lekerdezem a jatekos jegtablajat");
 		Jegtabla jt = j.JegtablaLekerdez();
 		
 		System.out.println("Kotel: most lekerdezem a jegtabla, a jatekos iranyAmibeNez fele levo szomszedjat");
-		Jegtabla szJegtabla = jt.szomszedKerdez(i);
+		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
 		
 		if(szJegtabla != null) {
 			System.out.println("Kotel: Letezik a szomszed, szoval rola az osszes jatekost athuzom a jatekos,aki hasznal jegtablajara");
 			List<Jatekos> jatekos = szJegtabla.jatekosokLekerdez();
 			for(int jsz = 0; jsz < jatekos.size(); jsz++) {
 				System.out.println("Kotel: Epp athuzok egy jatekost a masik tablara");
-				jatekos.get(jsz).athelyez(Irany.EllenkezoIrany(i));
+				jatekos.get(jsz).athelyez(SzogKezelo.szogTukrozveAzOrigora(szog));
 			}
 			return true;
 		}

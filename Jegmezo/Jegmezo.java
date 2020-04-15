@@ -148,7 +148,7 @@ public class Jegmezo
 		{
 			for(int j = 0; j < jegtablakSzamaSzelteben; j++)
 			{
-				jgk[i][j] = new Jegtabla(this, false, 5, 2); // TODO: itt majd randomizalni kell a homennyiseget, tartokepesseget es a targyat
+				jgk[i][j] = new Jegtabla(this, false, 5, 2, 4); // TODO: itt majd randomizalni kell a homennyiseget, tartokepesseget es a targyat
 			}
 		}
 		

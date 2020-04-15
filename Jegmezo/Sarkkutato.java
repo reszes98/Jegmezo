@@ -28,12 +28,12 @@ public class Sarkkutato extends Jatekos
 	public Sarkkutato(Jegmezo jegmezo,
 	int Munkadb,
 	int testho,
-	Irany iranyAmibeNez)
+	int szogAmibeNez)
 	{
 		super(jegmezo,
 				Munkadb,
 				testho,
-				iranyAmibeNez);
+				szogAmibeNez);
 		
 		System.out.println("Letrehoztak egy sarkkutatot");
 	}
@@ -47,7 +47,7 @@ public class Sarkkutato extends Jatekos
 		System.out.println("Sarkkutato: Epp a kepessegemet akarjak hasznalni");
 		System.out.println("Sarkkutato: ezert lekerdezem a jegtabla tartokepesseget");
 		
-		Jegtabla j = aktjegtabla.szomszedKerdez(iranyAmibeNez);
+		Jegtabla j = aktjegtabla.szomszedKerdez(szogAmibeNez);
 		if(j != null)
 		{
 			System.out.println("A jegtabla tartokepessege: " + j.gettartokepesseg());

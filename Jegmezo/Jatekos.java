@@ -21,7 +21,10 @@ public abstract class Jatekos implements Frissitheto
 	protected int Munkadb;
 	private int testho;
 	private List<Targy> targyak;
-	protected Irany iranyAmibeNez;
+	
+	protected int szogAmibeNez;
+	
+	
 	public boolean tartAKore;
 	
 	
@@ -37,7 +40,7 @@ public abstract class Jatekos implements Frissitheto
 	public Jatekos(Jegmezo jegmezo,
 	int Munkadb,
 	int testho,
-	Irany iranyAmibeNez)
+	int szogAmibeNez)
 	{
 		this.jegmezo = jegmezo;
 		this.aktjegtabla = null;
@@ -45,7 +48,8 @@ public abstract class Jatekos implements Frissitheto
 		this.Munkadb = Munkadb;
 		this.testho = testho;
 		this.targyak = new ArrayList<>();
-		this.iranyAmibeNez = iranyAmibeNez;
+		
+		this.szogAmibeNez = szogAmibeNez;
 		
 		this.jegmezo.addFrissitheto(this);
 		this.jegmezo.addJatekos(this);
@@ -77,10 +81,10 @@ public abstract class Jatekos implements Frissitheto
 	 * @param i - i irányban lévõ szomszédos jégmezõre helyezi át a játékost.
 	 * @return Visszaadja, hogy sikeres volt-e az áthelyezés
 	 */
-	public boolean athelyez(Irany i)
+	public boolean athelyez(Integer szogbe)
 	{
 		System.out.println("Valaki engem, a jatekost, epp at akar helyezni");
-		Jegtabla szomszed = aktjegtabla.szomszedKerdez(i);
+		Jegtabla szomszed = aktjegtabla.szomszedKerdez(szogbe);
 		if (szomszed!=null) {
 			aktjegtabla.jatekosEltavolit(this);
 			szomszed.ralep(this);
@@ -206,7 +210,7 @@ public abstract class Jatekos implements Frissitheto
 		
 		if(ellephet)
 		{
-			Jegtabla szJegtabla = aktjegtabla.szomszedKerdez(iranyAmibeNez);
+			Jegtabla szJegtabla = aktjegtabla.szomszedKerdez(szogAmibeNez);
 			if(szJegtabla != null )
 			{
 				szJegtabla.ralep(this);
@@ -434,11 +438,11 @@ public abstract class Jatekos implements Frissitheto
 	/**
 	 * @return Visszaadja a Játékos iranyAmibeNez-ét
 	 */
-	public Irany getIranyAmibeNez()
+	/*public Irany getIranyAmibeNez()
 	{
 		System.out.println("Engem, mint jatekost, epp arrol kerdeznek, hogy merre nezek");
 		return iranyAmibeNez;
-	}
+	}*/
 	
 	/**
 	 * @return Visszaadja a Játékos által tárolt jelzõpisztoly darabok számát
@@ -454,13 +458,31 @@ public abstract class Jatekos implements Frissitheto
 	 * Beállítja a játékost, hogy abba az irányba nézzen, amit megadunk
 	 * @param i - Az irány, amibe szeretnénk, hogy nézzen a Játékos
 	 */
-	public void setIranyAmibeNez(Irany i)
+	/*public void setIranyAmibeNez(Irany i)
 	{
 		System.out.println("Most epp a jatekos iranyAmibeNez tulajdonsagat allitjak");
 		
 		iranyAmibeNez = i;
+	}*/
+	
+	public int getSzogAmibeNez()
+	{
+		return this.szogAmibeNez;
 	}
 	
+	public void setSzogAmibeNez(int szog)
+	{
+		this.szogAmibeNez = szog;
+		
+	}
+	
+	public void Fordul(boolean Jobbra)
+	{
+		if(Jobbra)
+			szogAmibeNez = aktjegtabla.adottSzogbeLevoSzomszedMellettiSzomszedSzoge(szogAmibeNez, Jobbra);
+		else
+			szogAmibeNez = aktjegtabla.adottSzogbeLevoSzomszedMellettiSzomszedSzoge(szogAmibeNez, Jobbra);
+	}
 	
 	
 	/** Beállítja a megadott értékre a játékos tartAKore attribútumát

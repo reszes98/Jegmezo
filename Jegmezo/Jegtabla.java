@@ -12,6 +12,9 @@ package Jegmezo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import java.util.TreeMap;
 
 public class Jegtabla implements Frissitheto
 {
@@ -19,7 +22,13 @@ public class Jegtabla implements Frissitheto
 	private boolean atVanFordulva;
 	private int ho;
 	private int tartokepesseg;
-	private List<Jegtabla> szomszedok;
+	
+	private TreeMap<Integer, Integer> szomszedokSorszambolSzogge;
+	private TreeMap<Integer, Integer> szomszedokSzogbolSorszamma;
+	private List<Jegtabla> szomszedokASorszamhoz;
+	
+	private int szomszedokSzama;
+	
 	private Vedelem jegtablaVedelme;
 	private List<Jatekos> jatekosok;
 	private List<Jegesmedve> jegesmedvek;
@@ -37,17 +46,22 @@ public class Jegtabla implements Frissitheto
 	public Jegtabla(Jegmezo jegmezo,
 	boolean atVanFordulva,
 	int ho,
-	int tartokepesseg)
+	int tartokepesseg,
+	int szomszedokSzama)
 	{
 		this.jegmezo = jegmezo;
 		
 		this.atVanFordulva =atVanFordulva;
 		this.ho = ho;
 		this.tartokepesseg = tartokepesseg;
-		szomszedok = new ArrayList<>(4); 
 		
-		for(int i = 0; i < 4; i++)
-			szomszedok.add(null);
+		this.szomszedokSzama = szomszedokSzama;
+		
+		szomszedokSorszambolSzogge = new TreeMap<>(); 
+		szomszedokSzogbolSorszamma = new TreeMap<>(); 
+		
+		szomszedokASorszamhoz = new ArrayList<>(this.szomszedokSzama);
+	
 		
 		jegtablaVedelme = null;
 		
@@ -70,6 +84,7 @@ public class Jegtabla implements Frissitheto
 		
 		System.out.println("Jegtabla: Epp egy jatekost adnak hozzam ");
 			j.setaktjegtabla(this);
+			j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(0));
 			jatekosok.add(j);
 	}
 	
@@ -288,12 +303,13 @@ public class Jegtabla implements Frissitheto
 	 * @param i - az irány amibe tudni szeretnénk a szomszédot
 	 * @return visszaadja az i irányban lévõ szomszédot
 	 */
-	public Jegtabla szomszedKerdez(Irany i)
+	//Új
+	public Jegtabla szomszedKerdez(Integer szogbe)
 	{
 		System.out.println("Jegtabla: Epp a szomszedomat kerdezik");
-		int idx = 0;
+		//int idx = 0;
 		//(Jobb(0), Bal(1), Fel(2),Le(3))
-		switch(i) {
+		/*switch(i) {
 			case Jobb:
 				idx = 0;
 				break;
@@ -306,11 +322,28 @@ public class Jegtabla implements Frissitheto
 			default:
 				idx = 3;
 				break;
-		}
-		System.out.println("Jegtabla: megadom nekik a szomszedomat");
-		return szomszedok.get(idx);
+		}*/
+		return this.szomszedokASorszamhoz.get(this.szomszedokSzogbolSorszamma.get(szogbe));
 	}
 	
+	//Új
+	public Integer adottSzogbeLevoSzomszedMellettiSzomszedSzoge(Integer szog, boolean jobbra)
+	{
+		Integer sorszam = this.szomszedokSzogbolSorszamma.get(szog);
+		if(jobbra)
+		{
+			
+			Integer jobbraLevoSzomszedSorszama = sorszam == szomszedokSzama - 1? 0: sorszam + 1;
+			
+			return this.szomszedokSorszambolSzogge.get(jobbraLevoSzomszedSorszama);
+				
+		}
+		else
+		{
+			Integer balraLevoSzomszedSorszama = sorszam == 0? szomszedokSzama - 1: sorszam - 1;
+			return this.szomszedokSorszambolSzogge.get(balraLevoSzomszedSorszama);
+		}
+	}
 	
 	
 	
@@ -426,12 +459,18 @@ public class Jegtabla implements Frissitheto
 	 * @param j - a jégtábla, amit fel akarunk venni a szomszédok közé
 	 * @param i - azt adja meg, hogy a jégtáblának melyik irányba lesz a szomszédja
 	 */
-	public void setSzomszed(Jegtabla j, Irany i)
+	public void setSzomszed(Jegtabla j,Integer hanyadikSzomszed, Integer melyikSzogbol)
 	{
 		System.out.println("Nekem a jegtablanak epp a szomszedjat allitjak be ");
 		int idx = 0;
+		
+		szomszedokSorszambolSzogge.put(hanyadikSzomszed, melyikSzogbol);
+		szomszedokSzogbolSorszamma.put(melyikSzogbol, hanyadikSzomszed);
+		
+		szomszedokASorszamhoz.set(hanyadikSzomszed, j);
+		
 		//(Jobb(0), Bal(1), Fel(2),Le(3))
-		switch(i) {
+		/*switch(i) {
 			case Jobb:
 				idx = 0;
 				break;
@@ -446,7 +485,7 @@ public class Jegtabla implements Frissitheto
 				break;
 		}
 			
-		szomszedok.set(idx, j);
+		szomszedok.set(idx, j);*/
 		System.out.println("Szomszed beallitva ");
 	}
 	

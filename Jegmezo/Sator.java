@@ -59,11 +59,11 @@ public class Sator extends Vedelem implements Targy{
 	public boolean hasznal(Jatekos j) {
 		System.out.println("Sator: epp hasznalni akarnak");
 		System.out.println("Sator: most lekerdezem a jatekosnak az iranyAmibeNezet");
-		Irany i =  j.getIranyAmibeNez();
+		int szog =  j.getSzogAmibeNez();
 		System.out.println("Sator: most lekerdezem a jatekosnak a jegtablajat");
 		Jegtabla jt = j.JegtablaLekerdez();
 		System.out.println("Sator: most lekerdezem a jatekosnak a jegtablajanak az abban az iranyban levo szomszedjat, amibe a jatekos nez");
-		Jegtabla sz = jt.szomszedKerdez(i);
+		Jegtabla sz = jt.szomszedKerdez(szog);
 		
 		if(sz != null)
 		{
