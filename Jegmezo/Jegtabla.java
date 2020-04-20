@@ -34,6 +34,8 @@ public class Jegtabla implements Frissitheto
 	private List<Jegesmedve> jegesmedvek;
 	private Targy targy;
 	
+	public String ID;
+	
 	
 	/**
 	 * A jégtábla konstruktora, ami létrehozza jégtáblát, a megadott paraméterekkel
@@ -72,6 +74,39 @@ public class Jegtabla implements Frissitheto
 		
 		System.out.println("Letrehoztak egy jegtablat");
 	}
+	
+	
+	public Jegtabla(String id,
+			Jegmezo jegmezo,
+			boolean atVanFordulva,
+			int ho,
+			int tartokepesseg,
+			int szomszedokSzama)
+			{
+		ID = id;
+				this.jegmezo = jegmezo;
+				
+				this.atVanFordulva =atVanFordulva;
+				this.ho = ho;
+				this.tartokepesseg = tartokepesseg;
+				
+				this.szomszedokSzama = szomszedokSzama;
+				
+				szomszedokSorszambolSzogge = new TreeMap<>(); 
+				szomszedokSzogbolSorszamma = new TreeMap<>(); 
+				
+				szomszedokASorszamhoz = new ArrayList<>(this.szomszedokSzama);
+			
+				
+				jegtablaVedelme = null;
+				
+				jatekosok = new ArrayList<>(); 
+				this.targy = null;
+				this.jegmezo.addFrissitheto(this);
+				jegesmedvek = new ArrayList<>();
+				
+				System.out.println("Letrehoztak egy jegtablat");
+			}
 	
 	
 	/**
@@ -286,6 +321,7 @@ public class Jegtabla implements Frissitheto
 	{
 		System.out.println("Jegtabla: epp ram lep egy jatekos");
 		j.setaktjegtabla(this);
+		j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(0));
 		System.out.println("Jegtabla: hozzaadom a jatekos gyujtemenyembe");
 		jatekosok.add(j);
 		System.out.println("Jegtabla: A jatekos ralepett a tablara");
@@ -509,4 +545,16 @@ public class Jegtabla implements Frissitheto
 		return "Jegtabla";
 	}
 	
+	public int getJatekosokSzama()
+	{
+		if(this.jatekosok != null)
+			return this.jatekosok.size();
+		else
+			return 0;
+	}
+	
+	public Targy getTargy()
+	{
+		return this.targy;
+	}
 }

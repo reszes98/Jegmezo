@@ -26,13 +26,11 @@ public class Eszkimo extends Jatekos
 	 */
 	public Eszkimo(Jegmezo jegmezo,
 	int Munkadb,
-	int testho,
-	int szogAmibeNez)
+	int testho)
 	{
 		super(jegmezo,
 				Munkadb,
-				testho,
-				szogAmibeNez);
+				testho);
 		
 		System.out.println("Letrehoztak egy Eszkimot");
 	}

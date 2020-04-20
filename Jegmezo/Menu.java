@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Menu {
 	
-	private int answer = 0;
+	/*private int answer = 0;
 	private Scanner in = new Scanner(System.in);
 	
 	
@@ -1062,7 +1062,7 @@ public class Menu {
 			
 		}
 		
-		
+		*/
 		
 			
 }

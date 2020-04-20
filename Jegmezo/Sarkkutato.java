@@ -27,13 +27,11 @@ public class Sarkkutato extends Jatekos
 	 */
 	public Sarkkutato(Jegmezo jegmezo,
 	int Munkadb,
-	int testho,
-	int szogAmibeNez)
+	int testho)
 	{
 		super(jegmezo,
 				Munkadb,
-				testho,
-				szogAmibeNez);
+				testho);
 		
 		System.out.println("Letrehoztak egy sarkkutatot");
 	}

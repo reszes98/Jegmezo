@@ -39,8 +39,7 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public Jatekos(Jegmezo jegmezo,
 	int Munkadb,
-	int testho,
-	int szogAmibeNez)
+	int testho)
 	{
 		this.jegmezo = jegmezo;
 		this.aktjegtabla = null;
@@ -48,8 +47,6 @@ public abstract class Jatekos implements Frissitheto
 		this.Munkadb = Munkadb;
 		this.testho = testho;
 		this.targyak = new ArrayList<>();
-		
-		this.szogAmibeNez = szogAmibeNez;
 		
 		this.jegmezo.addFrissitheto(this);
 		this.jegmezo.addJatekos(this);
@@ -81,7 +78,7 @@ public abstract class Jatekos implements Frissitheto
 	 * @param i - i irányban lévõ szomszédos jégmezõre helyezi át a játékost.
 	 * @return Visszaadja, hogy sikeres volt-e az áthelyezés
 	 */
-	public boolean athelyez(Integer szogbe)
+	public boolean athelyez(int szogbe)
 	{
 		System.out.println("Valaki engem, a jatekost, epp at akar helyezni");
 		Jegtabla szomszed = aktjegtabla.szomszedKerdez(szogbe);
@@ -493,4 +490,8 @@ public abstract class Jatekos implements Frissitheto
 		tartAKore = tk;
 	}
 	
+	public List<Targy> getTargyak()
+	{
+		return targyak;
+	}
 }
