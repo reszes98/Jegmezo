@@ -162,16 +162,16 @@ public class Jegmezo
 					Jegtabla sz1 = j - 1 >= 0? jgk[i][j - 1] : null;
 					Jegtabla sz2 = i - 1 >= 0? jgk[i - 1][j] : null;
 					Jegtabla sz3 = i + 1 < jegtablakSzamaHosszaban? jgk[i + 1][j] : null;
-					jgk[i][j].setSzomszed(sz0, Irany.IranyIntErtekAlapjan(0));
-					jgk[i][j].setSzomszed(sz1, Irany.IranyIntErtekAlapjan(1));
-					jgk[i][j].setSzomszed(sz2, Irany.IranyIntErtekAlapjan(2));
-					jgk[i][j].setSzomszed(sz3, Irany.IranyIntErtekAlapjan(3));
+					jgk[i][j].setSzomszed(sz0,0, 0);
+					jgk[i][j].setSzomszed(sz1,1,180);
+					jgk[i][j].setSzomszed(sz2, 2,90);
+					jgk[i][j].setSzomszed(sz3, 3,270);
 			}
 		}
 		
 		for(int i = 0; i < eszkimokSzama; i++)
 		{
-			Eszkimo e = new Eszkimo(this, 4, 5, Irany.Fel);
+			Eszkimo e = new Eszkimo(this, 4, 5);
 			
 			jgk[i/jegtablakSzamaSzelteben][i%jegtablakSzamaSzelteben].addJatekos(e);
 			
@@ -179,7 +179,7 @@ public class Jegmezo
 		
 		for(int i = 0; i < sarrkkutatokSzama; i++)
 		{
-			Sarkkutato sk = new Sarkkutato(this, 4, 4, Irany.Fel);
+			Sarkkutato sk = new Sarkkutato(this, 4, 4);
 			jgk[eszkimokSzama/jegtablakSzamaSzelteben + i/jegtablakSzamaSzelteben][eszkimokSzama%jegtablakSzamaSzelteben + i%jegtablakSzamaSzelteben].addJatekos(sk);
 		}
 		
@@ -192,5 +192,10 @@ public class Jegmezo
 	public String toString()
 	{
 		return "Jegmezo";
+	}
+	
+	public int getHoviharCnt()
+	{
+		return hoviharCnt;
 	}
 }

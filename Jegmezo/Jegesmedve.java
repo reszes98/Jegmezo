@@ -11,10 +11,9 @@ public class Jegesmedve implements Frissitheto{
 	boolean randomMegy;
 	
 	
-	public Jegesmedve(Jegmezo jegmezo, int szogAmibeNez, boolean randomMegy)
+	public Jegesmedve(Jegmezo jegmezo, boolean randomMegy)
 	{
 		this.jegmezo = jegmezo;
-		this.szogAmibeNez = szogAmibeNez;
 		this.randomMegy = randomMegy;
 		this.jegmezo.addFrissitheto(this);
 		System.out.println("Letrehoztak egy jegesmedvet");

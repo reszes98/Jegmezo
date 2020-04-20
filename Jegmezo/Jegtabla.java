@@ -62,7 +62,7 @@ public class Jegtabla implements Frissitheto
 		szomszedokSorszambolSzogge = new TreeMap<>(); 
 		szomszedokSzogbolSorszamma = new TreeMap<>(); 
 		
-		szomszedokASorszamhoz = new ArrayList<>(this.szomszedokSzama);
+		szomszedokASorszamhoz  = new ArrayList<>(this.szomszedokSzama);;
 	
 		
 		jegtablaVedelme = null;
@@ -132,7 +132,7 @@ public class Jegtabla implements Frissitheto
 		System.out.println("Jegtabla: epp hozzamadnak egy jegesmedvet");
 		System.out.println("Jegesmedve a jegtablara elhelyezve");
 			j.setjegtablaAminAll(this);
-		
+			j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(0));
 			jegesmedvek.add(j);
 	}
 	
@@ -557,4 +557,11 @@ public class Jegtabla implements Frissitheto
 	{
 		return this.targy;
 	}
+	
+	public int getSzomszedokSzama()
+	{
+		return szomszedokSzama;
+	}
+	
+
 }
