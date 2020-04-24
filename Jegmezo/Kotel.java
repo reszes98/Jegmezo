@@ -18,7 +18,7 @@ public class Kotel implements Targy
 {
 	public Kotel()
 	{
-		System.out.println("Letrehoztak egy kotelet");
+		Global.out.print("Sikeresen letrehoztak egy kotelet. ");
 	}
 	
 	/**
@@ -26,15 +26,15 @@ public class Kotel implements Targy
 	 */
 	public boolean felvesz(Jatekos j) {
 		
-		System.out.println("Kotel: most meprobalnak felvenni");
+		
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
 		{
-			System.out.println("Kotel sikeresen felveve");
+			Global.out.print("Kotel sikeresen felveve. ");
 		}
 		else 
-			System.out.println("A Kotelet nem sikerult felvenni");	
+			Global.out.print("A Kotelet nem sikerult felvenni. ");	
 		
 		return sikeres;
 	}
@@ -45,28 +45,32 @@ public class Kotel implements Targy
 	 * elkezd végig menni a játékosok listáján, aki ott van és áthelyezi õket és visszaadja, hogy sikerült-e
 	 */
 	public boolean hasznal(Jatekos j) {
+		Global.out.print("Ez egy kotel. ");
 		
-		System.out.println("Kotel: most meprobalnak hasznalni");
-		
-		System.out.println("Kotel: most lekerdezem a jatekos iranyAmibeNezet");
 		int szog = j.getSzogAmibeNez();
-		System.out.println("Kotel: most lekerdezem a jatekos jegtablajat");
 		Jegtabla jt = j.JegtablaLekerdez();
 		
-		System.out.println("Kotel: most lekerdezem a jegtabla, a jatekos iranyAmibeNez fele levo szomszedjat");
+		
 		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
 		
+		
+		
 		if(szJegtabla != null) {
-			System.out.println("Kotel: Letezik a szomszed, szoval rola az osszes jatekost athuzom a jatekos,aki hasznal jegtablajara");
+			Global.out.print("A Jatekos "+ szog+"-be nez. A jegtablajan "+jt.getJatekosokSzama()+
+					" jatekos all. A szomszedos jegtablan: "+ szJegtabla.getJatekosokSzama()+
+					" jatekos all. ");
 			List<Jatekos> jatekos = szJegtabla.jatekosokLekerdez();
 			for(int jsz = 0; jsz < jatekos.size(); jsz++) {
-				System.out.println("Kotel: Epp athuzok egy jatekost a masik tablara");
 				jatekos.get(jsz).athelyez(SzogKezelo.szogTukrozveAzOrigora(szog));
 			}
+			Global.out.print("A kotel hasznalata siekres. A jegtablajan "+
+					jt.getJatekosokSzama()+
+					" jatekos all. A szomszedos jegtablan: "+ szJegtabla.getJatekosokSzama()+
+					" jatekos all. ");
 			return true;
 		}
 		else {
-			System.out.println("Kotel: nem letezik a szomszed, ezert nem lehet jatekosokat athuzni rola");
+			Global.out.print(" Nem letezik a szomszed, ezert nem lehet jatekosokat athuzni rola. ");
 			return false;
 		}
 	

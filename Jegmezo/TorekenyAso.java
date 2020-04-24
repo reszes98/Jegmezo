@@ -10,23 +10,23 @@ public class TorekenyAso implements Targy{
 	
 	public TorekenyAso(int tartossag)
 	{
-		System.out.println("Letrehoztak egy torekenyasot");
+		Global.out.print("Sikeresen letrehoztak egy torekenyasot. Tartossaga: "+tartossag+". ");
 		this.tartossag = tartossag;
 	}
 	/**
 	 * Hozzaadja magát a játékos tárgyaihoz és visszatér azzal, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
-		System.out.println("Torekenyaso: most megprobalnak felvenni");
+		
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
 		{
-			System.out.println("Torekeny aso sikeresen felveve");
+			Global.out.print("Torekeny aso sikeresen felveve. ");
 			
 		}
 		else 
-			System.out.println("A torekeny asot nem sikerult felvenni");
+			Global.out.print("A torekeny asot nem sikerult felvenni. ");
 	
 		
 		return sikeres;
@@ -40,38 +40,42 @@ public class TorekenyAso implements Targy{
 	 *És visszaadja, hogy sikerült-e.
 	 */
 	public boolean hasznal(Jatekos j) {
-		System.out.println("Torekenyaso: most megprobalnak hasznalni");
-		System.out.println("Torekenyaso: most lekerdezem a jatekosnak, aki hasznal, az iranyAmibeNez-et");
+		
+		Global.out.print("Ez egy torekeny aso. Tartossaga: "+tartossag +". ");
 		int szog = j.getSzogAmibeNez();
-		System.out.println("Torekenyaso: most lekerdezem a jatekosnak, aki hasznal, a jegtablajat");
+		
 		Jegtabla jt = j.JegtablaLekerdez();
-		System.out.println("Torekenyaso: most lekerdezem a jegtablanak az abban az iranyban levo szomszedjat, amerre a jatekos nez");
+		
 		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
 		
 		
 		if(szJegtabla != null)
 		{
-			System.out.println("Torekenyaso: Letezik ez a szomszed, szoval megproblaok asni rajta kettot");
+			
 			boolean sikeres = szJegtabla.asas(2);
 			
 			if(sikeres)
 			{
-				System.out.println("Torekenyaso: Sikerult asni ezert csokkentem a tartossagom");
+				
 				tartossag--;
+				Global.out.print("Torekeny aso tartossaga sikeresen csokkentve. ");
 				if(tartossag == 0)
 				{
-					System.out.println("Torekenyaso: tartossag elerte a nullat,  ezert eltortem");
+					Global.out.print("A torekenyaso tartossaga elerte a nullat. ");
 					j.targyEltavolitasa(this);
 				}
-				System.out.println("Torekeny aso sikeresen hasznalva");
+				Global.out.print("Torekeny aso sikeresen hasznalva");
 			}
 			else
-				System.out.println("Torekeny aso sikertelenul hasznalva");
+				Global.out.print("Torekeny aso sikertelenul hasznalva. ");
+			
+			Global.out.print("Tartossaga: "+tartossag +". ");
 			return sikeres;
 		}
 		else
 		{
-			System.out.println("Torekenyaso: Nem letezik ez a szomszed, szoval nem lehet hasznalni a toreknyasot");
+			Global.out.print("Nem letezik ez a szomszed, szoval nem lehet hasznalni a toreknyasot. ");
+			Global.out.print("Tartossaga: "+tartossag +". ");
 			return false;
 		}
 		
@@ -92,6 +96,7 @@ public class TorekenyAso implements Targy{
 	public void setTartossag(int i)
 	{
 		tartossag = i;
+		Global.out.print("Tartossaga sikeresen beallitva. ");
 	}
 	/**
 	 * Visszaadja, hogy mi ez az objektum

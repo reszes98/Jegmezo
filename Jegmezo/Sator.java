@@ -12,7 +12,7 @@ public class Sator extends Vedelem implements Targy{
 	 */
 	public Sator(int tartossag)
 	{
-		System.out.println("Letrehoztak egy satort");
+		Global.out.print("Sikeresen letrehoztak egy satort. Tartossaga: "+tartossag+". ");
 		this.tartossag = tartossag;
 	}
 	
@@ -21,16 +21,16 @@ public class Sator extends Vedelem implements Targy{
 	 * Hozzáadja a sátrat a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
-		System.out.println("Sator: epp fel akarnak venni");
+		
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
 		{
-			System.out.println("Sator sikeresen felveve");
+			Global.out.print("Sator sikeresen felveve. ");
 			
 		}
 		else 
-			System.out.println("A satrat nem sikerult felvenni");
+			Global.out.print("A satrat nem sikerult felvenni. ");
 	
 		
 		return sikeres;
@@ -40,14 +40,14 @@ public class Sator extends Vedelem implements Targy{
 	 * Mindenkörben csökkenti a tarósságát és ha nullára csökken, akkor eltávolítja magát a tábláról
 	 */
 	public void frissit() {
-		
+		Global.out.print("A sator tatorssaga: "+tartossag+ ". ");
 		tartossag--;
 		if(tartossag == 0)
 		{
-			System.out.println("A sator tonkre ment, ezert el lett tavolitva a jegtablarol");
+			Global.out.print(" A sator tonkre ment, ezert el lett tavolitva a jegtablarol");
 			jegtablaAminVan.jegtablaVedelmenekEltavolitasa();
 		}
-		System.out.println("A sator frissitve");
+		Global.out.print("A sator frissitve. Tartossaga: "+tartossag+ ". ");
 	}
 
 
@@ -57,27 +57,24 @@ public class Sator extends Vedelem implements Targy{
 	 * Visszaadja, hogy sikeres volt az elhelyezes
 	 */
 	public boolean hasznal(Jatekos j) {
-		System.out.println("Sator: epp hasznalni akarnak");
-		System.out.println("Sator: most lekerdezem a jatekosnak az iranyAmibeNezet");
+		
 		int szog =  j.getSzogAmibeNez();
-		System.out.println("Sator: most lekerdezem a jatekosnak a jegtablajat");
 		Jegtabla jt = j.JegtablaLekerdez();
-		System.out.println("Sator: most lekerdezem a jatekosnak a jegtablajanak az abban az iranyban levo szomszedjat, amibe a jatekos nez");
 		Jegtabla sz = jt.szomszedKerdez(szog);
+		Global.out.print("A jatekos "+szog+"-be nez. ");
 		
 		if(sz != null)
 		{
-			System.out.println("Sator: letezi ez a szomszed ezert felallitom magam");
+			
 			sz.setjegtablaVedelme(this);
-			System.out.println("Sator sikeresen felallitva");
+			Global.out.print("Sator sikeresen felallitva. ");
 			j.targyEltavolitasa(this);
-			System.out.println("Sator eltavolitva");
 			return true;
 		}
 		else
 		{
-			System.out.println("Sator: nem letezik ez a szomszed");
-			System.out.println("A satort nem sikerult felallitani");
+			Global.out.print("Nem letezik ez a szomszed ezert a felallitas siekrtelen. ");
+			
 			return false;
 		}
 		
@@ -90,7 +87,7 @@ public class Sator extends Vedelem implements Targy{
 	 */
 	public void hovihar() {
 		// TODO Auto-generated method stub
-		System.out.println("A sator megvedte a jatekosokat a hovihartol");
+		Global.out.print("A sator megvedte a jatekosokat a hovihartol. ");
 	}
 
 	
@@ -99,19 +96,20 @@ public class Sator extends Vedelem implements Targy{
 	 * és eltávolítja magát a tábláról 
 	 */
 	public void tamadas(Jegesmedve j) {
-		System.out.println("A sator nem vedi a jatekosokat a jegesmedvetol");
+		
 		
 		List<Jatekos> jatekosok = jegtablaAminVan.jatekosokLekerdez();
 		if(!jatekosok.isEmpty())
 		{
 			for(int i = 0; i < jatekosok.size(); i++)
 			{
-				System.out.println("A jegesmedve megevett egy jatekost");
+				
 				jatekosok.get(i).getJegmezo().meghalt(jatekosok.get(i));
 			}
+			Global.out.print("A jegesmedve sikeresen megette a jatekosokat. ");
 		}
 		else
-			System.out.println("A jegesmedve nem evett meg senkit :'/ ");
+			Global.out.print("Nem volt jatekos a tablan. ");
 		
 		jegtablaAminVan.jegtablaVedelmenekEltavolitasa();
 	}

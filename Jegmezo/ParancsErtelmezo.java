@@ -237,7 +237,7 @@ public void ExecuteCommand(String comm)
 						Global.out.print("A Játékosnak" + j.getTestho() + "testhoje van. Játékos jegtablaId = " + jegtablaAminAllt.ID 
 								+ " A jegtablan " + jegtablaVedeleme + "vedelem van ");
 				
-						jatekosok.get(params[1]).lepes();
+						jatekosok.get(params[1]).hovihar();
 						
 						Global.out.print("A Játékosnak" + j.getTestho() + "testhoje van. "
 								+ "Játékos jegtablaId = " + jegtablaAminAllt.ID 
@@ -548,12 +548,17 @@ public void ExecuteCommand(String comm)
 					
 					if(jegtablak.get(params[1]) != null)
 					{
+						String atfordulva=jegtablak.get(params[1]).getAtVanFordulva() ? " at van fordulva. ":"nincs atforulva. ";
 						Global.out.println("A " + params[1] + " idju jegtabla at van fordulva? " 
-					+ jegtablak.get(params[1]).getAtVanFordulva());
+					+ atfordulva);
 						
 						Global.out.println("A " + params[1] + " idju jegtablat most atforditom");
 						
 						jegtablak.get(params[1]).atfordit();
+						
+						String atfordulva2=jegtablak.get(params[1]).getAtVanFordulva() ? " at van fordulva. ":"nincs atforulva. ";
+						Global.out.println("A " + params[1] + " idju jegtabla at van fordulva? " 
+					+ atfordulva2);
 						
 					}
 					else

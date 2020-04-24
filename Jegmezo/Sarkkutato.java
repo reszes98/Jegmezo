@@ -33,7 +33,7 @@ public class Sarkkutato extends Jatekos
 				Munkadb,
 				testho);
 		
-		System.out.println("Letrehoztak egy sarkkutatot");
+		Global.out.print("Jatekos tipusa sarkkutato.");
 	}
 
 	
@@ -42,20 +42,19 @@ public class Sarkkutato extends Jatekos
 	 */
 	public void kepesseg()
 	{
-		System.out.println("Sarkkutato: Epp a kepessegemet akarjak hasznalni");
-		System.out.println("Sarkkutato: ezert lekerdezem a jegtabla tartokepesseget");
 		
+		Global.out.print("A jatekos MunkaDB-ja: "+Munkadb+". ");
 		Jegtabla j = aktjegtabla.szomszedKerdez(szogAmibeNez);
 		if(j != null)
 		{
-			System.out.println("A jegtabla tartokepessege: " + j.gettartokepesseg());
+			Global.out.print("A jegtabla tartokepessege: " + j.gettartokepesseg());
 			MunkaDBcsokkentese(1);
 		}
 		else
 		{
-			System.out.println("A szomszed nem letezik");
-			System.out.println("Tartokepesseg adat lekerese sikertelen");
+			Global.out.print("A szomszed nem letezik, lekerdezes sikertelen. ");
 		}
+		Global.out.print("A jatekos MunkaDB-ja: "+Munkadb+". ");
 	}
 	
 	

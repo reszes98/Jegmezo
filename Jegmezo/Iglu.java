@@ -6,13 +6,13 @@ public class Iglu extends Vedelem{
 
 	public Iglu()
 	{
-		System.out.println("Letrehoztak egy iglut");
+		Global.out.print("Iglu sikeresen letrehozva. ");
 	}
 	/**
 	 * Itt nem csinál semmit, de késõbb még lehet történik valami frissítéskor
 	 */
 	public void frissit() {
-		System.out.println("Az iglura meghivodott a frissit fuggveny");
+		Global.out.print("Az iglura sikersesen frissitve. ");
 	}
 
 	
@@ -20,8 +20,7 @@ public class Iglu extends Vedelem{
 	 * Ha hóvihar van megvédi a jégtábláján lévõ játékosokat és nem esik semmi bántódásuk
 	 */
 	public void hovihar() {
-		System.out.println("Az iglura meghivodott a hovihar fuggveny");
-		System.out.println("Iglu: Megvedtem a hovihartol a bennem levoket");
+		Global.out.print(" Az iglu megvedte a hovihartol a benne levoket. ");
 	}
 
 	
@@ -29,7 +28,7 @@ public class Iglu extends Vedelem{
 	 * Ha megtámadj a jégtáblát, amin van, egy jegesmedve, akkor megvédi a vele egy jégtáblán lévõ játékoskat  
 	 */
 	public void tamadas(Jegesmedve j) {
-		System.out.println("Iglu: megvedtem a bennem levoket a Jegesmedvetol");
+		Global.out.print("Az iglu sikeresen megvedte a benne levo jatekosokat a Jegesmedvetol. ");
 	}
 	
 	/**

@@ -24,20 +24,20 @@ public class Elelem implements Targy
 	 */
 	public Elelem(int pont) {
 		this.pont = pont;
-		System.out.println("Letrehoztak, egy elelmet " + this.pont + " pontertekkel");
+		Global.out.print("Letrehoztak, egy elelmet " + this.pont + " pontertekkel. ");
 	}
 	
 	/**
 	 * Hozzáadja az élelmet a Játékos tárgyaihoz és visszaadja, hogy sikerült-e
 	 */
 	public boolean felvesz(Jatekos j) {
-		System.out.println("Na most valaki megprobalta felvenni ezt az elelmet");
+		
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
-			System.out.println("Elelem sikeresen felveve");
+			Global.out.print("Elelem sikeresen felveve. ");
 		else 
-			System.out.println("Az elelmet nem sikerult felvenni");
+			Global.out.print("Az elelmet nem sikerult felvenni. ");
 		
 		return sikeres;
 	}
@@ -48,16 +48,16 @@ public class Elelem implements Targy
 	 */
 	public boolean hasznal(Jatekos j) {
 		
-		System.out.println("Na most valaki megprobalta hasznalni ezt az elelmet");
+		Global.out.print("Ez egy elelem. ");
 		boolean sikeres = j.testhoNovelese(pont);
 		
 		if(sikeres) 
 		{
-			System.out.println("Elelem sikeresen hasznalva");
+			Global.out.print("Elelem sikeresen hasznalva. ");
 			j.targyEltavolitasa(this);
 		}
 		else
-			System.out.println("Nem sikerult hasznalni az elelmet");
+			Global.out.print("Nem sikerult hasznalni az elelmet. ");
 		
 		
 		return sikeres;
@@ -68,7 +68,7 @@ public class Elelem implements Targy
 	 */
 	public int getPont()
 	{
-		System.out.println("Valaki az elelem pontszamat kerdezi le eppen, ami: " + pont);
+		
 		return pont;
 	}
 	

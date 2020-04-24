@@ -16,7 +16,7 @@ public class Aso implements Targy
 	
 	public Aso()
 	{
-		System.out.println("Letrehoztak egy asot");
+		Global.out.print("Aso sikeresen letrehozva. ");
 	}
 	
 	/**
@@ -24,16 +24,16 @@ public class Aso implements Targy
 	 */
 	public boolean felvesz(Jatekos j) {
 		
-		System.out.println("Na most valaki megprobalta felvenni ezt az asot");
+		
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
 		{
-			System.out.println("Aso sikeresen felveve");
+			Global.out.print("Aso sikeresen felveve. ");
 			
 		}
 		else 
-			System.out.println("Az asot nem sikerult felvenni");
+			Global.out.print("Az asot nem sikerult felvenni. ");
 	
 		
 		return sikeres;
@@ -46,17 +46,19 @@ public class Aso implements Targy
 	 */
 	public boolean hasznal(Jatekos j) {
 		
-		System.out.println("Na most valaki megprobalta hasznalni ezt az asot");
+		
 		int szog = j.getSzogAmibeNez();
 		Jegtabla jt = j.JegtablaLekerdez();
 		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
 		
+		Global.out.print("Ez egy aso. ");
+		
 		boolean sikeres = szJegtabla.asas(2);
 		
 		if(sikeres)
-			System.out.println("Aso sikeresen hasznalva");
+			Global.out.print("Aso sikeresen hasznalva. ");
 		else
-			System.out.println("Aso sikertelenul hasznalva");
+			Global.out.print("Aso sikertelenul hasznalva. ");
 		
 		
 		return sikeres;

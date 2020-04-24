@@ -16,7 +16,8 @@ public class Jegesmedve implements Frissitheto{
 		this.jegmezo = jegmezo;
 		this.randomMegy = randomMegy;
 		this.jegmezo.addFrissitheto(this);
-		System.out.println("Letrehoztak egy jegesmedvet");
+		String megy=randomMegy ? "random megy. ":"nem megy random. ";
+		Global.out.print("Letrehoztak egy jegesmedvet. A jegesmedve " + megy);
 	}
 	
 	
@@ -25,8 +26,8 @@ public class Jegesmedve implements Frissitheto{
 	 * Minden kör eljén hívódik meg és meghívja a Lép függvényt
 	 */
 	public void frissit() {
-		System.out.println("A jegemedve most lepni fog");
 		Lep();
+		Global.out.print("Jegesmedve sikeresen frissitve. ");
 	}
 
 	
@@ -34,7 +35,7 @@ public class Jegesmedve implements Frissitheto{
 	 * Akkor hívódik meg, ha hóvihar van a Jégmezõn, még nem csinál semmit, de késõbb akár, még lehet, hogy lesz valami szerepe
 	 */
 	public void hovihar() {
-		System.out.println("A jegemedve epp hoviharban van");
+	
 		
 	}
 	
@@ -44,12 +45,13 @@ public class Jegesmedve implements Frissitheto{
 	 */
 	public void Lep()
 	{
-		System.out.println("Most a jegesmedve lepesre keszul");
+		String megy=randomMegy ? "random megy. ":"nem megy random. ";
+		Global.out.print("A jegesmedve " + megy);
 		//https://docs.oracle.com/javase/8/docs/api/java/util/Random.html
 		//innen tájékozódtam a randomokról
 		if(randomMegy)
 		{
-			System.out.println("Most a jegesmedve epp egy random iranyt valaszt, amerre menni fog");
+			
 			//Random r = new Random();
 			
 			//int intErtek = r.nextInt(4);
@@ -57,44 +59,46 @@ public class Jegesmedve implements Frissitheto{
 			iranyAmibeNez = ujIranyAmibeNez;*/ // ÚJ
 		}
 		
-		System.out.println("Most lekerdezi a jegesmedve, hogy abba az iranyba, amerre menni akar milyen jegtabla all");
-		Jegtabla sz = jegtablaAminAll.szomszedKerdez(szogAmibeNez);
 		
+		Jegtabla sz = jegtablaAminAll.szomszedKerdez(szogAmibeNez);
+		Global.out.print("A jegesmedve "+sz+" iranyba nez. ");
 
 		if(sz != null)
 		{
-			System.out.println("Most a jegesmedve eltavolitja magat a jegtablarol, amin eddig allt");
+			
 			jegtablaAminAll.JegesmedveEltavolit(this);
-			System.out.println("Most a jegesmedve hozzaadja magat a szomszedos jegtablahoz, amire ra akar lepni");
 			sz.addJegesmedve(this);
 			jegtablaAminAll=sz;
+			Global.out.print("A jegesmedve "+sz+" iranyba nez. ");
 		}
 		else
 		{
-			System.out.println("Az irany amibe a jegesmedve menni akar nincs jegtabla, ezert lepest befejezte es ugyanott maradt");
+			Global.out.print("Az irany amibe a jegesmedve menni akar nincs jegtabla, ezert lepest befejezte es ugyanott maradt. ");
 			return;
 			
 		}
-		System.out.println("Most a  jegesmedve annak a jegtablanak kerdezi a vedelmet, amire epp ralepett");
+		
 		Vedelem v = jegtablaAminAll.getjegtablaVedelme();
 		if(v != null)
 		{
-			System.out.println("Van vedelme, ezert meghivja ra magaval a tamadas fuggvenyt");
+			Global.out.print("A jegtablanak van vedelme. ");
 			v.tamadas(this);
 		}
 		else
 		{
-			System.out.println("Nincs vedelme, ezert meghivja ra az osszes jatekosra, aki a jegtablan van a meghalt fuggvenyt");
+			Global.out.print("A jegtablanak nincs vedelme. ");
 			List<Jatekos> jatekosok = jegtablaAminAll.jatekosokLekerdez();
 			
 				for(int i = 0; i < jatekosok.size(); i++)
 				{
-					System.out.println("A jegesmedve megevett egy jatekost");
+					
 					jegmezo.meghalt(jatekosok.get(i));
 				}
 			
 				if(jatekosok.size() == 0)
-					System.out.println("A jegesmedve nem evett meg senkit");
+					Global.out.print("A jegesmedve nem evett meg senkit. ");
+				else 
+					Global.out.print("A  jegesmedve sikeresen megette a jatekoskat. ");
 		}
 		
 		
@@ -108,7 +112,7 @@ public class Jegesmedve implements Frissitheto{
 	 */
 	public void setSzogAmibeNez(int szog)
 	{
-		System.out.println("Nekem a jegesmedvenek, epp azt allitjak, hogy merre nezek");
+		
 		szogAmibeNez = szog;
 	}
 	
@@ -119,8 +123,9 @@ public class Jegesmedve implements Frissitheto{
 	 */
 	public void setjegtablaAminAll(Jegtabla jt)
 	{
-		System.out.println("Nekem a jegesmedvenek, epp a jegtablat allitjak, amin allok");
+		
 		jegtablaAminAll  = jt;
+		Global.out.print("Jegesmedve jegtablaja sikeresen beallitva. ");
 	}
 	
 	

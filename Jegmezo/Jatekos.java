@@ -51,7 +51,8 @@ public abstract class Jatekos implements Frissitheto
 		this.jegmezo.addFrissitheto(this);
 		this.jegmezo.addJatekos(this);
 		tartAKore = false;
-		System.out.println("Valaki letrehozott egy jatekost");
+		Global.out.print("Jatekos sikeresen letrehozva. Most van: "+jegmezo.GetJatekosSzam()+
+				" jatekos. Munka db: "+Munkadb+" ,testho: "+testho);
 	}
 	
 	
@@ -60,16 +61,16 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void asas()
 	{
-		System.out.println("En, a jatekos, kezzel asasra keszulok");
+		
 		
 		boolean sikeres = aktjegtabla.asas(1);
 		if(sikeres)
 		{
 			this.MunkaDBcsokkentese(1);
-			System.out.println("Asas sikeresen elvegezve");
+			Global.out.print("Asas sikeresen elvegezve. ");
 		}
 		else
-			System.out.println("Asas sikertelenul elvegezve");
+			Global.out.print("Asas nem sikerult. ");
 		
 	}
 	
@@ -80,17 +81,17 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public boolean athelyez(int szogbe)
 	{
-		System.out.println("Valaki engem, a jatekost, epp at akar helyezni");
+		
 		Jegtabla szomszed = aktjegtabla.szomszedKerdez(szogbe);
 		if (szomszed!=null) {
 			aktjegtabla.jatekosEltavolit(this);
 			szomszed.ralep(this);
-			System.out.println("Sikeresen athelyeztek");
+			Global.out.print("Jatekos sikeresen athelyezve");
 			return true;
 		}
 		else 
 		{
-			System.out.println("Nem sikerult athelyezni engem");
+			Global.out.print("Nem sikerult athelyezni a jatekost");
 			return false;
 		}
 	}
@@ -103,12 +104,12 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void fazas(int i)
 	{
-		System.out.println("Fazom ezert a testhom " + testho + "-rol " + (testho - i) + "-re csokkent");
-		testho-=i;
 		
+		testho-=i;
+		Global.out.print("Testho sikeresen csokkentve. ");
 		
 		if(testho<=0) {
-			System.out.println("Elfogyott minden testhom, ezert most meghalok");
+			Global.out.print("Elfogyott a jatekos testhoje. ");
 			jegmezo.meghalt(this);
 		}
 		
@@ -120,7 +121,7 @@ public abstract class Jatekos implements Frissitheto
 	public void frissit()
 	{
 		Munkadb = 4;
-		System.out.println("Jatekoskent az uj kor elejen megint " + Munkadb + "db munkam van");
+		Global.out.print("A jatekosnak "+Munkadb+ " munkaja van.");
 		
 	}
 	
@@ -133,18 +134,17 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void hovihar()
 	{
-		System.out.println("En, a jatekos, epp egy hoviharban vagyok");
+		
 		Vedelem  v = aktjegtabla.getjegtablaVedelme();
 		
 		
 		if(v != null)
 		{
-			System.out.println("Jatekos: Van vedelem a tablan ezert meghivom a hovihar fuggvenyet");
+			Global.out.print("A hovihar lezajlott, a jatekos megmenekult a hovihar elol. ");
 			v.hovihar();
 		}
 		if(v == null) {
-			System.out.println("Jatekos: Nincs vedelem a tablan");
-			System.out.println("Durva ez a hovihar, most fazom");
+			Global.out.print("A hovihar lezajlott, a jatekos testhoje csokkent egyet. ");
 			fazas(1);
 		}
 	}
@@ -157,8 +157,9 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void jelzopisztolyDarabokNovelese()
 	{
-		System.out.println("Nekem, a jatekosnak, epp noveltek a jelzopisztolyok darabszamat 1-el");
+		
 		jelzopisztolydb++;
+		Global.out.print("JelzopisztolyDB-ok szama sikeresen novelve. ");
 	}
 	
 	
@@ -192,7 +193,7 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void korVege()
 	{
-		System.out.println("a jatekos vegzett a korevel");
+		Global.out.print("A jatekos vegzett a korevel. ");
 		tartAKore = false;
 	}
 	
@@ -202,25 +203,27 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void lepes()
 	{
-		System.out.println("Jatekos vagyok es most probalok lepni egyet");
+		
 		boolean ellephet = aktjegtabla.ellep(this);
 		
 		if(ellephet)
 		{
 			Jegtabla szJegtabla = aktjegtabla.szomszedKerdez(szogAmibeNez);
+			String atfordulva=aktjegtabla.getAtVanFordulva() ? "at van fordulva" : "nincs atfordulva";
+			Global.out.print("A jegtabla "+atfordulva+" .");
 			if(szJegtabla != null )
 			{
 				szJegtabla.ralep(this);
-				System.out.println("Sikerult az ellepes");
+				Global.out.print("Sikerult az ellepes. ");
 				MunkaDBcsokkentese(1);
 			}
 			else
 			{
-				System.out.println("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
+				Global.out.print("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
 			}
 		}
 		else {
-			System.out.println("Nem sikerult az ellepes, mert nem lephetek el");
+			Global.out.print("Nem sikerult az ellepes, mert a jegtabla at van fordulva. ");
 		}
 		
 	}
@@ -235,19 +238,18 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void MunkaDBcsokkentese(int mennyivel)
 	{
-		System.out.println("Most epp a jatekos munkadbjait probaljak csokkenteni");
-		System.out.println("Munkadb csokkentve");
+		
 		if(Munkadb - mennyivel < 0)
 		{
 			Munkadb = 0;
-			System.out.println("Elfogytak a munkaim ");
+			Global.out.print("Elfogytak a munkaim. ");
 			
-			System.out.println("ezert tovabbadom a korom");
 			korVege();
 		}
 		else
 		{
 			Munkadb -= mennyivel;
+			Global.out.print("MunkaDB sikeresen csökkentve. ");
 		}
 	}
 	
@@ -259,7 +261,6 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public Jegtabla JegtablaLekerdez()
 	{
-		System.out.println("Jatekos vagyok es azt kerdezik melyik jegtablan allok");
 		return aktjegtabla;
 	}
 	
@@ -272,9 +273,11 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void targyEltavolitasa(Targy t)
 	{
-		System.out.println("A jatekos targygyujtemenyebol epp egy targyat probalnak eltavolitani");
+		this.TargyakListazasa();
 		targyak.remove(t);
-		System.out.println("Targy eltavolitva");
+		Global.out.print("Targy eltavolitva. ");
+		this.TargyakListazasa();
+		
 	}
 	
 	/**
@@ -282,16 +285,16 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void targyFelvetel()
 	{
-		System.out.println("A jatekos epp egy targyat probal felvenni a jegtablarol, amin all");
+		Global.out.print(" A jatekos MunkaDB-ja: "+Munkadb+". ");
 		boolean sikeres = aktjegtabla.targyFelvesz(this);
 		if(sikeres)
 		{
-			System.out.println("A targyfelvetel sikerult");
+			Global.out.print(" A targyfelvetel sikerult");
 			this.MunkaDBcsokkentese(1);
 		}
 		else
-			System.out.println("A targyfelvetel nem sikerult");
-		
+			Global.out.print("A targyfelvetel nem sikerult");
+		Global.out.print(" A jatekos MunkaDB-ja: "+Munkadb+". ");
 	}
 	
 	
@@ -301,29 +304,30 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void targyHasznalat(int idx)
 	{
-		System.out.println("A jatekos epp a " + idx + " indexu targyat probalja hasznalni");
-		if(targyak != null)
+		Global.out.print("A jatekosnak MunkaDB-ja: "+Munkadb+". ");
+		if(targyak != null && Munkadb>0)
 		{
 			if(targyak.size() > idx)
 			{
 				boolean sikeres = targyak.get(idx).hasznal(this);
 				if(sikeres)
 				{
-					System.out.println("A targyhasznalat sikerult");
+					Global.out.print("A targyhasznalat sikerult. ");
 					this.MunkaDBcsokkentese(1);
 				}
 				else 
-					System.out.println("A targy hasznalat nem sikerult");
+					Global.out.print("A targy hasznalat nem sikerult. ");
 			}
 			else
 			{
-				System.out.println("A targy hasznalat nem sikerult, mert nincsenen ilyen indexu targya a jatekosnak");
+				Global.out.print("A targy hasznalat nem sikerult, mert nincsenen ilyen indexu targya a jatekosnak. ");
 			}
 		}
 		else
 		{
-			System.out.println("A targy hasznalat nem sikerult, mert nincsenek targyai a jatekosnak");
+			Global.out.print("A targy hasznalat nem sikerult, mert nincsenek targyai a jatekosnak, vagy nincs eleg munkaDB-ja. ");
 		}
+		Global.out.print("A jatekosnak MunkaDB-ja: "+Munkadb+". ");
 			
 	}
 	
@@ -336,9 +340,9 @@ public abstract class Jatekos implements Frissitheto
 	{
 		if(targyak == null)
 			targyak = new ArrayList<>();
-		System.out.println("A jatekos targygyujtemenyehez epp egy targyat probalnak hozzaadni");
+		
 		targyak.add(t);
-		System.out.println("Targy hozzaadva");
+		Global.out.print("Targy hozzaadva. ");
 		return true;
 	}
 	
@@ -351,16 +355,18 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public boolean testhoNovelese(int mennyivel)
 	{
-		System.out.println("Most epp a jatekos testhojet akarjak novelni");
+		Global.out.print("Jatekos testhoje: "+testho+". ");
 		testho+= mennyivel;
 		if (testho > 6) {
 			testho=6;
-			System.out.println(" Nem sikerult a noveles, mert a testhot 6-ig lehet csak növelni.");
+			Global.out.print(" Nem sikerult a noveles, mert a testhot 6-ig lehet csak növelni.");
+			Global.out.print("Jatekos testhoje: "+testho+". ");
 			return false;
 		}
 		else
 		{
-			System.out.println("Testho sikeresen novelve");
+			Global.out.print("Testho sikeresen novelve. ");
+			Global.out.print("Jatekos testhoje: "+testho+". ");
 			return true;
 		}
 	}
@@ -372,7 +378,7 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public Jegmezo getJegmezo()
 	{
-		System.out.println("a jatekos jegmezojet kerdezik le epp");
+	
 		return jegmezo;
 	}
 	
@@ -382,7 +388,7 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public void setaktjegtabla(Jegtabla jt)
 	{
-		System.out.println("a jatekosnak epp azt allitjak, hogy melyik jegtablan all");
+		
 		aktjegtabla  = jt;
 	}
 	
@@ -394,13 +400,13 @@ public abstract class Jatekos implements Frissitheto
 	{
 		if(targyak != null)
 		{
-			System.out.println("A jatekos targyai:");
+			Global.out.print("A jatekos targyai: ");
 			for(int i = 0; i < targyak.size(); i++)
-				System.out.println((i + 1) + ". - " + targyak.get(i).toString() );
+				Global.out.println((i + 1) + ". - " + targyak.get(i).toString()+ " ");
 		}
 		else
 		{
-			System.out.println("Nincsenek targyai a jatekosnak");
+			Global.out.print("Nincsenek targyai a jatekosnak. ");
 		}
 		
 	}
@@ -446,7 +452,7 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public int getjelzopisztolydb()
 	{
-		System.out.println("Jatekos vagyok es a jelzopisztolydb szamom irant erdeklodnek epp");
+		
 		return jelzopisztolydb;
 	}
 	

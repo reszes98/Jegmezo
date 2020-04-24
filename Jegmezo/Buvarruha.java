@@ -19,7 +19,7 @@ public class Buvarruha implements Targy
 	
 	public Buvarruha()
 	{
-		System.out.println("Letrehoztak egy buvarruhat");
+		Global.out.print("Sikeresen letrehoztak egy buvarruhat. ");
 	}
 	
 	/**
@@ -27,14 +27,14 @@ public class Buvarruha implements Targy
 	 */
 	public boolean felvesz(Jatekos j) {
 		
-		System.out.println("Na most valaki megprobalta felvenni ezt a buvarruhat");
+		
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
-			System.out.println("Buvarruha sikeresen felveve");
+			Global.out.print("Buvarruha sikeresen felveve. ");
 		
 		else 
-			System.out.println("A buvarruhat nem sikerult felvenni");
+			Global.out.print("A buvarruhat nem sikerult felvenni. ");
 			
 		
 		return sikeres;
@@ -45,13 +45,13 @@ public class Buvarruha implements Targy
 	 * a játékost áthelyezi a kapott irányba és visszaadja, hogy sikerült-e
 	 */
 	public boolean hasznal(Jatekos j) {
-		System.out.println("Na most valaki megprobalta hasznalni ezt a buvarruhat");
 		boolean sikeres = j.athelyez(j.getSzogAmibeNez());
 		
+		Global.out.print("Ez egy buvarruha. ");
 		if(sikeres)
-			System.out.println("Buvarruha sikeresen hasznalva");
+			Global.out.print("Buvarruha sikeresen hasznalva. ");
 		else
-			System.out.println("A buvarruhat nem sikertelenul hasznalni");
+			Global.out.print("A buvarruhat nem sikertelenul hasznalni. ");
 		
 		
 		return sikeres;

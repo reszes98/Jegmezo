@@ -32,7 +32,7 @@ public class Eszkimo extends Jatekos
 				Munkadb,
 				testho);
 		
-		System.out.println("Letrehoztak egy Eszkimot");
+		Global.out.print("Jatekos tipusa eszkimo.");
 	}
 	
 	
@@ -41,13 +41,18 @@ public class Eszkimo extends Jatekos
 	 */
 	public void kepesseg()
 	{
-		System.out.println("En, az eszkimo, most megprobalok egy popec iglut epiteni");
-		Iglu i = new Iglu();
-		
-		aktjegtabla.setjegtablaVedelme(i);
+		Global.out.print("A jatekos MunkaDB-ja: "+Munkadb+". ");
+		if (Munkadb>0) {
+			Iglu i = new Iglu();
 			
-		System.out.println("Iglu epitese sikeres");
-		this.MunkaDBcsokkentese(1);
+			aktjegtabla.setjegtablaVedelme(i);
+				
+			System.out.println("Iglu epitese sikeres.");
+			this.MunkaDBcsokkentese(1);
+		}
+		else
+			Global.out.print("Iglu epitese sikertelen. ");
+		Global.out.print("A jatekos MunkaDB-ja: "+Munkadb+". ");
 		
 	}
 	

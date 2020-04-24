@@ -36,7 +36,8 @@ public class Jegmezo
 		jatekosok = new ArrayList<>();
 		VegeAjateknak = false;
 		elsoKor = true;
-		System.out.println("Letrehoztak egy jegmezot");
+		Global.out.print("Sikeresen letrehoztak egy jegmezot. Hovihar: "+hoviharCnt
+				+" mulva lesz. ");
 	}
 	
 	/**
@@ -47,7 +48,7 @@ public class Jegmezo
 	{
 		
 		frissithetok.add(f);
-		System.out.println("Hozzáadtam a jégmezõhöz a frissithetot");
+		Global.out.print("Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. ");
 		
 	}
 	
@@ -60,7 +61,7 @@ public class Jegmezo
 	{
 		
 		jatekosok.add(j);
-		System.out.println("Hozzáadtam a jégmezõhöz a jatekost");
+		Global.out.print("Jatekos sikeresen hozzáadva a jégmezõhöz. ");
 		
 	}
 	
@@ -72,11 +73,11 @@ public class Jegmezo
 	 */
 	public void jatekvege(boolean nyert)
 	{
-		System.out.println("Vege a jateknak");
+		Global.out.print("Vege a jateknak. ");
 		if(!nyert) 
-			System.out.println("Sajnos vesztettetek.");
+			Global.out.print("Sajnos vesztettetek. ");
 		else 
-			System.out.println("Nyertetetek!");
+			Global.out.print("Nyertetetek! ");
 		VegeAjateknak = true;
 	}
 	
@@ -90,16 +91,16 @@ public class Jegmezo
 		{
 			if(!elsoKor)
 			{
-				System.out.println("Jegmezo: Uj kor kezdodott");
+				Global.out.print("Uj kor kezdodott. ");
 				hoviharCnt--;
-				System.out.println("Jegemzo: Csokkent a hoviharig hatralevo korok szama");
+				
 				
 				for(int i=0;i<frissithetok.size();i++) {
-					System.out.println("Meghivja a jegmezo a frissithetokre a frissit fuggvenyt");
+					
 					frissithetok.get(i).frissit();
 					if(hoviharCnt==0)
 					{
-						System.out.println("Jegmezo: Nulla kor van a hoviharig, ezert hovihar");
+						
 						frissithetok.get(i).hovihar();
 						hoviharCnt = 4;
 					}
@@ -108,7 +109,7 @@ public class Jegmezo
 			else
 				elsoKor = false;
 			
-			System.out.println("Jegmezo: az ujabb hoviharig " + hoviharCnt + "db kor van hatra");
+			Global.out.print("Jegmezo: az ujabb hoviharig " + hoviharCnt + "db kor van hatra. ");
 			
 			for(int i = 0; i < jatekosok.size(); i++)
 			{
@@ -126,7 +127,7 @@ public class Jegmezo
 	 */
 	public void meghalt(Jatekos j)
 	{
-		System.out.println("Egy jatekos meghalt rajtam, ezert most vege a jateknak");
+		Global.out.print("Egy jatekos meghalt. ");
 		j.setTartAKore(false);
 		this.jatekvege(false);
 	}
@@ -140,7 +141,7 @@ public class Jegmezo
 	 */
 	public void setup( int jegtablakSzamaSzelteben, int jegtablakSzamaHosszaban, int eszkimokSzama, int sarrkkutatokSzama)
 	{
-		System.out.println("A jegemzo, most egy jatekot hoz letre");
+		
 		Jegtabla jgk[][] = new Jegtabla[jegtablakSzamaHosszaban][jegtablakSzamaSzelteben];
 		
 		//incializaljuk a jegtablakat
@@ -183,7 +184,7 @@ public class Jegmezo
 			jgk[eszkimokSzama/jegtablakSzamaSzelteben + i/jegtablakSzamaSzelteben][eszkimokSzama%jegtablakSzamaSzelteben + i%jegtablakSzamaSzelteben].addJatekos(sk);
 		}
 		
-			System.out.println("Jatek letrehozva");
+		Global.out.print("Jatek sikeresen letrehozva. ");
 	}
 	
 	/**
@@ -197,5 +198,10 @@ public class Jegmezo
 	public int getHoviharCnt()
 	{
 		return hoviharCnt;
+	}
+	
+	public int GetJatekosSzam()
+	{
+		return jatekosok.size();
 	}
 }

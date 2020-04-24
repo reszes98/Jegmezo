@@ -17,7 +17,7 @@ public class Jelzopisztoly implements Targy
 	
 	public Jelzopisztoly()
 	{
-		System.out.println("Letrehoztak egy jelzopisztolyt");
+		Global.out.print("Sikeresen letrehoztak egy jelzopisztolyt. ");
 	}
 	
 	/**
@@ -25,16 +25,16 @@ public class Jelzopisztoly implements Targy
 	 */
 	public boolean felvesz(Jatekos j) {
 	
-		System.out.println("Jelzopisztoly: megprobalnak felvenni");
+		
 		boolean sikeres = j.targyHozzadasa(this);
 		
 		if(sikeres)
 		{
-			System.out.println("Jelzopisztoly sikeresen felveve");
+			Global.out.print("Jelzopisztoly sikeresen felveve. ");
 			j.jelzopisztolyDarabokNovelese();
 		}
 		else 
-			System.out.println("A jelzopisztolyt nem sikerult felvenni");	
+			Global.out.print("A jelzopisztolyt nem sikerult felvenni. ");	
 		
 		return sikeres;
 	}
@@ -44,27 +44,26 @@ public class Jelzopisztoly implements Targy
 	 */
 	public boolean hasznal(Jatekos j) {
 		
-		System.out.println("Jelzopisztoly: megprobalnak hasznalni");
-		System.out.println("Jelzopisztoly: ezert lekerdezem a jatekosnak, aki engem hasznal a jelzopisztolyDB-jait");
+		Global.out.print("Ez egy jelzopisztoly. ");
 		int jelzopisztolyDB = 0;
-		System.out.println("Jelzopisztoly: ezert lekerdezem a jatekos jegtablajan levo jatekosokat");
+		
 		List<Jatekos> jatekosok = j.JegtablaLekerdez().jatekosokLekerdez();
 		
 		for(int i = 0; i < jatekosok.size(); i++)
 		{
-			System.out.println("Jelzopisztoly: most lekerdezem a jatekosok jelzopisztoly darabjait");
+			
 			jelzopisztolyDB += jatekosok.get(i).getjelzopisztolydb();
 		}
-		
+		Global.out.print("JelzopisztolyDB-ok szama: "+jelzopisztolyDB+". ");
 		if(jelzopisztolyDB >= 3)
 		{
-			System.out.println("Sikeres összeszerelés (pew pew)");
+			Global.out.print("Sikeres összeszerelés (pew pew). ");
 			j.getJegmezo().jatekvege(true);
 			return true;
 		}
 		else
 		{
-			System.out.println("Sikertelen összeszerelés :/");
+			System.out.println("Sikertelen összeszerelés :/. ");
 			return false;
 		}
 	}
