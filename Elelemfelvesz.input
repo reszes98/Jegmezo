@@ -1,0 +1,12 @@
+Teszteseteleje Elelemfelvesz
+JegmezoLetrehoz 1
+JegtablaLetrehoz 2 1 0 0 2 
+JatekosLetrehoz 3 eszkimo 1 2 4
+JegtablaAddJatekos 2 3 
+JatekosLetrehoz 5 eszkimo 1 2 4 
+JegtablaAddJatekos 2 5
+TargyLetrehoz 4 elelem
+JegtablaSetTargy 2 4
+JatekosFelvesz 5
+JatekosFelvesz 3 
+Tesztesetvege

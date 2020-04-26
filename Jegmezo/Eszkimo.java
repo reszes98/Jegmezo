@@ -47,7 +47,7 @@ public class Eszkimo extends Jatekos
 			
 			aktjegtabla.setjegtablaVedelme(i);
 				
-			System.out.println("Iglu epitese sikeres.");
+			Global.out.print("Iglu epitese sikeres.");
 			this.MunkaDBcsokkentese(1);
 		}
 		else

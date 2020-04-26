@@ -1,0 +1,16 @@
+Teszteseteleje Jelzopisztolyhasznal
+JegmezoLetrehoz 1
+JegtablaLetrehoz 2 1 0 0 2 
+JatekosLetrehoz 3 eszkimo 1 2 4
+JatekosLetrehoz 4 eszkimo 1 2 4
+JegtablaAddJatekos 2 3  
+JegtablaAddJatekos 2 4
+TargyLetrehoz 5 jelzopisztoly
+TargyLetrehoz 6 jelzopisztoly
+JatekosAddTargy 3 5
+JatekosAddTargy 4 5
+JatekosHasznal 3 5
+JatekosAddTargy 3 6
+JatekosHasznal 4 5
+JatekosHasznal 3 5
+Tesztesetvege
