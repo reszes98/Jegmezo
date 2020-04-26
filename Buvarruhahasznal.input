@@ -1,0 +1,13 @@
+Teszteseteleje Buvarruhahasznal
+JegmezoLetrehoz 1
+JegtablaLetrehoz 2 1 0 1 2
+JegtablaLetrehoz 3 1 0 1 2
+JegtablaSetSzomszed 2 3 0 20
+JatekosLetrehoz 4 eszkimo 1 2 4 
+JegtablaAddJatekos 2 4
+TargyLetrehoz 5 buvarruha
+JatekosAddTargy 4 5
+JatekosHasznal 4 5
+JatekosAthelyez 3 3
+JatekosHasznal 4 5 
+Tesztesetvege
