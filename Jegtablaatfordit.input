@@ -1,0 +1,9 @@
+Teszteseteleje Jegtablaatfordit
+JegmezoLetrehoz 1 
+JegtablaLetrehoz 2 1 0 0 2 
+TargyLetrehoz 3 iglu
+JegtablaSetVedelem 2 3
+JegtablaAtfordit 2
+JegtablaPrintAttributum 2 atVanFordulva
+JegtablaPrintAttributum 2 Vedelem
+Tesztesetvege

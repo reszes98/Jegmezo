@@ -1,0 +1,27 @@
+Teszteseteleje Jegesmedvefrissit
+JegmezoLetrehoz 1 10
+JegesmedveLetrehoz 2 1   
+JatekosLetrehoz 3 eszkimo 1 55 2 
+JegtablaLetrehoz 4 1 0 -1 2
+JegtablaLetrehoz 5 1 0 -1 2
+JegtablaSetSzomszed 4 5 0 180
+JegtablaAddJegesmedve 4 2
+JegtablaLetrehoz 8 1 0 -1 1 
+VedelemLetrehoz 22 iglu
+JegtablaSetVedelem 8 22
+JegtablaSetSzomszed 4 8 1 0
+JegtablaAddJatekos 8 3
+JegesmedveFrissit 2
+JegtablaLetrehoz 13 1 0 -1 1
+VedelemLetrehoz 33 sator
+JegtablaSetVedelem 13 33
+JegtablaSetSzomszed 4 13 2 20
+JegtablaAddJatekos 13 3
+JegesmedveFrissit 2
+JegtablaLetrehoz 18 1 0 -1 1
+JegtablaSetSzomszed 4 18 3 40
+JegtablaAddJatekos 18 3
+JegesmedveFrissit 2
+JegesmedveSetiranyAmibeNez 2 2
+JegesmedveFrissit 2 
+Tesztesetvege
