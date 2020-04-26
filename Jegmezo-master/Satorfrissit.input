@@ -1,0 +1,9 @@
+Teszteseteleje Satorfrissit
+JegmezoLetrehoz 1 
+JegtablaLetrehoz 2 1 0 0 2
+TargyLetrehoz 3 Sator
+VedelemLetrehoz 4 Sator
+JegtablaSetVedelem 2 4
+Jegtablafirssit 2
+JegtablaPrintAttributum 2 vedelem
+Teszteset vege

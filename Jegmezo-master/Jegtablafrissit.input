@@ -1,0 +1,12 @@
+Teszteseteleje Jegtablafrissit
+JegmezoLetrehoz 1 10
+JatekosLetrehoz 2 eszkimo 1 55 2 
+JegtablaLetrehoz 3 1 0 0 2
+JegtablaAddJatekos 3 2
+JegtablaAtfordit 3
+JegtablaAtfordit 3
+JegesmedveFrissit 2
+JegtablaAddJatekos 3 2
+JegtablaSetjegtablaVedelme 3 iglu
+frissit 3 11
+Tesztesetvege

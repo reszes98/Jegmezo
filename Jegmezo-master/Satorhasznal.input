@@ -1,0 +1,18 @@
+Teszteseteleje Satorhasznal
+JegmezoLetrehoz 1
+JegtablaLetrehoz 2 1 0 0 2
+JatekosLetrehoz 3 eszkimo 1 1 4
+JegtablaAddJatekos 2 3
+JatekosLetrehoz 5 eszkimo 1 0 4
+JegtablaAddJatekos 2 5
+TargyLetrehoz 4 Sator
+JatekosAddTargy 3 4
+JatekosAddTargy 5 4
+JatekosHasznal 5 4
+JatekosHasznal 3 4
+VedelemLetrehoz 4 Sator
+JegtablaSetVedelem 2 4 
+JegtablaPrintAttributum 2 vedelem
+Jegtablafrissit 2
+JegtablaPrintAttributum 2 vedelem
+Tesztesetvege

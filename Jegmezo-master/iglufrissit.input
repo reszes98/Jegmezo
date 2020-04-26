@@ -1,0 +1,7 @@
+Teszteseteleje iglufrissit
+JegmezoLetrehoz 1 10
+JegtablaLetrehoz 2 1 0 -1 0
+VedelemLetrehoz 3 iglu
+JegtablaSetVedelem 2 3
+Jegtablafrissit 2
+Tesztesetvege

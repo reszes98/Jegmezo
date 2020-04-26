@@ -1,0 +1,14 @@
+Teszteseteleje Satorhovihar
+JegmezoLetrehoz 1 
+JegtablaLetrehoz 2 1 0 0 2
+JatekosLetrehoz 3 eszkimo 1 2 4
+JegtablaAddJatekos 2 3
+TargyLetrehoz 4 Sator
+JegtablaSetTargy 2 4
+JatekosFelvesz 3
+JatekosHasznal 3 4
+VedelemLetrehoz 4 Sator
+JegtablaSetVedelem 2 4
+JegtablaHovihar 2
+JatekosPrintAttributum 3 testho
+Teszteset vege
