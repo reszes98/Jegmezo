@@ -1,0 +1,12 @@
+Sikeresen letrehoztak egy jegmezot. Hovihar: 4 mulva lesz. A jegmezot sikerult letrehozni 4 hoviharCntvel
+Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jegtabla sikeresen letrehozva. A jegtablat sikerult letrehozni.
+Parameterek: At van fordulva? true 0db ho van rajta  tartokepessege: 2 es 4 a szomszedainak a szama
+Eddigi játékosok száma: 3 
+Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jatekos sikeresen hozzáadva a jégmezõhöz. Jatekos sikeresen letrehozva. Most van: 1 jatekos. Munka db: 2 ,testho: 4
+Jatekos tipusa eszkimo.
+A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. Sikeresen letrehoztak egy satort. Tartossaga: 1. Sator hozzadva 4 idvel
+Most a2 idju jegtabla targyat fogjuk allitani
+A jegtablahoz a targy sikeresen at lett allitva. A2 idju jegtabla targya: Sator
+A jatekos targyai: Játékos jegtablaId = 2 A jegtablan Sator targy van 
+ A jatekos MunkaDB-ja: 2. A jegtablan levo ho mennyisege: 0. A jegtablan levo targyat meg ho takarja. A targyfelvetel nem sikerult A jatekos MunkaDB-ja: 2. A jatekos targyai: A jatekosnak MunkaDB-ja: 2. A targy hasznalat nem sikerult, mert nincsenen ilyen indexu targya a jatekosnak. A jatekosnak MunkaDB-ja: 2. Sikeresen letrehoztak egy satort. Tartossaga: 1. Sator hozzadva 4 idvel
+A jegtablan nincs vedelem. A jegtabla vedelme sikeresen atallitva. A jegtabla vedelme: Sator. A tablan levo ho: 0. A sator megvedte a jatekosokat a hovihartol. A tablan levo ho: 0. A 3 idju jatekos testhoje: 4
