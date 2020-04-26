@@ -62,8 +62,10 @@ public class Jegtabla implements Frissitheto
 		szomszedokSorszambolSzogge = new TreeMap<>(); 
 		szomszedokSzogbolSorszamma = new TreeMap<>(); 
 		
-		szomszedokASorszamhoz  = new ArrayList<>(this.szomszedokSzama);;
+		szomszedokASorszamhoz  = new ArrayList<>(this.szomszedokSzama);
 	
+		for(int i  = 0; i < this.szomszedokSzama; i++)
+			szomszedokASorszamhoz.add(null);
 		
 		jegtablaVedelme = null;
 		
@@ -95,8 +97,11 @@ public class Jegtabla implements Frissitheto
 				szomszedokSorszambolSzogge = new TreeMap<>(); 
 				szomszedokSzogbolSorszamma = new TreeMap<>(); 
 				
+			
 				szomszedokASorszamhoz = new ArrayList<>(this.szomszedokSzama);
 			
+				for(int i  = 0; i < this.szomszedokSzama; i++)
+					szomszedokASorszamhoz.add(null);
 				
 				jegtablaVedelme = null;
 				
@@ -510,10 +515,9 @@ public class Jegtabla implements Frissitheto
 	 * @param j - a jégtábla, amit fel akarunk venni a szomszédok közé
 	 * @param i - azt adja meg, hogy a jégtáblának melyik irányba lesz a szomszédja
 	 */
-	public void setSzomszed(Jegtabla j,Integer hanyadikSzomszed, Integer melyikSzogbol)
+	public void setSzomszed(Jegtabla j, Integer hanyadikSzomszed, Integer melyikSzogbol)
 	{
 		
-		int idx = 0;
 		
 		szomszedokSorszambolSzogge.put(hanyadikSzomszed, melyikSzogbol);
 		szomszedokSzogbolSorszamma.put(melyikSzogbol, hanyadikSzomszed);

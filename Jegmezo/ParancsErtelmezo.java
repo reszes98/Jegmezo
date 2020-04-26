@@ -43,7 +43,6 @@ public class ParancsErtelmezo {
 		try {
 			while(running)
 			{
-				System.out.println("Parancs: ");
 				System.out.print("Parancs: ");
 				String command = br.readLine();
 				
