@@ -33,7 +33,7 @@ public class Sarkkutato extends Jatekos
 				Munkadb,
 				testho);
 		
-		Global.out.print("Jatekos tipusa sarkkutato.");
+		Global.out.println("Jatekos tipusa sarkkutato.");
 	}
 
 	

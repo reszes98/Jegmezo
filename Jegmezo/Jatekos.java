@@ -51,7 +51,7 @@ public abstract class Jatekos implements Frissitheto
 		this.jegmezo.addFrissitheto(this);
 		this.jegmezo.addJatekos(this);
 		tartAKore = false;
-		Global.out.print("Jatekos sikeresen letrehozva. Most van: "+jegmezo.GetJatekosSzam()+
+		Global.out.println("Jatekos sikeresen letrehozva. Most van: "+jegmezo.GetJatekosSzam()+
 				" jatekos. Munka db: "+Munkadb+" ,testho: "+testho);
 	}
 	

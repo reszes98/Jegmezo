@@ -95,7 +95,7 @@ public void ExecuteCommand(String comm)
 				{
 					if(jegmezok.get(params[3]) != null)
 					{
-						Global.out.print("Eddigi játékosok száma: " + jatekosok.size() + " ");
+						Global.out.println("Eddigi játékosok száma: " + jatekosok.size() + " ");
 						if(params[2].toLowerCase().contentEquals("eszkimo"))
 						{
 							
@@ -140,7 +140,7 @@ public void ExecuteCommand(String comm)
 						Jegtabla jegtablaAminAllt = jatekosok.get(params[1]).aktjegtabla;
 						Jegtabla szomszed = jegtablaAminAllt.szomszedKerdez(j.getSzogAmibeNez());
 						
-						Global.out.print("Játékos jegtablaId = " + jegtablaAminAllt.ID 
+						Global.out.println("Játékos jegtablaId = " + jegtablaAminAllt.ID 
 								+ ". A jégtáblán " + jegtablaAminAllt.getJatekosokSzama() + " db játékos áll " +
 								" a " + j.getSzogAmibeNez() + " szogbe levo szomszed id-je: " + szomszed.ID 
 								+ " es rajta  " + szomszed.getJatekosokSzama() + "db jatekos all ");
@@ -173,9 +173,9 @@ public void ExecuteCommand(String comm)
 				{
 					if(jatekosok.get(params[1]) != null)
 					{
-						Global.out.print("A jatekosnak frissites elott " + jatekosok.get(params[1]).getMunkadb() + "db munkaja van");
+						Global.out.println("A jatekosnak frissites elott " + jatekosok.get(params[1]).getMunkadb() + "db munkaja van");
 						jatekosok.get(params[1]).frissit();
-						Global.out.print("A jatekosnak frissites utan " + jatekosok.get(params[1]).getMunkadb() + "db munkaja van");
+						Global.out.println("A jatekosnak frissites utan " + jatekosok.get(params[1]).getMunkadb() + "db munkaja van");
 					}
 					else
 					{
@@ -198,7 +198,7 @@ public void ExecuteCommand(String comm)
 						Jegtabla jegtablaAminAllt = jatekosok.get(params[1]).aktjegtabla;
 						Jegtabla szomszed = jegtablaAminAllt.szomszedKerdez(j.getSzogAmibeNez());
 						
-						Global.out.print("Játékos jegtablaId = " + jegtablaAminAllt.ID 
+						Global.out.println("Játékos jegtablaId = " + jegtablaAminAllt.ID 
 								+ ". A jégtáblán " + jegtablaAminAllt.getJatekosokSzama() + " db játékos áll " +
 								" a " + j.getSzogAmibeNez() + " szogbe levo szomszed id-je: " + szomszed.ID 
 								+ " es rajta  " + szomszed.getJatekosokSzama() + "db jatekos all ");
@@ -222,7 +222,23 @@ public void ExecuteCommand(String comm)
 				
 				
 				
+				else if(commandType.toLowerCase().equals("JatekosAs".toLowerCase()))
+				{
+					if(jatekosok.get(params[1]) != null)
+					{
+						
+						
 				
+						jatekosok.get(params[1]).asas();
+						
+					
+					}
+						
+					else
+					{
+						Global.out.println("Nem letezik ilyen idju Jatekos");
+					}
+				}
 				
 				else if(commandType.toLowerCase().equals("JatekosHovihar".toLowerCase()))
 				{
@@ -234,12 +250,12 @@ public void ExecuteCommand(String comm)
 						Vedelem v = jegtablaAminAllt.getjegtablaVedelme();
 						String jegtablaVedeleme = v == null? "semmi": v.toString();
 						
-						Global.out.print("A Játékosnak" + j.getTestho() + "testhoje van. Játékos jegtablaId = " + jegtablaAminAllt.ID 
+						Global.out.println("A Játékosnak" + j.getTestho() + "testhoje van. Játékos jegtablaId = " + jegtablaAminAllt.ID 
 								+ " A jegtablan " + jegtablaVedeleme + "vedelem van ");
 				
 						jatekosok.get(params[1]).hovihar();
 						
-						Global.out.print("A Játékosnak" + j.getTestho() + "testhoje van. "
+						Global.out.println("A Játékosnak" + j.getTestho() + "testhoje van. "
 								+ "Játékos jegtablaId = " + jegtablaAminAllt.ID 
 								+ " A jegtablan " + jegtablaVedeleme + "vedelem van ");
 					}
@@ -266,7 +282,7 @@ public void ExecuteCommand(String comm)
 						Targy t  = jegtablaAminAllt.getTargy();
 						String targy = t == null? "semmilyen": t.toString();
 						j.TargyakListazasa();
-						Global.out.print("Játékos jegtablaId = " + jegtablaAminAllt.ID 
+						Global.out.println("Játékos jegtablaId = " + jegtablaAminAllt.ID 
 								+ " A jegtablan " + targy + " targy van ");
 				
 						jatekosok.get(params[1]).targyFelvetel();
@@ -469,7 +485,7 @@ public void ExecuteCommand(String comm)
 					}
 					else 
 					{
-						Global.out.println("A jegmezot nem sikerult letrehozni " + jm.getHoviharCnt() + " hoviharCntvel" );
+						Global.out.println("A jegmezot sikerult letrehozni " + jm.getHoviharCnt() + " hoviharCntvel" );
 					}
 	
 				}
@@ -496,7 +512,7 @@ public void ExecuteCommand(String comm)
 					}
 					else
 					{
-						Global.out.println("A jegtablat nem sikerult letrehozni.\n"
+						Global.out.println("A jegtablat sikerult letrehozni.\n"
 						+ "Parameterek: " 
 						+ "At van fordulva? " + j.getAtVanFordulva() + " "
 						+ j.getHo() + "db ho van rajta  "

@@ -32,7 +32,7 @@ public class Eszkimo extends Jatekos
 				Munkadb,
 				testho);
 		
-		Global.out.print("Jatekos tipusa eszkimo.");
+		Global.out.println("Jatekos tipusa eszkimo.");
 	}
 	
 	

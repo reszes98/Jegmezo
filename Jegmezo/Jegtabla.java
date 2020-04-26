@@ -119,7 +119,10 @@ public class Jegtabla implements Frissitheto
 		
 			Global.out.print("A jegtablan "+jatekosok.size()+" jatekos all. ");
 			j.setaktjegtabla(this);
-			j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(0));
+			if(this.szomszedokSorszambolSzogge.get(0) != null)
+				j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(0));
+			else
+				j.setSzogAmibeNez(0);
 			jatekosok.add(j);
 			Global.out.print("Jatekos sikeresen hozzaadva a jegtablahoz. ");
 			Global.out.print("A jegtablan "+jatekosok.size()+" jatekos all. ");
