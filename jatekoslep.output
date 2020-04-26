@@ -1,0 +1,24 @@
+Sikeresen letrehoztak egy jegmezot. Hovihar: 4 mulva lesz. A jegmezot sikerult letrehozni 4 hoviharCntvel
+Sikeresen hozz?adva a j?gmez?h?z az ?j frissithet?. Jegtabla sikeresen letrehozva. A jegtablat sikerult letrehozni.
+Parameterek: At van fordulva? false 0db ho van rajta  tartokepessege: 0 es 1 a szomszedainak a szama
+Sikeresen hozz?adva a j?gmez?h?z az ?j frissithet?. Jegtabla sikeresen letrehozva. A jegtablat sikerult letrehozni.
+Parameterek: At van fordulva? true 1db ho van rajta  tartokepessege: 3 es 1 a szomszedainak a szama
+Most a2 idju jegtabla szomszedjat fogjuk allitani
+Szomszed sikeresen beallitva. A2 idju jegtabla  a 270 szogbe levo szomszedjanak az IDje:  3
+Most a3 idju jegtabla szomszedjat fogjuk allitani
+Szomszed sikeresen beallitva. A3 idju jegtabla  a 90 szogbe levo szomszedjanak az IDje:  2
+Eddigi játékosok száma: 4 
+Sikeresen hozz?adva a j?gmez?h?z az ?j frissithet?. Jatekos sikeresen hozz?adva a j?gmez?h?z. Jatekos sikeresen letrehozva. Most van: 1 jatekos. Munka db: 2 ,testho: 4
+Jatekos tipusa sarkkutato.
+Eddigi játékosok száma: 4 
+Sikeresen hozz?adva a j?gmez?h?z az ?j frissithet?. Jatekos sikeresen hozz?adva a j?gmez?h?z. Jatekos sikeresen letrehozva. Most van: 2 jatekos. Munka db: 2 ,testho: 4
+Jatekos tipusa sarkkutato.
+Eddigi játékosok száma: 4 
+Sikeresen hozz?adva a j?gmez?h?z az ?j frissithet?. Jatekos sikeresen hozz?adva a j?gmez?h?z. Jatekos sikeresen letrehozva. Most van: 3 jatekos. Munka db: 0 ,testho: 4
+Jatekos tipusa sarkkutato.
+A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. A jegtablan 1 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 2 jatekos all. Játékos jegtablaId = 2. A jégtáblán 1 db játékos áll  a 270 szogbe levo szomszed id-je: 3 es rajta  2db jatekos all 
+Jatekos siekresen eltavolitva a tablarol. A jatekos sikeresen ellepett. A jegtabla nincs atfordulva .A jegtablahoz a jatekos sikeresen hozzaadva. Sikerult az ellepes. MunkaDB sikeresen cs?kkentve. Játékos jegtablaId = 3. A jégtáblán 0 db játékos áll  a szomszed,akirol ellepet id-je: 2 es rajta  0db jatekos all 
+Játékos jegtablaId = 3. A jégtáblán 3 db játékos áll  a 90 szogbe levo szomszed id-je: 2 es rajta  0db jatekos all 
+A jegtabla at van fordulva, ellepes siekrtelen. Nem sikerult az ellepes, mert a jegtabla at van fordulva. Játékos jegtablaId = 3. A jégtáblán 3 db játékos áll  a szomszed,akirol ellepet id-je: 3 es rajta  3db jatekos all 
+Játékos jegtablaId = 3. A jégtáblán 3 db játékos áll  a 90 szogbe levo szomszed id-je: 2 es rajta  0db jatekos all 
+A jegtabla at van fordulva, ellepes siekrtelen. Nem sikerult az ellepes, mert a jegtabla at van fordulva. Játékos jegtablaId = 3. A jégtáblán 3 db játékos áll  a szomszed,akirol ellepet id-je: 3 es rajta  3db jatekos all 

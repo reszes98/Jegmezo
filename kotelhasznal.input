@@ -1,0 +1,18 @@
+Teszteseteleje kotelhasznal
+JegmezoLetrehoz 1
+JegtablaLetrehoz 2 1 0 1 0 1
+JegtablaLetrehoz 3 1 0 1 3 1
+JegtablaSetSzomszed 2 3 0 90
+JegtablaSetSzomszed 3 2 0 270
+JatekosLetrehoz 4 eszkimo 1 2 4
+JatekosLetrehoz 5 eszkimo 1 2 4
+JatekosLetrehoz 6 eszkimo 1 0 4
+JegtablaAddJatekos 2 4
+JegtablaAddJatekos 3 5
+JegtablaAddJatekos 3 6
+TargyLetrehoz 7 kotel
+JatekosAddTargy 5 7
+JatekosAddTargy 6 7
+JatekosHasznal 6 7
+JatekosHasznal 5 7
+Tesztesetvege

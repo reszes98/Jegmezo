@@ -1,0 +1,13 @@
+Teszteseteleje szomszedosjegtablakvizsgalata
+JegmezoLetrehoz 1
+JegtablaLetrehoz 2 1 0 0 2 1
+JegtablaLetrehoz 3 1 0 1 3 1
+JegtablaSetSzomszed 2 3 0 270
+JegtablaSetSzomszed 3 2 0 90
+JatekosLetrehoz 3 sarkkutato 1 2 4
+JegtablaAddJatekos 2 3
+JatekosLetrehoz 4 sarkkutato 1 0 4
+JegtablaAddJatekos 2 4
+JatekosKepesseg 4
+JatekosKepesseg 3
+Tesztesetvege

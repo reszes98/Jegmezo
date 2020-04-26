@@ -1,0 +1,16 @@
+Teszteseteleje jatekoslep
+JegmezoLetrehoz 1
+JegtablaLetrehoz 2 1 1 0 0 1
+JegtablaLetrehoz 3 1 0 1 3 1
+JegtablaSetSzomszed 2 3 0 270
+JegtablaSetSzomszed 3 2 0 90
+JatekosLetrehoz 4 sarkkutato 1 2 4 
+JatekosLetrehoz 5 sarkkutato 1 2 4 
+JatekosLetrehoz 6 sarkkutato 1 0 4 
+JegtablaAddJatekos 2 4
+JegtablaAddJatekos 3 5
+JegtablaAddJatekos 3 6
+JatekosLep 4
+JatekosLep 5
+JatekosLep 6
+Tesztesetvege

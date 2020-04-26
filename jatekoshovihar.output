@@ -1,0 +1,16 @@
+Sikeresen letrehoztak egy jegmezot. Hovihar: 4 mulva lesz. A jegmezot sikerult letrehozni 4 hoviharCntvel
+Sikeresen hozz?adva a j?gmez?h?z az ?j frissithet?. Jegtabla sikeresen letrehozva. A jegtablat sikerult letrehozni.
+Parameterek: At van fordulva? true 0db ho van rajta  tartokepessege: 2 es 4 a szomszedainak a szama
+Sikeresen hozz?adva a j?gmez?h?z az ?j frissithet?. Jegtabla sikeresen letrehozva. A jegtablat sikerult letrehozni.
+Parameterek: At van fordulva? true 1db ho van rajta  tartokepessege: 3 es 4 a szomszedainak a szama
+Eddigi játékosok száma: 4 
+Sikeresen hozz?adva a j?gmez?h?z az ?j frissithet?. Jatekos sikeresen hozz?adva a j?gmez?h?z. Jatekos sikeresen letrehozva. Most van: 1 jatekos. Munka db: 2 ,testho: 4
+Jatekos tipusa sarkkutato.
+A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. Eddigi játékosok száma: 4 
+Sikeresen hozz?adva a j?gmez?h?z az ?j frissithet?. Jatekos sikeresen hozz?adva a j?gmez?h?z. Jatekos sikeresen letrehozva. Most van: 2 jatekos. Munka db: 2 ,testho: 4
+Jatekos tipusa sarkkutato.
+A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. Iglu sikeresen letrehozva. Iglu hozzadva 6 idvel
+A jegtablan nincs vedelem. A jegtabla vedelme sikeresen atallitva. A jegtabla vedelme: Iglu. A Játékosnak4testhoje van. Játékos jegtablaId = 2 A jegtablan semmivedelem van 
+A hovihar lezajlott, a jatekos testhoje csokkent egyet. Testho sikeresen csokkentve. A Játékosnak3testhoje van. Játékos jegtablaId = 2 A jegtablan semmivedelem van 
+A Játékosnak4testhoje van. Játékos jegtablaId = 3 A jegtablan Igluvedelem van 
+A hovihar lezajlott, a jatekos megmenekult a hovihar elol.  Az iglu megvedte a hovihartol a benne levoket. A Játékosnak4testhoje van. Játékos jegtablaId = 3 A jegtablan Igluvedelem van 
