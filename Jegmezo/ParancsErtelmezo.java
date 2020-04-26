@@ -30,6 +30,7 @@ public class ParancsErtelmezo {
 		jegesmedvek = new TreeMap<>();
 		jegtablak = new TreeMap<>();
 		targyak = new TreeMap<>();
+		vedelmek = new TreeMap<>();
 	}
 	
 	public void Run()
@@ -42,6 +43,7 @@ public class ParancsErtelmezo {
 		try {
 			while(running)
 			{
+				System.out.println("Parancs: ");
 				System.out.print("Parancs: ");
 				String command = br.readLine();
 				
