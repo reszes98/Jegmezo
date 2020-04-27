@@ -47,13 +47,13 @@ public class Aso implements Targy
 	public boolean hasznal(Jatekos j) {
 		
 		
-		int szog = j.getSzogAmibeNez();
+		//int szog = j.getSzogAmibeNez();
 		Jegtabla jt = j.JegtablaLekerdez();
-		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
+		//Jegtabla szJegtabla = jt.szomszedKerdez(szog);
 		
 		Global.out.print("Ez egy aso. ");
 		
-		boolean sikeres = szJegtabla.asas(2);
+		boolean sikeres = jt.asas(2);
 		
 		if(sikeres)
 			Global.out.print("Aso sikeresen hasznalva. ");

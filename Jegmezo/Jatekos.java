@@ -286,7 +286,9 @@ public abstract class Jatekos implements Frissitheto
 	public void targyFelvetel()
 	{
 		Global.out.print(" A jatekos MunkaDB-ja: "+Munkadb+". ");
-		boolean sikeres = aktjegtabla.targyFelvesz(this);
+		boolean sikeres =false;
+		if(Munkadb>0)
+			sikeres = aktjegtabla.targyFelvesz(this);
 		if(sikeres)
 		{
 			Global.out.print(" A targyfelvetel sikerult");

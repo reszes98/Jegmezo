@@ -3,11 +3,14 @@ JegmezoLetrehoz 1
 JegtablaLetrehoz 2 1 0 1 2
 JegtablaLetrehoz 3 1 0 1 2
 JegtablaSetSzomszed 2 3 0 20
-JatekosLetrehoz 4 eszkimo 1 2 4 
+JegtablaSetSzomszed 3 2 0 200
+JatekosLetrehoz 4 eszkimo 1 1 4 
+JatekosLetrehoz 5 eszkimo 1 1 4 
 JegtablaAddJatekos 2 4
-TargyLetrehoz 5 buvarruha
-JatekosAddTargy 4 5
-JatekosHasznal 4 5
+JegtablaAddJatekos 3 5
+TargyLetrehoz 0 buvarruha
+JatekosAddTargy 4 0
+JatekosHasznal 4 0
 JatekosAthelyez 3 3
-JatekosHasznal 4 5 
+JatekosHasznal 4 0 
 Tesztesetvege

@@ -1,14 +1,14 @@
 Sikeresen letrehoztak egy jegmezot. Hovihar: 4 mulva lesz. A jegmezot sikerult letrehozni 4 hoviharCntvel
 Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jegtabla sikeresen letrehozva. A jegtablat sikerult letrehozni.
 Parameterek: At van fordulva? true 0db ho van rajta  tartokepessege: 2 es 4 a szomszedainak a szama
-Eddigi játékosok száma: 3 
+Eddigi játékosok száma: 0 
 Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jatekos sikeresen hozzáadva a jégmezõhöz. Jatekos sikeresen letrehozva. Most van: 1 jatekos. Munka db: 2 ,testho: 4
 Jatekos tipusa eszkimo.
-A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. Eddigi játékosok száma: 3 
-Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jatekos sikeresen hozzáadva a jégmezõhöz. Jatekos sikeresen letrehozva. Most van: 2 jatekos. Munka db: 2 ,testho: 4
+A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. Eddigi játékosok száma: 1 
+Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jatekos sikeresen hozzáadva a jégmezõhöz. Jatekos sikeresen letrehozva. Most van: 2 jatekos. Munka db: 0 ,testho: 4
 Jatekos tipusa eszkimo.
 A jegtablan 1 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 2 jatekos all. Letrehoztak, egy elelmet 1 pontertekkel. Elelem hozzadva 4 idvel
 Játékos jegtablaId = 2 A jegtablan semmivedelem van 
-A jatekos MunkaDB-ja: 2. Iglu sikeresen letrehozva. A jegtablan nincs vedelem. A jegtabla vedelme sikeresen atallitva. A jegtabla vedelme: Iglu. MunkaDB sikeresen csökkentve. A jatekos MunkaDB-ja: 1. Játékos jegtablaId = 2 A jegtablan semmivedelem van 
-Játékos jegtablaId = 2 A jegtablan Igluvedelem van 
-A jatekos MunkaDB-ja: 2. Iglu sikeresen letrehozva. A jegtabla vedelme: Iglu. A jegtabla vedelme sikeresen atallitva. A jegtabla vedelme: Iglu. MunkaDB sikeresen csökkentve. A jatekos MunkaDB-ja: 1. Játékos jegtablaId = 2 A jegtablan Igluvedelem van 
+A jatekos MunkaDB-ja: 0. Iglu epitese sikertelen. A jatekos MunkaDB-ja: 0. Játékos jegtablaId = 2 A jegtablan semmivedelem van 
+Játékos jegtablaId = 2 A jegtablan semmivedelem van 
+A jatekos MunkaDB-ja: 2. Iglu sikeresen letrehozva. A jegtablan nincs vedelem. A jegtabla vedelme sikeresen atallitva. A jegtabla vedelme: Iglu. Iglu epitese sikeres.MunkaDB sikeresen csökkentve. A jatekos MunkaDB-ja: 1. Játékos jegtablaId = 2 A jegtablan semmivedelem van 

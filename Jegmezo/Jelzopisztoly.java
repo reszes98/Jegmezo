@@ -63,7 +63,7 @@ public class Jelzopisztoly implements Targy
 		}
 		else
 		{
-			System.out.println("Sikertelen összeszerelés :/. ");
+			Global.out.print("Sikertelen összeszerelés :/. ");
 			return false;
 		}
 	}

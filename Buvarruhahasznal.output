@@ -5,10 +5,15 @@ Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jegtabla sikeresen letrehozv
 Parameterek: At van fordulva? true 1db ho van rajta  tartokepessege: 2 es 4 a szomszedainak a szama
 Most a2 idju jegtabla szomszedjat fogjuk allitani
 Szomszed sikeresen beallitva. A2 idju jegtabla  a 20 szogbe levo szomszedjanak az IDje:  3
+Most a3 idju jegtabla szomszedjat fogjuk allitani
+Szomszed sikeresen beallitva. A3 idju jegtabla  a 200 szogbe levo szomszedjanak az IDje:  2
 Eddigi játékosok száma: 0 
-Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jatekos sikeresen hozzáadva a jégmezõhöz. Jatekos sikeresen letrehozva. Most van: 1 jatekos. Munka db: 2 ,testho: 4
+Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jatekos sikeresen hozzáadva a jégmezõhöz. Jatekos sikeresen letrehozva. Most van: 1 jatekos. Munka db: 1 ,testho: 4
 Jatekos tipusa eszkimo.
-A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. Sikeresen letrehoztak egy buvarruhat. Buvarruha hozzadva 5 idvel
+Eddigi játékosok száma: 1 
+Sikeresen hozzáadva a jégmezõhöz az új frissithetõ. Jatekos sikeresen hozzáadva a jégmezõhöz. Jatekos sikeresen letrehozva. Most van: 2 jatekos. Munka db: 1 ,testho: 4
+Jatekos tipusa eszkimo.
+A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. A jegtablan 0 jatekos all. Jatekos sikeresen hozzaadva a jegtablahoz. A jegtablan 1 jatekos all. Sikeresen letrehoztak egy buvarruhat. Buvarruha hozzadva 0 idvel
 A jatekos targyai: Targy hozzaadva. A jatekos targyai: 1. - Buvarruha 
-A jatekosnak MunkaDB-ja: 2. A targy hasznalat nem sikerult, mert nincsenen ilyen indexu targya a jatekosnak. A jatekosnak MunkaDB-ja: 2. Nem letezik ilyen idju Jatekos
-A jatekosnak MunkaDB-ja: 2. A targy hasznalat nem sikerult, mert nincsenen ilyen indexu targya a jatekosnak. A jatekosnak MunkaDB-ja: 2. 
+A jatekosnak MunkaDB-ja: 1. Ez egy buvarruha. Jatekos siekresen eltavolitva a tablarol. A jegtablahoz a jatekos sikeresen hozzaadva. Jatekos sikeresen athelyezveBuvarruha sikeresen hasznalva. A targyhasznalat sikerult. MunkaDB sikeresen csökkentve. A jatekosnak MunkaDB-ja: 0. Nem letezik ilyen idju Jatekos
+A jatekosnak MunkaDB-ja: 0. A targy hasznalat nem sikerult, mert nincsenek targyai a jatekosnak, vagy nincs eleg munkaDB-ja. A jatekosnak MunkaDB-ja: 0. 

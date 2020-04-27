@@ -1,6 +1,7 @@
 Teszteseteleje Elelemhasznal
+JegmezoLetrehoz 1
 JatekosLetrehoz 3 eszkimo 1 2 4 
-TargyLetrehoz 4 elelem
-JatekosAddTargy 3 4
-JatekosHasznal 3 4
+TargyLetrehoz 0 elelem
+JatekosAddTargy 3 0
+JatekosHasznal 3 0
 Tesztesetvege

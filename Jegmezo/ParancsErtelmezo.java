@@ -846,7 +846,7 @@ public void ExecuteCommand(String comm)
 					
 					else if(params[2].toLowerCase().equals("Jelzopisztoly".toLowerCase()))
 					{
-						vedelmek.put(params[1], new Sator(1));
+						targyak.put(params[1], new Jelzopisztoly());
 						Global.out.println("Jelzopisztoly hozzadva " + params[1] + " idvel");
 					}
 					
