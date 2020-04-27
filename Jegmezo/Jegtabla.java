@@ -248,7 +248,7 @@ public class Jegtabla implements Frissitheto
 		Global.out.print("Jegtabla sikeresen frissitve. ");
 		Global.out.print("A jegtabla tartokepessege: "+tartokepesseg+
 				" , a rajta levo jateksok szama: "+ jatekosok.size()+", a vedelme: "+
-				vedelem+". ");
+				vedelem +". ");
 	}
 	
 
