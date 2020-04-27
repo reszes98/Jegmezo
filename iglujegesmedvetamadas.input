@@ -1,6 +1,12 @@
 Teszteseteleje iglujegesmedvetamadas
 JegmezoLetrehoz 1 10
-JegesmedveLetrehoz 2 1 90 0
-VedelemLetrehoz 3 iglu
-JegesmedveFrissit 2
+JegtablaLetrehoz 2 1 0 -1 0 1
+JegtablaLetrehoz 3 1 0 -1 0 1
+JegtablaSetSzomszed 2 3 0 270
+JegtablaSetSzomszed 3 2 0 90
+JegesmedveLetrehoz 4 1
+Jegtablaaddjegesmedve 2 4 
+VedelemLetrehoz 5 iglu
+JegtablaSetVedelem 2 5
+JegesmedveFrissit 4
 Tesztesetvege
