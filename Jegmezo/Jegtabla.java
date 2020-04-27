@@ -243,10 +243,12 @@ public class Jegtabla implements Frissitheto
 				visszaFordit();
 			}
 		}
+		
+		String vedelem = jegtablaVedelme == null? "Semmi": jegtablaVedelme.toString();
 		Global.out.print("Jegtabla sikeresen frissitve. ");
 		Global.out.print("A jegtabla tartokepessege: "+tartokepesseg+
 				" , a rajta levo jateksok szama: "+ jatekosok.size()+", a vedelme: "+
-				jegtablaVedelme.toString()+". ");
+				vedelem+". ");
 	}
 	
 
