@@ -1,6 +1,9 @@
 Teszteseteleje Jegesmedvehovihar
 JegmezoLetrehoz 1 10
-JegtablaLetrehoz 13 1 0 -1 1
+JegtablaLetrehoz 13 1 0 -1 0 1
+JegtablaLetrehoz 14 1 0 -1 0 1
+JegtablaSetSzomszed 13 14 0 270
+JegtablaSetSzomszed 14 13 0 90
 JegesmedveLetrehoz 2 1 
 JegtablaAddJegesmedve 13 2
 JegtablaHovihar 13
