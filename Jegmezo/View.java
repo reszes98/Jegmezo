@@ -27,6 +27,10 @@ public class View {
 	private JButton LepButton;
 	public Controller view;
 	private List<Drawable> drawable;
+	Controller controller;
+	public View(Controller c) {
+		controller=c;
+	}
 	public void inicializalas() {
 	}
 	
@@ -52,5 +56,8 @@ public class View {
 	}
 	public void setTaska(int idx) {
 		aktTaska=taskak.get(idx);
+	}
+	public void eltavolitDrawable(Drawable d) {
+		drawable.remove(d);
 	}
 }

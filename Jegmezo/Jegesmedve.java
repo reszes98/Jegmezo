@@ -9,6 +9,7 @@ public class Jegesmedve implements Frissitheto{
 	private Jegtabla jegtablaAminAll;
 	private int szogAmibeNez;
 	boolean randomMegy;
+	boolean lepett;
 	
 	
 	public Jegesmedve(Jegmezo jegmezo, boolean randomMegy)
@@ -18,6 +19,7 @@ public class Jegesmedve implements Frissitheto{
 		this.jegmezo.addFrissitheto(this);
 		String megy=randomMegy ? "random megy. ":"nem megy random. ";
 		Global.out.print("Letrehoztak egy jegesmedvet. A jegesmedve " + megy);
+		lepett=false;
 	}
 	
 	
@@ -45,6 +47,7 @@ public class Jegesmedve implements Frissitheto{
 	 */
 	public void Lep()
 	{
+		lepett=false;
 		String megy=randomMegy ? "random megy. ":"nem megy random. ";
 		Global.out.print("A jegesmedve " + megy);
 		//https://docs.oracle.com/javase/8/docs/api/java/util/Random.html
@@ -70,6 +73,7 @@ public class Jegesmedve implements Frissitheto{
 			sz.addJegesmedve(this);
 			jegtablaAminAll=sz;
 			Global.out.print("A jegesmedve "+sz+" iranyba nez. ");
+			lepett=true;
 		}
 		else
 		{
@@ -138,5 +142,14 @@ public class Jegesmedve implements Frissitheto{
 	{
 		return "Jegesmedve";
 	}
-
+	
+	public boolean getLepett()
+	{
+		return lepett;
+	}
+	
+	public int getSzog()
+	{
+		return szogAmibeNez;
+	}
 }

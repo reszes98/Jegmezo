@@ -20,5 +20,19 @@ public class Drawable {
 	}
 	
 	public void setPosition(int px, int py) {
+		positionx=px;
+		positiony=py;
+	}
+	public void setPositionX(int px) {
+		positionx=px;
+	}
+	public void setPositionY(int py) {
+		positiony=py;
+	}
+	public int getPositionX() {
+		return positionx;
+	}
+	public int getPositionY() {
+		return positiony;
 	}
 }
