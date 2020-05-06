@@ -204,4 +204,8 @@ public class Jegmezo
 	{
 		return jatekosok.size();
 	}
+	
+	public List<Jatekos> getJatekosok(){
+		return jatekosok;
+	}
 }

@@ -10,13 +10,15 @@ package Jegmezo;
 //
 //
 
+import java.util.List;
 
-
+import javax.swing.*;
 
 public class View {
 	private JPanel jatekPanel;
 	private JPanel jegmezoPanel;
-	private JComboBox taska;
+	private List<JComboBox> taskak;
+	private JComboBox aktTaska;
 	private JPanel iranyPanel;
 	private JButton HasznalButton;
 	private JButton KepessegButton;
@@ -24,6 +26,7 @@ public class View {
 	private JButton JobbraButton;
 	private JButton LepButton;
 	public Controller view;
+	private List<Drawable> drawable;
 	public void inicializalas() {
 	}
 	
@@ -46,5 +49,8 @@ public class View {
 	}
 	
 	public void Screen(String s) {
+	}
+	public void setTaska(int idx) {
+		aktTaska=taskak.get(idx);
 	}
 }
