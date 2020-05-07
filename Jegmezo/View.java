@@ -10,6 +10,8 @@ package Jegmezo;
 //
 //
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.List;
@@ -23,66 +25,139 @@ public class View {
 	private List<JComboBox> taskak;
 	private JComboBox aktTaska;
 	private JPanel iranyPanel;
+	private JPanel taskaPanel;
 	private JButton HasznalButton;
 	private JButton FelveszButton;
 	private JButton KepessegButton;
 	private JButton BalraButton;
 	private JButton JobbraButton;
 	private JButton LepButton;
+	private JButton korvegeButton;
+	private JLabel testho;
+	private JLabel munka;
 	private List<Drawable> drawable;
 	private Controller controller;
 	Menu menu;
+	/**
+	 * @param c controller
+	 * @param m menu
+	 */
 	public View(Controller c, Menu m) {
 		controller=c; menu=m;
 		inicializalas();
 		
 	}
+	/**
+	 * komponensek létrehozása
+	 */
 	public void inicializalas() {
+		munka.setText("Játékos munkái:");
+		testho.setText("Játékos testhõje:");
 		setButtons();
+		setPanels();
+		frame=new JFrame("Játékra fel!");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
+	    frame.setPreferredSize(new Dimension(600, 1200));																						
+	    frame.setLocationRelativeTo(null);
+	    frame.setLayout(new BorderLayout());
+	    
+	    frame.add(BorderLayout.CENTER, jegmezoPanel);
+		frame.add(BorderLayout.EAST, iranyPanel);
+		frame.add(BorderLayout.NORTH, jatekPanel);
+		frame.add(BorderLayout.WEST, taskaPanel);
+		
+		frame.setResizable(false);										
+		frame.setVisible(true);
+		frame.pack();
+	    
+	}
+	
+	
+	
+	
+	/**
+	 * @param d drawable, kirajzolandó objektum hozzáadás
+	 */
+	public void addDrawable(Drawable d) {
+		drawable.add(d);
+	}
+	
+	/**
+	 * képernyõ újra rajzol
+	 */
+	public void drawAll() {
+		jegmezoPanel.repaint();
+		iranyPanel.repaint();
+		jatekPanel.repaint();
+		taskaPanel.repaint();
+	}
+	
+	/**
+	 * gombok létrehozása
+	 */
+	public void setButtons() {
+		HasznalButton=new JButton("Tárgy Használ");
+		HasznalButton.addActionListener(controller.new TargyActionListener(aktTaska));
+		FelveszButton=new JButton("Felvesz");
+		FelveszButton.addActionListener(controller.new TargyActionListener(aktTaska));
+		KepessegButton=new JButton("Képesség Használ");
+		KepessegButton.addActionListener(controller.new GombokActionListener());
+		BalraButton=new JButton("Balra fordul");
+		BalraButton.addActionListener(controller.new GombokActionListener());
+		JobbraButton=new JButton("Jobbra fordul");
+		JobbraButton.addActionListener(controller.new GombokActionListener());
+		LepButton=new JButton("Lép");
+		LepButton.addActionListener(controller.new GombokActionListener());
+		korvegeButton=new JButton("Jöhet a következõ");
+		korvegeButton.addActionListener(controller.new GombokActionListener());
+		
+	}
+	
+	/**
+	 * panelek létrehozása
+	 */
+	public void setPanels() {
+		jatekPanel=new JPanel();
+		jatekPanel.setPreferredSize(new Dimension(100,900));
 		jegmezoPanel=new JPanel() {
 			public void paintComponent(Graphics g) {
 				for(int i=0;i<drawable.size();i++)
 					drawable.get(i).draw((Graphics2D)g);
 			}
 		};
-	}
-	
-	
-	
-	
-	public void addDrawable(Drawable d) {
-		drawable.add(d);
-	}
-	
-	public void drawAll() {
-		jegmezoPanel.repaint();
-	}
-	
-	public void setButtons() {
-		HasznalButton=new JButton("Targy Hasznal");
-		HasznalButton.addActionListener(controller.new TargyActionListener(aktTaska));
-		FelveszButton=new JButton("Lep");
-		FelveszButton.addActionListener(controller.new TargyActionListener(aktTaska));
-		KepessegButton=new JButton("Kepesseg Hasznal");
-		KepessegButton.addActionListener(controller.new GombokActionListener());
-		BalraButton=new JButton("Balra fordul");
-		BalraButton.addActionListener(controller.new GombokActionListener());
-		JobbraButton=new JButton("Jobbra fordul");
-		JobbraButton.addActionListener(controller.new GombokActionListener());
-		LepButton=new JButton("Lep");
-		LepButton.addActionListener(controller.new GombokActionListener());
+		jegmezoPanel.setPreferredSize(new Dimension(500,900));
+		iranyPanel=new JPanel();
+		iranyPanel.setPreferredSize(new Dimension(600,150));
+		taskaPanel=new JPanel();
+		taskaPanel.setPreferredSize(new Dimension(600,150));
+		
+		iranyPanel.add(FelveszButton);
+		iranyPanel.add(KepessegButton);
+		iranyPanel.add(JobbraButton);
+		iranyPanel.add(BalraButton);
+		iranyPanel.add(LepButton);
+		iranyPanel.add(korvegeButton);
+		
+		taskaPanel.add(aktTaska);
+		taskaPanel.add(HasznalButton);
+		
+		jatekPanel.add(testho);
+		jatekPanel.add(munka);
 		
 	}
 	
-	public void setPanels() {
-	}
 	
-	
+	/**
+	 * játték vége, nyertünk
+	 */
 	public void gameWon() {
 		frame.setVisible(false);
 		menu.MenuDisplay();
 	}
 	
+	/**
+	 * játék vége, vesztettünk
+	 */
 	public void gameLost() {
 		frame.setVisible(false);
 		menu.MenuDisplay();
@@ -90,19 +165,50 @@ public class View {
 	
 	public void Screen(String s) {
 	}
+	/**
+	 * @param j új táska felvétele
+	 */
 	public void AddTaska(JComboBox j) {
 		taskak.add(j);
 	}
+	/**
+	 * @param idx jelenlegi játékoshoz tartozó táska
+	 */
 	public void setAktTaska(int idx) {
 		aktTaska=taskak.get(idx);
 	}
+	/**
+	 * @return jelenleg beállított táska
+	 */
 	JComboBox getAktTaska() {
 		return aktTaska;
 	}
+	/**
+	 * @return az összes játékos táskája
+	 */
 	List<JComboBox> getTaskak() {
 		return taskak;
 	}
+	/**
+	 * @param d amit már nem kell kirajzolni
+	 * drawable objektum eltávolítása, nem rajzoljuk ki többé
+	 */
 	public void eltavolitDrawable(Drawable d) {
 		drawable.remove(d);
+	}
+	
+	/**
+	 * @param n aktuális játékos testhõje
+	 * kiírandó testhõ, az aktuális játékos testhõje
+	 */
+	public void setTestho(int n) {
+		testho.setText("Játékos Testhõje: "+n);
+	}
+	/**
+	 * @param n munkadb
+	 * aktuális játékos munkái kiírása
+	 */
+	public void setMunka(int n) {
+		munka.setText("Játékos Munkái: "+n);
 	}
 }

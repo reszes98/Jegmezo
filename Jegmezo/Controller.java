@@ -37,6 +37,10 @@ public class Controller {
 	private ArrayList<Osszerendeles> satrak=new ArrayList<Osszerendeles>();
 	private ArrayList<Osszerendeles> jatekosok=new ArrayList<Osszerendeles>();
 	
+	/**
+	 * drawable objektum összerendelése a tényleges objektummal
+	 *
+	 */
 	class Osszerendeles{
 		public Drawable draw;
 		public Object obj;
@@ -50,6 +54,12 @@ public class Controller {
 		
 	}
 	
+	/**
+	 * @param eszkimodb hány eszkimó legyen a pályán
+	 * @param sarkkutato hány sarkkutató legyen
+	 * @param tablakDB hány tábla legyen
+	 * @param jegesmedvedb hány jegesmedve legyen
+	 */
 	public void palyaLetrehoz(int eszkimodb, int sarkkutato, int tablakDB, int jegesmedvedb) {
 		view=new View(this, menu);
 		jegmezo=new Jegmezo(5);
@@ -138,9 +148,14 @@ public class Controller {
 		}
 		koronlevo=jegmezo.getJatekosok().get(0);
 		koronlevoIdx=0;
+		view.setTestho(koronlevo.getTestho());
+		view.setMunka(koronlevo.getMunkadb());
 		view.drawAll();
 	}
 	
+	/**
+	 * ha a játékosnak elfogytak a munkái vagy tovább adta a körét
+	 */
 	public void korLeptet() {
 		if(++koronlevoIdx>=jegmezo.GetJatekosSzam()-1) {
 			koronlevoIdx=0;
@@ -151,6 +166,9 @@ public class Controller {
 		view.drawAll();
 	}
 	
+	/**
+	 * minden játékos sorrakerült, új kör
+	 */
 	public void ujKor() {
 		boolean drawho=false;
 		ArrayList<Integer> nincsho=new ArrayList<Integer>();
