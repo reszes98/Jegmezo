@@ -1,6 +1,7 @@
 package Jegmezo;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -15,6 +16,7 @@ public class Menu {
 	private JButton NewGameButton = new JButton("Játék!");
 	private JButton Game = new JButton("Játékra fel!");
 	private JButton ExitButton = new JButton("Kilépés");
+    private JButton TovabbButton = new JButton("Tovább");
 	private JLabel utasitasP = new JLabel();
 	private JTextField eszkimoTextf = new JTextField();
 	private JLabel eszkimo = new JLabel ("Eszkimó: ");
@@ -117,4 +119,47 @@ public class Menu {
 	    jframe.setVisible(true);
 	}
 	
+	void GameWon() {
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
+	    jframe.setPreferredSize(new Dimension(500, 250));										
+	    jframe.pack();												
+	    jframe.setLocationRelativeTo(null);
+	    jframe.setLayout(new BorderLayout());
+	    
+	    JLabel won = new JLabel("Nyertetek!!");
+	    won.setFont(new Font("Serif", Font.BOLD, 40));
+	    won.setForeground(Color.GREEN);
+	    
+	    jframe.add(won, BorderLayout.CENTER);
+	    won.setHorizontalAlignment(JLabel.CENTER);
+	    won.setVerticalAlignment(JLabel.CENTER);
+	    jframe.setResizable(true);										
+	    jframe.setVisible(true);
+
+	    ActionListener TovabbBActL = new MenuActionListener(jframe, eszkimoTextf, sarkkutatoTextf, utasitasP);
+	    TovabbButton.addActionListener(TovabbBActL);
+	    jframe.add(TovabbButton, BorderLayout.SOUTH);
+	}
+	
+	void GameLost() {
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
+	    jframe.setPreferredSize(new Dimension(500, 250));										
+	    jframe.pack();												
+	    jframe.setLocationRelativeTo(null);
+	    jframe.setLayout(new BorderLayout());
+	    
+	    JLabel won = new JLabel("Vesztettetek :(");
+	    won.setFont(new Font("Serif", Font.BOLD, 40));
+	    won.setForeground(Color.red);
+	    
+	    jframe.add(won, BorderLayout.CENTER);
+	    won.setHorizontalAlignment(JLabel.CENTER);
+	    won.setVerticalAlignment(JLabel.CENTER);
+	    jframe.setResizable(true);										
+	    jframe.setVisible(true);
+	   
+	    ActionListener TovabbBActL = new MenuActionListener(jframe, eszkimoTextf, sarkkutatoTextf, utasitasP);
+	    TovabbButton.addActionListener(TovabbBActL);
+	    jframe.add(TovabbButton, BorderLayout.SOUTH);
+	}
 }

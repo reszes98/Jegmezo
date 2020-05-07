@@ -48,13 +48,22 @@ public class MenuActionListener implements ActionListener{
 			if(osszeg > 2 && osszeg < 11) {
 				System.out.println("Megfelelõ játékos szám");
 				System.out.println("Controller Palya létrehozása fv");
+				Controller cont = new Controller (this.menu);
+				cont.palyaLetrehoz(enumb, snumb, 100, 1);
 			} 
 		}
 		
 		if (ae.getActionCommand().equals("Játékra fel!")) {
 			System.out.println("Játékra fel");
-			jf.setVisible(false);
+			//jf.setVisible(false);
+			jf.dispose();
 			menu.Game();
+		}
+		
+		if (ae.getActionCommand().equals("Tovább")) {
+			System.out.println("tovabb");
+			jf.dispose();
+			menu.MenuDisplay();
 		}
 		
 	}

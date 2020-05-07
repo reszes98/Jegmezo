@@ -102,9 +102,9 @@ public class View {
 		FelveszButton.addActionListener(controller.new TargyActionListener(aktTaska));
 		KepessegButton=new JButton("Képesség Használ");
 		KepessegButton.addActionListener(controller.new GombokActionListener());
-		BalraButton=new JButton("Balra fordul");
+		BalraButton=new JButton("Bal");
 		BalraButton.addActionListener(controller.new GombokActionListener());
-		JobbraButton=new JButton("Jobbra fordul");
+		JobbraButton=new JButton("Jobb");
 		JobbraButton.addActionListener(controller.new GombokActionListener());
 		LepButton=new JButton("Lép");
 		LepButton.addActionListener(controller.new GombokActionListener());
@@ -151,16 +151,16 @@ public class View {
 	 * játték vége, nyertünk
 	 */
 	public void gameWon() {
-		frame.setVisible(false);
-		menu.MenuDisplay();
+		frame.dispose();
+		menu.GameWon();
 	}
 	
 	/**
 	 * játék vége, vesztettünk
 	 */
 	public void gameLost() {
-		frame.setVisible(false);
-		menu.MenuDisplay();
+		frame.dispose();
+		menu.GameLost();
 	}
 	
 	public void Screen(String s) {
