@@ -10,13 +10,13 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class Drawable {
 	private int positionx;
 	private int positiony;
-	public void draw(Object o) {
+	
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {

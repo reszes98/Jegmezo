@@ -10,12 +10,11 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class DrawSarkkutato extends Drawable {
 	private Image sarkkutatoImage;
-	public void draw(Sarkkutato s) {
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {

@@ -10,12 +10,11 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class DrawPatron extends Drawable {
 	private Image patronImage;
-	public void draw(Jelzopisztoly p) {
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {

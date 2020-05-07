@@ -10,12 +10,11 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class DrawSator extends Drawable {
 	private Image satorImage;
-	public void draw(Sator s) {
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {

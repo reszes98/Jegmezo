@@ -10,12 +10,11 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class DrawEszkimo extends Drawable {
 	private Image eszkimoImage;
-	public void draw(Eszkimo e) {
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {

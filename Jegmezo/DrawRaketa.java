@@ -10,12 +10,11 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class DrawRaketa extends Drawable {
 	private Image raketaImage;
-	public void draw(Raketa r) {
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {

@@ -10,12 +10,11 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class DrawKotel extends Drawable {
 	private Image kotelImage;
-	public void draw(Kotel k) {
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {

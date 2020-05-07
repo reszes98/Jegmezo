@@ -10,12 +10,11 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class DrawIrany extends Drawable {
 	private Image iranyImage;
-	public void draw(Irany i) {
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {

@@ -10,12 +10,11 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class DrawTorekenyAso extends Drawable {
 	private Image torekenyasoImage;
-	public void draw(TorekenyAso t) {
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {

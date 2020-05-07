@@ -10,12 +10,11 @@ package Jegmezo;
 //
 //
 
-
-
+import java.awt.Graphics;
 
 public class DrawJegtabla extends Drawable {
 	private Image jegtablaImage;
-	public void draw(Jegtabla j) {
+	public void draw(Graphics g) {
 	}
 	
 	public void setPosition(int px, int py) {
