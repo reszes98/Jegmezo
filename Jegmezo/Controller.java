@@ -26,6 +26,7 @@ import javax.swing.JTextField;
 
 
 public class Controller {
+	Menu menu;
 	private Jegmezo jegmezo;
 	private View view;
 	private Jatekos koronlevo;
@@ -44,7 +45,13 @@ public class Controller {
 		}
 	}
 	
+	public Controller(Menu m) {
+		menu=m;
+		
+	}
+	
 	public void palyaLetrehoz(int eszkimodb, int sarkkutato, int tablakDB, int jegesmedvedb) {
+		view=new View(this, menu);
 		jegmezo=new Jegmezo(5);
 		Random rand=new Random();
 		jegtablakDB=tablakDB;
@@ -95,6 +102,7 @@ public class Controller {
 			((Jegtabla)jegtablak.get(y*tablakDB+x).obj).addJatekos(e);
 			jatekosok.add(new Osszerendeles(de,e));
 			view.addDrawable(de);
+			view.AddTaska(new JComboBox());
 			jegmezo.addJatekos(e);
 		}
 		for(int i=0;i<sarkkutato;i++) {
@@ -110,6 +118,7 @@ public class Controller {
 			((Jegtabla)jegtablak.get(y*tablakDB+x).obj).addJatekos(s);
 			jatekosok.add(new Osszerendeles(ds,s));
 			view.addDrawable(ds);
+			view.AddTaska(new JComboBox());
 			jegmezo.addJatekos(s);
 		}
 		for(int i=0;i<jegesmedvedb;i++) {
@@ -129,6 +138,7 @@ public class Controller {
 		}
 		koronlevo=jegmezo.getJatekosok().get(0);
 		koronlevoIdx=0;
+		view.drawAll();
 	}
 	
 	public void korLeptet() {
@@ -137,10 +147,11 @@ public class Controller {
 			ujKor();
 		}
 		koronlevo=jegmezo.getJatekosok().get(koronlevoIdx);
-		view.setTaska(koronlevoIdx);
+		view.setAktTaska(koronlevoIdx);
+		view.drawAll();
 	}
 	
-	public void ujKor() {//jegesmedve, sator hianyzik
+	public void ujKor() {
 		boolean drawho=false;
 		ArrayList<Integer> nincsho=new ArrayList<Integer>();
 		if(jegmezo.getHoviharCnt()==0) {
@@ -151,7 +162,7 @@ public class Controller {
 			}
 		}
 		jegmezo.leptet();
-		if(drawho=true) {
+		if(drawho==true) {
 			for(int i=0;i<nincsho.size();i++) {
 				DrawHo dh=new DrawHo();
 				dh.setPosition(nincsho.get(i)-(nincsho.get(i)%jegtablakDB)*jegtablakDB, nincsho.get(i)%jegtablakDB);
@@ -173,23 +184,23 @@ public class Controller {
 				if(szog==0) {
 					djm.setPositionX(djm.getPositionX()+1);
 				}
-				if(szog==90) {
+				else if(szog==90) {
 					djm.setPositionY(djm.getPositionY()-1);
 				}
-				if(szog==180) {
+				else if(szog==180) {
 					djm.setPositionX(djm.getPositionX()-1);
 				}
-				if(szog==270) {
+				else if(szog==270) {
 					djm.setPositionY(djm.getPositionY()+1);
 				}
 			}
 		}
 	}
 	
-	final class TargyActionListener implements ActionListener {
+	public class TargyActionListener implements ActionListener {
 		JComboBox JCtaska;
-		public TargyActionListener() {
-			
+		public TargyActionListener(JComboBox taska) {
+			JCtaska=taska;
 		}
 		public void actionPerformed(ActionEvent ae) {
 			
@@ -201,55 +212,6 @@ public class Controller {
 		}
 	}
 	
-	public class MenuActionListener implements ActionListener{
-		private JFrame jf;
-		private JTextField eszkimoTf;
-		private JTextField sarkkutatoTf;
-		private JLabel utasitas;
-		Menu menu = new Menu();
-
-		public MenuActionListener(JFrame jf, JTextField et, JTextField st, JLabel ul ) {
-			this.jf = jf;
-			this.eszkimoTf = et;
-			this.sarkkutatoTf = st;
-			this.utasitas = ul;
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent ae) {
-			if (ae.getActionCommand().equals("Kilépés")) {
-				jf.setVisible(false);
-				System.out.println("kilépés");
-				System.exit(0);
-			}
-			
-			if (ae.getActionCommand().equals("Játék!")) {
-				int enumb = Integer.parseInt(eszkimoTf.getText());
-				int snumb = Integer.parseInt(sarkkutatoTf.getText());
-				int osszeg = enumb+snumb;
-				if(osszeg > 10) {
-					System.out.println("Túl sok játékos! (Maximum 10)");
-					utasitas.setFont(new Font("Curier New", Font.BOLD, 15));
-					utasitas.setText("Túl sok játékos! (Maximum 10)");
-				}
-				if(osszeg < 3) {
-					System.out.println("Túl kevés játékos! (Minimum 3)");
-					utasitas.setFont(new Font("Curier New", Font.BOLD, 15));
-					utasitas.setText("Túl kevés játékos! (Minimum 3)");
-				}
-				if(osszeg > 2 && osszeg < 11) {
-					System.out.println("Megfelelõ játékos szám");
-					System.out.println("Controller Palya létrehozása fv");
-				} 
-			}
-			
-			if (ae.getActionCommand().equals("Játékra fel!")) {
-				System.out.println("Játékra fel");
-				jf.setVisible(false);
-				menu.Game();
-			}
-			
-		}
-	}
+	
 	
 }

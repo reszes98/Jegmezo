@@ -10,52 +10,97 @@ package Jegmezo;
 //
 //
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.List;
 
 import javax.swing.*;
 
 public class View {
+	private JFrame frame;
 	private JPanel jatekPanel;
 	private JPanel jegmezoPanel;
 	private List<JComboBox> taskak;
 	private JComboBox aktTaska;
 	private JPanel iranyPanel;
 	private JButton HasznalButton;
+	private JButton FelveszButton;
 	private JButton KepessegButton;
 	private JButton BalraButton;
 	private JButton JobbraButton;
 	private JButton LepButton;
-	public Controller view;
 	private List<Drawable> drawable;
-	Controller controller;
-	public View(Controller c) {
-		controller=c;
+	private Controller controller;
+	Menu menu;
+	public View(Controller c, Menu m) {
+		controller=c; menu=m;
+		inicializalas();
+		
 	}
 	public void inicializalas() {
+		setButtons();
+		jegmezoPanel=new JPanel() {
+			public void paintComponent(Graphics g) {
+				for(int i=0;i<drawable.size();i++)
+					drawable.get(i).draw((Graphics2D)g);
+			}
+		};
 	}
 	
+	
+	
+	
 	public void addDrawable(Drawable d) {
+		drawable.add(d);
+	}
+	
+	public void drawAll() {
+		jegmezoPanel.repaint();
 	}
 	
 	public void setButtons() {
+		HasznalButton=new JButton("Targy Hasznal");
+		HasznalButton.addActionListener(controller.new TargyActionListener(aktTaska));
+		FelveszButton=new JButton("Lep");
+		FelveszButton.addActionListener(controller.new TargyActionListener(aktTaska));
+		KepessegButton=new JButton("Kepesseg Hasznal");
+		KepessegButton.addActionListener(controller.new GombokActionListener());
+		BalraButton=new JButton("Balra fordul");
+		BalraButton.addActionListener(controller.new GombokActionListener());
+		JobbraButton=new JButton("Jobbra fordul");
+		JobbraButton.addActionListener(controller.new GombokActionListener());
+		LepButton=new JButton("Lep");
+		LepButton.addActionListener(controller.new GombokActionListener());
+		
 	}
 	
 	public void setPanels() {
 	}
 	
-	public void DrawAll() {
-	}
 	
 	public void gameWon() {
+		frame.setVisible(false);
+		menu.MenuDisplay();
 	}
 	
 	public void gameLost() {
+		frame.setVisible(false);
+		menu.MenuDisplay();
 	}
 	
 	public void Screen(String s) {
 	}
-	public void setTaska(int idx) {
+	public void AddTaska(JComboBox j) {
+		taskak.add(j);
+	}
+	public void setAktTaska(int idx) {
 		aktTaska=taskak.get(idx);
+	}
+	JComboBox getAktTaska() {
+		return aktTaska;
+	}
+	List<JComboBox> getTaskak() {
+		return taskak;
 	}
 	public void eltavolitDrawable(Drawable d) {
 		drawable.remove(d);
