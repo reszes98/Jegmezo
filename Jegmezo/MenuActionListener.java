@@ -36,32 +36,31 @@ public class MenuActionListener implements ActionListener{
 			int snumb = Integer.parseInt(sarkkutatoTf.getText());
 			int osszeg = enumb+snumb;
 			if(osszeg > 10) {
-				System.out.println("Túl sok játékos! (Maximum 10)");
 				utasitas.setFont(new Font("Curier New", Font.BOLD, 15));
 				utasitas.setText("Túl sok játékos! (Maximum 10)");
 			}
 			if(osszeg < 3) {
-				System.out.println("Túl kevés játékos! (Minimum 3)");
 				utasitas.setFont(new Font("Curier New", Font.BOLD, 15));
 				utasitas.setText("Túl kevés játékos! (Minimum 3)");
 			}
-			if(osszeg > 2 && osszeg < 11) {
-				System.out.println("Megfelelõ játékos szám");
-				System.out.println("Controller Palya létrehozása fv");
+			if(osszeg > 2 && osszeg < 6) {
 				Controller cont = new Controller (this.menu);
-				cont.palyaLetrehoz(enumb, snumb, 100, 1);
+				cont.palyaLetrehoz(enumb, snumb, 7, 1);
+			} 
+			
+			if(osszeg > 5 && osszeg < 11) {
+				Controller cont = new Controller (this.menu);
+				cont.palyaLetrehoz(enumb, snumb, 10, 1);
 			} 
 		}
 		
 		if (ae.getActionCommand().equals("Játékra fel!")) {
-			System.out.println("Játékra fel");
-			//jf.setVisible(false);
+
 			jf.dispose();
 			menu.Game();
 		}
 		
 		if (ae.getActionCommand().equals("Tovább")) {
-			System.out.println("tovabb");
 			jf.dispose();
 			menu.MenuDisplay();
 		}
