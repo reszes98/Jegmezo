@@ -163,8 +163,7 @@ public class View {
 		menu.GameLost();
 	}
 	
-	public void Screen(String s) {
-	}
+	
 	/**
 	 * @param j új táska felvétele
 	 */
@@ -211,4 +210,6 @@ public class View {
 	public void setMunka(int n) {
 		munka.setText("Játékos Munkái: "+n);
 	}
+	
+	
 }
