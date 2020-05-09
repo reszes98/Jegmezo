@@ -74,10 +74,11 @@ public class Controller {
 					jegt.setSzomszed(jt, 3, 270);
 				}
 				if(j!=0) {//minden jobb olsali oszlop beállítja a balt szomszédnak
-					jt.setSzomszed((Jegtabla)jegtablak.get(jegtablak.size()-2).obj, 2, 180);
-					Jegtabla jegt=(Jegtabla)jegtablak.get(jegtablak.size()-tablakDB).obj;
+					Jegtabla jegt=(Jegtabla)jegtablak.get(jegtablak.size()-2).obj;
 					jegt.setSzomszed(jt, 0, 0);
+					jt.setSzomszed((Jegtabla)jegtablak.get(jegtablak.size()-2).obj, 2, 180);
 				}
+				
 					
 				jegmezo.addFrissitheto(jt);
 			}
