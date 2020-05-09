@@ -21,7 +21,7 @@ public class DrawTorekenyAso extends Drawable {
 	private Image torekenyasoImage;
 	public DrawTorekenyAso() {
 		try {
-			torekenyasoImage=ImageIO.read(new File("./image/tshovel.png"));
+			torekenyasoImage=ImageIO.read(new File("./Jegmezo/image/tshovel.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

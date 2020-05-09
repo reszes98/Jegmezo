@@ -24,7 +24,7 @@ public class DrawEszkimo extends Drawable {
 	public DrawEszkimo() 
 	{
 		try {
-			eszkimoImage=ImageIO.read(new File("./image/eszkimo2.png"));
+			eszkimoImage=ImageIO.read(new File("./Jegmezo/image/eszkimo2.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

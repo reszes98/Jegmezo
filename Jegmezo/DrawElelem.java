@@ -22,7 +22,7 @@ public class DrawElelem extends Drawable {
 	public DrawElelem() 
 	{
 		try {
-			elelemImage=ImageIO.read(new File("./image/fish.png"));
+			elelemImage=ImageIO.read(new File("./Jegmezo/image/fish.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

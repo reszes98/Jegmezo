@@ -21,7 +21,7 @@ public class DrawSarkkutato extends Drawable {
 	private Image sarkkutatoImage;
 	public DrawSarkkutato() {
 		try {
-			sarkkutatoImage=ImageIO.read(new File("./image/explorer.png"));
+			sarkkutatoImage=ImageIO.read(new File("./Jegmezo/image/explorer.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

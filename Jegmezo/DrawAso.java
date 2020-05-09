@@ -22,7 +22,7 @@ public class DrawAso extends Drawable {
 	public DrawAso() 
 	{
 		try {
-			asoImage=ImageIO.read(new File("./image/shovel.png"));
+			asoImage=ImageIO.read(new File("./Jegmezo/image/shovel.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

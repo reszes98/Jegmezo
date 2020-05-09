@@ -12,7 +12,7 @@ public class DrawLe extends Drawable{
 	public DrawLe() 
 	{
 		try {
-			iranyImage=ImageIO.read(new File("./image/arrdown.png"));
+			iranyImage=ImageIO.read(new File("./Jegmezo/image/arrdown.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

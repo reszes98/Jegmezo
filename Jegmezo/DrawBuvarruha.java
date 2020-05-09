@@ -24,7 +24,7 @@ public class DrawBuvarruha extends Drawable {
 	{
 		try 
 		{
-			buvarruhaImage=ImageIO.read(new File("./image/wetsuit.png")); ///TODO file beillesztes
+			buvarruhaImage=ImageIO.read(new File("./Jegmezo/image/wetsuit.png")); ///TODO file beillesztes
 		} catch (IOException e) 
 		{
 			// TODO Auto-generated catch block

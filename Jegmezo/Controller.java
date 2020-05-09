@@ -1,15 +1,11 @@
 package Jegmezo;
 
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 
 public class Controller {
@@ -99,7 +95,7 @@ public class Controller {
 			((Jegtabla)jegtablak.get(y*tablakDB+x).obj).addJatekos(e);
 			jatekosok.add(new Osszerendeles(de,e));
 			view.addDrawable(de);
-			view.AddTaska(new JComboBox());
+			view.AddTaska(new JComboBox<Object>());
 			jegmezo.addJatekos(e);
 		}
 		for(int i=0;i<sarkkutato;i++) {
@@ -115,7 +111,7 @@ public class Controller {
 			((Jegtabla)jegtablak.get(y*tablakDB+x).obj).addJatekos(s);
 			jatekosok.add(new Osszerendeles(ds,s));
 			view.addDrawable(ds);
-			view.AddTaska(new JComboBox());
+			view.AddTaska(new JComboBox<Object>());
 			jegmezo.addJatekos(s);
 		}
 		for(int i=0;i<jegesmedvedb;i++) {
@@ -203,8 +199,8 @@ public class Controller {
 	}
 	
 	public class TargyActionListener implements ActionListener {
-		JComboBox JCtaska;
-		public TargyActionListener(JComboBox taska) {
+		JComboBox<Object> JCtaska;
+		public TargyActionListener(JComboBox<Object> taska) {
 			JCtaska=taska;
 		}
 		public void actionPerformed(ActionEvent ae) {

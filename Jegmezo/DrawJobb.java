@@ -12,7 +12,7 @@ public class DrawJobb extends Drawable{
 	public DrawJobb() 
 	{
 		try {
-			iranyImage=ImageIO.read(new File("./image/arright.png"));
+			iranyImage=ImageIO.read(new File("./Jegmezo/image/arright.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -23,7 +23,7 @@ public class DrawRaketa extends Drawable {
 	public DrawRaketa() 
 	{
 		try {
-			raketaImage=ImageIO.read(new File("./image/light.png"));
+			raketaImage=ImageIO.read(new File("./Jegmezo/image/light.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

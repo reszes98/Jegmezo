@@ -23,7 +23,7 @@ public class DrawHo extends Drawable {
 	{
 		try 
 		{
-			hoImage=ImageIO.read(new File("./image/snow.png"));
+			hoImage=ImageIO.read(new File("./Jegmezo/image/snow.png"));
 		} catch (IOException e) 
 		{
 			// TODO Auto-generated catch block

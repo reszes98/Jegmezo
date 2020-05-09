@@ -23,7 +23,7 @@ public class DrawPisztoly extends Drawable {
 	public DrawPisztoly() 
 	{
 		try {
-			pisztolyImage=ImageIO.read(new File("./image/gun.png"));
+			pisztolyImage=ImageIO.read(new File("./Jegmezo/image/gun.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -25,7 +25,7 @@ public class DrawJegtabla extends Drawable {
 	public DrawJegtabla() 
 	{
 		try {
-			jegtablaImage=ImageIO.read(new File("./image/ice.png"));
+			jegtablaImage=ImageIO.read(new File("./Jegmezo/image/ice.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

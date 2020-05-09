@@ -22,7 +22,7 @@ public class DrawKotel extends Drawable {
 	public DrawKotel() 
 	{
 		try {
-			kotelImage=ImageIO.read(new File("./image/rope.png"));
+			kotelImage=ImageIO.read(new File("./Jegmezo/image/rope.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

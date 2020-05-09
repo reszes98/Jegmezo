@@ -24,7 +24,7 @@ public class DrawIglu extends Drawable {
 	public DrawIglu() 
 	{
 		try {
-			igluImage=ImageIO.read(new File("./image/iglu.png"));
+			igluImage=ImageIO.read(new File("./Jegmezo/image/iglu.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

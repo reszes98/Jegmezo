@@ -21,7 +21,7 @@ public class DrawJegesmedve extends Drawable {
 	public DrawJegesmedve() 
 	{
 		try {
-			jegesmedveImage=ImageIO.read(new File("./image/polar1.png"));
+			jegesmedveImage=ImageIO.read(new File("./Jegmezo/image/polar1.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

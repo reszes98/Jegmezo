@@ -10,10 +10,9 @@ package Jegmezo;
 //
 //
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
@@ -22,8 +21,8 @@ public class View {
 	private JFrame frame;
 	private JPanel jatekPanel;
 	private JPanel jegmezoPanel;
-	private List<JComboBox> taskak;
-	private JComboBox aktTaska;
+	private List<JComboBox<Object>> taskak=new ArrayList<JComboBox<Object>>();
+	private JComboBox<Object> aktTaska;
 	private JPanel iranyPanel;
 	private JPanel taskaPanel;
 	private JButton HasznalButton;
@@ -35,7 +34,7 @@ public class View {
 	private JButton korvegeButton;
 	private JLabel testho;
 	private JLabel munka;
-	private List<Drawable> drawable;
+	private List<Drawable> drawable=new ArrayList<Drawable>();
 	private Controller controller;
 	Menu menu;
 	/**
@@ -51,13 +50,15 @@ public class View {
 	 * komponensek létrehozása
 	 */
 	public void inicializalas() {
+		munka=new JLabel();
+		testho=new JLabel();
 		munka.setText("Játékos munkái:");
 		testho.setText("Játékos testhõje:");
 		setButtons();
 		setPanels();
-		frame=new JFrame("Játékra fel!");
+		frame=new JFrame("Jég-veled!");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
-	    frame.setPreferredSize(new Dimension(600, 1200));																						
+	    frame.setPreferredSize(new Dimension(1200, 600));																						
 	    frame.setLocationRelativeTo(null);
 	    frame.setLayout(new BorderLayout());
 	    
@@ -118,18 +119,18 @@ public class View {
 	 */
 	public void setPanels() {
 		jatekPanel=new JPanel();
-		jatekPanel.setPreferredSize(new Dimension(100,900));
+		jatekPanel.setPreferredSize(new Dimension(900,100));
 		jegmezoPanel=new JPanel() {
 			public void paintComponent(Graphics g) {
 				for(int i=0;i<drawable.size();i++)
 					drawable.get(i).draw((Graphics2D)g);
 			}
 		};
-		jegmezoPanel.setPreferredSize(new Dimension(500,900));
+		jegmezoPanel.setPreferredSize(new Dimension(900,500));
 		iranyPanel=new JPanel();
-		iranyPanel.setPreferredSize(new Dimension(600,150));
+		iranyPanel.setPreferredSize(new Dimension(150,500));
 		taskaPanel=new JPanel();
-		taskaPanel.setPreferredSize(new Dimension(600,150));
+		taskaPanel.setPreferredSize(new Dimension(150,500));
 		
 		iranyPanel.add(FelveszButton);
 		iranyPanel.add(KepessegButton);
@@ -138,7 +139,7 @@ public class View {
 		iranyPanel.add(LepButton);
 		iranyPanel.add(korvegeButton);
 		
-		taskaPanel.add(aktTaska);
+		//taskaPanel.add(aktTaska);
 		taskaPanel.add(HasznalButton);
 		
 		jatekPanel.add(testho);
@@ -167,7 +168,7 @@ public class View {
 	/**
 	 * @param j új táska felvétele
 	 */
-	public void AddTaska(JComboBox j) {
+	public void AddTaska(JComboBox<Object> j) {
 		taskak.add(j);
 	}
 	/**
@@ -179,13 +180,13 @@ public class View {
 	/**
 	 * @return jelenleg beállított táska
 	 */
-	JComboBox getAktTaska() {
+	JComboBox<Object> getAktTaska() {
 		return aktTaska;
 	}
 	/**
 	 * @return az összes játékos táskája
 	 */
-	List<JComboBox> getTaskak() {
+	List<JComboBox<Object>> getTaskak() {
 		return taskak;
 	}
 	/**

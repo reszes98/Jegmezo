@@ -21,7 +21,7 @@ public class DrawSator extends Drawable {
 	private Image satorImage;
 	public DrawSator() {
 		try {
-			satorImage=ImageIO.read(new File("./image/tent.png"));
+			satorImage=ImageIO.read(new File("./Jegmezo/image/tent.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

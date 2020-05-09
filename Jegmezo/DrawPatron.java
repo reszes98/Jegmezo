@@ -24,7 +24,7 @@ public class DrawPatron extends Drawable {
 	public DrawPatron() 
 	{
 		try {
-			patronImage=ImageIO.read(new File("./image/patron.png"));
+			patronImage=ImageIO.read(new File("./Jegmezo/image/patron.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
