@@ -14,9 +14,38 @@ import java.awt.Graphics;
 
 public class DrawElelem extends Drawable {
 	private Image elelemImage;
+	public DrawElelem() 
+	{
+		try {
+			elelemImage=ImageIO.read(new File("./image/fish.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void draw(Graphics g) {
+		
+		g.drawImage(elelemImage, getPositionX(), getPositionY(), null);
 	}
 	
-	public void setPosition(int px, int py) {
+	public void setPosition(int px, int py) 
+	{
+		super.setPosition(px, py);
+	}
+	public void setPositionX(int px) 
+	{
+		super.setPositionX(px);
+	}
+	public void setPositionY(int py) 
+	{
+		super.setPositionY(py);
+	}
+	public int getPositionX() 
+	{
+		return super.getPositionX();
+	}
+	public int getPositionY() 
+	{
+		return super.getPositionY();
 	}
 }
