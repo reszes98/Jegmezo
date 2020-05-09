@@ -12,7 +12,7 @@ public class DrawFel extends Drawable{
 	public DrawFel() 
 	{
 		try {
-			iranyImage=ImageIO.read(new File("./image/rope.png"));
+			iranyImage=ImageIO.read(new File("./image/arrow.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
