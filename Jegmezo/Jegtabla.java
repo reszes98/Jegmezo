@@ -349,8 +349,14 @@ public class Jegtabla implements Frissitheto
 	public void ralep(Jatekos j)
 	{
 		
+		
 		j.setaktjegtabla(this);
+		if(this.szomszedokSorszambolSzogge.get(0) != null)
 		j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(0));
+		else
+		{
+			System.out.println("\n\n\n relep: Null a szomszed\n\n\n\n");
+		}
 		jatekosok.add(j);
 		Global.out.print("A jegtablahoz a jatekos sikeresen hozzaadva. ");
 		
@@ -387,13 +393,24 @@ public class Jegtabla implements Frissitheto
 				idx = 3;
 				break;
 		}*/
-		return this.szomszedokASorszamhoz.get(this.szomszedokSzogbolSorszamma.get(szogbe));
+		
+		if(this.szomszedokSzogbolSorszamma == null)
+			System.out.println("\n\n\n szomszedokSzogbolSorszamma null \n\n\n");
+		
+		System.out.println("\nszog: " + szogbe);
+		System.out.println("\n sorszam: " + this.szomszedokSzogbolSorszamma.get(szogbe));
+		
+		
+		return this.szomszedokASorszamhoz.get(
+				this.szomszedokSzogbolSorszamma.get(szogbe));
 	}
 	
 	//Új
 	public Integer adottSzogbeLevoSzomszedMellettiSzomszedSzoge(Integer szog, boolean jobbra)
 	{
 		Integer sorszam = this.szomszedokSzogbolSorszamma.get(szog);
+		if(sorszam == null)
+			System.out.println("\n\n\nadottSzogbeLevoSzomszedMellettiSzomszedSzoge: null a sorszam \n\n\n");
 		if(jobbra)
 		{
 			
