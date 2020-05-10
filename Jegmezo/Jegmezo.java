@@ -2,6 +2,7 @@ package Jegmezo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 //
 //
@@ -170,18 +171,19 @@ public class Jegmezo
 			}
 		}
 		
+		Random r  = new Random();
 		for(int i = 0; i < eszkimokSzama; i++)
 		{
 			Eszkimo e = new Eszkimo(this, 4, 5);
 			
-			jgk[i/jegtablakSzamaSzelteben][i%jegtablakSzamaSzelteben].addJatekos(e);
+			jgk[r.nextInt(jegtablakSzamaHosszaban)][r.nextInt(jegtablakSzamaSzelteben)].addJatekos(e);
 			
 		}
 		
 		for(int i = 0; i < sarrkkutatokSzama; i++)
 		{
 			Sarkkutato sk = new Sarkkutato(this, 4, 4);
-			jgk[eszkimokSzama/jegtablakSzamaSzelteben + i/jegtablakSzamaSzelteben][eszkimokSzama%jegtablakSzamaSzelteben + i%jegtablakSzamaSzelteben].addJatekos(sk);
+			jgk[r.nextInt(jegtablakSzamaHosszaban)][r.nextInt(jegtablakSzamaSzelteben)].addJatekos(sk);
 		}
 		
 		Global.out.print("Jatek sikeresen letrehozva. ");
