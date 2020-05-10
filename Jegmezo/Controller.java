@@ -73,14 +73,14 @@ public class Controller {
 				if(j==0)jt.setSzomszed(null, 2, 180);
 				if(j==tablakDB-1)jt.setSzomszed(null, 0, 0);
 				if(i!=0) { //minden alsó sor beállítja a felsõt szomszédnak
-					jt.setSzomszed((Jegtabla) jegtablak.get(jegtablak.size()-tablakDB-1).obj, 1, 90);
 					Jegtabla jegt=(Jegtabla)jegtablak.get(jegtablak.size()-tablakDB-1).obj;
+					jt.setSzomszed(jegt, 1, 90);
 					jegt.setSzomszed(jt, 3, 270);
 				}
 				if(j!=0) {//minden jobb olsali oszlop beállítja a balt szomszédnak
 					Jegtabla jegt=(Jegtabla)jegtablak.get(jegtablak.size()-2).obj;
 					jegt.setSzomszed(jt, 0, 0);
-					jt.setSzomszed((Jegtabla)jegtablak.get(jegtablak.size()-2).obj, 2, 180);
+					jt.setSzomszed(jegt, 2, 180);
 				}
 				
 					
@@ -152,6 +152,8 @@ public class Controller {
 		}
 		koronlevo=jatekosok.get(koronlevoIdx);
 		view.setAktTaska(koronlevoIdx);
+		view.setMunka(((Jatekos)koronlevo.obj).getMunkadb());
+		view.setTestho(((Jatekos)koronlevo.obj).getTestho());
 		view.drawAll();
 	}
 	
@@ -234,10 +236,12 @@ public class Controller {
 			}
 			
 			if (ae.getActionCommand().equals("Lép")) {
-				System.out.println("\n szogamibe: "+((Jatekos)koronlevo.obj).getSzogAmibeNez());
+				int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
+				
 				boolean siker=((Jatekos)koronlevo.obj).lepes();
 				if(siker) {
-					int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
+					
+					System.out.println("/n jatekos szoge: "+szog);
 					Drawable dj=koronlevo.draw;
 					Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
 					if(jt.getAtVanFordulva()){
@@ -254,7 +258,9 @@ public class Controller {
 						dj.setPositionX(dj.getPositionX()+1);
 					}
 					else if(szog==90) {
+						System.out.println(dj.getPositionY()-1);
 						dj.setPositionY(dj.getPositionY()-1);
+						System.out.println(dj.getPositionY()-1);
 					}
 					else if(szog==180) {
 						dj.setPositionX(dj.getPositionX()-1);

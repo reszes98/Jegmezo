@@ -204,12 +204,16 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public boolean lepes()
 	{
-		
-		boolean ellephet = aktjegtabla.ellep(this);
+		boolean ellephet=false;
+		Jegtabla szJegtabla = aktjegtabla.szomszedKerdez(szogAmibeNez);
+		if(szJegtabla != null ) {
+			ellephet = aktjegtabla.ellep(this);
+			Global.out.print("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
+		}
 		
 		if(ellephet)
 		{
-			Jegtabla szJegtabla = aktjegtabla.szomszedKerdez(szogAmibeNez);
+			
 			String atfordulva=aktjegtabla.getAtVanFordulva() ? "at van fordulva" : "nincs atfordulva";
 			Global.out.print("A jegtabla "+atfordulva+" .");
 			if(szJegtabla != null )
