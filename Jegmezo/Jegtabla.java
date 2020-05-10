@@ -397,14 +397,14 @@ public class Jegtabla implements Frissitheto
 		if(jobbra)
 		{
 			
-			Integer jobbraLevoSzomszedSorszama = sorszam == szomszedokSzama - 1? 0: sorszam + 1;
+			Integer jobbraLevoSzomszedSorszama = (sorszam == szomszedokSzama - 1)? 0: sorszam + 1;
 			
 			return this.szomszedokSorszambolSzogge.get(jobbraLevoSzomszedSorszama);
 				
 		}
 		else
 		{
-			Integer balraLevoSzomszedSorszama = sorszam == 0? szomszedokSzama - 1: sorszam - 1;
+			Integer balraLevoSzomszedSorszama = (sorszam == 0)? szomszedokSzama - 1: sorszam - 1;
 			return this.szomszedokSorszambolSzogge.get(balraLevoSzomszedSorszama);
 		}
 	}
