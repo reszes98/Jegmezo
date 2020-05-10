@@ -30,7 +30,7 @@ public class DrawAso extends Drawable {
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(asoImage, getPositionX(), getPositionY(), null);
+		g.drawImage(asoImage, getPositionX()*80, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 

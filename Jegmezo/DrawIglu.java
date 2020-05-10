@@ -32,7 +32,7 @@ public class DrawIglu extends Drawable {
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(igluImage, getPositionX(), getPositionY(), null);
+		g.drawImage(igluImage, getPositionX()*80, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 

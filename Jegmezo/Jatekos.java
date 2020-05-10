@@ -179,10 +179,11 @@ public abstract class Jatekos implements Frissitheto
 	{
 		tartAKore = true;
 		
-		while(tartAKore)
+		//what?
+		/*while(tartAKore)
 		{
 			
-		}
+		}*/
 		
 	}
 	
@@ -201,7 +202,7 @@ public abstract class Jatekos implements Frissitheto
 	/**
 	 * Ezzel a függvénnyeltud majd lépni a játékos arra a jégtáblára, ami arra van, amerre néz
 	 */
-	public void lepes()
+	public boolean lepes()
 	{
 		
 		boolean ellephet = aktjegtabla.ellep(this);
@@ -220,11 +221,14 @@ public abstract class Jatekos implements Frissitheto
 			else
 			{
 				Global.out.print("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
+				return false;
 			}
 		}
 		else {
 			Global.out.print("Nem sikerult az ellepes, mert a jegtabla at van fordulva. ");
+			return false;
 		}
+		return true;
 		
 	}
 	

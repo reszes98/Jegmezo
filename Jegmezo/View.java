@@ -32,6 +32,7 @@ public class View {
 	private JButton JobbraButton;
 	private JButton LepButton;
 	private JButton korvegeButton;
+	private JButton asasButton;
 	private JLabel testho;
 	private JLabel munka;
 	private List<Drawable> drawable=new ArrayList<Drawable>();
@@ -112,7 +113,8 @@ public class View {
 		LepButton.addActionListener(controller.new GombokActionListener());
 		korvegeButton=new JButton("Jöhet a következõ");
 		korvegeButton.addActionListener(controller.new GombokActionListener());
-		
+		asasButton=new JButton("Ásás");
+		asasButton.addActionListener(controller.new GombokActionListener());
 	}
 	
 	/**
@@ -133,6 +135,7 @@ public class View {
 		taskaPanel=new JPanel();
 		taskaPanel.setPreferredSize(new Dimension(150,500));
 		
+		iranyPanel.add(asasButton);
 		iranyPanel.add(FelveszButton);
 		iranyPanel.add(KepessegButton);
 		iranyPanel.add(JobbraButton);
@@ -176,7 +179,7 @@ public class View {
 	/**
 	 * @param idx jelenlegi játékoshoz tartozó táska
 	 */
-	public void setAktTaska(int idx) {
+	public void setAktTaska(int idx) {		
 		aktTaska=taskak.get(idx);
 	}
 	/**

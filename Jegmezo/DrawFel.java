@@ -20,7 +20,7 @@ public class DrawFel extends Drawable{
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(iranyImage, getPositionX(), getPositionY(), null);
+		g.drawImage(iranyImage, getPositionX()*80, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 

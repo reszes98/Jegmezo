@@ -32,7 +32,7 @@ public class DrawHo extends Drawable {
 	}
 	public void draw(Graphics g) 
 	{
-		g.drawImage(hoImage, getPositionX(), getPositionY(), null);
+		g.drawImage(hoImage, getPositionX()*80, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 

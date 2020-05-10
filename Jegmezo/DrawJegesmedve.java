@@ -29,7 +29,7 @@ public class DrawJegesmedve extends Drawable {
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(jegesmedveImage, getPositionX(), getPositionY(), null);
+		g.drawImage(jegesmedveImage, getPositionX()*80, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 

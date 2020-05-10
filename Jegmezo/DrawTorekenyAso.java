@@ -29,7 +29,7 @@ public class DrawTorekenyAso extends Drawable {
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(torekenyasoImage, getPositionX(), getPositionY(), null);
+		g.drawImage(torekenyasoImage, getPositionX()*80, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 

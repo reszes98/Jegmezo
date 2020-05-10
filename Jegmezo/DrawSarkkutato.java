@@ -29,7 +29,7 @@ public class DrawSarkkutato extends Drawable {
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(sarkkutatoImage, getPositionX(), getPositionY(), null);
+		g.drawImage(sarkkutatoImage, getPositionX()*80, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 

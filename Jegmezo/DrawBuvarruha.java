@@ -33,7 +33,7 @@ public class DrawBuvarruha extends Drawable {
 	}
 	public void draw(Graphics g) 
 	{
-		g.drawImage(buvarruhaImage, getPositionX(), getPositionY(), null);
+		g.drawImage(buvarruhaImage, getPositionX()*80, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 

@@ -12,7 +12,7 @@ public class Controller {
 	Menu menu;
 	private Jegmezo jegmezo;
 	private View view;
-	private Jatekos koronlevo;
+	private Osszerendeles koronlevo;
 	private int koronlevoIdx;
 	private ArrayList<Osszerendeles> jegtablak=new ArrayList<Osszerendeles>();
 	private int jegtablakDB;
@@ -97,7 +97,6 @@ public class Controller {
 			jatekosok.add(new Osszerendeles(de,e));
 			view.addDrawable(de);
 			view.AddTaska(new JComboBox<Object>());
-			jegmezo.addJatekos(e);
 		}
 		for(int i=0;i<sarkkutato;i++) {
 			Sarkkutato s=new Sarkkutato(jegmezo,4,5);
@@ -113,7 +112,7 @@ public class Controller {
 			jatekosok.add(new Osszerendeles(ds,s));
 			view.addDrawable(ds);
 			view.AddTaska(new JComboBox<Object>());
-			jegmezo.addJatekos(s);
+			
 		}
 		for(int i=0;i<jegesmedvedb;i++) {
 			Jegesmedve jm=new Jegesmedve(jegmezo,rand.nextBoolean());
@@ -130,11 +129,11 @@ public class Controller {
 			view.addDrawable(djm);
 			jegmezo.addFrissitheto(jm);
 		}
-		koronlevo=jegmezo.getJatekosok().get(0);
+		koronlevo=jatekosok.get(0);
 		koronlevoIdx=0;
 		view.setAktTaska(koronlevoIdx);
-		view.setTestho(koronlevo.getTestho());
-		view.setMunka(koronlevo.getMunkadb());
+		view.setTestho(((Jatekos)koronlevo.obj).getTestho());
+		view.setMunka(((Jatekos)koronlevo.obj).getMunkadb());
 		view.drawAll();
 	}
 	
@@ -142,11 +141,12 @@ public class Controller {
 	 * ha a játékosnak elfogytak a munkái vagy tovább adta a körét
 	 */
 	public void korLeptet() {
-		if(++koronlevoIdx>=jegmezo.GetJatekosSzam()-1) {
+		
+		if(++koronlevoIdx>=jegmezo.GetJatekosSzam()) {
 			koronlevoIdx=0;
 			ujKor();
 		}
-		koronlevo=jegmezo.getJatekosok().get(koronlevoIdx);
+		koronlevo=jatekosok.get(koronlevoIdx);
 		view.setAktTaska(koronlevoIdx);
 		view.drawAll();
 	}
@@ -209,11 +209,11 @@ public class Controller {
 			if (ae.getActionCommand().equals("Tárgy Használ")) {
 				Targy acttargy = (Targy) JCtaska.getSelectedItem();
 				if(acttargy!=null)
-					acttargy.hasznal(koronlevo);
+					acttargy.hasznal(((Jatekos)koronlevo.obj));
 			}
 			
 			if (ae.getActionCommand().equals("Felvesz")) {
-				koronlevo.targyFelvetel();
+				((Jatekos)koronlevo.obj).targyFelvetel();
 			}
 
 		}
@@ -222,23 +222,56 @@ public class Controller {
 	public class GombokActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent ae){
 			if (ae.getActionCommand().equals("Bal")) {
-				koronlevo.Fordul(false);
+				((Jatekos)koronlevo.obj).Fordul(false);
 			}
 			
 			if (ae.getActionCommand().equals("Jobb")) {
-				koronlevo.Fordul(true);
+				((Jatekos)koronlevo.obj).Fordul(true);
 			}
 			
-			if (ae.getActionCommand().equals("Lep")) {
-				koronlevo.lepes();
+			if (ae.getActionCommand().equals("Lép")) {
+				boolean siker=((Jatekos)koronlevo.obj).lepes();
+				if(siker) {
+					int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
+					Drawable dj=koronlevo.draw;
+					if(szog==0) {
+						dj.setPositionX(dj.getPositionX()+1);
+					}
+					else if(szog==90) {
+						dj.setPositionY(dj.getPositionY()-1);
+					}
+					else if(szog==180) {
+						dj.setPositionX(dj.getPositionX()-1);
+					}
+					else if(szog==270) {
+						dj.setPositionY(dj.getPositionY()+1);
+					}
+					view.drawAll();
+				}
 			}
 			
-			if (ae.getActionCommand().equals("Kepesseg Hasznal")) {
-				koronlevo.kepesseg();
+			if (ae.getActionCommand().equals("Képesseg Használ")) {
+				((Jatekos)koronlevo.obj).kepesseg();
 			}
 			
 			if (ae.getActionCommand().equals("Jöhet a következõ")) {
 				korLeptet();
+			}
+			if (ae.getActionCommand().equals("Ásás")) {
+				Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
+				if(!jt.getAtVanFordulva()) {
+						((Jatekos)koronlevo.obj).asas();
+					if(jt.getHo()<=0) {
+						for(int i=0;i<jegtablak.size();i++) {
+							if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
+								if(jegtablak.get(i).draw!=null) {
+									view.eltavolitDrawable(jegtablak.get(i).draw);
+									view.drawAll();
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}

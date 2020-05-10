@@ -141,7 +141,10 @@ public class Jegtabla implements Frissitheto
 	{
 			Global.out.print("A jegtablan "+jegesmedvek.size()+" jatekos all. ");
 			j.setjegtablaAminAll(this);
-			j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(0));
+			if(this.szomszedokSorszambolSzogge.get(0)!=null)
+				j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(0));
+			else
+				j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(2));
 			jegesmedvek.add(j);
 			Global.out.print("Jegesmedve siekresen hozzaadva a jegtablahoz. ");
 			Global.out.print("A jegtablan "+jegesmedvek.size()+" jatekos all. ");
@@ -222,8 +225,8 @@ public class Jegtabla implements Frissitheto
 	public void frissit()
 	{	
 		Global.out.print("A jegtabla tartokepessege: "+tartokepesseg+
-				" , a rajta levo jateksok szama: "+ jatekosok.size()+", a vedelme: "+
-				jegtablaVedelme.toString()+". ");
+				" , a rajta levo jateksok szama: "+ jatekosok.size()+", a vedelme: ");
+				//+jegtablaVedelme.toString()+". ");
 		if(jegtablaVedelme != null)
 			jegtablaVedelme.frissit();
 		
