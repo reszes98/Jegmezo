@@ -60,7 +60,7 @@ public class View {
 		setPanels();
 		frame=new JFrame("Jég-veled!");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
-	    frame.setPreferredSize(new Dimension(1200, 750));																						
+	    frame.setPreferredSize(new Dimension(940, 740));																						
 	    frame.setLocationRelativeTo(null);
 	    frame.setLayout(new BorderLayout());
 	    
@@ -129,7 +129,7 @@ public class View {
 					drawable.get(i).draw((Graphics2D)g);
 			}
 		};
-		jegmezoPanel.setPreferredSize(new Dimension(900,650));
+		jegmezoPanel.setPreferredSize(new Dimension(640,640));
 		iranyPanel=new JPanel();
 		iranyPanel.setPreferredSize(new Dimension(150,500));
 		taskaPanel=new JPanel();
