@@ -132,6 +132,7 @@ public class Controller {
 		}
 		koronlevo=jegmezo.getJatekosok().get(0);
 		koronlevoIdx=0;
+		view.setAktTaska(koronlevoIdx);
 		view.setTestho(koronlevo.getTestho());
 		view.setMunka(koronlevo.getMunkadb());
 		view.drawAll();
@@ -207,7 +208,8 @@ public class Controller {
 		public void actionPerformed(ActionEvent ae) {
 			if (ae.getActionCommand().equals("Tárgy Használ")) {
 				Targy acttargy = (Targy) JCtaska.getSelectedItem();
-				acttargy.hasznal(koronlevo);
+				if(acttargy!=null)
+					acttargy.hasznal(koronlevo);
 			}
 			
 			if (ae.getActionCommand().equals("Felvesz")) {

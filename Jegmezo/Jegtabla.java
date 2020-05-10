@@ -524,7 +524,7 @@ public class Jegtabla implements Frissitheto
 		szomszedokSorszambolSzogge.put(hanyadikSzomszed, melyikSzogbol);
 		szomszedokSzogbolSorszamma.put(melyikSzogbol, hanyadikSzomszed);
 		
-		szomszedokASorszamhoz.set(hanyadikSzomszed, j);
+		szomszedokASorszamhoz.add(hanyadikSzomszed, j);
 		
 		//(Jobb(0), Bal(1), Fel(2),Le(3))
 		/*switch(i) {
