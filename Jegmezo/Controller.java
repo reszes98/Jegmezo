@@ -62,12 +62,16 @@ public class Controller {
 				boolean atforditva=false;
 				if(tartokepesseg==0)atforditva=true;
 				int szomszedok=4;
-				if(i==0||i==tablakDB-1&&j==0||j==tablakDB-1) szomszedok=2;
-				if(i==0||i==tablakDB-1&&!(j==0||j==tablakDB-1)) szomszedok=3;
+				//if(i==0||i==tablakDB-1&&j==0||j==tablakDB-1) szomszedok=2;
+				//if(i==0||i==tablakDB-1&&!(j==0||j==tablakDB-1)) szomszedok=3;
 				
 				Jegtabla jt=new Jegtabla(jegmezo,atforditva,ho,tartokepesseg,szomszedok);
 				Osszerendeles uj=new Osszerendeles(dho, jt);
 				jegtablak.add(uj);
+				if(i==0)jt.setSzomszed(null, 1, 90);
+				if(i==tablakDB-1)jt.setSzomszed(null, 3, 270);
+				if(j==0)jt.setSzomszed(null, 2, 180);
+				if(j==tablakDB-1)jt.setSzomszed(null, 0, 0);
 				if(i!=0) { //minden alsó sor beállítja a felsõt szomszédnak
 					jt.setSzomszed((Jegtabla) jegtablak.get(jegtablak.size()-tablakDB-1).obj, 1, 90);
 					Jegtabla jegt=(Jegtabla)jegtablak.get(jegtablak.size()-tablakDB-1).obj;
@@ -87,7 +91,7 @@ public class Controller {
 			Eszkimo e=new Eszkimo(jegmezo,4,5);
 			int x=rand.nextInt(tablakDB);
 			int y=rand.nextInt(tablakDB);
-			while(((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getJatekosokSzama()!=0) {
+			while(((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getJatekosokSzama()!=0&&!((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getAtVanFordulva()) {
 				x=rand.nextInt(tablakDB);
 				y=rand.nextInt(tablakDB);
 			}
@@ -102,7 +106,7 @@ public class Controller {
 			Sarkkutato s=new Sarkkutato(jegmezo,4,5);
 			int x=rand.nextInt(tablakDB);
 			int y=rand.nextInt(tablakDB);
-			while(((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getJatekosokSzama()!=0) {
+			while(((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getJatekosokSzama()!=0&&!((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getAtVanFordulva()) {
 				x=rand.nextInt(tablakDB);
 				y=rand.nextInt(tablakDB);
 			}
@@ -230,10 +234,22 @@ public class Controller {
 			}
 			
 			if (ae.getActionCommand().equals("Lép")) {
+				System.out.println("\n szogamibe: "+((Jatekos)koronlevo.obj).getSzogAmibeNez());
 				boolean siker=((Jatekos)koronlevo.obj).lepes();
 				if(siker) {
 					int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
 					Drawable dj=koronlevo.draw;
+					Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
+					if(jt.getAtVanFordulva()){
+						for(int i=0;i<jegtablak.size();i++) {
+							if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
+								if(jegtablak.get(i).draw!=null) {
+									view.eltavolitDrawable(jegtablak.get(i).draw);
+								}
+								jegtablak.get(i).draw=new DrawViz();
+							}
+						}
+					}
 					if(szog==0) {
 						dj.setPositionX(dj.getPositionX()+1);
 					}
@@ -246,6 +262,7 @@ public class Controller {
 					else if(szog==270) {
 						dj.setPositionY(dj.getPositionY()+1);
 					}
+					view.setMunka(((Jatekos)koronlevo.obj).getMunkadb());
 					view.drawAll();
 				}
 			}

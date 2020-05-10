@@ -23,7 +23,7 @@ public class DrawViz extends Drawable {
 	{
 		try 
 		{
-			vizImage=ImageIO.read(new File("./Jegmezo/image/water.png"));
+			vizImage=ImageIO.read(new File("./Jegmezo/image/water1.png"));
 		} catch (IOException e) 
 		{
 			// TODO Auto-generated catch block
