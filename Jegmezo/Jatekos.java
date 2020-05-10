@@ -487,9 +487,6 @@ public abstract class Jatekos implements Frissitheto
 	
 	public void Fordul(boolean Jobbra)
 	{
-		if(Jobbra)
-			szogAmibeNez = aktjegtabla.adottSzogbeLevoSzomszedMellettiSzomszedSzoge(szogAmibeNez, Jobbra);
-		else
 			szogAmibeNez = aktjegtabla.adottSzogbeLevoSzomszedMellettiSzomszedSzoge(szogAmibeNez, Jobbra);
 	}
 	
