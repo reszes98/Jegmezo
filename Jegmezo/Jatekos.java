@@ -208,8 +208,10 @@ public abstract class Jatekos implements Frissitheto
 		Jegtabla szJegtabla = aktjegtabla.szomszedKerdez(szogAmibeNez);
 		if(szJegtabla != null ) {
 			ellephet = aktjegtabla.ellep(this);
-			Global.out.print("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
+			Global.out.print("Van szomszed ebbe az iranyban.");
 		}
+		else
+			Global.out.print("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
 		
 		if(ellephet)
 		{
@@ -491,7 +493,9 @@ public abstract class Jatekos implements Frissitheto
 	
 	public void Fordul(boolean Jobbra)
 	{
-			szogAmibeNez = aktjegtabla.adottSzogbeLevoSzomszedMellettiSzomszedSzoge(szogAmibeNez, Jobbra);
+		
+		szogAmibeNez = aktjegtabla.adottSzogbeLevoSzomszedMellettiSzomszedSzoge(szogAmibeNez, Jobbra);
+		
 	}
 	
 	

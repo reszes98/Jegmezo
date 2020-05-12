@@ -88,10 +88,9 @@ public class Jegmezo
 	 */
 	public void leptet()
 	{
-		while(!VegeAjateknak)
-		{
-			if(!elsoKor)
-			{
+		
+			//if(!elsoKor)
+			//{
 				Global.out.print("Uj kor kezdodott. ");
 				hoviharCnt--;
 				
@@ -106,21 +105,21 @@ public class Jegmezo
 						hoviharCnt = 4;
 					}
 				}
-			}
-			else
-				elsoKor = false;
+			//}
+			//else
+				//elsoKor = false;
 			
 			Global.out.print("Jegmezo: az ujabb hoviharig " + hoviharCnt + "db kor van hatra. ");
 			
-			for(int i = 0; i < jatekosok.size(); i++)
+			/*for(int i = 0; i < jatekosok.size(); i++)
 			{
 				if(VegeAjateknak)
 					break;
 				
 				jatekosok.get(i).KoreVan();
-			}
+			}*/
 		
-		}
+		
 	}
 	
 	/**

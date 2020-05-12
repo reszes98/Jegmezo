@@ -3,6 +3,7 @@ package Jegmezo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 import javax.swing.*;
@@ -49,49 +50,50 @@ public class Controller {
 		Random rand=new Random();
 		jegtablakDB=tablakDB;
 		
+		Jegtabla jgk[][] = new Jegtabla[jegtablakDB][jegtablakDB];
+
 		for(int i=0;i<tablakDB;i++) {
 			for(int j=0;j<tablakDB;j++) {
-				DrawJegtabla djt=new DrawJegtabla();
-				djt.setPosition(j, i);
-				view.addDrawable(djt);
-				DrawHo dho=new DrawHo();
-				dho.setPosition(j, i);
-				view.addDrawable(dho);
 				int tartokepesseg=rand.nextInt(eszkimodb+sarkkutato);
 				int ho=rand.nextInt(5)+1;
 				boolean atforditva=false;
 				if(tartokepesseg==0)atforditva=true;
 				int szomszedok=4;
-				//if(i==0||i==tablakDB-1&&j==0||j==tablakDB-1) szomszedok=2;
-				//if(i==0||i==tablakDB-1&&!(j==0||j==tablakDB-1)) szomszedok=3;
-				
 				Jegtabla jt=new Jegtabla(jegmezo,atforditva,ho,tartokepesseg,szomszedok);
-				Osszerendeles uj=new Osszerendeles(dho, jt);
-				jegtablak.add(uj);
-				if(i==0)jt.setSzomszed(null, 1, 90);
-				if(i==tablakDB-1)jt.setSzomszed(null, 3, 270);
-				if(j==0)jt.setSzomszed(null, 2, 180);
-				if(j==tablakDB-1)jt.setSzomszed(null, 0, 0);
-				if(i!=0) { //minden alsó sor beállítja a felsõt szomszédnak
-					Jegtabla jegt=(Jegtabla)jegtablak.get(jegtablak.size()-tablakDB-1).obj;
-					jt.setSzomszed(jegt, 1, 90);
-					jegt.setSzomszed(jt, 3, 270);
-				}
-				if(j!=0) {//minden jobb olsali oszlop beállítja a balt szomszédnak
-					Jegtabla jegt=(Jegtabla)jegtablak.get(jegtablak.size()-2).obj;
-					jegt.setSzomszed(jt, 0, 0);
-					jt.setSzomszed(jegt, 2, 180);
-				}
-				
-					
-				jegmezo.addFrissitheto(jt);
+				jgk[i][j] = jt;
 			}
 		}
+		
+		for(int i=0;i<tablakDB;i++) {
+			for(int j=0;j<tablakDB;j++) {
+				
+				Jegtabla sz0 = j + 1 < jegtablakDB? jgk[i][j + 1] : null;
+				Jegtabla sz1 = i - 1 >= 0? jgk[i - 1][j] : null;
+				Jegtabla sz2 = j - 1 >= 0? jgk[i][j - 1] : null;
+				Jegtabla sz3 = i + 1 < jegtablakDB? jgk[i + 1][j] : null;
+				jgk[i][j].setSzomszed(sz0,0, 0);
+				jgk[i][j].setSzomszed(sz1, 1,90);
+				jgk[i][j].setSzomszed(sz2,2,180);
+				jgk[i][j].setSzomszed(sz3, 3,270);
+
+				
+				DrawHo dho=new DrawHo();
+				dho.setPosition(j, i);
+				view.addDrawable(dho);
+				
+				Osszerendeles uj=new Osszerendeles(dho, jgk[i][j]);
+				jegtablak.add(uj);
+				
+
+				jegmezo.addFrissitheto(jgk[i][j]);
+			}
+		}
+		
 		for(int i=0;i<eszkimodb;i++) {
 			Eszkimo e=new Eszkimo(jegmezo,4,5);
 			int x=rand.nextInt(tablakDB);
 			int y=rand.nextInt(tablakDB);
-			while(((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getJatekosokSzama()!=0&&!((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getAtVanFordulva()) {
+			while(((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getJatekosokSzama()!=0||((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getAtVanFordulva()) {
 				x=rand.nextInt(tablakDB);
 				y=rand.nextInt(tablakDB);
 			}
@@ -106,7 +108,7 @@ public class Controller {
 			Sarkkutato s=new Sarkkutato(jegmezo,4,5);
 			int x=rand.nextInt(tablakDB);
 			int y=rand.nextInt(tablakDB);
-			while(((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getJatekosokSzama()!=0&&!((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getAtVanFordulva()) {
+			while(((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getJatekosokSzama()!=0||((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getAtVanFordulva()) {
 				x=rand.nextInt(tablakDB);
 				y=rand.nextInt(tablakDB);
 			}
@@ -119,7 +121,7 @@ public class Controller {
 			
 		}
 		for(int i=0;i<jegesmedvedb;i++) {
-			Jegesmedve jm=new Jegesmedve(jegmezo,rand.nextBoolean());
+			Jegesmedve jm=new Jegesmedve(jegmezo,true);
 			int x=rand.nextInt(tablakDB);
 			int y=rand.nextInt(tablakDB);
 			while(((Jegtabla)jegtablak.get(y*tablakDB+x).obj).getJatekosokSzama()!=0) {
@@ -131,7 +133,6 @@ public class Controller {
 			((Jegtabla)jegtablak.get(y*tablakDB+x).obj).addJegesmedve(jm);
 			jegesmedvek.add(new Osszerendeles(djm,jm));
 			view.addDrawable(djm);
-			jegmezo.addFrissitheto(jm);
 		}
 		koronlevo=jatekosok.get(0);
 		koronlevoIdx=0;
@@ -139,6 +140,7 @@ public class Controller {
 		view.setTestho(((Jatekos)koronlevo.obj).getTestho());
 		view.setMunka(((Jatekos)koronlevo.obj).getMunkadb());
 		view.drawAll();
+		
 	}
 	
 	/**
@@ -189,21 +191,15 @@ public class Controller {
 			Jegesmedve jm=(Jegesmedve)jegesmedvek.get(i).obj;
 			Drawable djm=jegesmedvek.get(i).draw;
 			if(jm.getLepett()) {
-				int szog=jm.getSzog();
-				if(szog==0) {
-					djm.setPositionX(djm.getPositionX()+1);
-				}
-				else if(szog==90) {
-					djm.setPositionY(djm.getPositionY()-1);
-				}
-				else if(szog==180) {
-					djm.setPositionX(djm.getPositionX()-1);
-				}
-				else if(szog==270) {
-					djm.setPositionY(djm.getPositionY()+1);
+				for(int j=0;j<jegtablak.size();j++) {
+					if(((Jegtabla)jegtablak.get(j).obj).equals(jm.getJegtabla())) {
+						
+						djm.setPosition(jegtablak.get(j).draw.getPositionX(), jegtablak.get(j).draw.getPositionY());
+					}
 				}
 			}
 		}
+		view.drawAll();
 	}
 	
 	public class TargyActionListener implements ActionListener {
@@ -232,42 +228,36 @@ public class Controller {
 			}
 			
 			if (ae.getActionCommand().equals("Jobb")) {
+
 				((Jatekos)koronlevo.obj).Fordul(true);
 			}
 			
 			if (ae.getActionCommand().equals("Lép")) {
 				int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
-				
 				boolean siker=((Jatekos)koronlevo.obj).lepes();
 				if(siker) {
 					
-					System.out.println("/n jatekos szoge: "+szog);
 					Drawable dj=koronlevo.draw;
+					
 					Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
-					if(jt.getAtVanFordulva()){
-						for(int i=0;i<jegtablak.size();i++) {
-							if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
+					
+					for(int i=0;i<jegtablak.size();i++) {
+						if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
+							dj.setPosition(jegtablak.get(i).draw.getPositionX(), jegtablak.get(i).draw.getPositionY());
+							if(jt.getAtVanFordulva()){
+								DrawViz dv=new DrawViz();
 								if(jegtablak.get(i).draw!=null) {
+									dv.setPosition(koronlevo.draw.getPositionX(), koronlevo.draw.getPositionY());
 									view.eltavolitDrawable(jegtablak.get(i).draw);
 								}
-								jegtablak.get(i).draw=new DrawViz();
+								
+								jegtablak.get(i).draw=dv;
+								view.addDrawable(dv);
 							}
 						}
 					}
-					if(szog==0) {
-						dj.setPositionX(dj.getPositionX()+1);
-					}
-					else if(szog==90) {
-						System.out.println(dj.getPositionY()-1);
-						dj.setPositionY(dj.getPositionY()-1);
-						System.out.println(dj.getPositionY()-1);
-					}
-					else if(szog==180) {
-						dj.setPositionX(dj.getPositionX()-1);
-					}
-					else if(szog==270) {
-						dj.setPositionY(dj.getPositionY()+1);
-					}
+					
+					
 					view.setMunka(((Jatekos)koronlevo.obj).getMunkadb());
 					view.drawAll();
 				}
@@ -276,7 +266,7 @@ public class Controller {
 			if (ae.getActionCommand().equals("Képesseg Használ")) {
 				((Jatekos)koronlevo.obj).kepesseg();
 			}
-			
+
 			if (ae.getActionCommand().equals("Jöhet a következõ")) {
 				korLeptet();
 			}
@@ -284,16 +274,21 @@ public class Controller {
 				Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
 				if(!jt.getAtVanFordulva()) {
 						((Jatekos)koronlevo.obj).asas();
+						view.setMunka(((Jatekos)koronlevo.obj).getMunkadb());
 					if(jt.getHo()<=0) {
 						for(int i=0;i<jegtablak.size();i++) {
 							if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
 								if(jegtablak.get(i).draw!=null) {
 									view.eltavolitDrawable(jegtablak.get(i).draw);
-									view.drawAll();
 								}
+								DrawJegtabla djt=new DrawJegtabla();
+								djt.setPosition(koronlevo.draw.getPositionX(), koronlevo.draw.getPositionY());
+								jegtablak.get(i).draw=djt;
+								view.addDrawable(djt);
 							}
 						}
 					}
+					view.drawAll();
 				}
 			}
 		}

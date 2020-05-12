@@ -55,8 +55,8 @@ public class Jegesmedve implements Frissitheto{
 		if(randomMegy)
 		{
 			
-			//Random r = new Random();
-			
+			Random r = new Random();
+			szogAmibeNez=r.nextInt(4)*90;
 			//int intErtek = r.nextInt(4);
 			/*Irany ujIranyAmibeNez = Irany.IranyIntErtekAlapjan(intErtek);
 			iranyAmibeNez = ujIranyAmibeNez;*/ // ÚJ
@@ -64,7 +64,7 @@ public class Jegesmedve implements Frissitheto{
 		
 		
 		Jegtabla sz = jegtablaAminAll.szomszedKerdez(szogAmibeNez);
-		Global.out.print("A jegesmedve "+sz+" iranyba nez. ");
+		Global.out.print("A jegesmedve "+szogAmibeNez+" iranyba nez. ");
 
 		if(sz != null)
 		{
@@ -72,7 +72,7 @@ public class Jegesmedve implements Frissitheto{
 			jegtablaAminAll.JegesmedveEltavolit(this);
 			sz.addJegesmedve(this);
 			jegtablaAminAll=sz;
-			Global.out.print("A jegesmedve "+sz+" iranyba nez. ");
+			Global.out.print("A jegesmedve "+szogAmibeNez+" iranyba nez. ");
 			lepett=true;
 		}
 		else
@@ -151,5 +151,10 @@ public class Jegesmedve implements Frissitheto{
 	public int getSzog()
 	{
 		return szogAmibeNez;
+	}
+	public Jegtabla getJegtabla()
+	{
+		return jegtablaAminAll;
+		
 	}
 }
