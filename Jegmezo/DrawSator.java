@@ -29,7 +29,7 @@ public class DrawSator extends Drawable {
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(satorImage, getPositionX()*80, getPositionY()*80, null);
+		g.drawImage(satorImage, getPositionX()*80+40, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 

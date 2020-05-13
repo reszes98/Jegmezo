@@ -51,15 +51,16 @@ public class Buvarruha implements Targy
 		int szog = j.getSzogAmibeNez();
 		Jegtabla jt = j.JegtablaLekerdez();
 		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
-		List<Jatekos> kihuz=szJegtabla.jatekosokLekerdez();
+		//List<Jatekos> kihuz=szJegtabla.jatekosokLekerdez();
 		
 		Global.out.print("Ez egy buvarruha. ");
 		
-		int szogvissza=j.getSzogAmibeNez()-180;
-		if (szogvissza<0) szogvissza+=360;
+		//int szogvissza=j.getSzogAmibeNez()-180;
+		//if (szogvissza<0) szogvissza+=360;
 		boolean sikeres =false;
-		for(int i=0;i<kihuz.size();i++)
-			sikeres = kihuz.get(i).athelyez(szogvissza);
+		
+		sikeres=j.athelyez(szog);
+		//sikeres = kihuz.get(i).athelyez(szogvissza);
 		
 		
 		if(sikeres)

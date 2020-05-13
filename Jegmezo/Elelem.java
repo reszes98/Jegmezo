@@ -54,13 +54,15 @@ public class Elelem implements Targy
 		if(sikeres) 
 		{
 			Global.out.print("Elelem sikeresen hasznalva. ");
+			
 			j.targyEltavolitasa(this);
+			return true;
 		}
 		else
 			Global.out.print("Nem sikerult hasznalni az elelmet. ");
 		
 		
-		return sikeres;
+		return false;
 	}
 	
 	/**

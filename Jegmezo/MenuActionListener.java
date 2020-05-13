@@ -46,11 +46,13 @@ public class MenuActionListener implements ActionListener{
 			if(osszeg > 2 && osszeg < 6) {
 				Controller cont = new Controller (this.menu);
 				cont.palyaLetrehoz(enumb, snumb, 8, 1);
+				jf.setVisible(false);
 			} 
 			
 			if(osszeg > 5 && osszeg < 11) {
 				Controller cont = new Controller (this.menu);
 				cont.palyaLetrehoz(enumb, snumb, 8, 1);
+				jf.setVisible(false);
 			} 
 		}
 		

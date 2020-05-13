@@ -62,15 +62,16 @@ public abstract class Jatekos implements Frissitheto
 	public void asas()
 	{
 		
-		
-		boolean sikeres = aktjegtabla.asas(1);
-		if(sikeres)
-		{
-			this.MunkaDBcsokkentese(1);
-			Global.out.print("Asas sikeresen elvegezve. ");
+		if(Munkadb>0) {
+			boolean sikeres = aktjegtabla.asas(1);
+			if(sikeres)
+			{
+				this.MunkaDBcsokkentese(1);
+				Global.out.print("Asas sikeresen elvegezve. ");
+			}
+			else
+				Global.out.print("Asas nem sikerult. ");
 		}
-		else
-			Global.out.print("Asas nem sikerult. ");
 		
 	}
 	
@@ -293,7 +294,7 @@ public abstract class Jatekos implements Frissitheto
 	/**
 	 * Megpróbálja felvenni a tárgyat a jégtábláról, amin áll
 	 */
-	public void targyFelvetel()
+	public boolean targyFelvetel()
 	{
 		Global.out.print(" A jatekos MunkaDB-ja: "+Munkadb+". ");
 		boolean sikeres =false;
@@ -307,6 +308,7 @@ public abstract class Jatekos implements Frissitheto
 		else
 			Global.out.print("A targyfelvetel nem sikerult");
 		Global.out.print(" A jatekos MunkaDB-ja: "+Munkadb+". ");
+		return sikeres;
 	}
 	
 	
@@ -314,7 +316,7 @@ public abstract class Jatekos implements Frissitheto
 	 * Meghívja a megadott indexû tárgyra a használ függvényt
 	 * @param idx - annak a Tárgynak az indexe, amit használni akarunk
 	 */
-	public void targyHasznalat(int idx)
+	public boolean targyHasznalat(int idx)
 	{
 		Global.out.print("A jatekosnak MunkaDB-ja: "+Munkadb+". ");
 		if(targyak != null && Munkadb>0)
@@ -322,10 +324,12 @@ public abstract class Jatekos implements Frissitheto
 			if(targyak.size() > idx)
 			{
 				boolean sikeres = targyak.get(idx).hasznal(this);
+				if(sikeres)System.out.println("igen");
 				if(sikeres)
 				{
 					Global.out.print("A targyhasznalat sikerult. ");
-					this.MunkaDBcsokkentese(1);
+					Munkadb--;
+					return true;
 				}
 				else 
 					Global.out.print("A targy hasznalat nem sikerult. ");
@@ -340,6 +344,7 @@ public abstract class Jatekos implements Frissitheto
 			Global.out.print("A targy hasznalat nem sikerult, mert nincsenek targyai a jatekosnak, vagy nincs eleg munkaDB-ja. ");
 		}
 		Global.out.print("A jatekosnak MunkaDB-ja: "+Munkadb+". ");
+		return false;
 			
 	}
 	

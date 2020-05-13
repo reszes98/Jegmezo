@@ -36,6 +36,10 @@ public class View {
 	private JLabel testho;
 	private JLabel munka;
 	private List<Drawable> drawable=new ArrayList<Drawable>();
+	private List<Drawable> drawjatekos=new ArrayList<Drawable>();
+	private List<Drawable> drawmaci=new ArrayList<Drawable>();
+	private List<Drawable> drawtargy=new ArrayList<Drawable>();
+	private List<Drawable> drawvedelem=new ArrayList<Drawable>();
 	private Controller controller;
 	Menu menu;
 	/**
@@ -127,6 +131,14 @@ public class View {
 			public void paintComponent(Graphics g) {
 				for(int i=0;i<drawable.size();i++)
 					drawable.get(i).draw((Graphics2D)g);
+				for(int i=0;i<drawtargy.size();i++)
+					drawtargy.get(i).draw((Graphics2D)g);
+				for(int i=0;i<drawvedelem.size();i++)
+					drawvedelem.get(i).draw((Graphics2D)g);
+				for(int i=0;i<drawmaci.size();i++)
+					drawmaci.get(i).draw((Graphics2D)g);
+				for(int i=0;i<drawjatekos.size();i++)
+					drawjatekos.get(i).draw((Graphics2D)g);
 			}
 		};
 		jegmezoPanel.setPreferredSize(new Dimension(640,640));
@@ -179,8 +191,10 @@ public class View {
 	/**
 	 * @param idx jelenlegi játékoshoz tartozó táska
 	 */
-	public void setAktTaska(int idx) {		
+	public void setAktTaska(int idx) {	
+		taskaPanel.remove(aktTaska);
 		aktTaska=taskak.get(idx);
+		taskaPanel.add(aktTaska);
 	}
 	/**
 	 * @return jelenleg beállított táska
@@ -200,6 +214,25 @@ public class View {
 	 */
 	public void eltavolitDrawable(Drawable d) {
 		drawable.remove(d);
+	}
+	
+	public void addDrawableJatekos(Drawable d) {
+		drawjatekos.add(d);
+	}
+	public void addDrawableMaci(Drawable d) {
+		drawmaci.add(d);
+	}
+	public void addDrawableTargy(Drawable d) {
+		drawtargy.add(d);
+	}
+	public void eltavolitDrawableTargy(Drawable d) {
+		drawtargy.remove(d);
+	}
+	public void addDrawableVedelem(Drawable d) {
+		drawvedelem.add(d);
+	}
+	public void eltavolitDrawableVedelem(Drawable d) {
+		drawvedelem.remove(d);
 	}
 	
 	/**

@@ -58,17 +58,18 @@ public class Sator extends Vedelem implements Targy{
 	 */
 	public boolean hasznal(Jatekos j) {
 		
-		int szog =  j.getSzogAmibeNez();
+		//int szog =  j.getSzogAmibeNez();
 		Jegtabla jt = j.JegtablaLekerdez();
-		Jegtabla sz = jt.szomszedKerdez(szog);
-		Global.out.print("A jatekos "+szog+"-be nez. ");
+		//Jegtabla sz = jt.szomszedKerdez(szog);
+		//Global.out.print("A jatekos "+szog+"-be nez. ");
 		
-		if(sz != null)
+		if(jt != null)
 		{
 			
-			sz.setjegtablaVedelme(this);
+			jt.setjegtablaVedelme(this);
 			Global.out.print("Sator sikeresen felallitva. ");
 			j.targyEltavolitasa(this);
+			
 			return true;
 		}
 		else
