@@ -69,7 +69,7 @@ public class Sator extends Vedelem implements Targy{
 			jt.setjegtablaVedelme(this);
 			Global.out.print("Sator sikeresen felallitva. ");
 			j.targyEltavolitasa(this);
-			
+			 
 			return true;
 		}
 		else

@@ -42,7 +42,7 @@ public class Eszkimo extends Jatekos
 	public void kepesseg()
 	{
 		Global.out.print("A jatekos MunkaDB-ja: "+Munkadb+". ");
-		if (Munkadb>0) {
+		if (Munkadb>0&&!aktjegtabla.getAtVanFordulva()) {
 			Iglu i = new Iglu();
 			
 			aktjegtabla.setjegtablaVedelme(i);

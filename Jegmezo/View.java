@@ -36,6 +36,7 @@ public class View {
 	private JLabel testho;
 	private JLabel munka;
 	private JLabel tartokepesseg;
+	private JLabel hovihar;
 	private List<Drawable> drawable=new ArrayList<Drawable>();
 	private List<Drawable> drawjatekos=new ArrayList<Drawable>();
 	private List<Drawable> drawmaci=new ArrayList<Drawable>();
@@ -63,11 +64,12 @@ public class View {
 		munka.setText("Játékos munkái:");
 		testho.setText("Játékos testhõje:");
 		tartokepesseg=new JLabel();
+		hovihar=new JLabel();
 		setButtons();
 		setPanels();
 		frame=new JFrame("Jég-veled!");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
-	    frame.setPreferredSize(new Dimension(940, 740));																						
+	    frame.setPreferredSize(new Dimension(940, 700));																						
 	    frame.setLocationRelativeTo(null);
 	    frame.setLayout(new BorderLayout());
 	    
@@ -129,7 +131,7 @@ public class View {
 	 */
 	public void setPanels() {
 		jatekPanel=new JPanel();
-		jatekPanel.setPreferredSize(new Dimension(900,100));
+		jatekPanel.setPreferredSize(new Dimension(900,50));
 		jegmezoPanel=new JPanel() {
 			public void paintComponent(Graphics g) {
 				for(int i=0;i<drawable.size();i++)
@@ -166,6 +168,7 @@ public class View {
 		
 		jatekPanel.add(testho);
 		jatekPanel.add(munka);
+		jatekPanel.add(hovihar);
 		jatekPanel.add(tartokepesseg);
 		
 	}
@@ -234,6 +237,9 @@ public class View {
 	public void eltavolitDrawableTargy(Drawable d) {
 		drawtargy.remove(d);
 	}
+	public void eltavolitDrawableTargyAll() {
+		drawtargy.clear();
+	}
 	public void addDrawableVedelem(Drawable d) {
 		drawvedelem.add(d);
 	}
@@ -264,7 +270,10 @@ public class View {
 	}
 	
 	public void setTartokepesseg(int n) {
-		tartokepesseg.setText("Tábla tartóképessége: "+n);
+		tartokepesseg.setText("\n Tábla tartóképessége: "+n);
+	}
+	public void setHovihar(int n) {
+		hovihar.setText("\n Hóviharig még: "+n+" kör van hátra.");
 	}
 	
 }

@@ -47,7 +47,7 @@ public class Kotel implements Targy
 	public boolean hasznal(Jatekos j) {
 		Global.out.print("Ez egy kotel. ");
 		
-		int szog = j.getSzogAmibeNez();
+		int szog = j.getSzogAmibeNez(); 
 		Jegtabla jt = j.JegtablaLekerdez();
 		
 		
@@ -60,20 +60,22 @@ public class Kotel implements Targy
 					" jatekos all. A szomszedos jegtablan: "+ szJegtabla.getJatekosokSzama()+
 					" jatekos all. ");
 			List<Jatekos> jatekos = szJegtabla.jatekosokLekerdez();
-			for(int jsz = 0; jsz < jatekos.size(); jsz++) {
-				jatekos.get(jsz).athelyez(SzogKezelo.szogTukrozveAzOrigora(szog));
+			if(jatekos.size()!=0) {
+				for(int jsz = 0; jsz < jatekos.size(); jsz++) {
+					jatekos.get(jsz).athelyez(SzogKezelo.szogTukrozveAzOrigora(szog));
+				}
+				Global.out.print("A kotel hasznalata siekres. A jegtablajan "+
+						jt.getJatekosokSzama()+
+						" jatekos all. A szomszedos jegtablan: "+ szJegtabla.getJatekosokSzama()+
+						" jatekos all. ");
+				return true;
 			}
-			Global.out.print("A kotel hasznalata siekres. A jegtablajan "+
-					jt.getJatekosokSzama()+
-					" jatekos all. A szomszedos jegtablan: "+ szJegtabla.getJatekosokSzama()+
-					" jatekos all. ");
-			return true;
 		}
 		else {
 			Global.out.print(" Nem letezik a szomszed, ezert nem lehet jatekosokat athuzni rola. ");
 			return false;
 		}
-	
+		return false;
 		
 	}
 	

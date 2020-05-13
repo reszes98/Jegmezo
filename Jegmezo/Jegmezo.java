@@ -102,9 +102,11 @@ public class Jegmezo
 					{
 						
 						frissithetok.get(i).hovihar();
-						hoviharCnt = 4;
-					}
+						
+					} 
 				}
+				Random r=new Random();
+				if(hoviharCnt==0)hoviharCnt = r.nextInt(5)+1;
 			//}
 			//else
 				//elsoKor = false;

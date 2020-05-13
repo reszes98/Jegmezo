@@ -285,7 +285,7 @@ public class Jegtabla implements Frissitheto
 		if(jegtablaVedelme==null)
 		{
 			
-			this.hoNovelese();
+			this.hoNovelese(); 
 		}
 		else {
 			jegtablaVedelme.hovihar();
@@ -445,6 +445,7 @@ public class Jegtabla implements Frissitheto
 				{
 					Global.out.print("A jegtablarol valo targy felvetel sikeres volt. ");
 					targy = null; // töröljük a tárgyat a tábláról
+					
 				}
 				
 				else 

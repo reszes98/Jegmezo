@@ -144,7 +144,8 @@ public abstract class Jatekos implements Frissitheto
 			Global.out.print("A hovihar lezajlott, a jatekos megmenekult a hovihar elol. ");
 			v.hovihar();
 		}
-		if(v == null) {
+		else {
+			System.out.println("\n mukodik");
 			Global.out.print("A hovihar lezajlott, a jatekos testhoje csokkent egyet. ");
 			fazas(1);
 		}
@@ -205,38 +206,40 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public boolean lepes()
 	{
-		boolean ellephet=false;
-		Jegtabla szJegtabla = aktjegtabla.szomszedKerdez(szogAmibeNez);
-		if(szJegtabla != null ) {
-			ellephet = aktjegtabla.ellep(this);
-			Global.out.print("Van szomszed ebbe az iranyban.");
-		}
-		else
-			Global.out.print("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
-		
-		if(ellephet)
-		{
-			
-			String atfordulva=aktjegtabla.getAtVanFordulva() ? "at van fordulva" : "nincs atfordulva";
-			Global.out.print("A jegtabla "+atfordulva+" .");
-			if(szJegtabla != null )
-			{
-				szJegtabla.ralep(this);
-				Global.out.print("Sikerult az ellepes. ");
-				MunkaDBcsokkentese(1);
+		if(Munkadb>0) {
+				boolean ellephet=false;
+				Jegtabla szJegtabla = aktjegtabla.szomszedKerdez(szogAmibeNez);
+				if(szJegtabla != null ) {
+					ellephet = aktjegtabla.ellep(this);
+					Global.out.print("Van szomszed ebbe az iranyban.");
+				}
+				else
+					Global.out.print("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
+				
+				if(ellephet)
+				{
+					
+					String atfordulva=aktjegtabla.getAtVanFordulva() ? "at van fordulva" : "nincs atfordulva";
+					Global.out.print("A jegtabla "+atfordulva+" .");
+					if(szJegtabla != null )
+					{
+						szJegtabla.ralep(this);
+						Global.out.print("Sikerult az ellepes. ");
+						MunkaDBcsokkentese(1);
+						return true;
+					}
+					else
+					{
+						Global.out.print("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
+						return false;
+					}
+				}
+				else {
+					Global.out.print("Nem sikerult az ellepes, mert a jegtabla at van fordulva. ");
+					return false;
+				}
 			}
-			else
-			{
-				Global.out.print("Nem sikerult az ellepes, mert ebbe az iranyba nincs jegtabla");
-				return false;
-			}
-		}
-		else {
-			Global.out.print("Nem sikerult az ellepes, mert a jegtabla at van fordulva. ");
-			return false;
-		}
-		return true;
-		
+		return false;
 	}
 	
 	
