@@ -516,4 +516,5 @@ public abstract class Jatekos implements Frissitheto
 	{
 		return targyak;
 	}
+	
 }

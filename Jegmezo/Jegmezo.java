@@ -209,4 +209,7 @@ public class Jegmezo
 	public List<Jatekos> getJatekosok(){
 		return jatekosok;
 	}
+	public boolean getJatekvege(){
+		return VegeAjateknak;
+	}
 }

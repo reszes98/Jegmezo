@@ -281,6 +281,15 @@ public class Controller {
 		
 		koronlevo=jatekosok.get(0);
 		koronlevoIdx=0;
+		
+		int szog=((Jatekos)koronlevo.obj).szogAmibeNez;
+		Drawable irany=null;
+		if(szog==0) irany=new DrawJobb();
+		if(szog==90) irany=new DrawFel();
+		if(szog==180) irany=new DrawBal();
+		if(szog==270) irany=new DrawLe();
+		irany.setPosition(koronlevo.draw.getPositionX(), koronlevo.draw.getPositionY());
+		view.addDrawableIrany(irany);
 		view.setAktTaska(koronlevoIdx);
 		view.setTestho(((Jatekos)koronlevo.obj).getTestho());
 		view.setMunka(((Jatekos)koronlevo.obj).getMunkadb());
@@ -297,7 +306,17 @@ public class Controller {
 			koronlevoIdx=0;
 			ujKor();
 		}
+		
 		koronlevo=jatekosok.get(koronlevoIdx);
+		view.eltavolitDrawableIrany();
+		int szog=((Jatekos)koronlevo.obj).szogAmibeNez;
+		Drawable dirany=null;
+		if(szog==0) dirany=new DrawJobb();
+		if(szog==90) dirany=new DrawFel();
+		if(szog==180) dirany=new DrawBal();
+		if(szog==270) dirany=new DrawLe();
+		dirany.setPosition(koronlevo.draw.getPositionX(), koronlevo.draw.getPositionY());
+		view.addDrawableIrany(dirany);
 		view.setAktTaska(koronlevoIdx);
 		view.setMunka(((Jatekos)koronlevo.obj).getMunkadb());
 		view.setTestho(((Jatekos)koronlevo.obj).getTestho());
@@ -345,6 +364,7 @@ public class Controller {
 			}
 		}
 		view.drawAll();
+		if(jegmezo.getJatekvege()) view.gameLost();
 	}
 	
 	public class TargyActionListener implements ActionListener {
@@ -508,11 +528,31 @@ public class Controller {
 		public void actionPerformed(ActionEvent ae){
 			if (ae.getActionCommand().equals("Bal")) {
 				((Jatekos)koronlevo.obj).Fordul(false);
+				view.eltavolitDrawableIrany();
+				int szog=((Jatekos)koronlevo.obj).szogAmibeNez;
+				Drawable irany=null;
+				if(szog==0) irany=new DrawJobb();
+				if(szog==90) irany=new DrawFel();
+				if(szog==180) irany=new DrawBal();
+				if(szog==270) irany=new DrawLe();
+				irany.setPosition(koronlevo.draw.getPositionX(), koronlevo.draw.getPositionY());
+				view.addDrawableIrany(irany);
+				view.drawAll();
 			}
 			
 			if (ae.getActionCommand().equals("Jobb")) {
 
 				((Jatekos)koronlevo.obj).Fordul(true);
+				view.eltavolitDrawableIrany();
+				int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
+				Drawable irany=null;
+				if(szog==0) irany=new DrawJobb();
+				if(szog==90) irany=new DrawFel();
+				if(szog==180) irany=new DrawBal();
+				if(szog==270) irany=new DrawLe();
+				irany.setPosition(koronlevo.draw.getPositionX(), koronlevo.draw.getPositionY());
+				view.addDrawableIrany(irany);
+				view.drawAll();
 			}
 			
 			if (ae.getActionCommand().equals("Lép")) {
@@ -546,8 +586,26 @@ public class Controller {
 				}
 			}
 			
-			if (ae.getActionCommand().equals("Képesseg Használ")) {
+			if (ae.getActionCommand().equals("Képesség Használ")) {
+				System.out.println("beleptem");
 				((Jatekos)koronlevo.obj).kepesseg();
+				Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
+				if(((Jatekos)koronlevo.obj).toString().equals("Eszkimo")) {
+					for(int i=0;i<jegtablak.size();i++) {
+						if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
+							DrawIglu di=new DrawIglu();
+							di.setPosition(jegtablak.get(i).draw.getPositionX(), jegtablak.get(i).draw.getPositionY());
+							view.addDrawableVedelem(di);
+						}
+					}
+				}
+				if(((Jatekos)koronlevo.obj).toString().equals("Sarkkutato")) {
+					int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
+					Jegtabla jsz=jt.szomszedKerdez(szog);
+					int tartokepesseg=jsz.gettartokepesseg();
+					view.setTartokepesseg(tartokepesseg);
+				}
+				view.drawAll();
 			}
 
 			if (ae.getActionCommand().equals("Jöhet a következõ")) {

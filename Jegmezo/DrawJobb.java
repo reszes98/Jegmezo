@@ -20,7 +20,7 @@ public class DrawJobb extends Drawable{
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(iranyImage,getPositionX()*80, getPositionY()*80, null);
+		g.drawImage(iranyImage,getPositionX()*80+40, getPositionY()*80+25, null);
 	}
 	
 	public void setPosition(int px, int py) 

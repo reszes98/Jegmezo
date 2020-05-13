@@ -12,7 +12,7 @@ public class DrawFel extends Drawable{
 	public DrawFel() 
 	{
 		try {
-			iranyImage=ImageIO.read(new File("./Jegmezo/image/arrow.png"));
+			iranyImage=ImageIO.read(new File("./Jegmezo/image/arrup.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -20,7 +20,7 @@ public class DrawFel extends Drawable{
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(iranyImage, getPositionX()*80, getPositionY()*80, null);
+		g.drawImage(iranyImage, getPositionX()*80+25, getPositionY()*80, null);
 	}
 	
 	public void setPosition(int px, int py) 
