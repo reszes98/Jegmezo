@@ -65,12 +65,13 @@ public class Sator extends Vedelem implements Targy{
 		
 		if(jt != null)
 		{
-			
-			jt.setjegtablaVedelme(this);
-			Global.out.print("Sator sikeresen felallitva. ");
-			j.targyEltavolitasa(this);
-			 
-			return true;
+			if(jt.getjegtablaVedelme()==null) {
+				jt.setjegtablaVedelme(this);
+				Global.out.print("Sator sikeresen felallitva. ");
+				j.targyEltavolitasa(this);
+				 
+				return true;
+			}
 		}
 		else
 		{
@@ -79,7 +80,7 @@ public class Sator extends Vedelem implements Targy{
 			return false;
 		}
 		
-		
+		return false;
 	}
 	
 	

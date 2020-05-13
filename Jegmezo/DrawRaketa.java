@@ -31,7 +31,7 @@ public class DrawRaketa extends Drawable {
 	}
 	public void draw(Graphics g) {
 		
-		g.drawImage(raketaImage, getPositionX()*80+40, getPositionY()*80, null);
+		g.drawImage(raketaImage, getPositionX()*80, getPositionY()*80+40, null);
 	}
 	
 	public void setPosition(int px, int py) 

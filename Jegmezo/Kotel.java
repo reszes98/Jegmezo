@@ -50,10 +50,7 @@ public class Kotel implements Targy
 		int szog = j.getSzogAmibeNez(); 
 		Jegtabla jt = j.JegtablaLekerdez();
 		
-		
 		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
-		
-		
 		
 		if(szJegtabla != null) {
 			Global.out.print("A Jatekos "+ szog+"-be nez. A jegtablajan "+jt.getJatekosokSzama()+
@@ -61,9 +58,12 @@ public class Kotel implements Targy
 					" jatekos all. ");
 			List<Jatekos> jatekos = szJegtabla.jatekosokLekerdez();
 			if(jatekos.size()!=0) {
+				
 				for(int jsz = 0; jsz < jatekos.size(); jsz++) {
 					jatekos.get(jsz).athelyez(SzogKezelo.szogTukrozveAzOrigora(szog));
 				}
+				while(szJegtabla.jatekosokLekerdez().size()!=0)
+					szJegtabla.jatekosokLekerdez().get(0).athelyez(SzogKezelo.szogTukrozveAzOrigora(szog));
 				Global.out.print("A kotel hasznalata siekres. A jegtablajan "+
 						jt.getJatekosokSzama()+
 						" jatekos all. A szomszedos jegtablan: "+ szJegtabla.getJatekosokSzama()+

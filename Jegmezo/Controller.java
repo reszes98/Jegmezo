@@ -22,6 +22,7 @@ public class Controller {
 	private ArrayList<Osszerendeles> satrak=new ArrayList<Osszerendeles>();
 	private ArrayList<Osszerendeles> jatekosok=new ArrayList<Osszerendeles>();
 	private ArrayList<Osszerendeles> targyak=new ArrayList<Osszerendeles>();
+	private ArrayList<Osszerendeles> igluk=new ArrayList<Osszerendeles>();
 	
 	/**
 	 * drawable objektum összerendelése a tényleges objektummal
@@ -57,7 +58,7 @@ public class Controller {
 		for(int i=0;i<tablakDB;i++) {
 			for(int j=0;j<tablakDB;j++) {
 				int tartokepesseg=rand.nextInt(eszkimodb+sarkkutato+1);
-				if(lyuk>10)
+				if(lyuk>0)
 					while(tartokepesseg==0)
 						tartokepesseg=rand.nextInt(eszkimodb+sarkkutato+2);
 				if(tartokepesseg==0)lyuk++;
@@ -91,7 +92,6 @@ public class Controller {
 				jegtablak.add(uj);
 				
 
-				jegmezo.addFrissitheto(jgk[i][j]);
 			}
 		}
 		
@@ -181,7 +181,7 @@ public class Controller {
 		targyak.add(jpossz2);
 		
 		//búvárruhák
-		for(int i=0;i<5;i++) {
+		for(int i=0;i<8;i++) {
 			Buvarruha br=new Buvarruha();
 			DrawBuvarruha dbr=new DrawBuvarruha();
 			x=rand.nextInt(tablakDB);
@@ -197,7 +197,7 @@ public class Controller {
 		}
 		
 	 //élelem
-		for(int i=0;i<20;i++) {
+		for(int i=0;i<15;i++) {
 			Elelem el=new Elelem(1);
 			DrawElelem del=new DrawElelem();
 			x=rand.nextInt(tablakDB);
@@ -245,8 +245,8 @@ public class Controller {
 		}
 		
 		//sator
-		for(int i=0;i<7;i++) {
-			Sator s=new Sator(rand.nextInt(5)+1);
+		for(int i=0;i<6;i++) {
+			Sator s=new Sator(1);
 			DrawSator ds=new DrawSator();
 			x=rand.nextInt(tablakDB);
 			y=rand.nextInt(tablakDB);
@@ -261,7 +261,7 @@ public class Controller {
 		}
 		
 		//kotel
-		for(int i=0;i<5;i++) {
+		for(int i=0;i<8;i++) {
 			Kotel k=new Kotel();
 			DrawKotel dk=new DrawKotel();
 			x=rand.nextInt(tablakDB);
@@ -328,6 +328,23 @@ public class Controller {
 	 * minden játékos sorrakerült, új kör
 	 */
 	public void ujKor() {
+		for(int i=0;i<jegtablak.size();i++) {
+			if(((Jegtabla)jegtablak.get(i).obj).getAtVanFordulva()&&((Jegtabla)jegtablak.get(i).obj).gettartokepesseg()!=0) {
+				view.eltavolitDrawable(jegtablak.get(i).draw);
+				if(((Jegtabla)jegtablak.get(i).obj).getHo()>0) {
+					DrawHo dh=new DrawHo();
+					dh.setPosition(jegtablak.get(i).draw.getPositionX(), jegtablak.get(i).draw.getPositionY());
+					jegtablak.get(i).draw=dh;
+				}
+				else {
+					DrawJegtabla dj=new DrawJegtabla();
+					dj.setPosition(jegtablak.get(i).draw.getPositionX(), jegtablak.get(i).draw.getPositionY());
+					jegtablak.get(i).draw=dj;
+				}
+				view.addDrawable(jegtablak.get(i).draw);
+			}
+		}
+		
 		boolean drawho=false;
 		ArrayList<Integer> nincsho=new ArrayList<Integer>();
 		if(jegmezo.getHoviharCnt()==1) {
@@ -351,7 +368,7 @@ public class Controller {
 		
 		for(int i=0;i<satrak.size();i++) {
 			if(((Sator)satrak.get(i).obj).tartossag==0)
-				view.eltavolitDrawable(satrak.get(i).draw);
+				view.eltavolitDrawableVedelem(satrak.get(i).draw);
 		}
 		for(int i=0;i<jegesmedvek.size();i++) {
 			Jegesmedve jm=(Jegesmedve)jegesmedvek.get(i).obj;
@@ -393,7 +410,9 @@ public class Controller {
 						}
 						if(acttargy.toString().equals("Sator")) {
 							JCtaska.removeItem(acttargy);
+							targy.draw.setPosition(koronlevo.draw.getPositionX(), koronlevo.draw.getPositionY());
 							view.addDrawableVedelem(targy.draw);
+							satrak.add(targy);
 						}
 						if(acttargy.toString().equals("Buvarruha")) {
 							Drawable dj=koronlevo.draw;
@@ -483,9 +502,23 @@ public class Controller {
 							}
 						}
 						if(acttargy.toString().equals("Kotel")) {
-							//Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
+							Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
 							//Jegtabla jtsz=jt.szomszedKerdez(((Jatekos)koronlevo.obj).getSzogAmibeNez());
 							//List<Jatekos> jat=jtsz.jatekosokLekerdez();
+								for(int j=0;j<jegtablak.size();j++) {
+									if(((Jegtabla)jegtablak.get(j).obj).equals(jt)) {
+									if(jt.getAtVanFordulva()){
+										DrawViz dv=new DrawViz();
+										if(jegtablak.get(j).draw!=null) {
+											dv.setPosition(koronlevo.draw.getPositionX(), koronlevo.draw.getPositionY());
+											view.eltavolitDrawable(jegtablak.get(j).draw);
+										}
+										
+										jegtablak.get(j).draw=dv;
+										view.addDrawable(dv);
+									}
+								}
+							}
 							for(int i=0;i<jatekosok.size();i++) {
 								for(int j=0;j<jegtablak.size();j++) {
 									if(((Jegtabla)jegtablak.get(j).obj).equals(((Jatekos)jatekosok.get(i).obj).JegtablaLekerdez())) {
@@ -612,9 +645,17 @@ public class Controller {
 					if(!jt.getAtVanFordulva()) {
 						for(int i=0;i<jegtablak.size();i++) {
 							if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
+								for(int j=0;j<satrak.size();j++)
+								{
+									if(jt.getjegtablaVedelme().equals(((Vedelem)satrak.get(j).obj))) {
+										view.eltavolitDrawableVedelem(satrak.get(j).draw);
+									}
+								}
+								
 								DrawIglu di=new DrawIglu();
 								di.setPosition(jegtablak.get(i).draw.getPositionX(), jegtablak.get(i).draw.getPositionY());
 								view.addDrawableVedelem(di);
+								igluk.add(new Osszerendeles(di,jt.getjegtablaVedelme()));
 							}
 						}
 					}
@@ -625,7 +666,7 @@ public class Controller {
 					int tartokepesseg=jsz.gettartokepesseg();
 					view.setTartokepesseg(tartokepesseg);
 				}
-				
+				view.setMunka(((Jatekos)koronlevo.obj).getMunkadb());
 				view.drawAll();
 			}
 

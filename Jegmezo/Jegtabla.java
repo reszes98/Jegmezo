@@ -282,12 +282,12 @@ public class Jegtabla implements Frissitheto
 	public void hovihar()
 	{
 		Global.out.print("A tablan levo ho: "+ho+". ");
-		if(jegtablaVedelme==null)
-		{
+		
+		
 			
 			this.hoNovelese(); 
-		}
-		else {
+		
+		if(jegtablaVedelme!=null){
 			jegtablaVedelme.hovihar();
 		}
 		Global.out.print("A tablan levo ho: "+ho+". ");
