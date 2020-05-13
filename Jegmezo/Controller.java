@@ -58,7 +58,7 @@ public class Controller {
 		for(int i=0;i<tablakDB;i++) {
 			for(int j=0;j<tablakDB;j++) {
 				int tartokepesseg=rand.nextInt(eszkimodb+sarkkutato+1);
-				if(lyuk>0)
+				if(lyuk>8)
 					while(tartokepesseg==0)
 						tartokepesseg=rand.nextInt(eszkimodb+sarkkutato+2);
 				if(tartokepesseg==0)lyuk++;
@@ -647,7 +647,7 @@ public class Controller {
 							if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
 								for(int j=0;j<satrak.size();j++)
 								{
-									if(jt.getjegtablaVedelme().equals(((Vedelem)satrak.get(j).obj))) {
+									if(jt.getjegtablaVedelme().equals(((Sator)satrak.get(j).obj))) {
 										view.eltavolitDrawableVedelem(satrak.get(j).draw);
 									}
 								}
