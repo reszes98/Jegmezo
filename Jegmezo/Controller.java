@@ -649,7 +649,7 @@ public class Controller {
 							if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
 								for(int j=0;j<satrak.size();j++)
 								{
-									if(v.equals(((Sator)satrak.get(j).obj))) {
+									if(v!=null&&v.equals(((Sator)satrak.get(j).obj))) {
 										view.eltavolitDrawableVedelem(satrak.get(j).draw);
 									}
 								}
