@@ -639,15 +639,17 @@ public class Controller {
 			
 			if (ae.getActionCommand().equals("Képesség Használ")) {
 				System.out.println("beleptem");
-				((Jatekos)koronlevo.obj).kepesseg();
 				Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
+				Vedelem v=jt.getjegtablaVedelme();
+				((Jatekos)koronlevo.obj).kepesseg();
+				
 				if(((Jatekos)koronlevo.obj).toString().equals("Eszkimo")) {
 					if(!jt.getAtVanFordulva()) {
 						for(int i=0;i<jegtablak.size();i++) {
 							if(((Jegtabla)jegtablak.get(i).obj).equals(jt)) {
 								for(int j=0;j<satrak.size();j++)
 								{
-									if(jt.getjegtablaVedelme().equals(((Sator)satrak.get(j).obj))) {
+									if(v.equals(((Sator)satrak.get(j).obj))) {
 										view.eltavolitDrawableVedelem(satrak.get(j).draw);
 									}
 								}
