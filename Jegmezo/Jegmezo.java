@@ -95,16 +95,15 @@ public class Jegmezo
 				hoviharCnt--;
 				
 				
-				for(int i=0;i<frissithetok.size();i++) {
-					
-					frissithetok.get(i).frissit();
-					if(hoviharCnt==0)
-					{
-						
+				if(hoviharCnt==0)
+				{	
+					for(int i=0;i<frissithetok.size();i++) 
 						frissithetok.get(i).hovihar();
-						
-					} 
+				} 
+				for(int i=0;i<frissithetok.size();i++) {
+					frissithetok.get(i).frissit();
 				}
+				
 				Random r=new Random();
 				if(hoviharCnt==0)hoviharCnt = r.nextInt(5)+1;
 			//}
