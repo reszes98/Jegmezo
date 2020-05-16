@@ -283,9 +283,7 @@ public class Jegtabla implements Frissitheto
 	{
 		Global.out.print("A tablan levo ho: "+ho+". ");
 		
-		
-			
-			this.hoNovelese(); 
+		this.hoNovelese(); 
 		
 		if(jegtablaVedelme!=null){
 			jegtablaVedelme.hovihar();
@@ -303,7 +301,6 @@ public class Jegtabla implements Frissitheto
 	 */
 	public void jatekosEltavolit(Jatekos j)
 	{
-		
 		jatekosok.remove(j);
 		Global.out.print("Jatekos siekresen eltavolitva a tablarol. ");
 	}
@@ -313,7 +310,6 @@ public class Jegtabla implements Frissitheto
 	
 	public List<Jatekos> jatekosokLekerdez()
 	{
-		
 		return jatekosok;
 	}
 	
@@ -325,7 +321,6 @@ public class Jegtabla implements Frissitheto
 	 */
 	public void JegesmedveEltavolit(Jegesmedve j)
 	{
-		
 		jegesmedvek.remove(j);
 		Global.out.print("Jegesmedve sikeresen eltavolitva a tablarol. ");
 	}
@@ -336,7 +331,6 @@ public class Jegtabla implements Frissitheto
 	 */
 	public void jegtablaVedelmenekEltavolitasa()
 	{
-		
 		jegtablaVedelme = null;
 		Global.out.print("Jegtabla vedelme sikeresen eltavolitva. ");
 	}
@@ -348,8 +342,6 @@ public class Jegtabla implements Frissitheto
 	 */
 	public void ralep(Jatekos j)
 	{
-		
-		
 		j.setaktjegtabla(this);
 		if(this.szomszedokSorszambolSzogge.get(0) != null)
 		j.setSzogAmibeNez(this.szomszedokSorszambolSzogge.get(0));
@@ -376,23 +368,6 @@ public class Jegtabla implements Frissitheto
 	//Új
 	public Jegtabla szomszedKerdez(Integer szogbe)
 	{
-		
-		//int idx = 0;
-		//(Jobb(0), Bal(1), Fel(2),Le(3))
-		/*switch(i) {
-			case Jobb:
-				idx = 0;
-				break;
-			case Bal:
-				idx = 1;
-				break;
-			case Fel:
-				idx = 2;
-				break;
-			default:
-				idx = 3;
-				break;
-		}*/
 		
 		if(this.szomszedokSzogbolSorszamma == null)
 			System.out.println("\n\n\n szomszedokSzogbolSorszamma null \n\n\n");
