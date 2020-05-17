@@ -41,10 +41,6 @@ public class Jegmezo
 	 */
 	private boolean VegeAjateknak;
 	
-	/**
-	 * Azt tárolja, hogy a játék elsõ köre megy-e
-	 */
-	private boolean elsoKor;
 	
 	/**
 	 * a konstruktor, ami létrehozza a Jégezõt a megadott paraméterekkel 
@@ -56,7 +52,6 @@ public class Jegmezo
 		frissithetok = new ArrayList<>();
 		jatekosok = new ArrayList<>();
 		VegeAjateknak = false;
-		elsoKor = true;
 		Global.out.print("Sikeresen letrehoztak egy jegmezot. Hovihar: "+hoviharCnt
 				+" mulva lesz. ");
 	}
@@ -109,8 +104,6 @@ public class Jegmezo
 	public void leptet()
 	{
 		
-			if(!elsoKor)
-			{
 				Global.out.print("Uj kor kezdodott. ");
 				hoviharCnt--;
 				
@@ -126,9 +119,8 @@ public class Jegmezo
 				
 				Random r=new Random();
 				if(hoviharCnt==0)hoviharCnt = r.nextInt(5)+1;
-			}
-			else
-				elsoKor = false;
+			
+		
 			
 			Global.out.print("Jegmezo: az ujabb hoviharig " + hoviharCnt + "db kor van hatra. ");
 		
