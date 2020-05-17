@@ -501,8 +501,6 @@ public class Controller {
 						}
 						if(acttargy.toString().equals("Kotel")) {
 							Jegtabla jt=((Jatekos)koronlevo.obj).JegtablaLekerdez();
-							//Jegtabla jtsz=jt.szomszedKerdez(((Jatekos)koronlevo.obj).getSzogAmibeNez());
-							//List<Jatekos> jat=jtsz.jatekosokLekerdez();
 								for(int j=0;j<jegtablak.size();j++) {
 									if(((Jegtabla)jegtablak.get(j).obj).equals(jt)) {
 									if(jt.getAtVanFordulva()){
