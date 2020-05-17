@@ -69,7 +69,7 @@ public class View {
 		setPanels();
 		frame=new JFrame("Jég-veled!");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
-	    frame.setPreferredSize(new Dimension(940, 800));																						
+	    frame.setPreferredSize(new Dimension(940, 730));																						
 	   
 	    frame.setLayout(new BorderLayout());
 	    
