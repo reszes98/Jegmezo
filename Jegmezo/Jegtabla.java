@@ -12,7 +12,6 @@ package Jegmezo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import java.util.TreeMap;
 
@@ -169,7 +168,7 @@ public class Jegtabla implements Frissitheto
 		Global.out.print("A ho mennyisege a jegtablan: "+ho+" .");
 		if(ho >= 0)
 		{
-			int tempHo = ho;
+			//int tempHo = ho;
 			
 			ho -= i;
 			if(ho <= -1)

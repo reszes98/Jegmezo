@@ -1,6 +1,5 @@
 package Jegmezo;
 
-import java.util.List;
 
 //
 //
@@ -49,8 +48,6 @@ public class Buvarruha implements Targy
 	 */
 	public boolean hasznal(Jatekos j) {
 		int szog = j.getSzogAmibeNez();
-		Jegtabla jt = j.JegtablaLekerdez();
-		Jegtabla szJegtabla = jt.szomszedKerdez(szog);
 		//List<Jatekos> kihuz=szJegtabla.jatekosokLekerdez();
 		
 		Global.out.print("Ez egy buvarruha. ");

@@ -10,7 +10,7 @@ package Jegmezo;
 //
 //
 
-import java.util.List;
+
 
 public class Sarkkutato extends Jatekos
 {

@@ -133,6 +133,11 @@ public class View {
 		jatekPanel=new JPanel();
 		jatekPanel.setPreferredSize(new Dimension(900,50));
 		jegmezoPanel=new JPanel() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			public void paintComponent(Graphics g) {
 				for(int i=0;i<drawable.size();i++)
 					drawable.get(i).draw((Graphics2D)g);

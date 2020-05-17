@@ -1,6 +1,5 @@
 package Jegmezo;
 
-import java.util.List;
 
 public class Iglu extends Vedelem{
 

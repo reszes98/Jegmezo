@@ -89,8 +89,8 @@ public class Jegmezo
 	public void leptet()
 	{
 		
-			//if(!elsoKor)
-			//{
+			if(!elsoKor)
+			{
 				Global.out.print("Uj kor kezdodott. ");
 				hoviharCnt--;
 				
@@ -106,9 +106,9 @@ public class Jegmezo
 				
 				Random r=new Random();
 				if(hoviharCnt==0)hoviharCnt = r.nextInt(5)+1;
-			//}
-			//else
-				//elsoKor = false;
+			}
+			else
+				elsoKor = false;
 			
 			Global.out.print("Jegmezo: az ujabb hoviharig " + hoviharCnt + "db kor van hatra. ");
 			

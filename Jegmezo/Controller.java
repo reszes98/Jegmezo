@@ -3,8 +3,6 @@ package Jegmezo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
 import javax.swing.*;
@@ -599,7 +597,7 @@ public class Controller {
 			}
 			
 			if (ae.getActionCommand().equals("Lép")) {
-				int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
+				//int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
 				boolean siker=((Jatekos)koronlevo.obj).lepes();
 				if(siker) {
 					
