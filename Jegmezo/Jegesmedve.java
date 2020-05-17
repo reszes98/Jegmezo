@@ -5,13 +5,37 @@ import java.util.Random;
 
 public class Jegesmedve implements Frissitheto{
 
+	/**
+	 * A jégmezõ, amin a jegesmedve van
+	 */
 	private Jegmezo jegmezo;
+	
+	/**
+	 * A jégtábla, amin a jegesmedve áll
+	 */
 	private Jegtabla jegtablaAminAll;
+	
+	/**
+	 * A szög, amibe a jegesmedve néz
+	 */
 	private int szogAmibeNez;
-	boolean randomMegy;
-	boolean lepett;
+	
+	/**
+	 * Azt adja meg, hogy Lep függvénybemn random irányba lép-e a jegesmedve
+	 */
+	private boolean randomMegy;
+	
+	/**
+	 * Azt adja meg, hogy lépett-e a jegesmedve
+	 */
+	private boolean lepett;
 	
 	
+	/**
+	 * Létrehoz egy jegesmedvét a megadott paraméterekkel
+	 * @param jegmezo - a jégmezõ, amin a jegesmedve van
+	 * @param randomMegy - azt állítja be, hogy Lep függvényben random irányba lép-e
+	 */
 	public Jegesmedve(Jegmezo jegmezo, boolean randomMegy)
 	{
 		this.jegmezo = jegmezo;
@@ -50,6 +74,7 @@ public class Jegesmedve implements Frissitheto{
 		lepett=false;
 		String megy=randomMegy ? "random megy. ":"nem megy random. ";
 		Global.out.print("A jegesmedve " + megy);
+		
 		//https://docs.oracle.com/javase/8/docs/api/java/util/Random.html
 		//innen tájékozódtam a randomokról
 		if(randomMegy)
@@ -57,9 +82,6 @@ public class Jegesmedve implements Frissitheto{
 			
 			Random r = new Random();
 			szogAmibeNez=r.nextInt(4)*90;
-			//int intErtek = r.nextInt(4);
-			/*Irany ujIranyAmibeNez = Irany.IranyIntErtekAlapjan(intErtek);
-			iranyAmibeNez = ujIranyAmibeNez;*/ // ÚJ
 		}
 		
 		
@@ -111,7 +133,7 @@ public class Jegesmedve implements Frissitheto{
 	
 	
 	/**
-	 * Átállítja a Jegesmedve 
+	 * Átállítja a Jegesmedve szogAmibeNez attribútumát
 	 * @param i - Az irány, amibe szeretnénk, hogy nézzen a Jegesmedvénk
 	 */
 	public void setSzogAmibeNez(int szog)
@@ -143,15 +165,26 @@ public class Jegesmedve implements Frissitheto{
 		return "Jegesmedve";
 	}
 	
+	
+	/**
+	 * @return Visszaadja a lepett attribútumot
+	 */
 	public boolean getLepett()
 	{
 		return lepett;
 	}
 	
+	/**
+	 * @return Visszaadja a szogAmibeNez attribútumot
+	 */
 	public int getSzog()
 	{
 		return szogAmibeNez;
 	}
+	
+	/**
+	 * @return Visszaadja, hogy melyik jégtaáblán áll a jegesmedve
+	 */
 	public Jegtabla getJegtabla()
 	{
 		return jegtablaAminAll;

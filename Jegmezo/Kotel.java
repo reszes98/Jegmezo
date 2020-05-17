@@ -16,6 +16,9 @@ import java.util.List;
 
 public class Kotel implements Targy
 {
+	/**
+	 * Létrehozza a kötelet
+	 */
 	public Kotel()
 	{
 		Global.out.print("Sikeresen letrehoztak egy kotelet. ");

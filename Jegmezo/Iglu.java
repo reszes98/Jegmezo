@@ -3,10 +3,14 @@ package Jegmezo;
 
 public class Iglu extends Vedelem{
 
+	/**
+	 * Default konstruktor
+	 */
 	public Iglu()
 	{
 		Global.out.print("Iglu sikeresen letrehozva. ");
 	} 
+	
 	/**
 	 * Itt nem csinál semmit, de késõbb még lehet történik valami frissítéskor
 	 */

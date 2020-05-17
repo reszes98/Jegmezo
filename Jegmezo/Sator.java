@@ -4,6 +4,9 @@ import java.util.List;
 
 public class Sator extends Vedelem implements Targy{
 
+	/**
+	 * Azt tárolja, hogy lehelyezés után hány körig marad meg a sátor
+	 */
 	int tartossag;
 	
 	/**

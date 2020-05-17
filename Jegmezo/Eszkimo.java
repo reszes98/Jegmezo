@@ -13,15 +13,12 @@ package Jegmezo;
 
 public class Eszkimo extends Jatekos
 {	
+	
 	/**
-	 * Konstruktor, ami létrehozza a Játékost a medadott paraméterekkel
+	 * Konstruktor, ami létrehozza az Eszkimót a medadott paraméterekkel
 	 * @param jegmezo - a jégmezõ, amin a Játékos van
-	 * @param aktjegtabla - a Jégtábla, amin a Játékos áll
-	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
 	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
 	 * @param testho - a Játékos hátralévõ testhõje
-	 * @param targyak - a Játékos által tárolt tárgyak
-	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
 	public Eszkimo(Jegmezo jegmezo,
 	int Munkadb,

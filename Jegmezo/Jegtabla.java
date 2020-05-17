@@ -17,22 +17,70 @@ import java.util.TreeMap;
 
 public class Jegtabla implements Frissitheto
 {
+	/**
+	 * A jégmezõ, amin a jégtábla van
+	 */
 	private Jegmezo jegmezo;
+	
+	/**
+	 * Azt tárolja, hogy a jégtábla át van-e fordulva
+	 */
 	private boolean atVanFordulva;
+	
+	/**
+	 * A jégtáblán lévõ hómennyiséget tárolja
+	 */
 	private int ho;
+	
+	/**
+	 * A jégtáblán, hány játékos tartózkodhat egyszerre
+	 */
 	private int tartokepesseg;
 	
+	/**
+	 * A jégtábla szomszédainak a sorszámához tárolja a szögét
+	 */
 	private TreeMap<Integer, Integer> szomszedokSorszambolSzogge;
+	
+	/**
+	 * A jégtábla szomszédainak a szögéhez tárolja a sorszámát
+	 */
 	private TreeMap<Integer, Integer> szomszedokSzogbolSorszamma;
+	
+	
+	/**
+	 *  * A jégtábla szomszédainak sorszámához tárolja magát a szomszédot
+	 */
 	private List<Jegtabla> szomszedokASorszamhoz;
 	
+	/**
+	 * A jégtábla szomszédainak a száma
+	 */
 	private int szomszedokSzama;
 	
+	/**
+	 * A jégtáblán lévõ védelmet tárolja
+	 */
 	private Vedelem jegtablaVedelme;
+	
+	/**
+	 * A jégtáblán lévõ játékosokat tárolja
+	 */
 	private List<Jatekos> jatekosok;
+	
+	/**
+	 * A jégtáblán lévõ jegesmedvéket tárolja
+	 */
 	private List<Jegesmedve> jegesmedvek;
+	
+	/**
+	 * A jégtáblában lévõ tárgy
+	 */
 	private Targy targy;
 	
+	/**
+	 * A jégtábla ID-je, a parancsértelmezõhöz kell
+	 */
 	public String ID;
 	
 	
@@ -42,7 +90,15 @@ public class Jegtabla implements Frissitheto
 	 * @param atVanFordulva - azt adja meg, hogy át van-e fordulva
 	 * @param ho - a kezdeti hómennyiséget adja meg
 	 * @param tartokepesseg - a tartóképességét adja meg
-	 * @param targy - a benne lévõ tárgyat adja meg. Ha nincs benne tárgy, akkor null legyen az értéke
+	 */
+	
+	/**
+	 * A jégtábla konstruktora, ami létrehozza jégtáblát, a megadott paraméterekkel
+	 * @param jegmezo - A jégmezõ, amin van
+	 * @param atVanFordulva - azt adja meg, hogy át van-e fordulva
+	 * @param ho - a kezdeti hómennyiséget adja meg
+	 * @param tartokepesseg - a tartóképességét adja meg
+	 * @param szomszedokSzama - a jégtáblának, hány szomszédja lesz
 	 */
 	public Jegtabla(Jegmezo jegmezo,
 	boolean atVanFordulva,
@@ -77,6 +133,14 @@ public class Jegtabla implements Frissitheto
 	}
 	
 	
+	/**
+	 * @param id - a jégtábla String ID-je(a parancsértelmezõ használatát teszi könnyebbé)
+	 * @param jegmezo - A jégmezõ, amin van
+	 * @param atVanFordulva - azt adja meg, hogy át van-e fordulva
+	 * @param ho - a kezdeti hómennyiséget adja meg
+	 * @param tartokepesseg - a tartóképességét adja meg
+	 * @param szomszedokSzama - a jégtáblának, hány szomszédja lesz
+	 */
 	public Jegtabla(String id,
 			Jegmezo jegmezo,
 			boolean atVanFordulva,
@@ -168,8 +232,6 @@ public class Jegtabla implements Frissitheto
 		Global.out.print("A ho mennyisege a jegtablan: "+ho+" .");
 		if(ho >= 0)
 		{
-			//int tempHo = ho;
-			
 			ho -= i;
 			if(ho <= -1)
 			{
@@ -233,7 +295,6 @@ public class Jegtabla implements Frissitheto
 	{	
 		Global.out.print("A jegtabla tartokepessege: "+tartokepesseg+
 				" , a rajta levo jateksok szama: "+ jatekosok.size()+", a vedelme: ");
-				//+jegtablaVedelme.toString()+". ");
 		if(jegtablaVedelme != null)
 			jegtablaVedelme.frissit();
 		
@@ -269,7 +330,6 @@ public class Jegtabla implements Frissitheto
 	 */
 	public void hoNovelese()
 	{
-		
 		ho++;
 		Global.out.print("Ho mennyisege siekresen megnovelve. ");
 	}
@@ -307,6 +367,9 @@ public class Jegtabla implements Frissitheto
 	
 
 	
+	/**
+	 * @return Visszadja a rajta lévõ játékosok listáját
+	 */
 	public List<Jatekos> jatekosokLekerdez()
 	{
 		return jatekosok;
@@ -364,7 +427,6 @@ public class Jegtabla implements Frissitheto
 	 * @param i - az irány amibe tudni szeretnénk a szomszédot
 	 * @return visszaadja az i irányban lévõ szomszédot
 	 */
-	//Új
 	public Jegtabla szomszedKerdez(Integer szogbe)
 	{
 		
@@ -380,6 +442,12 @@ public class Jegtabla implements Frissitheto
 	}
 	
 	//Új
+	/**
+	 * Megadja, hogy a megadott szögbe lévõ szomszédjának, ki a balra vagy jobbra lévõ szomszédja
+	 * @param szog - melyik szögbe lévõ szomszédnak kell a balra vagy jobbra lévõ szomszédja
+	 * @param jobbra - true - jobbra false - balra
+	 * @return Visszaadja a jobbra vagy balra lévõ szomszéd sorszámát
+	 */
 	public Integer adottSzogbeLevoSzomszedMellettiSzomszedSzoge(Integer szog, boolean jobbra)
 	{
 		Integer sorszam = this.szomszedokSzogbolSorszamma.get(szog);
@@ -529,23 +597,7 @@ public class Jegtabla implements Frissitheto
 		
 		szomszedokASorszamhoz.add(hanyadikSzomszed, j);
 		
-		//(Jobb(0), Bal(1), Fel(2),Le(3))
-		/*switch(i) {
-			case Jobb:
-				idx = 0;
-				break;
-			case Bal:
-				idx = 1;
-				break;
-			case Fel:
-				idx = 2;
-				break;
-			default:
-				idx = 3;
-				break;
-		}
-			
-		szomszedok.set(idx, j);*/
+	
 		Global.out.print("Szomszed sikeresen beallitva. ");
 	}
 	
@@ -569,6 +621,9 @@ public class Jegtabla implements Frissitheto
 		return "Jegtabla";
 	}
 	
+	/**
+	 * @return Visszaadja a jégtáblán lévõ játékosok számát
+	 */
 	public int getJatekosokSzama()
 	{
 		if(this.jatekosok != null)
@@ -577,11 +632,17 @@ public class Jegtabla implements Frissitheto
 			return 0;
 	}
 	
+	/**
+	 * @return Visszaadja a jégtáblában lévõ tárgyat
+	 */
 	public Targy getTargy()
 	{
 		return this.targy;
 	}
 	
+	/**
+	 * @return Visszaadja a jégtábla szomszédainak a számát
+	 */
 	public int getSzomszedokSzama()
 	{
 		return szomszedokSzama;

@@ -15,27 +15,49 @@ import java.util.List;
 
 public abstract class Jatekos implements Frissitheto
 {
+	/**
+	 * A jégmezõ, amin a játékos van
+	 */
 	private Jegmezo jegmezo;
+	
+	/**
+	 * A jégtábla, amin a játékos áll
+	 */
 	protected Jegtabla aktjegtabla;
+	
+	/**
+	 * A játékos jelzõpisztoly darabjainak a száma
+	 */
 	private int jelzopisztolydb;
+	
+	/**
+	 * A játékos munkadbjainak a száma
+	 */
 	protected int Munkadb;
+	
+	/**
+	 * A játékos testhõjének a száma
+	 */
 	private int testho;
+	
+	/**
+	 * A játékos tárgyai
+	 */
 	private List<Targy> targyak;
 	
+	/**
+	 * Az a szög, amibe a játékos néz
+	 */
 	protected int szogAmibeNez;
 	
 	
-	public boolean tartAKore;
 	
 	
 	/**
 	 * Konstruktor, ami létrehozza a Játékost a medadott paraméterekkel
 	 * @param jegmezo - a jégmezõ, amin a Játékos van
-	 * @param jelzopisztolydb - a Játékos jelzõpisztoly darabjainak száma
 	 * @param Munkadb - A Játékos hátralévõ elvégezhetõ munka száma
 	 * @param testho - a Játékos hátralévõ testhõje
-	 * @param targyak - a Játékos által tárolt tárgyak
-	 * @param iranyAmibeNez - az Irany, amibe a Játékos néz
 	 */
 	public Jatekos(Jegmezo jegmezo,
 	int Munkadb,
@@ -50,7 +72,6 @@ public abstract class Jatekos implements Frissitheto
 		
 		this.jegmezo.addFrissitheto(this);
 		this.jegmezo.addJatekos(this);
-		tartAKore = false;
 		Global.out.println("Jatekos sikeresen letrehozva. Most van: "+jegmezo.GetJatekosSzam()+
 				" jatekos. Munka db: "+Munkadb+" ,testho: "+testho);
 	}
@@ -77,7 +98,7 @@ public abstract class Jatekos implements Frissitheto
 	
 	
 	/**
-	 * @param i - i irányban lévõ szomszédos jégmezõre helyezi át a játékost.
+	 * @param szogbe - szogbe szögbe lévõ szomszédos jégmezõre helyezi át a játékost.
 	 * @return Visszaadja, hogy sikeres volt-e az áthelyezés
 	 */
 	public boolean athelyez(int szogbe)
@@ -145,7 +166,6 @@ public abstract class Jatekos implements Frissitheto
 			v.hovihar();
 		}
 		else {
-			System.out.println("\n mukodik");
 			Global.out.print("A hovihar lezajlott, a jatekos testhoje csokkent egyet. ");
 			fazas(1);
 		}
@@ -170,35 +190,6 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public abstract void kepesseg();
 	
-	
-	
-	
-	
-	/**
-	 * Akkor fut amikor a játékos köre van. Megkérdezi a felhasználót, hogy mit akar tenni, amíg tart a köre
-	 */
-	public void KoreVan()
-	{
-		tartAKore = true;
-		
-		//what?
-		/*while(tartAKore)
-		{
-			
-		}*/
-		
-	}
-	
-	
-	
-	/**
-	 * Akkor hívódik meg, ha nulára csökkent a Játékos Munkadb-je
-	 */
-	public void korVege()
-	{
-		Global.out.print("A jatekos vegzett a korevel. ");
-		tartAKore = false;
-	}
 	
 	
 	/**
@@ -247,7 +238,6 @@ public abstract class Jatekos implements Frissitheto
 	
 	/**
 	 * csökkenti a megadott mennyiséggel a játékos munkaDB-jét
-	 * Ha nullára csökken átadjuk a kört a következõ játékosnak
 	 * @param mennyivel - mennyivel csökkentsük a MunkaDB-t
 	 */
 	public void MunkaDBcsokkentese(int mennyivel)
@@ -257,8 +247,6 @@ public abstract class Jatekos implements Frissitheto
 		{
 			Munkadb = 0;
 			Global.out.print("Elfogytak a munkaim. ");
-			
-			korVege();
 		}
 		else
 		{
@@ -299,8 +287,8 @@ public abstract class Jatekos implements Frissitheto
 	 */
 	public boolean targyFelvetel()
 	{
-		Global.out.print(" A jatekos MunkaDB-ja: "+Munkadb+". ");
-		boolean sikeres =false;
+		Global.out.print(" A jatekos MunkaDB-ja: " + Munkadb + ". ");
+		boolean sikeres = false;
 		if(Munkadb>0)
 			sikeres = aktjegtabla.targyFelvesz(this);
 		if(sikeres)
@@ -310,7 +298,7 @@ public abstract class Jatekos implements Frissitheto
 		}
 		else
 			Global.out.print("A targyfelvetel nem sikerult");
-		Global.out.print(" A jatekos MunkaDB-ja: "+Munkadb+". ");
+		Global.out.print(" A jatekos MunkaDB-ja: "+ Munkadb +". ");
 		return sikeres;
 	}
 	
@@ -354,6 +342,7 @@ public abstract class Jatekos implements Frissitheto
 	
 	
 	/**
+	 * A megadott tárgyat felveszi a játékos tárgyaihoz
 	 * @param t - tárgyat hozzáadja a játékos tárgyaihoz
 	 */
 	public boolean targyHozzadasa(Targy t)
@@ -369,9 +358,10 @@ public abstract class Jatekos implements Frissitheto
 	
 	
 	/**
+	 * A megadott mennyiséggel növeli a játékos testhõjét max 6-ig
 	 * @param mennyivel - noveli a testhot ezzel az értékkel, de a testhõt 
 	 * max 6-ig tudjuk növelni.
-	 * @return visszatér azzal, hogy 
+	 * @return visszatér azzal, hogy sikerült-e növelni a játékos testhõjét
 	 */
 	public boolean testhoNovelese(int mennyivel)
 	{
@@ -456,17 +446,6 @@ public abstract class Jatekos implements Frissitheto
 		return Munkadb;
 	}
 	
-
-	
-	/**
-	 * @return Visszaadja a Játékos iranyAmibeNez-ét
-	 */
-	/*public Irany getIranyAmibeNez()
-	{
-		System.out.println("Engem, mint jatekost, epp arrol kerdeznek, hogy merre nezek");
-		return iranyAmibeNez;
-	}*/
-	
 	/**
 	 * @return Visszaadja a Játékos által tárolt jelzõpisztoly darabok számát
 	 */
@@ -478,43 +457,38 @@ public abstract class Jatekos implements Frissitheto
 	
 	
 	/**
-	 * Beállítja a játékost, hogy abba az irányba nézzen, amit megadunk
-	 * @param i - Az irány, amibe szeretnénk, hogy nézzen a Játékos
+	 * @return Visszaadja a játékos melyik szögbe néz
 	 */
-	/*public void setIranyAmibeNez(Irany i)
-	{
-		System.out.println("Most epp a jatekos iranyAmibeNez tulajdonsagat allitjak");
-		
-		iranyAmibeNez = i;
-	}*/
-	
 	public int getSzogAmibeNez()
 	{
 		return this.szogAmibeNez;
 	}
 	
+	
+	/**
+	 * Beállítja, hogy a játékos a megadott szögba nézzen
+	 * @param szog - ebbe a szögbe fog nézni a függvény után a játékosunk
+	 */
 	public void setSzogAmibeNez(int szog)
 	{
 		this.szogAmibeNez = szog;
 		
 	}
 	
+	
+	/** A játékost a paraméterben megadott (jobbra vagy balra) lévõ szomszéd felé fordítja
+	 * @param Jobbra - true-jobbra fordul a játékos false-balra fordul
+	 */
 	public void Fordul(boolean Jobbra)
 	{
-		
 		szogAmibeNez = aktjegtabla.adottSzogbeLevoSzomszedMellettiSzomszedSzoge(szogAmibeNez, Jobbra);
-		
 	}
 	
+
 	
-	/** Beállítja a megadott értékre a játékos tartAKore attribútumát
-	 * @param tk - az érték, amire a játékos tartAKore attribútumát állítani szeretnénk
+	/**
+	 * @return  Visszaadja a játékos tárgyait
 	 */
-	public void setTartAKore(boolean tk)
-	{
-		tartAKore = tk;
-	}
-	
 	public List<Targy> getTargyak()
 	{
 		return targyak;

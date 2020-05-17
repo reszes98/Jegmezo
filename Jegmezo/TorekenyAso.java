@@ -42,11 +42,9 @@ public class TorekenyAso implements Targy{
 	public boolean hasznal(Jatekos j) {
 		
 		Global.out.print("Ez egy torekeny aso. Tartossaga: "+tartossag +". ");
-		//int szog = j.getSzogAmibeNez();
 		
 		Jegtabla jt = j.JegtablaLekerdez();
 		
-		//Jegtabla szJegtabla = jt.szomszedKerdez(szog);
 		
 		
 		if(jt != null)

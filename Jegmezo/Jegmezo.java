@@ -21,13 +21,33 @@ import java.util.Random;
 
 public class Jegmezo
 {
-	private int hoviharCnt;
-	private List<Frissitheto> frissithetok;
-	private List<Jatekos> jatekosok;
-	private boolean VegeAjateknak;
-	private boolean elsoKor;
 	/**
-	 * a konstruktor, ami létrehozza a Jégezõt
+	 * Azt adja meg, hogy hány kör van a következõ hóviharig
+	 */
+	private int hoviharCnt;
+	
+	/**
+	 * A jégmezõn lévõ frissíthetõk
+	 */
+	private List<Frissitheto> frissithetok;
+	
+	/**
+	 * A jégmezõn lévõ játékosok
+	 */
+	private List<Jatekos> jatekosok;
+	
+	/**
+	 * Azt tárolja, hogy véget ért-e a játék
+	 */
+	private boolean VegeAjateknak;
+	
+	/**
+	 * Azt tárolja, hogy a játék elsõ köre megy-e
+	 */
+	private boolean elsoKor;
+	
+	/**
+	 * a konstruktor, ami létrehozza a Jégezõt a megadott paraméterekkel 
 	 * @param hoviharCnt - kezdetben hány kör van a hóviharig
 	 */
 	public Jegmezo(int hoviharCnt)
@@ -111,15 +131,6 @@ public class Jegmezo
 				elsoKor = false;
 			
 			Global.out.print("Jegmezo: az ujabb hoviharig " + hoviharCnt + "db kor van hatra. ");
-			
-			/*for(int i = 0; i < jatekosok.size(); i++)
-			{
-				if(VegeAjateknak)
-					break;
-				
-				jatekosok.get(i).KoreVan();
-			}*/
-		
 		
 	}
 	
@@ -129,9 +140,9 @@ public class Jegmezo
 	public void meghalt(Jatekos j)
 	{
 		Global.out.print("Egy jatekos meghalt. ");
-		j.setTartAKore(false);
 		this.jatekvege(false);
 	}
+	
 	
 	/**
 	 * Megkonstruálja a jégmezõt a megadott paraméterekkel
@@ -154,7 +165,6 @@ public class Jegmezo
 			}
 		}
 		
-		//(Jobb(0), Bal(1), Fel(2), Le(3))
 		//ujra bejarjuk es beallitjuk a szomszedokat
 		for(int i = 0; i < jegtablakSzamaHosszaban; i++)
 		{
@@ -197,19 +207,33 @@ public class Jegmezo
 		return "Jegmezo";
 	}
 	
+	/**
+	 * @return Visszaadja a hoviharCnt attribútumot
+	 */
 	public int getHoviharCnt()
 	{
 		return hoviharCnt;
 	}
 	
+	/**
+	 * @return Visszaadja a jégemzõn lévõ játékosok számát
+	 */
 	public int GetJatekosSzam()
 	{
 		return jatekosok.size();
 	}
 	
+	
+	/**
+	 * @return Visszaadja a jégemzõn lévõ játékosok listáját
+	 */
 	public List<Jatekos> getJatekosok(){
 		return jatekosok;
 	}
+	
+	/**
+	 * @return Visszaadja, hogy véget ért-e a játék
+	 */
 	public boolean getJatekvege(){
 		return VegeAjateknak;
 	}

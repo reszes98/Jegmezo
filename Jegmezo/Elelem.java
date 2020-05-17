@@ -9,12 +9,11 @@ package Jegmezo;
 //  @ Author : 
 //
 //
-
-
-
-
 public class Elelem implements Targy
 {
+	/**
+	 * Az élelem pont értéke, ami azt adja meg, hogy használatkor mennyivel növeli a játékos testhõjét.
+	 */
 	private int pont;
 	
 

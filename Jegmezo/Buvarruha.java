@@ -48,16 +48,12 @@ public class Buvarruha implements Targy
 	 */
 	public boolean hasznal(Jatekos j) {
 		int szog = j.getSzogAmibeNez();
-		//List<Jatekos> kihuz=szJegtabla.jatekosokLekerdez();
 		
 		Global.out.print("Ez egy buvarruha. ");
-		
-		//int szogvissza=j.getSzogAmibeNez()-180;
-		//if (szogvissza<0) szogvissza+=360;
+
 		boolean sikeres =false;
 		
 		sikeres=j.athelyez(szog);
-		//sikeres = kihuz.get(i).athelyez(szogvissza);
 		
 		
 		if(sikeres)

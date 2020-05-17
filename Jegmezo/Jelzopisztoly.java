@@ -15,6 +15,9 @@ import java.util.List;
 public class Jelzopisztoly implements Targy
 {
 	
+	/**
+	 * Létrehozza a jelzõpisztolyt
+	 */
 	public Jelzopisztoly()
 	{
 		Global.out.print("Sikeresen letrehoztak egy jelzopisztolyt. ");
