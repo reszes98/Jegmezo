@@ -11,46 +11,34 @@ package Jegmezo;
 //
 
 import java.awt.Graphics;
-import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
 public class DrawAso extends Drawable {
-	private Image asoImage;
+	
+	
+	/**
+	 * Betölti az ásó képet
+	 */
 	public DrawAso() 
 	{
 		try {
-			asoImage=ImageIO.read(new File("./Jegmezo/image/shovel.png"));
+			img=ImageIO.read(new File("./Jegmezo/image/shovel.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	
+	/**
+	 * Kirajzolja az ásót
+	 */
 	public void draw(Graphics g) {
 		
-		g.drawImage(asoImage, getPositionX()*80, getPositionY()*80+40, null);
+		g.drawImage(img, getPositionX()*80, getPositionY()*80+40, null);
 	}
-	
-	public void setPosition(int px, int py) 
-	{
-		super.setPosition(px, py);
-	}
-	public void setPositionX(int px) 
-	{
-		super.setPositionX(px);
-	}
-	public void setPositionY(int py) 
-	{
-		super.setPositionY(py);
-	}
-	public int getPositionX() 
-	{
-		return super.getPositionX();
-	}
-	public int getPositionY() 
-	{
-		return super.getPositionY();
-	}
+
 }

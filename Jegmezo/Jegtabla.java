@@ -441,7 +441,6 @@ public class Jegtabla implements Frissitheto
 				this.szomszedokSzogbolSorszamma.get(szogbe));
 	}
 	
-	//Új
 	/**
 	 * Megadja, hogy a megadott szögbe lévõ szomszédjának, ki a balra vagy jobbra lévõ szomszédja
 	 * @param szog - melyik szögbe lévõ szomszédnak kell a balra vagy jobbra lévõ szomszédja

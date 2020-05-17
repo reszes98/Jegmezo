@@ -11,49 +11,35 @@ package Jegmezo;
 //
 
 import java.awt.Graphics;
-import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
 public class DrawBuvarruha extends Drawable {
-	private Image buvarruhaImage;
 
+	
+	/**
+	 * Betölti a búvárruha képét
+	 */
 	public DrawBuvarruha() 
 	{
 		try 
 		{
-			buvarruhaImage=ImageIO.read(new File("./Jegmezo/image/wetsuit.png")); ///TODO file beillesztes
+			img=ImageIO.read(new File("./Jegmezo/image/wetsuit.png")); ///TODO file beillesztes
 		} catch (IOException e) 
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Kirajzolja a búvárruhát
+	 */
 	public void draw(Graphics g) 
 	{
-		g.drawImage(buvarruhaImage, getPositionX()*80, getPositionY()*80+40, null);
+		g.drawImage(img, getPositionX()*80, getPositionY()*80+40, null);
 	}
 	
-	public void setPosition(int px, int py) 
-	{
-		super.setPosition(px, py);
-	}
-	public void setPositionX(int px) 
-	{
-		super.setPositionX(px);
-	}
-	public void setPositionY(int py) 
-	{
-		super.setPositionY(py);
-	}
-	public int getPositionX() 
-	{
-		return super.getPositionX();
-	}
-	public int getPositionY() 
-	{
-		return super.getPositionY();
-	}
 }

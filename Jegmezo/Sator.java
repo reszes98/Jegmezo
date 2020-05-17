@@ -61,10 +61,7 @@ public class Sator extends Vedelem implements Targy{
 	 */
 	public boolean hasznal(Jatekos j) {
 		
-		//int szog =  j.getSzogAmibeNez();
 		Jegtabla jt = j.JegtablaLekerdez();
-		//Jegtabla sz = jt.szomszedKerdez(szog);
-		//Global.out.print("A jatekos "+szog+"-be nez. ");
 		
 		if(jt != null)
 		{
@@ -91,7 +88,6 @@ public class Sator extends Vedelem implements Targy{
 	 * Hóviharkor megvédi a vele egy jégtáblán lévõ játékosokat, ezért semmi bántódásuk nem esik
 	 */
 	public void hovihar() {
-		// TODO Auto-generated method stub
 		Global.out.print("A sator megvedte a jatekosokat a hovihartol. ");
 	}
 

@@ -566,6 +566,10 @@ public class Controller {
 	}
 	
 	public class GombokActionListener implements ActionListener {
+		
+		/**
+		 * A különbõzõ gombok utasításait hajtja végre
+		 */
 		public void actionPerformed(ActionEvent ae){
 			if (ae.getActionCommand().equals("Bal")) {
 				((Jatekos)koronlevo.obj).Fordul(false);
@@ -597,7 +601,6 @@ public class Controller {
 			}
 			
 			if (ae.getActionCommand().equals("Lép")) {
-				//int szog=((Jatekos)koronlevo.obj).getSzogAmibeNez();
 				boolean siker=((Jatekos)koronlevo.obj).lepes();
 				if(siker) {
 					

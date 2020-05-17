@@ -70,7 +70,7 @@ public class View {
 		frame=new JFrame("Jég-veled!");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
 	    frame.setPreferredSize(new Dimension(940, 700));																						
-	    frame.setLocationRelativeTo(null);
+	   
 	    frame.setLayout(new BorderLayout());
 	    
 	    frame.add(BorderLayout.CENTER, jegmezoPanel);
@@ -81,7 +81,7 @@ public class View {
 		frame.setResizable(false);										
 		frame.setVisible(true);
 		frame.pack();
-	    
+		 frame.setLocationRelativeTo(null);
 	}
 	
 	

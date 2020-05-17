@@ -13,47 +13,31 @@ package Jegmezo;
 import java.awt.Graphics;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 
 
-import java.awt.Image;
-
 public class DrawJegtabla extends Drawable {
-	private Image jegtablaImage;
-	
+
+	/**
+	 * Betölti a jégtábla képét
+	 */
 	public DrawJegtabla() 
 	{
 		try {
-			jegtablaImage=ImageIO.read(new File("./Jegmezo/image/ice.png"));
+			img=ImageIO.read(new File("./Jegmezo/image/ice.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Betölti a jégtáblát
+	 */
 	public void draw(Graphics g) {
 		
-		g.drawImage(jegtablaImage, getPositionX()*80, getPositionY()*80, null);
+		g.drawImage(img, getPositionX()*80, getPositionY()*80, null);
 	}
 	
-	public void setPosition(int px, int py) 
-	{
-		super.setPosition(px, py);
-	}
-	public void setPositionX(int px) 
-	{
-		super.setPositionX(px);
-	}
-	public void setPositionY(int py) 
-	{
-		super.setPositionY(py);
-	}
-	public int getPositionX() 
-	{
-		return super.getPositionX();
-	}
-	public int getPositionY() 
-	{
-		return super.getPositionY();
-	}
+	
 }

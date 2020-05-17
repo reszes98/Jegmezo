@@ -11,48 +11,34 @@ package Jegmezo;
 //
 
 import java.awt.Graphics;
-import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
 public class DrawViz extends Drawable {
-	private Image vizImage;
+
+	/**
+	 * Betölti a víz képét
+	 */
 	public DrawViz() 
 	{
 		try 
 		{
-			vizImage=ImageIO.read(new File("./Jegmezo/image/water1.png"));
+			img=ImageIO.read(new File("./Jegmezo/image/water1.png"));
 		} catch (IOException e) 
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * kirajzolja a vizet
+	 */
 	public void draw(Graphics g) 
 	{
-		g.drawImage(vizImage, getPositionX()*80, getPositionY()*80, null);
+		g.drawImage(img, getPositionX()*80, getPositionY()*80, null);
 	}
 	
-	public void setPosition(int px, int py) 
-	{
-		super.setPosition(px, py);
-	}
-	public void setPositionX(int px) 
-	{
-		super.setPositionX(px);
-	}
-	public void setPositionY(int py) 
-	{
-		super.setPositionY(py);
-	}
-	public int getPositionX() 
-	{
-		return super.getPositionX();
-	}
-	public int getPositionY() 
-	{
-		return super.getPositionY();
-	}
 }

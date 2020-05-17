@@ -11,27 +11,65 @@ package Jegmezo;
 //
 
 import java.awt.Graphics;
+import java.awt.Image;
 
-public class Drawable {
+public abstract class Drawable {
+	
+	/**
+	 * A kirajzolandó pozíciójánk x koordinátája
+	 */
 	private int positionx;
+	
+	/**
+	 * A kirajzolandó pozíciójánk y koordinátája
+	 */
 	private int positiony;
 	
-	public void draw(Graphics g) {
-	}
+	/**
+	 * A kirajzoladó kép
+	 */
+	protected Image img;
+	/**
+	 * Kirajzolja a megadott graphics objectre magát
+	 * @param g - a graphics object, amire rajzolunk
+	 */
+	public abstract void draw(Graphics g);
 	
+	/** Beállítja a kirajzolható pozicióját a megadott koordinátába
+	 * @param px - a Pont x koordinátája
+	 * @param py - a Pont y koordinátája
+	 */
 	public void setPosition(int px, int py) {
 		positionx=px;
 		positiony=py;
 	}
+	
+	/**
+	 * A pozíció x koordinátáját állítja 
+	 * @param px - amire az x koordinátát akarjuk állítani
+	 */
 	public void setPositionX(int px) {
 		positionx=px;
 	}
+	
+	/**
+	 * A pozíció y koordinátáját állítja 
+	 * @param py - amire az ykoordinátát akarjuk állítani
+	 */
 	public void setPositionY(int py) {
 		positiony=py;
 	}
+	
+	/**
+	 * @return A kirajzolható pozíciójának az x koordinátáját adja vissza
+	 */
 	public int getPositionX() {
 		return positionx;
 	}
+	
+	/**
+	 * @return A kirajzolható pozíciójának az y koordinátáját adja vissza
+	 */
 	public int getPositionY() {
 		return positiony;
 	}

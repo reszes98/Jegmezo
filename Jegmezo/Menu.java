@@ -70,6 +70,7 @@ public class Menu {
 	    jframe.setPreferredSize(new Dimension(500, 250));										
 	    jframe.pack();												
 	    jframe.setLocationRelativeTo(null);
+	
 	    jframe.setLayout(new BorderLayout());
 	    
 	    JPanel west = new JPanel(new GridLayout(4,1,100, 20));	  
