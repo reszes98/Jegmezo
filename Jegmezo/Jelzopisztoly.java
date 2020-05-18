@@ -12,6 +12,10 @@ package Jegmezo;
 
 import java.util.List;
 
+/**
+ * @author Henrik
+ * A játékban lévõ Jelzõpisztoly darabokat reprezentálja
+ */
 public class Jelzopisztoly implements Targy
 {
 	

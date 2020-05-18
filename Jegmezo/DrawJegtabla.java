@@ -15,7 +15,10 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-
+/**
+ * @author Henrik
+ * A jégtábla kirajzolását valósitja meg
+ */
 public class DrawJegtabla extends Drawable {
 
 	/**

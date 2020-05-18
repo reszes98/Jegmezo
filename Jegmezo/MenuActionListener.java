@@ -9,6 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 
+/**
+ * @author Henrik
+ * A Menü gombok actionlistenerjei vannak itt megvalósítva
+ */
 public class MenuActionListener implements ActionListener{
 	private JFrame jf;
 	private JTextField eszkimoTf;
@@ -23,6 +27,9 @@ public class MenuActionListener implements ActionListener{
 		this.utasitas = ul;
 	}
 
+	/**
+	 * A menün történõ eseményket kezeli le
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getActionCommand().equals("Kilépés")) {

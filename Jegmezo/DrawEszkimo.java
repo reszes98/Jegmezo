@@ -16,7 +16,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 
-
+/**
+ * @author Henrik
+ * Az Eszkimo kirajzolását valósitja meg
+ */
 public class DrawEszkimo extends Drawable {
 
 

@@ -1,6 +1,9 @@
 package Jegmezo;
 
-
+/**
+ * @author Henrik
+ * A játékban lévõ Iglut reprezentálja
+ */
 public class Iglu extends Vedelem{
 
 	/**

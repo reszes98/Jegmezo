@@ -16,6 +16,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * A rakéta kirajzolását valósitja meg
+ */
 public class DrawRaketa extends Drawable {
 	
 	/**

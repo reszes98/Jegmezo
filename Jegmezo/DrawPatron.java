@@ -16,7 +16,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-
+/**
+ * @author Henrik
+ * A patron kirajzolását valósitja meg
+ */
 public class DrawPatron extends Drawable {
 
 	/**

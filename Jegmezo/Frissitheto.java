@@ -12,7 +12,10 @@ package Jegmezo;
 
 
 
-
+/**
+ * @author Henrik
+ * A játékban lévõ Frissíthetõ objektumok interfésze
+ */
 public interface Frissitheto
 {
 	/**

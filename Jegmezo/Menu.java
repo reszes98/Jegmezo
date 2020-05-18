@@ -12,6 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * @author Henrik
+ * Összes menükirajzolásáért felelõs függvényt tartalmazza
+ */
 public class Menu {
 	private JButton NewGameButton = new JButton("Játék!");
 	private JButton Game = new JButton("Játékra fel!");
@@ -25,6 +29,9 @@ public class Menu {
 	private JFrame jframe = new JFrame("Jég-veled");
 	
 	
+	/**
+	 * Megjeleníti a menüt
+	 */
 	void MenuDisplay() {
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
 	    jframe.setPreferredSize(new Dimension(500, 500));										
@@ -65,6 +72,9 @@ public class Menu {
 	    jframe.setVisible(true);
 	}
 	
+	/**
+	 * Futtatja a játékos és megjeleníti a játékpályát
+	 */
 	void Game() {
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
 	    jframe.setPreferredSize(new Dimension(500, 250));										
@@ -120,6 +130,9 @@ public class Menu {
 	    jframe.setVisible(true);
 	}
 	
+	/**
+	 * A nyerés képernyõjét jeleníti meg
+	 */
 	void GameWon() {
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
 	    jframe.setPreferredSize(new Dimension(500, 250));										
@@ -142,6 +155,9 @@ public class Menu {
 	    jframe.add(TovabbButton, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 *  A vesztés képernyõjét jeleníti meg
+	 */
 	void GameLost() {
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);			
 	    jframe.setPreferredSize(new Dimension(500, 250));										

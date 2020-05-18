@@ -16,6 +16,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * A viz kirajzolását valósitja meg
+ */
 public class DrawViz extends Drawable {
 
 	/**

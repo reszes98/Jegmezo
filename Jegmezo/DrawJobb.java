@@ -6,6 +6,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * A jobb irány kirajzolását valósitja meg
+ */
 public class DrawJobb extends Drawable{
 
 	/**

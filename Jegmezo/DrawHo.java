@@ -16,6 +16,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * A hó kirajzolását valósitja meg
+ */
 public class DrawHo extends Drawable {
 
 	/**

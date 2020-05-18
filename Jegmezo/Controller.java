@@ -8,6 +8,10 @@ import java.util.Random;
 import javax.swing.*;
 
 
+/**
+ * @author Henrik
+ * Az alkalmazás Controllere
+ */
 public class Controller {
 	Menu menu;
 	private Jegmezo jegmezo;
@@ -385,6 +389,10 @@ public class Controller {
 		if(jegmezo.getJatekvege()) view.gameLost();
 	}
 	
+	/**
+	 * @author Henrik
+	 * A tárgyak actionListener-ét oldja meg
+	 */
 	public class TargyActionListener implements ActionListener {
 		JComboBox<Object> JCtaska;
 		public TargyActionListener(JComboBox<Object> taska) {
@@ -563,6 +571,10 @@ public class Controller {
 		}
 	}
 	
+	/**
+	 * @author Henrik
+	 * A gombok actionListenerét oldja meg
+	 */
 	public class GombokActionListener implements ActionListener {
 		
 		/**

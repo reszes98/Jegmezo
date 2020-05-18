@@ -17,6 +17,10 @@ import javax.imageio.ImageIO;
 
 import java.awt.Graphics;
 
+/**
+ * @author Henrik
+ * Az Iglu kirajzolását valósitja meg
+ */
 public class DrawIglu extends Drawable {
 
 	/**

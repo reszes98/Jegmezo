@@ -15,6 +15,10 @@ import java.util.List;
 
 import java.util.TreeMap;
 
+/**
+ * @author Henrik
+ * A játékban lévõ Jégtáblát reprezentálja
+ */
 public class Jegtabla implements Frissitheto
 {
 	/**

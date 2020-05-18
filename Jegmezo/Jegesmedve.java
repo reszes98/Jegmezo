@@ -3,6 +3,10 @@ package Jegmezo;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * @author Henrik
+ * A játékban lévõ Jegesmedvét reprezentálja
+ */
 public class Jegesmedve implements Frissitheto{
 
 	/**

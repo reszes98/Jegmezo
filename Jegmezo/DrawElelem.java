@@ -16,6 +16,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * Az Elelem kirajzolását valósitja meg
+ */
 public class DrawElelem extends Drawable {
 	
 	/**

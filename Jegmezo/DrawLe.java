@@ -6,6 +6,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * A Le irány kirajzolását valósitja meg
+ */
 public class DrawLe extends Drawable{
 
 	/**

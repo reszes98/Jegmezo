@@ -1,5 +1,9 @@
 package Jegmezo;
 
+/**
+ * @author Henrik
+ * A játékban lévõ Védelmek abstract õsosztálya
+ */
 public abstract class Vedelem implements Frissitheto{
 
 	protected Jegtabla jegtablaAminVan;

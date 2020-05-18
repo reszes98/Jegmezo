@@ -2,6 +2,10 @@ package Jegmezo;
 
 import java.io.PrintStream;
 
+/**
+ * @author Henrik
+ * A kiírásban segít
+ */
 public class Global {
 	
 	/**

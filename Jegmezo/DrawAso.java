@@ -16,6 +16,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * Az Aso kirajzolását valósitja meg
+ */
 public class DrawAso extends Drawable {
 	
 	

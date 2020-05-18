@@ -6,6 +6,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * A Fel irány kirajzolását valósitja meg
+ */
 public class DrawFel extends Drawable{
 
 	/**

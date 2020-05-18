@@ -16,6 +16,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * A Sátor kirajzolását valósitja meg
+ */
 public class DrawSator extends Drawable {
 
 	/**

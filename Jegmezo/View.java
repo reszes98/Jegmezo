@@ -17,6 +17,10 @@ import java.util.List;
 
 import javax.swing.*;
 
+/**
+ * @author Henrik
+ * Pálya létrehozását és a képek rendelését oldja meg
+ */
 public class View {
 	private JFrame frame;
 	private JPanel jatekPanel;
@@ -230,30 +234,73 @@ public class View {
 		drawable.remove(d);
 	}
 	
+	/**
+	 * Kirajzolható játékost felveszi a drawjatekos listába 
+	 * @param d - a felvevendõ kirajzolható játékos
+	 */
 	public void addDrawableJatekos(Drawable d) {
 		drawjatekos.add(d);
 	}
+	
+	/**
+	 * Kirajzolható jegesmedvét felveszi a drawmaci listába 
+	 * @param d - a felvevendõ kirajzolható jegesmedve
+	 */
 	public void addDrawableMaci(Drawable d) {
 		drawmaci.add(d);
 	}
+	
+	/**
+	 * Kirajzolható Tárgyat felveszi a drawtargy listába 
+	 * @param d - a felvevendõ kirajzolható tárgy
+	 */
 	public void addDrawableTargy(Drawable d) {
 		drawtargy.add(d);
 	}
+	
+	/**
+	 * Kirajzolható Tárgyat eltávolítja a drawtargy listából 
+	 * @param d - a törlendõ kirajzolható tárgy
+	 */
 	public void eltavolitDrawableTargy(Drawable d) {
 		drawtargy.remove(d);
 	}
+	
+	
+	/**
+	 * Eltávolítja az összes kirajzolható tárgyat a drawtargy listából
+	 */
 	public void eltavolitDrawableTargyAll() {
 		drawtargy.clear();
 	}
+	
+	/**
+	 * Kirajzolható védelmet felveszi a drawvedelem listába 
+	 * @param d - a felvevendõ kirajzolható védelem
+	 */
 	public void addDrawableVedelem(Drawable d) {
 		drawvedelem.add(d);
 	}
+	
+	/**
+	 * Kirajzolható védelmet eltávolítja a drawvedelem listából 
+	 * @param d - a törlendõ kirajzolható védelem
+	 */
 	public void eltavolitDrawableVedelem(Drawable d) {
 		drawvedelem.remove(d);
 	}
+	
+	/**
+	 * Kirajzolható irányt felveszi a drawirany listába 
+	 * @param d - a felvevendõ kirajzolható irány
+	 */
 	public void addDrawableIrany(Drawable d) {
 		drawirany.add(d);
 	}
+	
+	/**
+	 * Eltávolítja az elsõ irányt a drawirany listából
+	 */
 	public void eltavolitDrawableIrany() {
 		if(drawirany.size()>0)
 			drawirany.remove(0);
@@ -274,9 +321,19 @@ public class View {
 		munka.setText("Játékos Munkái: "+n);
 	}
 	
+	/**
+	 * Beállítja a tartóképesség szövegét
+	 * @param n - a jégtábla tartóképessége
+	 */
 	public void setTartokepesseg(int n) {
 		tartokepesseg.setText("\n Tábla tartóképessége: "+n);
 	}
+	
+	
+	/**
+	 * Beállítja a hóviharig... kör van szövegét
+	 * @param n - hány kör van a következõ hóviharig
+	 */
 	public void setHovihar(int n) {
 		hovihar.setText("\n Hóviharig még: "+n+" kör van hátra.");
 	}

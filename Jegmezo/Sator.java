@@ -2,6 +2,10 @@ package Jegmezo;
 
 import java.util.List;
 
+/**
+ * @author Henrik
+ * A játékban lévõ Sátort reprezentálja
+ */
 public class Sator extends Vedelem implements Targy{
 
 	/**

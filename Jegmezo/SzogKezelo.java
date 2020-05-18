@@ -1,5 +1,9 @@
 package Jegmezo; 
 
+/**
+ * @author Henrik
+ * A szögeg kezeléséhez szükséges függvényeket tartalmazza
+ */
 public class SzogKezelo {
 
 	/**

@@ -16,6 +16,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Henrik
+ * A sarkkutató kirajzolását valósitja meg
+ */
 public class DrawSarkkutato extends Drawable {
 
 	/**

@@ -13,6 +13,10 @@ package Jegmezo;
 import java.awt.Graphics;
 import java.awt.Image;
 
+/**
+ * @author Henrik
+ * A kirajzolható objektumok absztrakt õsosztálya
+ */
 public abstract class Drawable {
 	
 	/**

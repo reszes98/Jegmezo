@@ -1,5 +1,9 @@
 package Jegmezo;
 
+/**
+ * @author Henrik
+ * A játékban lévõ TorekenyAsot reprezentálja
+ */
 public class TorekenyAso implements Targy{
 
 	
